@@ -1,0 +1,2050 @@
+{
+  "lastUpdated": "2026-04-22",
+  "venues": [
+    {
+      "name": "Grizzly Rose",
+      "city": "Denver",
+      "state": "Colorado",
+      "zip": "80216",
+      "dances": [
+        "Two Step",
+        "Line Dancing",
+        "Western Swing"
+      ],
+      "lessons": "Unknown",
+      "description": "Massive floating hardwood dance floor; one of the top country bars in the US",
+      "latitude": 39.8174,
+      "longitude": -104.9877
+    },
+    {
+      "name": "Tootsie’s Orchid Lounge",
+      "city": "Nashville",
+      "state": "Tennessee",
+      "zip": "37203",
+      "dances": [
+        "Two Step",
+        "Line Dancing"
+      ],
+      "lessons": "Unknown",
+      "description": "Iconic Broadway honky-tonk; live music daily",
+      "latitude": 36.1601,
+      "longitude": -86.7781
+    },
+    {
+      "name": "Billy Bob’s Texas",
+      "city": "Fort Worth",
+      "state": "Texas",
+      "zip": "76164",
+      "dances": [
+        "Two Step",
+        "Line Dancing"
+      ],
+      "lessons": "Yes (professional instructors; check schedule)",
+      "description": "World’s largest honky-tonk; huge dance floor",
+      "latitude": 32.7879,
+      "longitude": -97.3576
+    },
+    {
+      "name": "Ponderosa Lounge & Grill",
+      "city": "Portland",
+      "state": "Oregon",
+      "zip": "97217",
+      "dances": [
+        "Line Dancing"
+      ],
+      "lessons": "Yes (Thursdays)",
+      "description": "Portland's go-to country venue hosting live country artists and nightly dance events alongside a full restaurant and bar.",
+      "latitude": 45.6074,
+      "longitude": -122.6772
+    },
+    {
+      "name": "Gruene Hall",
+      "city": "New Braunfels",
+      "state": "Texas",
+      "zip": "78130",
+      "dances": [
+        "Two Step",
+        "Waltzes"
+      ],
+      "lessons": "Unknown (occasional two-step lessons)",
+      "description": "Oldest continuously operating dance hall in Texas (1878)",
+      "latitude": 29.7684,
+      "longitude": -98.1076
+    },
+    {
+      "name": "Robert’s Western World",
+      "city": "Nashville",
+      "state": "Tennessee",
+      "zip": "37203",
+      "dances": [
+        "Two Step",
+        "Line Dancing"
+      ],
+      "lessons": "Unknown",
+      "description": "Classic Broadway honky-tonk; small dance floor",
+      "latitude": 36.1602,
+      "longitude": -86.7783
+    },
+    {
+      "name": "Broken Spoke",
+      "city": "Austin",
+      "state": "Texas",
+      "zip": "78704",
+      "dances": [
+        "Two Step"
+      ],
+      "lessons": "Yes (Wed-Sat 8-9pm)",
+      "description": "Historic; “best country dancers in the world” sign",
+      "latitude": 30.244,
+      "longitude": -97.7826
+    },
+    {
+      "name": "Cowboys",
+      "city": "Dothan",
+      "state": "Alabama",
+      "zip": "36301",
+      "dances": [
+        "Two Step",
+        "Line Dancing"
+      ],
+      "lessons": "Unknown",
+      "description": "Largest honky-tonk in Alabama; massive dance floor Thu-Sat",
+      "latitude": 31.2232,
+      "longitude": -85.3905
+    },
+    {
+      "name": "Austin City Saloon",
+      "city": "Lexington",
+      "state": "Kentucky",
+      "zip": "40508",
+      "dances": [
+        "Line Dancing"
+      ],
+      "lessons": "Unknown",
+      "description": "Lexington's premier country music venue, hosting touring country artists and regular line and two-step nights on a large dance floor.",
+      "latitude": 38.0406,
+      "longitude": -84.5037
+    },
+    {
+      "name": "Cowboy Country Saloon",
+      "city": "Long Beach",
+      "state": "California",
+      "zip": "90805",
+      "dances": [
+        "Line Dancing"
+      ],
+      "lessons": "Unknown",
+      "description": "Three dance floors on two levels",
+      "latitude": 33.7701,
+      "longitude": -118.1937
+    },
+    {
+      "name": "Montana’s Country Night Club",
+      "city": "San Dimas",
+      "state": "California",
+      "zip": "91773",
+      "dances": [
+        "Line Dancing"
+      ],
+      "lessons": "Yes (Sat night)",
+      "description": "San Dimas country club with free line dance lessons early in the evening, followed by open dancing to DJ-driven country hits.",
+      "latitude": 34.1067,
+      "longitude": -117.8068
+    },
+    {
+      "name": "Pearl’s Dancehall and Saloon",
+      "city": "Fort Worth",
+      "state": "Texas",
+      "zip": "76164",
+      "dances": [
+        "Two Step"
+      ],
+      "lessons": "Unknown",
+      "description": "Fort Worth Stockyards dance hall focused on two-step and waltz, with nightly live country music and a welcoming dance floor crowd.",
+      "latitude": 32.7888,
+      "longitude": -97.3468
+    },
+    {
+      "name": "Wildhorse Saloon",
+      "city": "Nashville",
+      "state": "Tennessee",
+      "zip": "37201",
+      "dances": [
+        "Two Step",
+        "Line Dancing"
+      ],
+      "lessons": "Yes (8 daily lessons)",
+      "description": "Largest dance floor in Nashville",
+      "latitude": 36.1637,
+      "longitude": -86.7761
+    },
+    {
+      "name": "Moonshine Flats",
+      "city": "San Diego",
+      "state": "California",
+      "zip": "92101",
+      "dances": [
+        "Line Dancing"
+      ],
+      "lessons": "Yes (every night)",
+      "description": "San Diego's signature country dance hall, with free line dance lessons before the crowd arrives and live bands on weekends.",
+      "latitude": 32.7157,
+      "longitude": -117.1611
+    },
+    {
+      "name": "Cowboys Red River",
+      "city": "Dallas",
+      "state": "Texas",
+      "zip": "75220",
+      "dances": [
+        "Two Step",
+        "Western Swing"
+      ],
+      "lessons": "Yes (Wednesdays)",
+      "description": "Massive Dallas country nightclub built around an oval race-track-style dance floor, featuring line dance instructors and DJ-driven country music.",
+      "latitude": 32.8677,
+      "longitude": -96.8843
+    },
+    {
+      "name": "Round-Up Saloon and Dance Hall",
+      "city": "Dallas",
+      "state": "Texas",
+      "zip": "75219",
+      "dances": [
+        "Line Dancing"
+      ],
+      "lessons": "Yes (Rhythm Cowboy etc.)",
+      "description": "Large Dallas institution in the Cedar Springs district offering free two-step and line dance lessons, with a dedicated dance floor and inclusive crowd.",
+      "latitude": 32.8107,
+      "longitude": -96.8104
+    },
+    {
+      "name": "Sundance Saloon",
+      "city": "San Francisco",
+      "state": "California",
+      "zip": "94103",
+      "dances": [
+        "Two Step",
+        "Line Dancing"
+      ],
+      "lessons": "Yes (Sun/Thu)",
+      "description": "San Francisco's long-running country-western dance venue, offering two-step and line dance lessons included with admission.",
+      "latitude": 37.7749,
+      "longitude": -122.4194
+    },
+    {
+      "name": "Incahoots",
+      "city": "Fullerton",
+      "state": "California",
+      "zip": "92832",
+      "dances": [
+        "Line Dancing"
+      ],
+      "lessons": "Unknown",
+      "description": "Massive Fullerton country nightclub with a huge dance floor, free line dance lessons, and one of California's largest country dance communities.",
+      "latitude": 33.8704,
+      "longitude": -117.9243
+    },
+    {
+      "name": "The Bowery",
+      "city": "Myrtle Beach",
+      "state": "South Carolina",
+      "zip": "29577",
+      "dances": [
+        "Line Dancing"
+      ],
+      "lessons": "Unknown",
+      "description": "Myrtle Beach honky-tonk known for its house band, beachside country atmosphere, and regular two-step and line dance nights.",
+      "latitude": 33.6891,
+      "longitude": -78.8867
+    },
+    {
+      "name": "American Junkie",
+      "city": "Hermosa Beach",
+      "state": "California",
+      "zip": "90254",
+      "dances": [
+        "Line Dancing"
+      ],
+      "lessons": "Yes (Western Wednesdays)",
+      "description": "Hermosa Beach venue hosting country dance nights with a South Bay vibe, drawing both locals and visitors for line and partner dancing.",
+      "latitude": 33.8622,
+      "longitude": -118.3995
+    },
+    {
+      "name": "Brickette Lounge",
+      "city": "West Chester",
+      "state": "Pennsylvania",
+      "zip": "19382",
+      "dances": [
+        "Line Dancing"
+      ],
+      "lessons": "Unknown",
+      "description": "Long-running West Chester dance bar featuring live country music and a dedicated two-step floor; a fixture of the Philadelphia suburban country scene for decades.",
+      "latitude": 39.9601,
+      "longitude": -75.6058
+    },
+    {
+      "name": "Adair’s Saloon",
+      "city": "Dallas",
+      "state": "Texas",
+      "zip": "75226",
+      "dances": [
+        "Two Step",
+        "Line Dancing"
+      ],
+      "lessons": "Unknown",
+      "description": "Classic Deep Ellum dive bar in Dallas with a small dance floor, live country bands, and decades of Texas music history.",
+      "latitude": 32.7846,
+      "longitude": -96.783
+    },
+    {
+      "name": "Pops Tavern",
+      "city": "Baltimore",
+      "state": "Maryland",
+      "zip": "21224",
+      "dances": [
+        "Line Dancing"
+      ],
+      "lessons": "Unknown",
+      "description": "Old-fashioned Baltimore country bar with a neighborhood feel, live country music, and a loyal dance crowd.",
+      "latitude": 39.2869,
+      "longitude": -76.569
+    },
+    {
+      "name": "The Original Cancun Cantina",
+      "city": "Hanover",
+      "state": "Maryland",
+      "zip": "21076",
+      "dances": [
+        "Line Dancing"
+      ],
+      "lessons": "Yes (Tuesdays)",
+      "description": "Hanover, Maryland's largest country dance club, featuring a huge floor, free line dance lessons, and events Wednesday through Sunday.",
+      "latitude": 39.196,
+      "longitude": -76.7233
+    },
+    {
+      "name": "Chaplin’s Honky Tonk",
+      "city": "Scranton",
+      "state": "Pennsylvania",
+      "zip": "18503",
+      "dances": [
+        "Line Dancing"
+      ],
+      "lessons": "Unknown",
+      "description": "Scranton country bar hosting country bands nightly, with line dance events and a welcoming Pennsylvania country crowd.",
+      "latitude": 41.409,
+      "longitude": -75.6624
+    },
+    {
+      "name": "Anhalt Hall",
+      "city": "Spring Branch",
+      "state": "Texas",
+      "zip": "78070",
+      "dances": [
+        "Two Step",
+        "Waltzes"
+      ],
+      "lessons": "Unknown",
+      "description": "Historic Texas Dance Hall Preservation member",
+      "latitude": 29.891,
+      "longitude": -98.4267
+    },
+    {
+      "name": "Bellville Turnverein",
+      "city": "Bellville",
+      "state": "Texas",
+      "zip": "77418",
+      "dances": [
+        "Two Step",
+        "Waltzes"
+      ],
+      "lessons": "Unknown",
+      "description": "Historic 1897 Czech-German member dance hall in Bellville, Texas, with a sprung wood floor and monthly dances preserving Central Texas dance tradition.",
+      "latitude": 29.9474,
+      "longitude": -96.2572
+    },
+    {
+      "name": "Cat Spring Agricultural Society Hall",
+      "city": "Cat Spring",
+      "state": "Texas",
+      "zip": "78933",
+      "dances": [
+        "Two Step",
+        "Waltzes"
+      ],
+      "lessons": "Unknown",
+      "description": "Historic 1902 Cat Spring member-owned hall with original wood floors, hosting monthly dances in the Texas-Czech tradition.",
+      "latitude": 29.8752,
+      "longitude": -96.3594
+    },
+    {
+      "name": "Coupland Dance Hall",
+      "city": "Coupland",
+      "state": "Texas",
+      "zip": "78615",
+      "dances": [
+        "Two Step",
+        "Waltzes"
+      ],
+      "lessons": "Unknown",
+      "description": "Historic Central Texas dance hall dating to 1936, known for its large sprung wood floor and old-time Texas two-step tradition.",
+      "latitude": 30.4621,
+      "longitude": -97.393
+    },
+    {
+      "name": "Devil’s Backbone Tavern",
+      "city": "Fischer",
+      "state": "Texas",
+      "zip": "78623",
+      "dances": [
+        "Two Step"
+      ],
+      "lessons": "Unknown",
+      "description": "Hill Country classic on RR 32, a rustic Texas icon with live country music, locals and bikers mixing on the dance floor since 1937.",
+      "latitude": 29.9571,
+      "longitude": -98.2583
+    },
+    {
+      "name": "Donn’s Depot",
+      "city": "Austin",
+      "state": "Texas",
+      "zip": "78703",
+      "dances": [
+        "Two Step"
+      ],
+      "lessons": "Yes (Wednesdays)",
+      "description": "Railroad depot turned honky-tonk; live music & dancing",
+      "latitude": 30.2712,
+      "longitude": -97.7678
+    },
+    {
+      "name": "John T. Floore Country Store",
+      "city": "Helotes",
+      "state": "Texas",
+      "zip": "78023",
+      "dances": [
+        "Two Step"
+      ],
+      "lessons": "Unknown",
+      "description": "Historic; tamales + big-name acts",
+      "latitude": 29.5727,
+      "longitude": -98.6903
+    },
+    {
+      "name": "Longhorn Ballroom",
+      "city": "Dallas",
+      "state": "Texas",
+      "zip": "75210",
+      "dances": [
+        "Two Step",
+        "Line Dancing"
+      ],
+      "lessons": "Unknown",
+      "description": "Iconic Dallas music venue founded in 1950, hosting legendary country artists and featuring one of Texas's most storied dance floors.",
+      "latitude": 32.764,
+      "longitude": -96.8079
+    },
+    {
+      "name": "Luckenbach Dance Hall",
+      "city": "Luckenbach",
+      "state": "Texas",
+      "zip": "78624",
+      "dances": [
+        "Two Step"
+      ],
+      "lessons": "Unknown",
+      "description": "Tiny but legendary Hill Country dance hall made famous by Waylon and Willie — the heart of the Luckenbach community and a true Texas pilgrimage.",
+      "latitude": 30.1658,
+      "longitude": -98.7378
+    },
+    {
+      "name": "Mavericks Dance Hall",
+      "city": "Pflugerville",
+      "state": "Texas",
+      "zip": "78660",
+      "dances": [
+        "Two Step",
+        "Line Dancing"
+      ],
+      "lessons": "Yes (Tue lessons)",
+      "description": "North Austin area country dance hall",
+      "latitude": 30.4394,
+      "longitude": -97.62
+    },
+    {
+      "name": "Mavericks Dance Hall Buda",
+      "city": "Buda",
+      "state": "Texas",
+      "zip": "78610",
+      "dances": [
+        "Two Step",
+        "Line Dancing"
+      ],
+      "lessons": "Yes (Thu 7:30pm)",
+      "description": "South Austin / Buda premier country dance hall; live music and DJs",
+      "latitude": 30.0852,
+      "longitude": -97.8403
+    },
+    {
+      "name": "The Attic Dance Hall",
+      "city": "New Braunfels",
+      "state": "Texas",
+      "zip": "78132",
+      "dances": [
+        "Two Step",
+        "Line Dancing"
+      ],
+      "lessons": "Yes (Tue Two Step",
+      "description": "Casual New Braunfels venue offering mid-week line dancing and social dancing in a relaxed Hill Country setting.",
+      "latitude": 29.708,
+      "longitude": -98.12
+    },
+    {
+      "name": "Neon Boots Dancehall & Saloon",
+      "city": "Houston",
+      "state": "Texas",
+      "zip": "77092",
+      "dances": [
+        "Two Step",
+        "Line Dancing"
+      ],
+      "lessons": "Unknown",
+      "description": "Large venue; country + LGBTQ+ friendly",
+      "latitude": 29.837,
+      "longitude": -95.4923
+    },
+    {
+      "name": "Pioneer Hall",
+      "city": "Anson",
+      "state": "Texas",
+      "zip": "79501",
+      "dances": [
+        "Two Step"
+      ],
+      "lessons": "Unknown",
+      "description": "Historic Anson, Texas dance hall home to the Texas Cowboys' Christmas Ball since 1934 — one of the oldest continuous dance events in the state.",
+      "latitude": 32.7524,
+      "longitude": -99.897
+    },
+    {
+      "name": "Rodeo Exchange",
+      "city": "Fort Worth",
+      "state": "Texas",
+      "zip": "76164",
+      "dances": [
+        "Two Step",
+        "Line Dancing"
+      ],
+      "lessons": "Yes (Tues/Thu two-step; Thu line)",
+      "description": "Fort Worth Stockyards honky-tonk with live country bands, two-step nights, and the rowdy western atmosphere that defines the district.",
+      "latitude": 32.7895,
+      "longitude": -97.3461
+    },
+    {
+      "name": "Sagebrush",
+      "city": "Austin",
+      "state": "Texas",
+      "zip": "78704",
+      "dances": [
+        "Two Step",
+        "Western Swing"
+      ],
+      "lessons": "Unknown",
+      "description": "South Congress spot; large oak floor",
+      "latitude": 30.2317,
+      "longitude": -97.782
+    },
+    {
+      "name": "Sam’s Town Point",
+      "city": "Austin",
+      "state": "Texas",
+      "zip": "78704",
+      "dances": [
+        "Two Step"
+      ],
+      "lessons": "Unknown",
+      "description": "Authentic South Austin dive bar and dance hall with outlaw country roots, live bands, and a no-frills Texas character.",
+      "latitude": 30.1797,
+      "longitude": -97.85
+    },
+    {
+      "name": "Sengelmann Hall",
+      "city": "Schulenburg",
+      "state": "Texas",
+      "zip": "78956",
+      "dances": [
+        "Two Step",
+        "Waltzes"
+      ],
+      "lessons": "Unknown",
+      "description": "Restored 1894 Schulenburg dance hall with a large sprung wood floor, live Texas country music, and traditional Central Texas dance nights.",
+      "latitude": 29.681,
+      "longitude": -96.902
+    },
+    {
+      "name": "Sisterdale Hall",
+      "city": "Sisterdale",
+      "state": "Texas",
+      "zip": "78006",
+      "dances": [
+        "Two Step",
+        "Waltzes"
+      ],
+      "lessons": "Unknown",
+      "description": "Historic 1880s member-owned dance hall in the Sisterdale community, preserving Hill Country Czech-German dance traditions.",
+      "latitude": 29.973,
+      "longitude": -98.7289
+    },
+    {
+      "name": "SPJST Lodge #1",
+      "city": "Fayetteville",
+      "state": "Texas",
+      "zip": "78940",
+      "dances": [
+        "Two Step",
+        "Waltzes"
+      ],
+      "lessons": "Unknown",
+      "description": "Historic Czech-Texan Lodge #1 in Fayetteville, with a classic wood dance floor hosting polka and waltz events rooted in over a century of tradition.",
+      "latitude": 29.9021,
+      "longitude": -96.6749
+    },
+    {
+      "name": "The White Horse",
+      "city": "Austin",
+      "state": "Texas",
+      "zip": "78702",
+      "dances": [
+        "Two Step",
+        "Western Swing"
+      ],
+      "lessons": "Unknown",
+      "description": "East Austin staple; “No Line Dancing” sign",
+      "latitude": 30.2641,
+      "longitude": -97.7044
+    },
+    {
+      "name": "Twin Sisters Dance Hall",
+      "city": "Blanco",
+      "state": "Texas",
+      "zip": "78606",
+      "dances": [
+        "Two Step"
+      ],
+      "lessons": "Unknown",
+      "description": "Historic 1870 member-owned hall near Blanco, one of the oldest continuously operating dance halls in Texas.",
+      "latitude": 30.0988,
+      "longitude": -98.4198
+    },
+    {
+      "name": "Wagon Wheel Hall",
+      "city": "Sweet Home",
+      "state": "Texas",
+      "zip": "77987",
+      "dances": [
+        "Other"
+      ],
+      "lessons": "Unknown",
+      "description": "Historic Sweet Home, Texas member dance hall preserving traditional Czech-Texan polka and waltz gatherings.",
+      "latitude": 28.9947,
+      "longitude": -97.0742
+    },
+    {
+      "name": "Arkey Blue’s Silver Dollar",
+      "city": "Bandera",
+      "state": "Texas",
+      "zip": "78003",
+      "dances": [
+        "Two Step"
+      ],
+      "lessons": "Unknown",
+      "description": "Oldest continuously operating honky-tonk in Texas",
+      "latitude": 29.7273,
+      "longitude": -99.0731
+    },
+    {
+      "name": "Little Longhorn Saloon",
+      "city": "Austin",
+      "state": "Texas",
+      "zip": "78704",
+      "dances": [
+        "Two Step"
+      ],
+      "lessons": "Unknown",
+      "description": "Laid-back Austin honky-tonk famous for Sunday Chicken Sh*t Bingo, live country music, and a no-pretense local crowd.",
+      "latitude": 30.3316,
+      "longitude": -97.7378
+    },
+    {
+      "name": "Mercer Street Dancehall",
+      "city": "Driftwood",
+      "state": "Texas",
+      "zip": "78619",
+      "dances": [
+        "Two Step"
+      ],
+      "lessons": "Unknown",
+      "description": "Hill Country gem in Driftwood featuring live Texas country music and a classic wood dance floor — a favorite weekend destination for Austin dancers.",
+      "latitude": 30.1049,
+      "longitude": -98.0133
+    },
+    {
+      "name": "Stampede Houston",
+      "city": "Houston",
+      "state": "Texas",
+      "zip": "77092",
+      "dances": [
+        "Two Step",
+        "Line Dancing"
+      ],
+      "lessons": "Unknown",
+      "description": "Modern honky-tonk with lessons",
+      "latitude": 29.9154,
+      "longitude": -95.3605
+    },
+    {
+      "name": "FireHouse Saloon",
+      "city": "Stafford",
+      "state": "Texas",
+      "zip": "77477",
+      "dances": [
+        "Two Step",
+        "Line Dancing"
+      ],
+      "lessons": "Unknown",
+      "description": "Popular Houston-area country venue in Stafford with a large dance floor, live bands, and a fixture of the Houston country dance scene.",
+      "latitude": 29.6161,
+      "longitude": -95.5577
+    },
+    {
+      "name": "Buck Wild",
+      "city": "Clear Lake",
+      "state": "Texas",
+      "zip": "77062",
+      "dances": [
+        "Two Step",
+        "Line Dancing"
+      ],
+      "lessons": "Unknown",
+      "description": "Clear Lake country bar hosting two-step and line dance nights for the Houston suburban crowd.",
+      "latitude": 29.5693,
+      "longitude": -95.1121
+    },
+    {
+      "name": "Rowdys",
+      "city": "Webster",
+      "state": "Texas",
+      "zip": "77598",
+      "dances": [
+        "Two Step",
+        "Line Dancing"
+      ],
+      "lessons": "Unknown",
+      "description": "Webster country dance hall serving the Houston-area crowd with regular line dance nights and a full-service bar.",
+      "latitude": 29.5377,
+      "longitude": -95.1182
+    },
+    {
+      "name": "Madam Pearl's",
+      "city": "Fort Worth",
+      "state": "Texas",
+      "zip": "76164",
+      "dances": [
+        "Two Step"
+      ],
+      "lessons": "Unknown",
+      "description": "Fort Worth Stockyards honky-tonk with live country music and a traditional Texas dance floor atmosphere.",
+      "latitude": 32.7891,
+      "longitude": -97.3467
+    },
+    {
+      "name": "The Ranch Saloon",
+      "city": "West",
+      "state": "Texas",
+      "zip": "76691",
+      "dances": [
+        "Other"
+      ],
+      "lessons": "Unknown",
+      "description": "Central Texas dance spot in the town of West, featuring country music and a classic small-town Texas atmosphere.",
+      "latitude": 31.8018,
+      "longitude": -97.0945
+    },
+    {
+      "name": "Sul Ross Boot Scootin' Dance Club",
+      "city": "West",
+      "state": "Texas",
+      "zip": "76691",
+      "dances": [
+        "Line Dancing"
+      ],
+      "lessons": "Unknown",
+      "description": "West, Texas community dance club hosting regular boot scootin' line dance and two-step nights.",
+      "latitude": 31.803,
+      "longitude": -97.09
+    },
+    {
+      "name": "Melody Ranch",
+      "city": "Dallas",
+      "state": "Texas",
+      "zip": "75219",
+      "dances": [
+        "Two Step",
+        "Line Dancing"
+      ],
+      "lessons": "Unknown",
+      "description": "Classic DFW-area country dance hall with a spacious hardwood floor, known for hosting two-step and line dance nights.",
+      "latitude": 32.8105,
+      "longitude": -96.809
+    },
+    {
+      "name": "Cheatham Street Warehouse",
+      "city": "San Marcos",
+      "state": "Texas",
+      "zip": "78666",
+      "dances": [
+        "Two Step"
+      ],
+      "lessons": "Unknown",
+      "description": "San Marcos live music institution — George Strait got his start here — featuring Texas country and swing with a dance-friendly crowd.",
+      "latitude": 29.8833,
+      "longitude": -97.9414
+    },
+    {
+      "name": "Albert Dance Hall and Icehouse",
+      "city": "Albert",
+      "state": "Texas",
+      "zip": "78671",
+      "dances": [
+        "Two Step"
+      ],
+      "lessons": "Unknown",
+      "description": "Historic 1922 Hill Country dance hall in tiny Albert, Texas, with a sprung wood floor, live music, and authentic German-Texan heritage.",
+      "latitude": 30.243,
+      "longitude": -98.7069
+    },
+    {
+      "name": "Kendalia Halle",
+      "city": "Kendalia",
+      "state": "Texas",
+      "zip": "78027",
+      "dances": [
+        "Two Step",
+        "Waltzes"
+      ],
+      "lessons": "Unknown",
+      "description": "Historic 1903 Hill Country member-style hall in Kendalia with traditional Texas-Czech dance events on its original wood floor.",
+      "latitude": 29.9883,
+      "longitude": -98.5508
+    },
+    {
+      "name": "Harmonie Hall",
+      "city": "Fayetteville",
+      "state": "Texas",
+      "zip": "78940",
+      "dances": [
+        "Two Step"
+      ],
+      "lessons": "Unknown",
+      "description": "Historic Fayetteville member-owned dance hall with a classic wood floor, hosting polka and waltz events in the Texas-Czech tradition.",
+      "latitude": 29.901,
+      "longitude": -96.6725
+    },
+    {
+      "name": "La Bahia Turn Verein Hall",
+      "city": "Burton",
+      "state": "Texas",
+      "zip": "77835",
+      "dances": [
+        "Two Step",
+        "Waltzes"
+      ],
+      "lessons": "Unknown",
+      "description": "Historic 1879 Burton member hall — one of the oldest Turnverein (gymnastic society) dance halls in Texas, preserving German-Texan dance tradition.",
+      "latitude": 30.1727,
+      "longitude": -96.5994
+    },
+    {
+      "name": "Moravia Store",
+      "city": "Schulenburg",
+      "state": "Texas",
+      "zip": "78956",
+      "dances": [
+        "Two Step",
+        "Waltzes"
+      ],
+      "lessons": "Unknown",
+      "description": "Historic Czech-Texan general store and dance hall near Schulenburg, hosting traditional polka and waltz events in a 19th-century rural setting.",
+      "latitude": 29.6167,
+      "longitude": -96.9411
+    },
+    {
+      "name": "National Hall",
+      "city": "Fort Worth",
+      "state": "Texas",
+      "zip": "76164",
+      "dances": [
+        "Other"
+      ],
+      "lessons": "Unknown",
+      "description": "Historic Fort Worth Stockyards hall hosting traditional dance events in the heart of Cowtown's western district.",
+      "latitude": 32.7893,
+      "longitude": -97.3464
+    },
+    {
+      "name": "Sons of Hermann Hall",
+      "city": "Dallas",
+      "state": "Texas",
+      "zip": "75226",
+      "dances": [
+        "Two Step"
+      ],
+      "lessons": "Unknown",
+      "description": "Historic 1911 Deep Ellum member lodge in Dallas with a beautiful second-floor wood dance floor and regular swing, two-step, and concert nights.",
+      "latitude": 32.7846,
+      "longitude": -96.7799
+    },
+    {
+      "name": "El Maton National Hall",
+      "city": "El Maton",
+      "state": "Texas",
+      "zip": "77437",
+      "dances": [
+        "Two Step"
+      ],
+      "lessons": "Unknown",
+      "description": "Historic South Texas member dance hall in tiny El Maton, preserving rural Texas-Czech dance traditions.",
+      "latitude": 28.9491,
+      "longitude": -96.2511
+    },
+    {
+      "name": "Cahoots Dance Hall and Honky Tonk",
+      "city": "Lebanon",
+      "state": "Tennessee",
+      "zip": "37087",
+      "dances": [
+        "Line Dancing"
+      ],
+      "lessons": "Unknown",
+      "description": "Large floor; live country acts",
+      "latitude": 36.2081,
+      "longitude": -86.2911
+    },
+    {
+      "name": "Silverados Dance Hall & Saloon",
+      "city": "Goodlettsville",
+      "state": "Tennessee",
+      "zip": "37072",
+      "dances": [
+        "Two Step",
+        "Line Dancing"
+      ],
+      "lessons": "Yes (Fri/Sat 7:30pm)",
+      "description": "Suburban Nashville country dance hall in Goodlettsville with a large dance floor, line dance nights, and live country music.",
+      "latitude": 36.3231,
+      "longitude": -86.7133
+    },
+    {
+      "name": "Whiskey Dix",
+      "city": "Murfreesboro",
+      "state": "Tennessee",
+      "zip": "37130",
+      "dances": [
+        "Line Dancing"
+      ],
+      "lessons": "Yes (7-9pm)",
+      "description": "Friendly Murfreesboro community dance venue with a welcoming crowd, regular line dance nights, and live country music.",
+      "latitude": 35.8456,
+      "longitude": -86.3903
+    },
+    {
+      "name": "Wild Country Dance Hall",
+      "city": "Burns",
+      "state": "Tennessee",
+      "zip": "37029",
+      "dances": [
+        "Two Step",
+        "Line Dancing"
+      ],
+      "lessons": "Yes (Thu 7:30-9:30pm)",
+      "description": "Large Burns, Tennessee dance hall featuring a big wood floor, line dance lessons, and weekend country events.",
+      "latitude": 36.054,
+      "longitude": -87.3125
+    },
+    {
+      "name": "Wagon Wheel II Dance Hall",
+      "city": "Bon Aqua",
+      "state": "Tennessee",
+      "zip": "37025",
+      "dances": [
+        "Other"
+      ],
+      "lessons": "Unknown",
+      "description": "Family-friendly Bon Aqua dance hall — no alcohol served — hosting clean, all-ages country dance nights in Middle Tennessee.",
+      "latitude": 35.9762,
+      "longitude": -87.2503
+    },
+    {
+      "name": "The Electric Cowboy",
+      "city": "Clarksville",
+      "state": "Tennessee",
+      "zip": "37040",
+      "dances": [
+        "Line Dancing"
+      ],
+      "lessons": "Yes (free Wed)",
+      "description": "Clarksville country bar spinning the latest country hits and radio favorites, with line dance nights and a young country crowd.",
+      "latitude": 36.5298,
+      "longitude": -87.3595
+    },
+    {
+      "name": "Mommas Country Bar and Dance Club",
+      "city": "Lewisburg",
+      "state": "Tennessee",
+      "zip": "37091",
+      "dances": [
+        "Two Step",
+        "Line Dancing"
+      ],
+      "lessons": "Unknown",
+      "description": "Largest dance floor in Middle TN",
+      "latitude": 35.4492,
+      "longitude": -86.7889
+    },
+    {
+      "name": "Revolver Dance Hall & Saloon",
+      "city": "Cookeville",
+      "state": "Tennessee",
+      "zip": "38501",
+      "dances": [
+        "Line Dancing"
+      ],
+      "lessons": "Unknown",
+      "description": "Two-story Cookeville venue with a large dance floor, DJ-driven country and line dance nights, and a full-service saloon bar.",
+      "latitude": 36.1628,
+      "longitude": -85.5016
+    },
+    {
+      "name": "Nashville Palace",
+      "city": "Nashville",
+      "state": "Tennessee",
+      "zip": "37214",
+      "dances": [
+        "Two Step",
+        "Line Dancing"
+      ],
+      "lessons": "Yes (resident instructors)",
+      "description": "Best honky-tonk dance floor in TN",
+      "latitude": 36.2088,
+      "longitude": -86.692
+    },
+    {
+      "name": "Category 10",
+      "city": "Nashville",
+      "state": "Tennessee",
+      "zip": "37201",
+      "dances": [
+        "Two Step",
+        "Line Dancing"
+      ],
+      "lessons": "Yes (Thu-Sun 11am-6pm)",
+      "description": "Largest dance floor in Nashville; rebranded from Wildhorse Saloon; live music + line-dance all-calls",
+      "latitude": 36.1637,
+      "longitude": -86.7762
+    },
+    {
+      "name": "Cotton Eyed Joe",
+      "city": "Knoxville",
+      "state": "Tennessee",
+      "zip": "37932",
+      "dances": [
+        "Two Step",
+        "Line Dancing"
+      ],
+      "lessons": "Yes (Thu & Sun)",
+      "description": "Large venue with concerts; ACM award-winning dance floor",
+      "latitude": 35.9606,
+      "longitude": -83.9207
+    },
+    {
+      "name": "Whiskey Bent Saloon",
+      "city": "Nashville",
+      "state": "Tennessee",
+      "zip": "37201",
+      "dances": [
+        "Two Step",
+        "Line Dancing"
+      ],
+      "lessons": "Unknown",
+      "description": "Broadway honky-tonk; regular line dance lessons",
+      "latitude": 36.1601,
+      "longitude": -86.777
+    },
+    {
+      "name": "The Stage",
+      "city": "Nashville",
+      "state": "Tennessee",
+      "zip": "37203",
+      "dances": [
+        "Two Step",
+        "Line Dancing"
+      ],
+      "lessons": "Unknown",
+      "description": "Multi-level Broadway venue with dance floor",
+      "latitude": 36.1602,
+      "longitude": -86.778
+    },
+    {
+      "name": "Ole Red",
+      "city": "Nashville",
+      "state": "Tennessee",
+      "zip": "37203",
+      "dances": [
+        "Line Dancing"
+      ],
+      "lessons": "Yes (Fri/Sat 3:30pm or 4:30pm)",
+      "description": "Blake Shelton’s honky-tonk; paid lessons + stage practice",
+      "latitude": 36.1598,
+      "longitude": -86.7794
+    },
+    {
+      "name": "Bootleggers Inn",
+      "city": "Nashville",
+      "state": "Tennessee",
+      "zip": "37201",
+      "dances": [
+        "Line Dancing"
+      ],
+      "lessons": "Unknown",
+      "description": "Broadway spot popular for line dance classes",
+      "latitude": 36.1602,
+      "longitude": -86.7762
+    },
+    {
+      "name": "FGL House",
+      "city": "Nashville",
+      "state": "Tennessee",
+      "zip": "37201",
+      "dances": [
+        "Two Step",
+        "Line Dancing"
+      ],
+      "lessons": "Unknown",
+      "description": "Florida Georgia Line's multi-level downtown Nashville venue on 3rd Avenue South, featuring dancing, dining, and country music on Lower Broadway.",
+      "latitude": 36.158,
+      "longitude": -86.7768
+    },
+    {
+      "name": "The Westerner Club",
+      "city": "West Valley City",
+      "state": "Utah",
+      "zip": "84119",
+      "dances": [
+        "Two Step",
+        "Line Dancing",
+        "Western Swing"
+      ],
+      "lessons": "Yes (Wed/Fri line & Thu swing)",
+      "description": "Salt Lake City's original country dance hall since 1962; largest dance floor in Utah; live music weekends",
+      "latitude": 40.6916,
+      "longitude": -112.0011
+    },
+    {
+      "name": "Outlaw Saloon",
+      "city": "Ogden",
+      "state": "Utah",
+      "zip": "84401",
+      "dances": [
+        "Line Dancing",
+        "Western Swing"
+      ],
+      "lessons": "Yes (Thu 7-9pm)",
+      "description": "Hot country nightclub; singles & couples welcome; regular line dance lessons",
+      "latitude": 41.223,
+      "longitude": -111.9738
+    },
+    {
+      "name": "Tippin Point Country Dance",
+      "city": "Provo",
+      "state": "Utah",
+      "zip": "84601",
+      "dances": [
+        "Two Step",
+        "Line Dancing",
+        "Western Swing",
+        "Waltzes"
+      ],
+      "lessons": "Yes (Wed/Sat 8:30-9:35pm)",
+      "description": "Popular Provo venue at Arlington Hall/Southworth Hall; packed floor every week",
+      "latitude": 40.2338,
+      "longitude": -111.6585
+    },
+    {
+      "name": "Peak Nights",
+      "city": "Provo",
+      "state": "Utah",
+      "zip": "84606",
+      "dances": [
+        "Line Dancing",
+        "Western Swing"
+      ],
+      "lessons": "Yes (lessons before Thu/Fri/Sat dancing)",
+      "description": "Utah Valley country swing hotspot; multiple nights weekly",
+      "latitude": 40.2316,
+      "longitude": -111.6565
+    },
+    {
+      "name": "Classic Fun Center",
+      "city": "Sandy",
+      "state": "Utah",
+      "zip": "84070",
+      "dances": [
+        "Line Dancing",
+        "Western Swing"
+      ],
+      "lessons": "Unknown",
+      "description": "Family-friendly venue with regular country dance nights",
+      "latitude": 40.5649,
+      "longitude": -111.8389
+    },
+    {
+      "name": "Colvin Run Dance Hall",
+      "city": "Great Falls",
+      "state": "Virginia",
+      "zip": "22066",
+      "dances": [
+        "Two Step",
+        "Line Dancing"
+      ],
+      "lessons": "Unknown",
+      "description": "Historic Virginia dance hall; community-focused with live music",
+      "latitude": 38.9983,
+      "longitude": -77.2939
+    },
+    {
+      "name": "Eagles Nest Rockin' Country Bar",
+      "city": "Chesapeake",
+      "state": "Virginia",
+      "zip": "23320",
+      "dances": [
+        "Two Step",
+        "Line Dancing"
+      ],
+      "lessons": "Unknown",
+      "description": "Large multi-floor country bar; live bands & DJ",
+      "latitude": 36.7682,
+      "longitude": -76.2875
+    },
+    {
+      "name": "Ned Devine's",
+      "city": "Herndon",
+      "state": "Virginia",
+      "zip": "20171",
+      "dances": [
+        "Line Dancing"
+      ],
+      "lessons": "Yes (Thursdays)",
+      "description": "Irish gastro pub hosting regular country line dance nights",
+      "latitude": 38.9696,
+      "longitude": -77.3861
+    },
+    {
+      "name": "Great American Ranch",
+      "city": "Mechanicsville",
+      "state": "Virginia",
+      "zip": "23111",
+      "dances": [
+        "Two Step",
+        "Line Dancing"
+      ],
+      "lessons": "Unknown",
+      "description": "Popular Richmond-area country venue with dance floor",
+      "latitude": 37.6088,
+      "longitude": -77.3734
+    },
+    {
+      "name": "The Banque",
+      "city": "Norfolk",
+      "state": "Virginia",
+      "zip": "23518",
+      "dances": [
+        "Line Dancing",
+        "Western Swing"
+      ],
+      "lessons": "Unknown",
+      "description": "Classic Norfolk dance hall with country nights",
+      "latitude": 36.8508,
+      "longitude": -76.2859
+    },
+    {
+      "name": "Stockyards",
+      "city": "Fredericksburg",
+      "state": "Virginia",
+      "zip": "22401",
+      "dances": [
+        "Line Dancing"
+      ],
+      "lessons": "Yes (Wednesdays)",
+      "description": "Historic stockyard-themed spot; weekly line dancing",
+      "latitude": 38.3032,
+      "longitude": -77.4605
+    },
+    {
+      "name": "Honeysuckle Holler",
+      "city": "Hendersonville",
+      "state": "North Carolina",
+      "zip": "28792",
+      "dances": [
+        "Two Step",
+        "Line Dancing",
+        "Western Swing"
+      ],
+      "lessons": "Yes (Thu line & Fri two-step/swing)",
+      "description": "Only dedicated country dance bar in Western NC; craft cocktails & community vibe",
+      "latitude": 35.3187,
+      "longitude": -82.461
+    },
+    {
+      "name": "The Rose Honky Tonk",
+      "city": "Charlotte",
+      "state": "North Carolina",
+      "zip": "28203",
+      "dances": [
+        "Two Step",
+        "Line Dancing",
+        "Western Swing"
+      ],
+      "lessons": "Yes (Tue intermediate line",
+      "description": "Charlotte country bar and dance hall hosting Wednesday swing nights alongside regular line dance and two-step events.",
+      "latitude": 35.2193,
+      "longitude": -80.8428
+    },
+    {
+      "name": "Coyote Joe's",
+      "city": "Charlotte",
+      "state": "North Carolina",
+      "zip": "28208",
+      "dances": [
+        "Two Step",
+        "Line Dancing"
+      ],
+      "lessons": "Unknown",
+      "description": "One of the top-rated country dance halls in the Charlotte area",
+      "latitude": 35.2487,
+      "longitude": -80.9228
+    },
+    {
+      "name": "PBR Cowboy Bar",
+      "city": "Cary",
+      "state": "North Carolina",
+      "zip": "27511",
+      "dances": [
+        "Two Step",
+        "Line Dancing"
+      ],
+      "lessons": "Yes (regular boot camp & lessons)",
+      "description": "Professional Bull Riders themed country bar with large dance floor",
+      "latitude": 35.7915,
+      "longitude": -78.7811
+    },
+    {
+      "name": "The Barn Dance",
+      "city": "Julian",
+      "state": "North Carolina",
+      "zip": "27283",
+      "dances": [
+        "Two Step"
+      ],
+      "lessons": "Unknown",
+      "description": "Family-friendly Julian, North Carolina barn venue hosting community square dances and line dance nights in a classic rural setting.",
+      "latitude": 35.9526,
+      "longitude": -79.6564
+    },
+    {
+      "name": "Cadillac Ranch",
+      "city": "Fayetteville",
+      "state": "North Carolina",
+      "zip": "28303",
+      "dances": [
+        "Two Step",
+        "Line Dancing"
+      ],
+      "lessons": "Unknown",
+      "description": "Popular Fayetteville country club with dance floor & live/DJ music",
+      "latitude": 35.0527,
+      "longitude": -78.8784
+    },
+    {
+      "name": "The Ranch Saloon",
+      "city": "Anaheim",
+      "state": "California",
+      "zip": "92805",
+      "dances": [
+        "Two Step",
+        "Line Dancing",
+        "Western Swing"
+      ],
+      "lessons": "Yes (Thu/Sat)",
+      "description": "Central Texas dance spot in the town of West, featuring country music and a classic small-town Texas atmosphere.",
+      "latitude": 33.8219,
+      "longitude": -117.8826
+    },
+    {
+      "name": "Cowboy Palace Saloon",
+      "city": "Chatsworth",
+      "state": "California",
+      "zip": "91311",
+      "dances": [
+        "Two Step",
+        "Line Dancing"
+      ],
+      "lessons": "Unknown",
+      "description": "Last real honky-tonk in Los Angeles; live country music Wed–Sun; classic Western vibe",
+      "latitude": 34.2571,
+      "longitude": -118.6018
+    },
+    {
+      "name": "Whiskey River Dancehall & Saloon",
+      "city": "Norco",
+      "state": "California",
+      "zip": "92860",
+      "dances": [
+        "Two Step",
+        "Line Dancing",
+        "Western Swing"
+      ],
+      "lessons": "Unknown",
+      "description": "Live music + line dancing; outdoor firepit area; Norco's country spot",
+      "latitude": 33.9311,
+      "longitude": -117.5486
+    },
+    {
+      "name": "Mavericks Country Bar and Nightclub",
+      "city": "Pleasanton",
+      "state": "California",
+      "zip": "94566",
+      "dances": [
+        "Line Dancing"
+      ],
+      "lessons": "Yes (Fri/Sat 6:30-8:30pm)",
+      "description": "Bay Area live country music & dancing; mechanical bull; 21+",
+      "latitude": 37.6624,
+      "longitude": -121.8747
+    },
+    {
+      "name": "Alabama's Little Bit Of Texas",
+      "city": "Wetumpka",
+      "state": "Alabama",
+      "zip": "36092",
+      "dances": [
+        "Two Step",
+        "Line Dancing"
+      ],
+      "lessons": "Yes (Thu 7-9pm)",
+      "description": "Largest honky-tonk in Alabama; 21+; live music & dancing",
+      "latitude": 32.5443,
+      "longitude": -86.2122
+    },
+    {
+      "name": "Scootin' Boots Dance Hall",
+      "city": "Mesa",
+      "state": "Arizona",
+      "zip": "85203",
+      "dances": [
+        "Two Step",
+        "Line Dancing",
+        "Western Swing"
+      ],
+      "lessons": "Yes (regular lessons; public & private)",
+      "description": "Arizona's largest country dance venue; alcohol-free; 18+ (minors with adult); focus on partner & line dancing",
+      "latitude": 33.4152,
+      "longitude": -111.8315
+    },
+    {
+      "name": "Handlebar J",
+      "city": "Scottsdale",
+      "state": "Arizona",
+      "zip": "85254",
+      "dances": [
+        "Two Step",
+        "Line Dancing",
+        "Western Swing"
+      ],
+      "lessons": "Unknown",
+      "description": "Classic Scottsdale country dance hall since 1960s; live music & dancing",
+      "latitude": 33.6329,
+      "longitude": -111.9238
+    },
+    {
+      "name": "Buffalo Chip Saloon & Steakhouse",
+      "city": "Cave Creek",
+      "state": "Arizona",
+      "zip": "85331",
+      "dances": [
+        "Two Step",
+        "Line Dancing"
+      ],
+      "lessons": "Yes (free lessons some nights)",
+      "description": "Cave Creek institution combining a working saloon, steakhouse, and dance hall with live country bands multiple nights a week.",
+      "latitude": 33.8333,
+      "longitude": -111.9508
+    },
+    {
+      "name": "Foley Ranch",
+      "city": "Phoenix",
+      "state": "Arizona",
+      "zip": "85050",
+      "dances": [
+        "Line Dancing"
+      ],
+      "lessons": "Yes (Tue/Wed/Thu 7pm & 8:15pm)",
+      "description": "Premier BBQ & country bar in Desert Ridge; live music & dancing",
+      "latitude": 33.4484,
+      "longitude": -112.074
+    },
+    {
+      "name": "The Maverick",
+      "city": "Tucson",
+      "state": "Arizona",
+      "zip": "85710",
+      "dances": [
+        "Line Dancing"
+      ],
+      "lessons": "Yes (5-7pm)",
+      "description": "Live country club; $5 lessons; grill open late",
+      "latitude": 32.2226,
+      "longitude": -110.9747
+    },
+    {
+      "name": "Flying X Saloon",
+      "city": "Lake Havasu City",
+      "state": "Arizona",
+      "zip": "86403",
+      "dances": [
+        "Two Step",
+        "Line Dancing"
+      ],
+      "lessons": "Unknown",
+      "description": "True country western saloon with large dance floor",
+      "latitude": 34.4839,
+      "longitude": -114.3225
+    },
+    {
+      "name": "Rusty Spur Saloon",
+      "city": "Scottsdale",
+      "state": "Arizona",
+      "zip": "85251",
+      "dances": [
+        "Line Dancing"
+      ],
+      "lessons": "Yes (Sun/Tue/Thu evenings)",
+      "description": "Oldest saloon in Scottsdale; historic Western dancing",
+      "latitude": 33.493,
+      "longitude": -111.924
+    },
+    {
+      "name": "Pink Cadillac Country Bar & Dance Hall",
+      "city": "Anchorage",
+      "state": "Alaska",
+      "zip": "99504",
+      "dances": [
+        "Two Step",
+        "Line Dancing",
+        "Western Swing"
+      ],
+      "lessons": "Unknown",
+      "description": "Anchorage's standout country bar featuring over 5,000 square feet of dance space, free line dance lessons, themed country nights, and an all-ages Buckaroos Night on Mondays.",
+      "latitude": 61.2181,
+      "longitude": -149.9003
+    },
+    {
+      "name": "Cadillac Ranch",
+      "city": "Southington",
+      "state": "Connecticut",
+      "zip": "6489",
+      "dances": [
+        "Two Step",
+        "Line Dancing"
+      ],
+      "lessons": "Yes (Tue 7pm & Fri/Sat 8pm)",
+      "description": "Iconic event/dance venue with solid wood floor; open dancing + lessons",
+      "latitude": 41.6001,
+      "longitude": -72.8776
+    },
+    {
+      "name": "The Grand Opera House",
+      "city": "Wilmington",
+      "state": "Delaware",
+      "zip": "19801",
+      "dances": [
+        "Two Step",
+        "Line Dancing"
+      ],
+      "lessons": "Unknown",
+      "description": "Regular country line-dance nights with DJ/choreographer",
+      "latitude": 39.7391,
+      "longitude": -75.5398
+    },
+    {
+      "name": "The Stockyard",
+      "city": "Holiday",
+      "state": "Florida",
+      "zip": "34691",
+      "dances": [
+        "Two Step",
+        "Line Dancing"
+      ],
+      "lessons": "Yes (nightly Tue–Sat)",
+      "description": "Holiday, Florida country bar and dance hall with a wood dance floor, weekly line dance nights, and an 18-and-up Florida country crowd.",
+      "latitude": 28.1878,
+      "longitude": -82.754
+    },
+    {
+      "name": "Renegades Country Bar & Grill",
+      "city": "West Palm Beach",
+      "state": "Florida",
+      "zip": "33407",
+      "dances": [
+        "Two Step",
+        "Line Dancing"
+      ],
+      "lessons": "Unknown",
+      "description": "Regular country bar with dancing",
+      "latitude": 26.7153,
+      "longitude": -80.0534
+    },
+    {
+      "name": "Big Daddy’s Honkytonk",
+      "city": "Gainesville",
+      "state": "Georgia",
+      "zip": "30501",
+      "dances": [
+        "Two Step",
+        "Line Dancing"
+      ],
+      "lessons": "Yes (beginner classes)",
+      "description": "Gainesville honky-tonk featuring live country bands, a solid dance floor, and a welcoming North Georgia crowd.",
+      "latitude": 34.2979,
+      "longitude": -83.8241
+    },
+    {
+      "name": "The Farm",
+      "city": "Garden City",
+      "state": "Idaho",
+      "zip": "83714",
+      "dances": [
+        "Two Step",
+        "Line Dancing",
+        "Western Swing"
+      ],
+      "lessons": "Yes (regular lessons)",
+      "description": "Idaho’s largest all-ages country dance floor",
+      "latitude": 43.6222,
+      "longitude": -116.2637
+    },
+    {
+      "name": "Saddle Up At Q",
+      "city": "Aurora",
+      "state": "Illinois",
+      "zip": "60502",
+      "dances": [
+        "Line Dancing"
+      ],
+      "lessons": "Unknown",
+      "description": "Multiple locations; line dancing + live music",
+      "latitude": 41.7606,
+      "longitude": -88.3201
+    },
+    {
+      "name": "Clayton’s Country Bar",
+      "city": "Indianapolis",
+      "state": "Indiana",
+      "zip": "46204",
+      "dances": [
+        "Two Step",
+        "Line Dancing"
+      ],
+      "lessons": "Unknown",
+      "description": "Downtown honky-tonk with dance floor",
+      "latitude": 39.7684,
+      "longitude": -86.1581
+    },
+    {
+      "name": "DanceMor Ballroom",
+      "city": "Swisher",
+      "state": "Iowa",
+      "zip": "52338",
+      "dances": [
+        "Two Step",
+        "Line Dancing"
+      ],
+      "lessons": "Yes (Wed/Thu 7-10pm)",
+      "description": "Eastern Iowa’s original Texas-style honky-tonk dance hall",
+      "latitude": 41.8434,
+      "longitude": -91.771
+    },
+    {
+      "name": "Guitars & Cadillacs",
+      "city": "Overland Park",
+      "state": "Kansas",
+      "zip": "66212",
+      "dances": [
+        "Two Step",
+        "Line Dancing",
+        "Western Swing"
+      ],
+      "lessons": "Yes (Wed/Thu/Fri)",
+      "description": "KC’s original live country dance hall",
+      "latitude": 38.9822,
+      "longitude": -94.6708
+    },
+    {
+      "name": "PBR Louisville",
+      "city": "Louisville",
+      "state": "Kentucky",
+      "zip": "40202",
+      "dances": [
+        "Two Step",
+        "Line Dancing"
+      ],
+      "lessons": "Unknown",
+      "description": "Downtown cowboy bar with mechanical bull",
+      "latitude": 38.2527,
+      "longitude": -85.7585
+    },
+    {
+      "name": "The Texas Club",
+      "city": "Baton Rouge",
+      "state": "Louisiana",
+      "zip": "70809",
+      "dances": [
+        "Other"
+      ],
+      "lessons": "Unknown",
+      "description": "Premier live country music venue with spacious dance floor",
+      "latitude": 30.4515,
+      "longitude": -91.1871
+    },
+    {
+      "name": "The Silver Spur",
+      "city": "Mechanic Falls",
+      "state": "Maine",
+      "zip": "4256",
+      "dances": [
+        "Two Step",
+        "Line Dancing"
+      ],
+      "lessons": "Yes (Saturday nights)",
+      "description": "Maine’s Capital of Country Music",
+      "latitude": 44.1108,
+      "longitude": -70.3928
+    },
+    {
+      "name": "Baltimore Honky Tonk series",
+      "city": "Baltimore",
+      "state": "Maryland",
+      "zip": "21202",
+      "dances": [
+        "Two Step",
+        "Line Dancing"
+      ],
+      "lessons": "Yes (free beginner two-step lessons)",
+      "description": "Regular live-band honky-tonk nights",
+      "latitude": 39.2904,
+      "longitude": -76.6122
+    },
+    {
+      "name": "Loretta’s Last Call",
+      "city": "Boston",
+      "state": "Massachusetts",
+      "zip": "2215",
+      "dances": [
+        "Two Step",
+        "Line Dancing",
+        "Western Swing"
+      ],
+      "lessons": "Yes (weekly lessons)",
+      "description": "Boston’s only dedicated country venue",
+      "latitude": 42.3601,
+      "longitude": -71.0589
+    },
+    {
+      "name": "Coyote Joes",
+      "city": "Michigan (multiple locations)",
+      "state": "Michigan",
+      "zip": "48111",
+      "dances": [
+        "Two Step",
+        "Line Dancing"
+      ],
+      "lessons": "Yes (weekly lessons)",
+      "description": "Michigan’s #1 country nightclub",
+      "latitude": 44.3148,
+      "longitude": -85.6024
+    },
+    {
+      "name": "Hold Your Lady Tight Night",
+      "city": "Twin Cities",
+      "state": "Minnesota",
+      "zip": "55114",
+      "dances": [
+        "Two Step",
+        "Line Dancing"
+      ],
+      "lessons": "Yes (weekly lessons at VFW)",
+      "description": "Twin Cities social dance event welcoming all skill levels; partner dance lessons typically precede open dancing.",
+      "latitude": 44.9537,
+      "longitude": -93.09
+    },
+    {
+      "name": "Lucky Horseshoe Saloon",
+      "city": "Gulfport",
+      "state": "Mississippi",
+      "zip": "39501",
+      "dances": [
+        "Two Step",
+        "Line Dancing"
+      ],
+      "lessons": "Unknown",
+      "description": "Country dance floor on the Gulf Coast",
+      "latitude": 30.3674,
+      "longitude": -89.0928
+    },
+    {
+      "name": "MO Country",
+      "city": "Branson",
+      "state": "Missouri",
+      "zip": "65616",
+      "dances": [
+        "Line Dancing"
+      ],
+      "lessons": "Yes (Fri/Sat 7:30–8:30pm)",
+      "description": "Largest line dancing floor in the Midwest",
+      "latitude": 36.6437,
+      "longitude": -93.2185
+    },
+    {
+      "name": "Bushwackers Dance Hall and Saloon",
+      "city": "Ralston",
+      "state": "Nebraska",
+      "zip": "68127",
+      "dances": [
+        "Two Step",
+        "Line Dancing"
+      ],
+      "lessons": "Unknown",
+      "description": "Traditional two-stepping + line dancing",
+      "latitude": 41.2036,
+      "longitude": -96.0423
+    },
+    {
+      "name": "Gilley’s Las Vegas",
+      "city": "Las Vegas",
+      "state": "Nevada",
+      "zip": "89109",
+      "dances": [
+        "Two Step",
+        "Line Dancing"
+      ],
+      "lessons": "Yes (nightly lessons)",
+      "description": "Major honky-tonk with wood floor",
+      "latitude": 36.1699,
+      "longitude": -115.1398
+    },
+    {
+      "name": "Whiskey Dix' Saloon",
+      "city": "Honolulu",
+      "state": "Hawaii",
+      "zip": "96815",
+      "dances": [
+        "Line Dancing"
+      ],
+      "lessons": "Unknown",
+      "description": "Authentic honky-tonk vibe in the islands",
+      "latitude": 21.3099,
+      "longitude": -157.8581
+    },
+    {
+      "name": "Bonfire Country Bar",
+      "city": "Manchester",
+      "state": "New Hampshire",
+      "zip": "3103",
+      "dances": [
+        "Two Step",
+        "Line Dancing"
+      ],
+      "lessons": "Unknown",
+      "description": "Country line dancing and two-step",
+      "latitude": 42.9956,
+      "longitude": -71.4548
+    },
+    {
+      "name": "Big Apple Ranch (various)",
+      "city": "New Jersey (multiple)",
+      "state": "New Jersey",
+      "zip": "8054",
+      "dances": [
+        "Two Step",
+        "Line Dancing"
+      ],
+      "lessons": "Yes (free lessons)",
+      "description": "Line dancing + two-step classes",
+      "latitude": 40.0583,
+      "longitude": -74.4057
+    },
+    {
+      "name": "The Dirty Bourbon Dance Hall & Saloon",
+      "city": "Albuquerque",
+      "state": "New Mexico",
+      "zip": "87111",
+      "dances": [
+        "Two Step",
+        "Line Dancing"
+      ],
+      "lessons": "Unknown",
+      "description": "Albuquerque's premier country dance hall with live country music, a large dance floor, and regular line and two-step nights.",
+      "latitude": 35.0844,
+      "longitude": -106.6504
+    },
+    {
+      "name": "Big Apple Ranch",
+      "city": "Manhattan",
+      "state": "New York",
+      "zip": "10018",
+      "dances": [
+        "Two Step",
+        "Line Dancing"
+      ],
+      "lessons": "Yes (Mondays)",
+      "description": "NYC’s main country western spot",
+      "latitude": 40.7831,
+      "longitude": -73.9712
+    },
+    {
+      "name": "The Windbreak",
+      "city": "Fargo",
+      "state": "North Dakota",
+      "zip": "58104",
+      "dances": [
+        "Other"
+      ],
+      "lessons": "Unknown",
+      "description": "Classic country bar with dancing",
+      "latitude": 46.8772,
+      "longitude": -96.7898
+    },
+    {
+      "name": "Dusty Armadillo",
+      "city": "Rootstown",
+      "state": "Ohio",
+      "zip": "44272",
+      "dances": [
+        "Two Step",
+        "Line Dancing"
+      ],
+      "lessons": "Yes (multiple nights with lessons)",
+      "description": "Rootstown country bar with a full dance floor, live bands, and a large Ohio country crowd — a staple of the Northeast Ohio country dance scene.",
+      "latitude": 41.1645,
+      "longitude": -81.2231
+    },
+    {
+      "name": "Chisolm’s Saloon",
+      "city": "Oklahoma City",
+      "state": "Oklahoma",
+      "zip": "73129",
+      "dances": [
+        "Two Step",
+        "Line Dancing"
+      ],
+      "lessons": "Yes (Tue/Thu)",
+      "description": "Free two-step/waltz lessons Tuesdays",
+      "latitude": 35.4676,
+      "longitude": -97.5164
+    },
+    {
+      "name": "Winner’s Circle Saloon",
+      "city": "Grantville",
+      "state": "Pennsylvania",
+      "zip": "17028",
+      "dances": [
+        "Two Step",
+        "Line Dancing",
+        "Western Swing"
+      ],
+      "lessons": "Unknown",
+      "description": "Grantville country saloon offering weekly two-step nights and a local Pennsylvania country dance community.",
+      "latitude": 40.3798,
+      "longitude": -76.6558
+    },
+    {
+      "name": "Mishnock Barn",
+      "city": "West Greenwich",
+      "state": "Rhode Island",
+      "zip": "2817",
+      "dances": [
+        "Two Step",
+        "Line Dancing"
+      ],
+      "lessons": "Unknown",
+      "description": "RI’s premier country western dance club",
+      "latitude": 41.624,
+      "longitude": -71.6586
+    },
+    {
+      "name": "Stockade",
+      "city": "Deadwood",
+      "state": "South Dakota",
+      "zip": "57732",
+      "dances": [
+        "Two Step",
+        "Line Dancing"
+      ],
+      "lessons": "Unknown",
+      "description": "Regular country dancing events",
+      "latitude": 44.3766,
+      "longitude": -103.7294
+    },
+    {
+      "name": "Honky Tonk Angels (traveling)",
+      "city": "Brattleboro",
+      "state": "Vermont",
+      "zip": "5301",
+      "dances": [
+        "Two Step",
+        "Line Dancing"
+      ],
+      "lessons": "Yes (beginner instruction provided)",
+      "description": "Monthly two-step nights at Retreat Farm",
+      "latitude": 42.8509,
+      "longitude": -72.5579
+    },
+    {
+      "name": "Extreme Country Dance Club",
+      "city": "Marmet",
+      "state": "West Virginia",
+      "zip": "25315",
+      "dances": [
+        "Line Dancing"
+      ],
+      "lessons": "Yes (classes)",
+      "description": "Marmet, West Virginia dance club offering line dance classes and social dance nights for the Kanawha Valley country crowd.",
+      "latitude": 38.2484,
+      "longitude": -81.5681
+    },
+    {
+      "name": "Redd’s Line Up and Boot Kickers",
+      "city": "Washington County",
+      "state": "Wisconsin",
+      "zip": "53022",
+      "dances": [
+        "Line Dancing"
+      ],
+      "lessons": "Yes (regular lessons)",
+      "description": "Washington County, Wisconsin country dance club hosting regular line dancing events and two-step nights for the Milwaukee-area crowd.",
+      "latitude": 43.3708,
+      "longitude": -88.2312
+    }
+  ]
+}
