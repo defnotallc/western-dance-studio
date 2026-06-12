@@ -1,0 +1,214 @@
+import SwiftUI
+import StoreKit
+
+/// Handles the one-time "Remove Ads" non-consumable in-app purchase.
+///
+/// Setup required in App Store Connect:
+///   1. After Developer Program enrollment, create the app record
+///   2. Features → In-App Purchases → +
+///   3. Type: Non-Consumable
+///   4. Reference Name: "Remove Ads"
+///   5. Product ID: exactly `com.defnota.WesternDanceStudio.removeAds`
+///   6. Price: Tier 5 ($4.99 USD)
+///   7. Display Name: "Remove Ads"
+///   8. Description: "Permanently removes all banner and interstitial ads."
+///
+/// Once created, StoreKit will serve this product via the code below.
+@Observable
+@MainActor
+final class IAPManager {
+    static let shared = IAPManager()
+
+    /// Single StoreKit product identifier. Keep in sync with App Store Connect.
+    static let removeAdsProductID = "com.defnota.WesternDanceStudio.removeAds"
+
+    /// True once the user has purchased Remove Ads (or restored on a new device).
+    /// Persists across launches via UserDefaults + verified transaction replay.
+    private(set) var isPremium: Bool = false
+
+    /// Loaded product for display (title, localized price, etc.). Nil until loadProducts() succeeds.
+    private(set) var removeAdsProduct: Product?
+
+    /// True while a purchase or restore is in flight — use for button spinners.
+    private(set) var isPurchasing: Bool = false
+
+    /// The last user-visible error from a purchase or restore attempt.
+    private(set) var lastError: String?
+
+    private init() {
+        // Read cached purchased state optimistically so UI updates fast on cold launch.
+        isPremium = UserDefaults.standard.bool(forKey: "IAPManager.isPremium")
+
+        #if DEBUG
+        // SCREENSHOT MODE: when this is true, premium is forced on so banner
+        // and interstitial ads are hidden. Set to true before taking App Store
+        // screenshots, then set back to false before submitting builds.
+        // (Only effective in DEBUG builds — release builds ignore this.)
+        let SCREENSHOT_MODE = false
+
+        if SCREENSHOT_MODE {
+            isPremium = true
+            print("🎬 SCREENSHOT MODE ON — ads disabled, premium forced. Disable before shipping!")
+
+            // CRITICAL: also skip the StoreKit refresh + transaction listener,
+            // because either of those would set isPremium back to false (since
+            // there's no actual purchase entitlement in this sandbox).
+            // Just preload products so the price displays for screenshots.
+            Task { await loadProducts() }
+            return
+        } else if ProcessInfo.processInfo.environment["DISABLE_ADS"] == "1" {
+            isPremium = true
+            Task { await loadProducts() }
+            return
+        }
+        #endif
+
+        // Start listening for transaction updates (e.g. cross-device purchase, refund,
+        // family sharing). Task is detached from this instance's lifecycle on purpose;
+        // IAPManager is a singleton that lives for the whole app, so no cleanup needed.
+        Task { [weak self] in
+            for await update in StoreKit.Transaction.updates {
+                await self?.handle(transaction: update)
+            }
+        }
+
+        // Verify purchase state against StoreKit on launch (in case UserDefaults is stale).
+        Task { await refreshPurchaseState() }
+    }
+
+    // MARK: - Product loading
+
+    /// Loads the Remove Ads product from the App Store.
+    /// Returns true if the product is available afterwards. Safe to call repeatedly
+    /// (e.g. as a retry when the user taps Upgrade before the initial preload finished
+    /// or when a transient network/sandbox failure left the product unavailable).
+    @discardableResult
+    func loadProducts() async -> Bool {
+        #if DEBUG
+        print("🛒 IAPManager.loadProducts() — requesting [\(Self.removeAdsProductID)]")
+        #endif
+        do {
+            let products = try await Product.products(for: [Self.removeAdsProductID])
+            if let product = products.first {
+                removeAdsProduct = product
+                #if DEBUG
+                print("🛒 ✅ Loaded product: \(product.id) at \(product.displayPrice)")
+                #endif
+                return true
+            } else {
+                #if DEBUG
+                print("🛒 ⚠️ Product list returned empty — check Paid Applications Agreement is active and the IAP was submitted with this app version")
+                #endif
+                return false
+            }
+        } catch {
+            #if DEBUG
+            print("🛒 ❌ IAPManager failed to load products: \(error)")
+            #endif
+            return false
+        }
+    }
+
+    // MARK: - Purchase
+
+    func purchaseRemoveAds() async {
+        #if DEBUG
+        print("🛒 purchaseRemoveAds() called — product nil? \(removeAdsProduct == nil)")
+        #endif
+        isPurchasing = true
+        lastError = nil
+        defer { isPurchasing = false }
+
+        // The button is always tappable. If the initial preload hasn't completed
+        // or failed (e.g. transient network/sandbox issue), retry the fetch here
+        // so the user gets either a real purchase sheet or a clear error — never
+        // a silent, dead button.
+        if removeAdsProduct == nil {
+            await loadProducts()
+        }
+        guard let product = removeAdsProduct else {
+            lastError = "We couldn’t reach the App Store to load the upgrade. Please check your connection and try again in a moment."
+            return
+        }
+
+        do {
+            #if DEBUG
+            print("🛒 Calling product.purchase()…")
+            #endif
+            let result = try await product.purchase()
+            #if DEBUG
+            print("🛒 product.purchase() returned: \(result)")
+            #endif
+            switch result {
+            case .success(let verification):
+                await handle(transaction: verification)
+            case .userCancelled:
+                break
+            case .pending:
+                lastError = "Your purchase is pending approval and will be completed shortly."
+            @unknown default:
+                break
+            }
+        } catch {
+            #if DEBUG
+            print("🛒 ❌ Purchase threw: \(error)")
+            #endif
+            lastError = "Purchase failed: \(error.localizedDescription)"
+        }
+    }
+
+    // MARK: - Restore
+
+    func restorePurchases() async {
+        isPurchasing = true
+        lastError = nil
+        defer { isPurchasing = false }
+        do {
+            try await AppStore.sync()
+            await refreshPurchaseState()
+            if !isPremium {
+                lastError = "No previous purchases were found on this Apple ID."
+            }
+        } catch StoreKitError.userCancelled {
+            // User dismissed the authentication dialog — not an error.
+        } catch {
+            lastError = "Restore failed: \(error.localizedDescription)"
+        }
+    }
+
+    // MARK: - Internal verification
+
+    private func refreshPurchaseState() async {
+        var purchased = false
+        for await result in StoreKit.Transaction.currentEntitlements {
+            if case .verified(let transaction) = result,
+               transaction.productID == Self.removeAdsProductID,
+               transaction.revocationDate == nil {
+                purchased = true
+            }
+        }
+        setPremium(purchased)
+    }
+
+    private func handle(transaction verification: VerificationResult<StoreKit.Transaction>) async {
+        switch verification {
+        case .verified(let transaction):
+            if transaction.productID == Self.removeAdsProductID,
+               transaction.revocationDate == nil {
+                setPremium(true)
+            } else if transaction.revocationDate != nil {
+                // Refunded or family-sharing revoked — turn ads back on
+                setPremium(false)
+            }
+            await transaction.finish()
+        case .unverified(let transaction, _):
+            lastError = "This purchase could not be verified."
+            await transaction.finish()
+        }
+    }
+
+    private func setPremium(_ value: Bool) {
+        isPremium = value
+        UserDefaults.standard.set(value, forKey: "IAPManager.isPremium")
+    }
+}
