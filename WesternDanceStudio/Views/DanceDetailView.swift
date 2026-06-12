@@ -54,7 +54,7 @@ struct DanceDetailView: View {
             loadVideo()
         }
         .onDisappear {
-            // Count this as a detail-view "return" for interstitial frequency gating.
+            player.teardown()
             AdManager.shared.recordDetailReturn()
         }
         .withBannerAd()

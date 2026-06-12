@@ -4,7 +4,7 @@ import CoreLocation
 // MARK: - Model
 
 struct DanceHall: Identifiable, Hashable, Codable {
-    var id: String { "\(name)-\(city)-\(state)" }
+    let id: String
     let name: String
     let city: String
     let state: String
