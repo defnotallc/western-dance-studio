@@ -204,3 +204,23 @@ enum Haptics {
         generator.notificationOccurred(type)
     }
 }
+
+// MARK: - Debounced search helper
+
+extension View {
+    /// Debounces `source` into `destination` after `delay`.
+    /// The `.task(id:)` cancels the sleep automatically when `source` changes,
+    /// so only the final value after the user stops typing is committed.
+    func debounced(
+        source: Binding<String>,
+        into destination: Binding<String>,
+        delay: Duration = .milliseconds(250)
+    ) -> some View {
+        self.task(id: source.wrappedValue) {
+            do {
+                try await Task.sleep(for: delay)
+                destination.wrappedValue = source.wrappedValue
+            } catch {}
+        }
+    }
+}

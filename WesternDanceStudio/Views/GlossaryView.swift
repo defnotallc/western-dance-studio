@@ -41,12 +41,7 @@ struct GlossaryView: View {
                 }
             }
             .searchable(text: $searchText, prompt: "Search terms like 'metronome', 'beat', or 'frame'...")
-            .task(id: searchText) {
-                do {
-                    try await Task.sleep(for: .milliseconds(250))
-                    debouncedSearch = searchText
-                } catch {}
-            }
+            .debounced(source: $searchText, into: $debouncedSearch)
             .listStyle(.insetGrouped)
             .navigationTitle("Dance Glossary")
             .navigationBarTitleDisplayMode(.large)

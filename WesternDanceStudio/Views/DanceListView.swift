@@ -40,14 +40,7 @@ struct DanceListView: View {
                 }
             }
             .searchable(text: $searchText, prompt: "Search dances, songs, or categories...")
-            .task(id: searchText) {
-                do {
-                    try await Task.sleep(for: .milliseconds(250))
-                    debouncedSearch = searchText
-                } catch {
-                    // cancelled
-                }
-            }
+            .debounced(source: $searchText, into: $debouncedSearch)
             .onChange(of: debouncedSearch) { _, new in
                 groupedDances = Self.makeGrouped(query: new)
             }

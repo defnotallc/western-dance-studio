@@ -29,6 +29,7 @@ struct DanceHallDatabase: Codable {
 
 /// Loads and caches the bundled dance hall database.
 /// JSON file `DanceHalls.json` must be added to the app target.
+@MainActor
 final class DanceHallStore {
     static let shared = DanceHallStore()
 
