@@ -30,6 +30,10 @@ struct BeginnerBootcampView: View {
                     }
                     .padding(.horizontal)
 
+                    // MARK: Safety & Etiquette
+                    safetyTeaser
+                        .padding(.horizontal)
+
                     // MARK: Two-Step vs Line Dance
                     GroupBox("Two-Step vs. Line Dance") {
                         VStack(alignment: .leading, spacing: 12) {
@@ -37,7 +41,7 @@ struct BeginnerBootcampView: View {
                                 Label("Two-Step", systemImage: "person.2.fill")
                                     .font(.headline)
                                     .foregroundStyle(.orange)
-                                Text("A **partner dance**. You and a partner move together around the dance floor in a counter-clockwise circle. One leads (usually the gentleman), one follows. Classic rhythm is **Quick-Quick-Slow-Slow**.")
+                                Text("A **partner dance**. You and a partner move together around the dance floor in a counter-clockwise circle. One partner **leads**, the other **follows**. Classic rhythm is **Quick-Quick-Slow-Slow**.")
                             }
 
                             Divider()
@@ -116,6 +120,10 @@ struct BeginnerBootcampView: View {
                     metronomeSection
                         .padding(.horizontal)
 
+                    // MARK: Floor safety quick-ref
+                    floorSafetyTip
+                        .padding(.horizontal)
+
                     // MARK: Glossary tip
                     glossaryTip
                         .padding(.horizontal)
@@ -138,6 +146,85 @@ struct BeginnerBootcampView: View {
             .onDisappear {
                 engine.stop()
             }
+        }
+    }
+
+    // MARK: - Safety teaser (Phase 2.1 + 2.3 summary)
+
+    private var safetyTeaser: some View {
+        GroupBox {
+            VStack(alignment: .leading, spacing: 10) {
+                Label("Safety & Etiquette", systemImage: "exclamationmark.shield.fill")
+                    .font(.headline)
+                    .foregroundStyle(WesternTheme.primaryDark)
+
+                Text("Before you hit the dance floor, learn the three things that matter most:")
+                    .font(.subheadline)
+                    .foregroundStyle(.secondary)
+
+                VStack(alignment: .leading, spacing: 6) {
+                    safetyBullet("Force is never correct technique — leading is communication, not pressure.")
+                    safetyBullet("Asking for a dance: a \"no\" needs no explanation. Respect it and move on.")
+                    safetyBullet("The floor has traffic — all couples travel counterclockwise together.")
+                }
+
+                NavigationLink {
+                    SafetyEtiquetteView()
+                } label: {
+                    HStack(spacing: 6) {
+                        Text("Read Safety & Etiquette Guide")
+                        Image(systemName: "arrow.right")
+                    }
+                    .font(.subheadline.weight(.semibold))
+                    .foregroundStyle(WesternTheme.primary)
+                }
+                .buttonStyle(.plain)
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
+        }
+    }
+
+    private func safetyBullet(_ text: String) -> some View {
+        HStack(alignment: .top, spacing: 6) {
+            Image(systemName: "checkmark.circle.fill")
+                .font(.caption)
+                .foregroundStyle(.orange)
+            Text(text)
+                .font(.subheadline)
+                .foregroundStyle(.secondary)
+        }
+    }
+
+    // MARK: - Floor safety tip (Phase 2.2 summary)
+
+    private var floorSafetyTip: some View {
+        GroupBox {
+            VStack(alignment: .leading, spacing: 10) {
+                Label("The Dance Floor Has Rules", systemImage: "arrow.counterclockwise.circle.fill")
+                    .font(.headline)
+                    .foregroundStyle(WesternTheme.primaryDark)
+
+                Text("Partner dances like Two-Step travel **counterclockwise** around the floor — this is the Line of Dance. Spot dances (line dancing, Swing) stay in the center.")
+                    .font(.subheadline)
+                    .foregroundStyle(.secondary)
+
+                Text("Never stop in the middle of the dance floor, never travel against the counterclockwise flow, and always look ahead for other couples.")
+                    .font(.subheadline)
+                    .foregroundStyle(.secondary)
+
+                NavigationLink {
+                    SafetyEtiquetteView()
+                } label: {
+                    HStack(spacing: 6) {
+                        Text("Full Floor Safety Guide")
+                        Image(systemName: "arrow.right")
+                    }
+                    .font(.subheadline.weight(.semibold))
+                    .foregroundStyle(WesternTheme.primary)
+                }
+                .buttonStyle(.plain)
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
         }
     }
 
