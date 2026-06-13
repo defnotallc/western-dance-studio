@@ -34,94 +34,12 @@ struct BeginnerBootcampView: View {
                     safetyTeaser
                         .padding(.horizontal)
 
-                    // MARK: Two-Step vs Line Dance
-                    GroupBox("Two-Step vs. Line Dance") {
-                        VStack(alignment: .leading, spacing: 12) {
-                            VStack(alignment: .leading, spacing: 4) {
-                                Label("Two-Step", systemImage: "person.2.fill")
-                                    .font(.headline)
-                                    .foregroundStyle(.orange)
-                                Text("A **partner dance**. You and a partner move together around the dance floor in a counter-clockwise circle. One partner **leads**, the other **follows**. Classic rhythm is **Quick-Quick-Slow-Slow**.")
-                            }
-
-                            Divider()
-
-                            VStack(alignment: .leading, spacing: 4) {
-                                Label("Line Dance", systemImage: "figure.stand.line.dotted.figure.stand")
-                                    .font(.headline)
-                                    .foregroundStyle(.orange)
-                                Text("A **solo dance** done in lines with a group. Everyone performs the **same choreographed steps** at the same time. No partner needed — just follow the person in front of you.")
-                            }
-
-                            Divider()
-
-                            VStack(alignment: .leading, spacing: 4) {
-                                Text("The big difference")
-                                    .font(.headline)
-                                Text("Two-Step = you dance **with someone**. Line Dance = you dance **next to everyone**. Most country dance halls play both throughout the night.")
-                            }
-                        }
-                    }
-                    .padding(.horizontal)
-
-                    // MARK: Western Swing
-                    GroupBox("What is Western Swing?") {
-                        VStack(alignment: .leading, spacing: 8) {
-                            Label("Partner dance family", systemImage: "arrow.2.circlepath")
-                                .font(.headline)
-                                .foregroundStyle(.orange)
-                            Text("Western Swing is a family of **energetic partner dances** with a rotational, bouncy feel. Unlike the Two-Step's smooth glide around the floor, Swing stays mostly in one spot with **spins, turns, and playful connection** between partners.")
-                            Text("Stylistically it's **lively and syncopated** — expect triple-steps, rock steps, and lots of pretzel-like arm patterns. The three main variations are **East Coast Swing** (6-count, triple-steps), **West Coast Swing** (slotted, smooth, elastic), and **Country Jitterbug** (simpler single-step version).")
-                            Text("Swing pairs well with up-tempo honky-tonk and rockabilly songs where Two-Step would feel too slow.")
-                        }
-                    }
-                    .padding(.horizontal)
-
-                    // MARK: Waltzes
-                    GroupBox("What are Waltzes & Schottisches?") {
-                        VStack(alignment: .leading, spacing: 8) {
-                            Label("Graceful, traveling partner dances", systemImage: "music.quarternote.3")
-                                .font(.headline)
-                                .foregroundStyle(.orange)
-                            Text("The **Country Waltz** is a flowing, graceful partner dance in **3/4 time** — counted 1-2-3, 1-2-3. Unlike ballroom waltzes that stay in a box, country waltzes **travel continuously around the floor**, with long rising-and-falling steps that feel almost like floating.")
-                            Text("Stylistically: **smooth, elegant, and romantic**. Close partner frame, gentle rotation, and soft knees that rise on beat 1 and settle on beats 2-3.")
-                            Text("The **Schottische** is a close cousin in **4/4 time** with a distinct step-step-step-hop pattern. It's livelier than a waltz but still traveling — often done in partner hold or as a line dance variation at Texas dance halls.")
-                        }
-                    }
-                    .padding(.horizontal)
-
-                    // MARK: Core concepts
-                    GroupBox("What is a Beat?") {
-                        Text("Every song has a steady pulse called the **beat**. Think of a clock ticking or your heart beating. Dancers move on these beats.")
-                    }
-                    .padding(.horizontal)
-
-                    GroupBox("How to Count Music") {
-                        Text("Most country songs are counted in groups of 4 beats: 1-2-3-4, 1-2-3-4...\n\nTwo-Step timing is **Quick-Quick-Slow-Slow** — counted 1-2-3-4 where the first two are fast steps and the last two are slow (each slow holds for 2 beats).")
-                    }
-                    .padding(.horizontal)
-
-                    GroupBox("What is BPM?") {
-                        Text("**BPM = Beats Per Minute**, the speed of a song. Slow dances are around 90 BPM. Two-Step is typically 160–180 BPM. The metronome below helps you feel the pace.")
-                    }
-                    .padding(.horizontal)
-
-                    // MARK: What is a Metronome
-                    GroupBox("What is a Metronome?") {
-                        VStack(alignment: .leading, spacing: 8) {
-                            Text("A **metronome** is a tool that produces a steady, repeating click at a set tempo. Musicians and dancers use it to **internalize timing** before adding music — you feel the beat without the distraction of melody, lyrics, or instrumentation.")
-                            Text("**How to use it for dance:** Pick the BPM of the dance you're learning (shown on each dance's detail page). Start the metronome, count along with the clicks, and practice your footwork **slowly at a lower BPM first**, then gradually work up to the real song speed.")
-                            Text("Tip: if you can comfortably step on every click at 120 BPM, you're ready to try a real song at that tempo.")
-                        }
-                    }
-                    .padding(.horizontal)
-
-                    // MARK: Metronome (embedded)
-                    metronomeSection
+                    // MARK: Learning Path (Phase 4)
+                    CurriculumView(store: store)
                         .padding(.horizontal)
 
-                    // MARK: Floor safety quick-ref
-                    floorSafetyTip
+                    // MARK: Practice Tools
+                    metronomeSection
                         .padding(.horizontal)
 
                     // MARK: Glossary tip
@@ -192,39 +110,6 @@ struct BeginnerBootcampView: View {
             Text(text)
                 .font(.subheadline)
                 .foregroundStyle(.secondary)
-        }
-    }
-
-    // MARK: - Floor safety tip (Phase 2.2 summary)
-
-    private var floorSafetyTip: some View {
-        GroupBox {
-            VStack(alignment: .leading, spacing: 10) {
-                Label("The Dance Floor Has Rules", systemImage: "arrow.counterclockwise.circle.fill")
-                    .font(.headline)
-                    .foregroundStyle(WesternTheme.primaryDark)
-
-                Text("Partner dances like Two-Step travel **counterclockwise** around the floor — this is the Line of Dance. Spot dances (line dancing, Swing) stay in the center.")
-                    .font(.subheadline)
-                    .foregroundStyle(.secondary)
-
-                Text("Never stop in the middle of the dance floor, never travel against the counterclockwise flow, and always look ahead for other couples.")
-                    .font(.subheadline)
-                    .foregroundStyle(.secondary)
-
-                NavigationLink {
-                    SafetyEtiquetteView()
-                } label: {
-                    HStack(spacing: 6) {
-                        Text("Full Floor Safety Guide")
-                        Image(systemName: "arrow.right")
-                    }
-                    .font(.subheadline.weight(.semibold))
-                    .foregroundStyle(WesternTheme.primary)
-                }
-                .buttonStyle(.plain)
-            }
-            .frame(maxWidth: .infinity, alignment: .leading)
         }
     }
 
