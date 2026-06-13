@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct DanceListView: View {
-    @Bindable var store: DanceStore
+    let store: DanceStore
     @State private var searchText = ""
     @State private var debouncedSearch = ""
     /// Cached filter+group+sort result. Updated only when debouncedSearch changes,
@@ -58,7 +58,7 @@ struct DanceListView: View {
 
 private struct DanceRow: View {
     let dance: Dance
-    @Bindable var store: DanceStore
+    let store: DanceStore
 
     private var isFavorite: Bool { store.favorites.contains(dance.id) }
 

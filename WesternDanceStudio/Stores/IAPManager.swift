@@ -35,9 +35,13 @@ final class IAPManager {
     /// The last user-visible error from a purchase or restore attempt.
     private(set) var lastError: String?
 
+    private enum Keys {
+        static let isPremium = "IAPManager.isPremium"
+    }
+
     private init() {
         // Read cached purchased state optimistically so UI updates fast on cold launch.
-        isPremium = UserDefaults.standard.bool(forKey: "IAPManager.isPremium")
+        isPremium = UserDefaults.standard.bool(forKey: Keys.isPremium)
 
         #if DEBUG
         // SCREENSHOT MODE: when this is true, premium is forced on so banner
@@ -209,6 +213,6 @@ final class IAPManager {
 
     private func setPremium(_ value: Bool) {
         isPremium = value
-        UserDefaults.standard.set(value, forKey: "IAPManager.isPremium")
+        UserDefaults.standard.set(value, forKey: Keys.isPremium)
     }
 }
