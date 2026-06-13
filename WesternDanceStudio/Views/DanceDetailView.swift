@@ -3,28 +3,33 @@ import AVKit
 
 struct DanceDetailView: View {
     let dance: Dance
-    @Bindable var store: DanceStore
-    @State private var selectedPerspective: Perspective = .lead
+    let store: DanceStore
+    @State private var selectedPerspective: Perspective = .leader
     @State private var player = ObservablePlayer()
     @State private var stepsExpanded: Bool = true
 
     enum Perspective: String, CaseIterable, Identifiable {
-        case lead = "Lead (Gentlemen)"
-        case follow = "Follow (Ladies)"
+        case leader = "Leader"
+        case follower = "Follower"
         var id: String { rawValue }
     }
 
     private var currentVideoURL: URL? {
-        selectedPerspective == .lead ? dance.maleVideoURL : dance.femaleVideoURL
+        selectedPerspective == .leader ? dance.leaderVideoURL : dance.followerVideoURL
     }
 
     /// Partner dances: honor the selected perspective.
     /// Solo dances (line dances): always show the single lead-step list.
     private var currentSteps: [String] {
         if dance.hasPartnerPerspectives {
-            return selectedPerspective == .lead ? dance.leadSteps : dance.followSteps
+            return selectedPerspective == .leader ? dance.leadSteps : dance.followSteps
         }
         return dance.leadSteps
+    }
+
+    private var currentStructuredSteps: [DanceStep]? {
+        guard dance.hasPartnerPerspectives else { return dance.leaderStepData }
+        return selectedPerspective == .leader ? dance.leaderStepData : dance.followerStepData
     }
 
     private var isFavorite: Bool { store.favorites.contains(dance.id) }
@@ -39,6 +44,7 @@ struct DanceDetailView: View {
                     perspectivePicker
                 }
                 stepsSection
+                structuredStepsSection
                 tempoSection
                 songsSection
             }
@@ -190,6 +196,65 @@ struct DanceDetailView: View {
             .frame(maxWidth: .infinity, alignment: .leading)
         }
         .padding(.horizontal)
+    }
+
+    @ViewBuilder
+    private var structuredStepsSection: some View {
+        if let steps = currentStructuredSteps {
+            GroupBox("Beat Chart") {
+                VStack(spacing: 0) {
+                    // Header row
+                    HStack(spacing: 0) {
+                        Text("#").frame(width: 28, alignment: .center)
+                        Text("Beat").frame(width: 44, alignment: .center)
+                        Text("Foot").frame(width: 44, alignment: .center)
+                        Text("Direction").frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+                        Text("Q/S").frame(width: 32, alignment: .center)
+                    }
+                    .font(.caption.weight(.semibold))
+                    .foregroundStyle(.secondary)
+                    .padding(.vertical, 6)
+                    .padding(.horizontal, 4)
+
+                    Divider()
+
+                    ForEach(steps) { step in
+                        HStack(spacing: 0) {
+                            Text("\(step.count)")
+                                .frame(width: 28, alignment: .center)
+                            Text(step.beat)
+                                .frame(width: 44, alignment: .center)
+                            Text(step.foot.display)
+                                .frame(width: 44, alignment: .center)
+                                .foregroundStyle(step.foot == .left ? Color.blue : Color.orange)
+                            Text(step.direction.display)
+                                .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+                            Text(step.timing.shortDisplay)
+                                .frame(width: 32, alignment: .center)
+                                .fontWeight(.semibold)
+                                .foregroundStyle(step.timing == .quick ? WesternTheme.primaryDark : .secondary)
+                        }
+                        .font(.subheadline)
+                        .padding(.vertical, 6)
+                        .padding(.horizontal, 4)
+
+                        if let note = step.note {
+                            Text(note)
+                                .font(.caption)
+                                .foregroundStyle(.secondary)
+                                .padding(.horizontal, 4)
+                                .padding(.bottom, 4)
+                        }
+
+                        if step.id != steps.last?.id {
+                            Divider()
+                        }
+                    }
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
+            }
+            .padding(.horizontal)
+        }
     }
 
     private var tempoSection: some View {

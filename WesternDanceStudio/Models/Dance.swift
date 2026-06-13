@@ -8,8 +8,8 @@ struct Dance: Identifiable, Hashable, Codable {
     let summary: String
     /// Longer description used in lists and anywhere more context helps.
     let description: String
-    let maleVideoURL: URL?
-    let femaleVideoURL: URL?
+    let leaderVideoURL: URL?
+    let followerVideoURL: URL?
     let bpm: Int
     let isPartnerDance: Bool
     let difficulty: Int
@@ -51,7 +51,7 @@ extension Dance {
             category: .twoStep,
             summary: "The classic country partner dance — smooth, gliding, Quick-Quick-Slow-Slow around the floor.",
             description: "The classic country partner dance — also called Country Two-Step. Smooth gliding steps around the floor counter-clockwise, Quick-Quick-Slow-Slow timing.",
-            maleVideoURL: nil, femaleVideoURL: nil,
+            leaderVideoURL: nil, followerVideoURL: nil,
             bpm: 170, isPartnerDance: true, difficulty: 3,
             recommendedSongs: [
                 "Neon Moon — Brooks & Dunn",
@@ -78,7 +78,7 @@ extension Dance {
             category: .twoStep,
             summary: "Also known as Shuffle or Fort Worth Shuffle — two triple-steps then two walking steps.",
             description: "Also called the Shuffle or Fort Worth Shuffle. Two triple-steps followed by two walking steps. Counted: 1-and-2, 3-and-4, walk, walk.",
-            maleVideoURL: nil, femaleVideoURL: nil,
+            leaderVideoURL: nil, followerVideoURL: nil,
             bpm: 140, isPartnerDance: true, difficulty: 5,
             recommendedSongs: ["Boot Scootin' Boogie — Brooks & Dunn", "Fast as You — Dwight Yoakam"],
             leadSteps: [
@@ -101,7 +101,7 @@ extension Dance {
             category: .twoStep,
             summary: "Two triple-steps and two slow steps. Popular in the Dallas/Fort Worth area.",
             description: "Similar to Triple Two but emphasized with two triple-steps and two slow steps. Sometimes called Progressive Double Two-Step in the Dallas/Fort Worth area.",
-            maleVideoURL: nil, femaleVideoURL: nil,
+            leaderVideoURL: nil, followerVideoURL: nil,
             bpm: 130, isPartnerDance: true, difficulty: 5,
             recommendedSongs: ["Watermelon Crawl — Tracy Byrd", "Honky Tonk Attitude — Joe Diffie"],
             leadSteps: [
@@ -124,7 +124,7 @@ extension Dance {
             category: .twoStep,
             summary: "Slow, romantic partner dance for mid-tempo ballads. Invented by Buddy Schwimmer in the 1960s.",
             description: "Slow, romantic partner dance developed by Buddy Schwimmer in the 1960s. Danced to mid-tempo ballads in 4/4 time with a Quick-Quick-Slow rhythm.",
-            maleVideoURL: nil, femaleVideoURL: nil,
+            leaderVideoURL: nil, followerVideoURL: nil,
             bpm: 85, isPartnerDance: true, difficulty: 4,
             recommendedSongs: [
                 "Lady in Red — Chris de Burgh",
@@ -155,7 +155,7 @@ extension Dance {
             category: .twoStep,
             summary: "Texas variation with straight-line travel and defined patterns like Pop Turns and the Wrap.",
             description: "A Texas variation where the follower backs straight along the line of dance instead of zig-zagging. Keeps Quick-Quick-Slow-Slow timing but adds defined patterns like Pop Turns and the Wrap.",
-            maleVideoURL: nil, femaleVideoURL: nil,
+            leaderVideoURL: nil, followerVideoURL: nil,
             bpm: 160, isPartnerDance: true, difficulty: 4,
             recommendedSongs: ["Should've Been a Cowboy — Toby Keith", "Fishin' in the Dark — Nitty Gritty Dirt Band"],
             leadSteps: [
@@ -178,7 +178,7 @@ extension Dance {
             category: .twoStep,
             summary: "Arizona-style variation with a distinct rhythmic feel on the QQSS foundation.",
             description: "Arizona-style variation of the Two-Step with a distinct rhythmic feel. Same QQSS foundation but with different stylistic accents.",
-            maleVideoURL: nil, femaleVideoURL: nil,
+            leaderVideoURL: nil, followerVideoURL: nil,
             bpm: 150, isPartnerDance: true, difficulty: 4,
             recommendedSongs: ["My Maria — Brooks & Dunn"],
             leadSteps: [
@@ -201,7 +201,7 @@ extension Dance {
             category: .twoStep,
             summary: "Follower stands in front of the lead, both facing down the line of dance.",
             description: "Variation where the follower stands in front of the lead and both face down the line of dance. Same QQSS count, with the follower using the lead's footwork.",
-            maleVideoURL: nil, femaleVideoURL: nil,
+            leaderVideoURL: nil, followerVideoURL: nil,
             bpm: 160, isPartnerDance: true, difficulty: 6,
             recommendedSongs: ["Check Yes or No — George Strait"],
             leadSteps: [
@@ -226,7 +226,7 @@ extension Dance {
             category: .twoStep,
             summary: "The simplest country partner dance — one step per beat, walking around the floor.",
             description: "The simplest country couple dance. One step per beat of music, walking around the floor in the line of dance. Predecessor to most other country dances and still used for very fast songs where two-step timing is impossible.",
-            maleVideoURL: nil, femaleVideoURL: nil,
+            leaderVideoURL: nil, followerVideoURL: nil,
             bpm: 200, isPartnerDance: true, difficulty: 1,
             recommendedSongs: ["Deep in the Heart of Texas — traditional"],
             leadSteps: [
@@ -254,7 +254,7 @@ extension Dance {
             category: .swing,
             summary: "Upbeat 6-count swing with triple-steps and a rock step. A country bar essential.",
             description: "Classic swing partner dance with a 6-count pattern: triple-step, triple-step, rock step. Danced at most country bars to medium-to-fast tempo songs. The foundation for most country swing variations.",
-            maleVideoURL: nil, femaleVideoURL: nil,
+            leaderVideoURL: nil, followerVideoURL: nil,
             bpm: 144, isPartnerDance: true, difficulty: 4,
             recommendedSongs: ["Boot Scootin' Boogie — Brooks & Dunn", "Rock My World — Brooks & Dunn"],
             leadSteps: [
@@ -275,7 +275,7 @@ extension Dance {
             category: .swing,
             summary: "Smooth, slotted swing with elastic push-pull connection. Works with contemporary country.",
             description: "A slotted, smooth partner dance where the follower moves up and down a linear 'slot'. Features push-pull connection and elastic movement. Works with a wide range of music including contemporary country and pop.",
-            maleVideoURL: nil, femaleVideoURL: nil,
+            leaderVideoURL: nil, followerVideoURL: nil,
             bpm: 120, isPartnerDance: true, difficulty: 7,
             recommendedSongs: ["Body Like a Back Road — Sam Hunt", "Cruise — Florida Georgia Line"],
             leadSteps: [
@@ -298,7 +298,7 @@ extension Dance {
             category: .swing,
             summary: "Energetic single-step swing popular at country dance halls. Simpler than East Coast Swing.",
             description: "An energetic 6-count swing popular in country dance halls. Simpler than East Coast Swing — uses single steps instead of triple-steps, making it easier for beginners to pick up.",
-            maleVideoURL: nil, femaleVideoURL: nil,
+            leaderVideoURL: nil, followerVideoURL: nil,
             bpm: 150, isPartnerDance: true, difficulty: 3,
             recommendedSongs: ["T-R-O-U-B-L-E — Travis Tritt"],
             leadSteps: [
@@ -321,7 +321,7 @@ extension Dance {
             category: .swing,
             summary: "Show-style swing popularized by the Texas A&M Aggie Wranglers. Spins, tricks, and lifts.",
             description: "Exhibition-style swing first popularized by the Aggie Wranglers, a show dance team from Texas A&M University. Combines Polka and Jitterbug steps with spins, tricks, and lifts. Intended for performance — not typical social dancing.",
-            maleVideoURL: nil, femaleVideoURL: nil,
+            leaderVideoURL: nil, followerVideoURL: nil,
             bpm: 170, isPartnerDance: true, difficulty: 9,
             recommendedSongs: ["Deep in the Heart of Texas — various"],
             leadSteps: [
@@ -344,7 +344,7 @@ extension Dance {
             category: .swing,
             summary: "Fast, bouncy partner dance that travels around the floor. A traditional dance hall staple.",
             description: "Traditional partner dance with a lively 2/4 rhythm. Hop-step-close-step pattern travels around the floor counter-clockwise. A staple at classic Texas dance halls.",
-            maleVideoURL: nil, femaleVideoURL: nil,
+            leaderVideoURL: nil, followerVideoURL: nil,
             bpm: 120, isPartnerDance: true, difficulty: 4,
             recommendedSongs: ["Beer Barrel Polka — traditional", "In Heaven There Is No Beer — traditional"],
             leadSteps: [
@@ -369,7 +369,7 @@ extension Dance {
             category: .swing,
             summary: "Ten-count promenade dance in polka rhythm. Also called Ten Step Polka.",
             description: "Classic Western promenade dance that combines a 10-step stationary pattern with polka-style forward travel. Partners dance side-by-side in sweetheart position around the floor.",
-            maleVideoURL: nil, femaleVideoURL: nil,
+            leaderVideoURL: nil, followerVideoURL: nil,
             bpm: 120, isPartnerDance: true, difficulty: 5,
             recommendedSongs: ["Cotton Eye Joe — traditional", "What's It to You — Clay Walker"],
             leadSteps: [
@@ -389,7 +389,7 @@ extension Dance {
             category: .swing,
             summary: "Progressive country cha-cha that travels around the floor. Upbeat and fun.",
             description: "Country variation of the cha-cha that travels counter-clockwise around the dance floor. Maintains classic cha-cha timing (1, 2, 3-and-4) but with a progressive, traveling feel instead of ballroom's stationary hip action.",
-            maleVideoURL: nil, femaleVideoURL: nil,
+            leaderVideoURL: nil, followerVideoURL: nil,
             bpm: 125, isPartnerDance: true, difficulty: 5,
             recommendedSongs: ["Neon Moon — Brooks & Dunn", "My Maria — Brooks & Dunn"],
             leadSteps: [
@@ -416,7 +416,7 @@ extension Dance {
             category: .swing,
             summary: "20-count 90s-era dance. Can be done as singles, partnered, or as a line dance.",
             description: "20-count partner dance from the 1990s. Can be danced as singles, partnered, or as a line dance. Five repeated step patterns.",
-            maleVideoURL: nil, femaleVideoURL: nil,
+            leaderVideoURL: nil, followerVideoURL: nil,
             bpm: 100, isPartnerDance: true, difficulty: 5,
             recommendedSongs: ["Neon Moon — Brooks & Dunn", "Gone Country — Alan Jackson"],
             leadSteps: [
@@ -437,7 +437,7 @@ extension Dance {
             category: .swing,
             summary: "Ten stationary footwork steps followed by forward shuffles. Danced as partners with optional twirls.",
             description: "Partner dance with ten stationary footwork steps followed by a series of forward shuffles. The pair holds hands and repeats the pattern with optional twirls.",
-            maleVideoURL: nil, femaleVideoURL: nil,
+            leaderVideoURL: nil, followerVideoURL: nil,
             bpm: 140, isPartnerDance: true, difficulty: 5,
             recommendedSongs: ["What's It to You — Clay Walker"],
             leadSteps: [
@@ -459,7 +459,7 @@ extension Dance {
             category: .swing,
             summary: "Circle-style partner promenade danced around the floor as a group.",
             description: "Traditional Western promenade dance where couples form a large circle (horseshoe) and travel around the floor together. Includes a round-the-room couples mixer.",
-            maleVideoURL: nil, femaleVideoURL: nil,
+            leaderVideoURL: nil, followerVideoURL: nil,
             bpm: 130, isPartnerDance: true, difficulty: 4,
             recommendedSongs: ["Should've Been a Cowboy — Toby Keith"],
             leadSteps: [
@@ -484,7 +484,7 @@ extension Dance {
             category: .waltz,
             summary: "Graceful 3/4 partner dance that travels continuously around the line of dance.",
             description: "Beautiful, graceful partner dance in 3/4 time. Unlike ballroom waltz's box pattern, Country Waltz travels continuously around the dance floor in the line of dance.",
-            maleVideoURL: nil, femaleVideoURL: nil,
+            leaderVideoURL: nil, followerVideoURL: nil,
             bpm: 90, isPartnerDance: true, difficulty: 3,
             recommendedSongs: ["Tennessee Waltz — Patti Page", "Could I Have This Dance — Anne Murray"],
             leadSteps: [
@@ -511,7 +511,7 @@ extension Dance {
             category: .waltz,
             summary: "Smooth rotating waltz with a signature cross-step on the first beat.",
             description: "A modern partner waltz where the dancers cross one foot over the other on the first beat of each measure, then step side and forward. Popular as a social alternative to rotary waltz.",
-            maleVideoURL: nil, femaleVideoURL: nil,
+            leaderVideoURL: nil, followerVideoURL: nil,
             bpm: 100, isPartnerDance: true, difficulty: 5,
             recommendedSongs: ["Fields of Gold — Sting", "The Dance — Garth Brooks"],
             leadSteps: [
@@ -531,7 +531,7 @@ extension Dance {
             category: .waltz,
             summary: "1940s-era Texas waltz where the lead follows behind the follow. Distinctive traveling feel.",
             description: "A modern (1940s-50s) waltz variation from the West where the lead 'pursues' the follow down the line of dance rather than the traditional closed-frame rotary pattern. Distinctive Texas dance-hall flavor.",
-            maleVideoURL: nil, femaleVideoURL: nil,
+            leaderVideoURL: nil, followerVideoURL: nil,
             bpm: 95, isPartnerDance: true, difficulty: 4,
             recommendedSongs: ["You Look So Good in Love — George Strait"],
             leadSteps: [
@@ -558,7 +558,7 @@ extension Dance {
             category: .waltz,
             summary: "36-step partner/circle waltz that progresses through four walls like a line dance.",
             description: "Stationary partner waltz with a 36-step pattern that progresses through four walls, similar to a line dance. Often danced alone or in a circle at country bars.",
-            maleVideoURL: nil, femaleVideoURL: nil,
+            leaderVideoURL: nil, followerVideoURL: nil,
             bpm: 100, isPartnerDance: true, difficulty: 4,
             recommendedSongs: ["Could I Have This Dance — Anne Murray"],
             leadSteps: [
@@ -582,7 +582,7 @@ extension Dance {
             category: .waltz,
             summary: "Traditional partner or line dance in 4/4 with a step-step-step-hop pattern.",
             description: "Romantic partner or line dance in 4/4 time with a step-step-step-hop pattern. Originated in 19th-century Europe and traveled with settlers to Texas dance halls.",
-            maleVideoURL: nil, femaleVideoURL: nil,
+            leaderVideoURL: nil, followerVideoURL: nil,
             bpm: 110, isPartnerDance: true, difficulty: 3,
             recommendedSongs: ["Cotton Eye Joe — traditional", "Put Your Little Foot — traditional"],
             leadSteps: [
@@ -607,7 +607,7 @@ extension Dance {
             category: .waltz,
             summary: "Partner schottische in sweetheart hold. Traveling step-step-step-hop pattern for couples.",
             description: "Schottische variation danced in sweetheart position (partners side by side, crossed hands in front). Classic Texas dance-hall mixer.",
-            maleVideoURL: nil, femaleVideoURL: nil,
+            leaderVideoURL: nil, followerVideoURL: nil,
             bpm: 115, isPartnerDance: true, difficulty: 4,
             recommendedSongs: ["All You Ever Do Is Bring Me Down — The Mavericks"],
             leadSteps: [
@@ -638,7 +638,7 @@ extension Dance {
             category: .other,
             summary: "Four couples in a square following a caller. America's traditional folk dance.",
             description: "Traditional American folk dance where four couples form a square and follow the instructions of a caller. Calls include allemande left, do-si-do, promenade, and swing your partner.",
-            maleVideoURL: nil, femaleVideoURL: nil,
+            leaderVideoURL: nil, followerVideoURL: nil,
             bpm: 130, isPartnerDance: true, difficulty: 3,
             recommendedSongs: ["Turkey in the Straw — traditional", "Orange Blossom Special — traditional"],
             leadSteps: [
@@ -659,7 +659,7 @@ extension Dance {
             category: .other,
             summary: "Two long lines facing each other, progressive couples dance with a caller.",
             description: "Traditional American folk dance where couples form two long parallel lines facing each other. The dance progresses as couples move up or down the line to new partners. Like square dance with a caller.",
-            maleVideoURL: nil, femaleVideoURL: nil,
+            leaderVideoURL: nil, followerVideoURL: nil,
             bpm: 120, isPartnerDance: true, difficulty: 3,
             recommendedSongs: ["Old-time fiddle tunes"],
             leadSteps: [
@@ -678,7 +678,7 @@ extension Dance {
             category: .other,
             summary: "Appalachian step dance — percussive footwork with heel and toe taps.",
             description: "Appalachian step dance danced in groups to bluegrass or old-time music. Features percussive heel-and-toe footwork similar to tap dance but with distinct mountain-music roots. Often performed in rhinestone costumes at competitions.",
-            maleVideoURL: nil, femaleVideoURL: nil,
+            leaderVideoURL: nil, followerVideoURL: nil,
             bpm: 120, isPartnerDance: false, difficulty: 5,
             recommendedSongs: ["Rocky Top — Osborne Brothers", "Orange Blossom Special — Johnny Cash"],
             leadSteps: [
@@ -703,7 +703,7 @@ extension Dance {
             category: .lineDance,
             summary: "18-count 4-wall beginner favorite. Grapevines right and left, walk-back, quarter turn.",
             description: "Choreographed by Ric Silver in 1976. 18-count, 4-wall dance made famous by Marcia Griffiths' Electric Boogie. An easy starting point for beginners.",
-            maleVideoURL: nil, femaleVideoURL: nil,
+            leaderVideoURL: nil, followerVideoURL: nil,
             bpm: 120, isPartnerDance: false, difficulty: 2,
             recommendedSongs: [
                 "Electric Boogie — Marcia Griffiths",
@@ -727,7 +727,7 @@ extension Dance {
             category: .lineDance,
             summary: "32-count beginner favorite. The lyrics tell you every move.",
             description: "32-count line dance by Cupid (Bernard Bryson), 2006. Lyrics call out the moves — great for beginners and crossover crowds.",
-            maleVideoURL: nil, femaleVideoURL: nil,
+            leaderVideoURL: nil, followerVideoURL: nil,
             bpm: 125, isPartnerDance: false, difficulty: 1,
             recommendedSongs: ["Cupid Shuffle — Cupid"],
             leadSteps: [
@@ -745,7 +745,7 @@ extension Dance {
             category: .lineDance,
             summary: "The lyrics call every move. Perfect for mixed crowds and weddings.",
             description: "Party line dance by DJ Casper where the lyrics call out every move. Perfect for mixed crowds — country bars to weddings.",
-            maleVideoURL: nil, femaleVideoURL: nil,
+            leaderVideoURL: nil, followerVideoURL: nil,
             bpm: 120, isPartnerDance: false, difficulty: 1,
             recommendedSongs: ["Cha-Cha Slide — DJ Casper"],
             leadSteps: [
@@ -764,7 +764,7 @@ extension Dance {
             category: .lineDance,
             summary: "Party crowd-pleaser to V.I.C.'s hit. Step right, step left, wobble, bounce.",
             description: "Party line dance to V.I.C.'s 'Wobble'. Simple crowd-pleaser — steps right, left, wobble front/back, and bounce in place.",
-            maleVideoURL: nil, femaleVideoURL: nil,
+            leaderVideoURL: nil, followerVideoURL: nil,
             bpm: 125, isPartnerDance: false, difficulty: 1,
             recommendedSongs: ["Wobble — V.I.C."],
             leadSteps: [
@@ -783,7 +783,7 @@ extension Dance {
             category: .lineDance,
             summary: "Billy Ray Cyrus's 1992 classic. The line dance that launched the 90s country craze.",
             description: "The line dance that brought country line dancing into the mainstream. Choreographed to Billy Ray Cyrus's 1992 mega-hit. Heel struts, hip swings, and quarter turns.",
-            maleVideoURL: nil, femaleVideoURL: nil,
+            leaderVideoURL: nil, followerVideoURL: nil,
             bpm: 120, isPartnerDance: false, difficulty: 2,
             recommendedSongs: ["Achy Breaky Heart — Billy Ray Cyrus"],
             leadSteps: [
@@ -805,7 +805,7 @@ extension Dance {
             category: .lineDance,
             summary: "Slow-tempo beginner line dance with simple step-touches and vines.",
             description: "Slow-tempo country-western line dance with simple repeated footwork. Great for beginners.",
-            maleVideoURL: nil, femaleVideoURL: nil,
+            leaderVideoURL: nil, followerVideoURL: nil,
             bpm: 95, isPartnerDance: false, difficulty: 2,
             recommendedSongs: ["Cotton Eye Joe — Rednex", "Neon Moon — Brooks & Dunn"],
             leadSteps: [
@@ -826,7 +826,7 @@ extension Dance {
             category: .lineDance,
             summary: "Easy grapevines, hip bumps, and walks. Works to many country songs.",
             description: "Classic line dance done to many country songs. Easy to learn, plenty of regional variations — a great intro dance.",
-            maleVideoURL: nil, femaleVideoURL: nil,
+            leaderVideoURL: nil, followerVideoURL: nil,
             bpm: 120, isPartnerDance: false, difficulty: 2,
             recommendedSongs: ["Ridin' the Rodeo — various", "Wagon Wheel — Darius Rucker"],
             leadSteps: [
@@ -847,7 +847,7 @@ extension Dance {
             category: .lineDance,
             summary: "Beginner-friendly line dance with heel touches, grapevines, and a quarter turn.",
             description: "Easy beginner line dance choreographed by Barbara Hile. Friendly entry point for someone new to line dancing.",
-            maleVideoURL: nil, femaleVideoURL: nil,
+            leaderVideoURL: nil, followerVideoURL: nil,
             bpm: 120, isPartnerDance: false, difficulty: 2,
             recommendedSongs: ["Cowboy Up — Jill Johnson"],
             leadSteps: [
@@ -868,7 +868,7 @@ extension Dance {
             category: .lineDance,
             summary: "1990s worldwide craze. Arm sequence then hip sway and jump-turn.",
             description: "Los Del Rio's 1990s hit. Series of arm movements (hands out, palms down, shoulders, head, hips) followed by a hip sway and jump-turn. Danced in country bars worldwide despite being a Spanish song.",
-            maleVideoURL: nil, femaleVideoURL: nil,
+            leaderVideoURL: nil, followerVideoURL: nil,
             bpm: 105, isPartnerDance: false, difficulty: 1,
             recommendedSongs: ["Macarena — Los Del Rio"],
             leadSteps: [
@@ -896,7 +896,7 @@ extension Dance {
             category: .lineDance,
             summary: "Iconic Irish-flavored line dance with kicks and jumping spins.",
             description: "Iconic line dance to Steve Earle's 1988 country-rock hit. Includes Irish-style kicks and hops.",
-            maleVideoURL: nil, femaleVideoURL: nil,
+            leaderVideoURL: nil, followerVideoURL: nil,
             bpm: 130, isPartnerDance: false, difficulty: 3,
             recommendedSongs: ["Copperhead Road — Steve Earle"],
             leadSteps: [
@@ -918,7 +918,7 @@ extension Dance {
             category: .lineDance,
             summary: "Heel struts, grapevines, and hip bumps to the Brooks & Dunn hit.",
             description: "Classic 4-wall line dance to the Brooks & Dunn hit. Features heel struts, grapevines, and hip bumps.",
-            maleVideoURL: nil, femaleVideoURL: nil,
+            leaderVideoURL: nil, followerVideoURL: nil,
             bpm: 110, isPartnerDance: false, difficulty: 3,
             recommendedSongs: ["Boot Scootin' Boogie — Brooks & Dunn"],
             leadSteps: [
@@ -941,7 +941,7 @@ extension Dance {
             category: .lineDance,
             summary: "Playful line dance featuring grapevines, heel steps, and a pivot turn.",
             description: "Playful line dance made famous by Tracy Byrd's hit. Features grapevines, heel steps, and a pivot turn.",
-            maleVideoURL: nil, femaleVideoURL: nil,
+            leaderVideoURL: nil, followerVideoURL: nil,
             bpm: 100, isPartnerDance: false, difficulty: 3,
             recommendedSongs: ["Watermelon Crawl — Tracy Byrd"],
             leadSteps: [
@@ -967,7 +967,7 @@ extension Dance {
             category: .lineDance,
             summary: "Classic Texas line dance with heel kicks and polka-step travel.",
             description: "Classic country line dance to the Rednex version of the traditional folk tune. Features kicks, heel touches, and polka-style forward movement.",
-            maleVideoURL: nil, femaleVideoURL: nil,
+            leaderVideoURL: nil, followerVideoURL: nil,
             bpm: 150, isPartnerDance: false, difficulty: 3,
             recommendedSongs: ["Cotton Eye Joe — Rednex"],
             leadSteps: [
@@ -990,7 +990,7 @@ extension Dance {
             category: .lineDance,
             summary: "Classic 90s line dance with stomps, heel digs, and a quarter turn.",
             description: "Classic country line dance with stomps, heel touches, and quarter turns. A 90s country bar staple popularized by Shania Twain's 'Any Man of Mine'.",
-            maleVideoURL: nil, femaleVideoURL: nil,
+            leaderVideoURL: nil, followerVideoURL: nil,
             bpm: 130, isPartnerDance: false, difficulty: 3,
             recommendedSongs: ["Any Man of Mine — Shania Twain"],
             leadSteps: [
@@ -1014,7 +1014,7 @@ extension Dance {
             category: .lineDance,
             summary: "Circle-style 'round-the-room' line dance with optional couple moves.",
             description: "Circle-style line dance, danced in the round. Includes couple moves within the line formation. Popularized by Toby Keith's 'Should've Been a Cowboy'.",
-            maleVideoURL: nil, femaleVideoURL: nil,
+            leaderVideoURL: nil, followerVideoURL: nil,
             bpm: 130, isPartnerDance: false, difficulty: 4,
             recommendedSongs: ["Should've Been a Cowboy — Toby Keith"],
             leadSteps: [
@@ -1034,7 +1034,7 @@ extension Dance {
             category: .lineDance,
             summary: "32-count 4-wall dance with lots of rocking back and forth.",
             description: "32-count, 4-wall line dance choreographed by Trevor Thorton in 2015. Lots of rocking back and forth.",
-            maleVideoURL: nil, femaleVideoURL: nil,
+            leaderVideoURL: nil, followerVideoURL: nil,
             bpm: 115, isPartnerDance: false, difficulty: 3,
             recommendedSongs: ["Cut 'em All — Colt Ford ft. Willie Robertson"],
             leadSteps: [
@@ -1057,7 +1057,7 @@ extension Dance {
             category: .lineDance,
             summary: "Upbeat line dance that starts with a distinctive boot kick.",
             description: "Upbeat line dance that emerged alongside Chris Young's 2013 hit. Starts with a distinctive boot kick.",
-            maleVideoURL: nil, femaleVideoURL: nil,
+            leaderVideoURL: nil, followerVideoURL: nil,
             bpm: 130, isPartnerDance: false, difficulty: 3,
             recommendedSongs: ["Aw Naw — Chris Young"],
             leadSteps: [
@@ -1078,7 +1078,7 @@ extension Dance {
             category: .lineDance,
             summary: "90s line dance to Vince Gill's 1994 country chart hit. Twisting heels and hip moves.",
             description: "Line dance choreographed to Vince Gill's 1994 country hit. Features twisting heels, hip work, and grapevines in a fun, playful pattern.",
-            maleVideoURL: nil, femaleVideoURL: nil,
+            leaderVideoURL: nil, followerVideoURL: nil,
             bpm: 120, isPartnerDance: false, difficulty: 3,
             recommendedSongs: ["What the Cowgirls Do — Vince Gill"],
             leadSteps: [
@@ -1099,7 +1099,7 @@ extension Dance {
             category: .lineDance,
             summary: "Smooth line dance with touches, kick-ball-changes, and a jazz box.",
             description: "Smooth line dance originally done to Alannah Myles' hit. Simple five-step pattern with touches, kick-ball-changes, and a jazz box.",
-            maleVideoURL: nil, femaleVideoURL: nil,
+            leaderVideoURL: nil, followerVideoURL: nil,
             bpm: 100, isPartnerDance: false, difficulty: 4,
             recommendedSongs: ["Black Velvet — Alannah Myles"],
             leadSteps: [
@@ -1122,7 +1122,7 @@ extension Dance {
             category: .lineDance,
             summary: "Cajun-flavored line dance with hip sways and quick turns.",
             description: "Fun line dance with Cajun-influenced moves. Features hip sways, grapevines, and quick turns.",
-            maleVideoURL: nil, femaleVideoURL: nil,
+            leaderVideoURL: nil, followerVideoURL: nil,
             bpm: 120, isPartnerDance: false, difficulty: 4,
             recommendedSongs: ["Swamp Thing — The Grid"],
             leadSteps: [
@@ -1144,7 +1144,7 @@ extension Dance {
             category: .lineDance,
             summary: "Zig-zag, shuffle, and spin to Miley Cyrus's Hannah Montana hit.",
             description: "Line dance to Miley Cyrus's 'Hoedown Throwdown' from the 2009 Hannah Montana movie. Features zig-zagging across the floor, diagonal shuffles, a one-footed 180 twist, and three claps.",
-            maleVideoURL: nil, femaleVideoURL: nil,
+            leaderVideoURL: nil, followerVideoURL: nil,
             bpm: 125, isPartnerDance: false, difficulty: 4,
             recommendedSongs: ["Hoedown Throwdown — Miley Cyrus"],
             leadSteps: [
@@ -1165,7 +1165,7 @@ extension Dance {
             category: .lineDance,
             summary: "40-count, 4-wall line dance with hip bumps and cha-cha steps. Jim Ferrazzano's 80s classic.",
             description: "Choreographed by Jim Ferrazzano in the 1980s. 40-count, 4-wall dance featuring hip bumps, grapevines, and cha-cha steps. One of the most widespread line dances.",
-            maleVideoURL: nil, femaleVideoURL: nil,
+            leaderVideoURL: nil, followerVideoURL: nil,
             bpm: 120, isPartnerDance: false, difficulty: 4,
             recommendedSongs: ["Chattahoochee — Alan Jackson", "Boot Scootin' Boogie — Brooks & Dunn"],
             leadSteps: [
@@ -1189,7 +1189,7 @@ extension Dance {
             category: .lineDance,
             summary: "32-count mix of claps, slides, and struts. Beginner-to-intermediate favorite.",
             description: "32-count line dance with a mix of claps, slides, and struts. A great transitional dance as you move from beginner to intermediate level.",
-            maleVideoURL: nil, femaleVideoURL: nil,
+            leaderVideoURL: nil, followerVideoURL: nil,
             bpm: 120, isPartnerDance: false, difficulty: 4,
             recommendedSongs: ["Bring on the Good Times — Lisa McHugh"],
             leadSteps: [
@@ -1212,7 +1212,7 @@ extension Dance {
             category: .lineDance,
             summary: "48-count line dance with smooth tango-inspired slides and box steps.",
             description: "48-count, 4-wall line dance choreographed by Adrian Churm. Smooth tango-inspired slides, box steps, and stomps.",
-            maleVideoURL: nil, femaleVideoURL: nil,
+            leaderVideoURL: nil, followerVideoURL: nil,
             bpm: 100, isPartnerDance: false, difficulty: 5,
             recommendedSongs: ["Cha Tango — Dave Sheriff"],
             leadSteps: [
@@ -1238,7 +1238,7 @@ extension Dance {
             category: .lineDance,
             summary: "Fast honky-tonk favorite with heel slaps, kicks, and a pivot turn.",
             description: "Fast-paced classic country line dance with heel slaps, kicks, scuffs, and a pivot turn. A honky-tonk favorite.",
-            maleVideoURL: nil, femaleVideoURL: nil,
+            leaderVideoURL: nil, followerVideoURL: nil,
             bpm: 140, isPartnerDance: false, difficulty: 5,
             recommendedSongs: ["T-R-O-U-B-L-E — Travis Tritt"],
             leadSteps: [
@@ -1268,7 +1268,7 @@ extension Dance {
             category: .lineDance,
             summary: "Rowdy 1994 Tim McGraw line dance with pounding rhythm and big footwork.",
             description: "Line dance to Tim McGraw's 1994 breakout hit. Pounding rhythm, stomps, kicks, and energetic footwork that fills a dance floor.",
-            maleVideoURL: nil, femaleVideoURL: nil,
+            leaderVideoURL: nil, followerVideoURL: nil,
             bpm: 135, isPartnerDance: false, difficulty: 5,
             recommendedSongs: ["Indian Outlaw — Tim McGraw"],
             leadSteps: [
@@ -1291,7 +1291,7 @@ extension Dance {
             category: .lineDance,
             summary: "High-energy line dance to the Kenny Loggins classic. Kicks, spins, and shuffles.",
             description: "High-energy line dance to Kenny Loggins' 'Footloose' (also redone by Blake Shelton). Fast kicks, grapevine spins, and shuffles.",
-            maleVideoURL: nil, femaleVideoURL: nil,
+            leaderVideoURL: nil, followerVideoURL: nil,
             bpm: 172, isPartnerDance: false, difficulty: 6,
             recommendedSongs: ["Footloose — Kenny Loggins", "Footloose — Blake Shelton"],
             leadSteps: [
@@ -1316,7 +1316,7 @@ extension Dance {
             category: .lineDance,
             summary: "Crowd-favorite line dance to Alan Jackson's 2008 summer anthem.",
             description: "Line dance to Alan Jackson's 'Good Time'. Simple pattern of struts, grapevines, and hip pops that's perfect for a summer backyard party.",
-            maleVideoURL: nil, femaleVideoURL: nil,
+            leaderVideoURL: nil, followerVideoURL: nil,
             bpm: 115, isPartnerDance: false, difficulty: 3,
             recommendedSongs: ["Good Time — Alan Jackson"],
             leadSteps: [
@@ -1342,7 +1342,7 @@ extension Dance {
             category: .twoStep,
             summary: "One of the two 'original' Texas two-steps — a bouncy, playful sweetheart-position dance taught at the Broken Spoke.",
             description: "Schatzi (German for 'sweetheart') is a historical Texas two-step danced in sweetheart/promenade position with both partners facing the line of dance. Unlike the smooth Classic Texas Two-Step, the Schatzi has a bouncy, playful character with vines, scuffs, underarm turns, and forward-back walks. Teri White explicitly teaches the Schatzi at the Broken Spoke in Austin as part of Texas dance-hall tradition.",
-            maleVideoURL: nil, femaleVideoURL: nil,
+            leaderVideoURL: nil, followerVideoURL: nil,
             bpm: 110, isPartnerDance: true, difficulty: 4,
             recommendedSongs: ["Waltz Across Texas — Ernest Tubb", "Four Walls — Jim Reeves"],
             leadSteps: [
@@ -1372,7 +1372,7 @@ extension Dance {
             category: .twoStep,
             summary: "Bouncy, diagonal-moving Texas Two-Step variant popular on crowded honky-tonk floors.",
             description: "Also called the 'Texas Shuffle' or 'Fort Worth Shuffle'. A relaxed variant of the Texas Two-Step where the quick steps almost come together in a bouncy, diagonal shuffle. It's the most popular style on the crowded Broken Spoke floor because it travels less than the classic two-step — perfect for packed dance halls.",
-            maleVideoURL: nil, femaleVideoURL: nil,
+            leaderVideoURL: nil, followerVideoURL: nil,
             bpm: 128, isPartnerDance: true, difficulty: 2,
             recommendedSongs: ["All My Ex's Live in Texas — George Strait", "Friends in Low Places — Garth Brooks"],
             leadSteps: [
@@ -1401,7 +1401,7 @@ extension Dance {
             category: .lineDance,
             summary: "Novelty party line dance with flapping arms and playful beaks — the wedding and Oktoberfest classic.",
             description: "Originating in Switzerland in the 1950s and popularized worldwide, the Chicken Dance is a 16-count novelty dance performed to the 'Birdie Song'. Silly, infectious, and perfect for family events — a guaranteed crowd-pleaser at weddings, birthdays, and Oktoberfest.",
-            maleVideoURL: nil, femaleVideoURL: nil,
+            leaderVideoURL: nil, followerVideoURL: nil,
             bpm: 110, isPartnerDance: false, difficulty: 1,
             recommendedSongs: ["The Chicken Dance — Werner Thomas", "Dance Little Bird — Bob Kames"],
             leadSteps: [
@@ -1424,7 +1424,7 @@ extension Dance {
             category: .lineDance,
             summary: "Disco-era party classic where everyone spells out Y-M-C-A with their arms during the chorus.",
             description: "The Village People's 1978 hit remains one of the most-played party dances in history. While the verses feature optional line-dance footwork, the core of the dance is spelling Y-M-C-A overhead with your arms during each chorus — universally recognized and danced at weddings, ballgames, and parties everywhere.",
-            maleVideoURL: nil, femaleVideoURL: nil,
+            leaderVideoURL: nil, followerVideoURL: nil,
             bpm: 127, isPartnerDance: false, difficulty: 1,
             recommendedSongs: ["Y.M.C.A. — Village People"],
             leadSteps: [
@@ -1449,7 +1449,7 @@ extension Dance {
             category: .lineDance,
             summary: "The newest massive country line dance — 2024's Shaboozey hit brought this 32-count beginner dance to every honky tonk.",
             description: "Choreographed by Ben Murphy in 2024 to Shaboozey's breakout crossover hit 'A Bar Song (Tipsy)'. A 32-count, 4-wall beginner dance with a playful rumba box, grapevines, heel touches, and hip bumps — one of the most popular new additions to the line dance scene.",
-            maleVideoURL: nil, femaleVideoURL: nil,
+            leaderVideoURL: nil, followerVideoURL: nil,
             bpm: 81, isPartnerDance: false, difficulty: 2,
             recommendedSongs: ["A Bar Song (Tipsy) — Shaboozey"],
             leadSteps: [
@@ -1475,7 +1475,7 @@ extension Dance {
             category: .lineDance,
             summary: "High-energy 32-count line dance to Luke Bryan's party anthem — shakes, stomps, and struts.",
             description: "Popular line dance to Luke Bryan's 'Country Girl (Shake It For Me)'. Features hip shakes, stomps, grapevines, and a quarter-turn pattern that lets the whole floor face each wall over four rotations. Beginner-friendly but genuinely fun at full tempo.",
-            maleVideoURL: nil, femaleVideoURL: nil,
+            leaderVideoURL: nil, followerVideoURL: nil,
             bpm: 124, isPartnerDance: false, difficulty: 3,
             recommendedSongs: ["Country Girl (Shake It For Me) — Luke Bryan"],
             leadSteps: [
@@ -1501,7 +1501,7 @@ extension Dance {
             category: .lineDance,
             summary: "32-count pop-country crossover line dance featuring hip rolls, turns, and a modern club feel.",
             description: "Line dance choreographed to Robin Thicke's 2013 hit 'Blurred Lines'. A 32-count, 4-wall intermediate dance with hip rolls, shuffles, and quarter turns that brought a modern pop-club energy to country dance halls during the early 2010s.",
-            maleVideoURL: nil, femaleVideoURL: nil,
+            leaderVideoURL: nil, followerVideoURL: nil,
             bpm: 120, isPartnerDance: false, difficulty: 4,
             recommendedSongs: ["Blurred Lines — Robin Thicke"],
             leadSteps: [
