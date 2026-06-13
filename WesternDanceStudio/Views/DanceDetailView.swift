@@ -43,8 +43,14 @@ struct DanceDetailView: View {
                 if dance.hasPartnerPerspectives {
                     perspectivePicker
                 }
-                stepsSection
-                structuredStepsSection
+                if dance.isPartnerDance {
+                    stepsSection
+                    structuredStepsSection
+                } else if let sheet = dance.stepSheet {
+                    stepSheetSection(sheet)
+                } else {
+                    stepsSection
+                }
                 tempoSection
                 songsSection
             }
@@ -196,6 +202,124 @@ struct DanceDetailView: View {
             .frame(maxWidth: .infinity, alignment: .leading)
         }
         .padding(.horizontal)
+    }
+
+    // MARK: - Step Sheet (Phase 3 — structured line dance step sheets)
+
+    @ViewBuilder
+    private func stepSheetSection(_ sheet: LineDanceStepSheet) -> some View {
+        GroupBox {
+            VStack(alignment: .leading, spacing: 16) {
+
+                // Header badges
+                VStack(alignment: .leading, spacing: 8) {
+                    HStack(spacing: 8) {
+                        stepSheetBadge("\(sheet.totalCounts) Counts", icon: "number")
+                        stepSheetBadge(sheet.wallsDisplay, icon: "square.grid.2x2")
+                        stepSheetBadge(sheet.level.rawValue, icon: "chart.bar.fill")
+                    }
+                    if let choreo = sheet.choreographer {
+                        Label(choreo, systemImage: "person.fill")
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                    }
+                }
+
+                Divider()
+
+                // Count-by-count steps
+                VStack(alignment: .leading, spacing: 0) {
+                    ForEach(Array(sheet.steps.enumerated()), id: \.element.id) { index, step in
+                        HStack(alignment: .top, spacing: 12) {
+                            Text(step.countRange)
+                                .font(.system(.caption, design: .monospaced).weight(.semibold))
+                                .foregroundStyle(WesternTheme.primary)
+                                .frame(width: 46, alignment: .trailing)
+
+                            VStack(alignment: .leading, spacing: 3) {
+                                Text(step.figure)
+                                    .font(.subheadline.weight(.semibold))
+                                Text(step.description)
+                                    .font(.subheadline)
+                                    .foregroundStyle(.secondary)
+                                if let note = step.note {
+                                    Label(note, systemImage: "info.circle")
+                                        .font(.caption)
+                                        .foregroundStyle(.blue.opacity(0.85))
+                                        .padding(.top, 1)
+                                }
+                            }
+                        }
+                        .padding(.vertical, 8)
+
+                        if index < sheet.steps.count - 1 {
+                            Divider().padding(.leading, 58)
+                        }
+                    }
+                }
+
+                // Tags
+                if !sheet.tags.isEmpty {
+                    Divider()
+                    VStack(alignment: .leading, spacing: 6) {
+                        Label("Tags", systemImage: "tag.fill")
+                            .font(.caption.weight(.semibold))
+                            .foregroundStyle(WesternTheme.primaryDark)
+                        ForEach(sheet.tags) { tag in
+                            HStack(alignment: .top, spacing: 8) {
+                                Text("After \(tag.afterCount)")
+                                    .font(.caption.weight(.semibold))
+                                    .foregroundStyle(WesternTheme.primary)
+                                    .frame(width: 56, alignment: .trailing)
+                                Text("\(tag.addedCounts) counts: \(tag.description)")
+                                    .font(.caption)
+                                    .foregroundStyle(.secondary)
+                            }
+                        }
+                    }
+                }
+
+                // Restarts
+                if !sheet.restarts.isEmpty {
+                    Divider()
+                    VStack(alignment: .leading, spacing: 6) {
+                        Label("Restarts", systemImage: "arrow.counterclockwise")
+                            .font(.caption.weight(.semibold))
+                            .foregroundStyle(WesternTheme.primaryDark)
+                        ForEach(sheet.restarts) { restart in
+                            HStack(alignment: .top, spacing: 8) {
+                                Text("After \(restart.afterCount)")
+                                    .font(.caption.weight(.semibold))
+                                    .foregroundStyle(WesternTheme.primary)
+                                    .frame(width: 56, alignment: .trailing)
+                                Text(restart.description)
+                                    .font(.caption)
+                                    .foregroundStyle(.secondary)
+                            }
+                        }
+                    }
+                }
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
+        } label: {
+            Label("Step Sheet", systemImage: "list.number")
+                .font(.subheadline.weight(.semibold))
+                .foregroundStyle(WesternTheme.primaryDark)
+        }
+        .padding(.horizontal)
+    }
+
+    private func stepSheetBadge(_ text: String, icon: String) -> some View {
+        HStack(spacing: 4) {
+            Image(systemName: icon)
+                .font(.caption2)
+            Text(text)
+                .font(.caption.weight(.semibold))
+        }
+        .foregroundStyle(WesternTheme.primaryDark)
+        .padding(.horizontal, 8)
+        .padding(.vertical, 4)
+        .background(WesternTheme.primary.opacity(0.12), in: Capsule())
     }
 
     @ViewBuilder
