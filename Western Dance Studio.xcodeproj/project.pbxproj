@@ -11,8 +11,19 @@
 		DAD288B22F9C27AE005AB987 /* YouTubePlayerKit in Frameworks */ = {isa = PBXBuildFile; productRef = DAD288B12F9C27AE005AB987 /* YouTubePlayerKit */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		DA0007002F9B000000001007 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DA0363972F8DB59A0029568F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DA03639E2F8DB59A0029568F;
+			remoteInfo = "Western Dance Studio";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		DA03639F2F8DB59A0029568F /* Western Dance Studio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Western Dance Studio.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA0002002F9B000000001002 /* Western Dance Studio Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Western Dance Studio Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -34,6 +45,11 @@
 			path = WesternDanceStudio;
 			sourceTree = "<group>";
 		};
+		DA0003002F9B000000001003 /* WesternDanceStudioTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = WesternDanceStudioTests;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +59,13 @@
 			files = (
 				DAD288B22F9C27AE005AB987 /* YouTubePlayerKit in Frameworks */,
 				DACF2EE52F9ADF6300F7258D /* GoogleMobileAds in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DA0005002F9B000000001005 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				DA03639F2F8DB59A0029568F /* Western Dance Studio.app */,
+				DA0002002F9B000000001002 /* Western Dance Studio Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -92,6 +116,26 @@
 			productReference = DA03639F2F8DB59A0029568F /* Western Dance Studio.app */;
 			productType = "com.apple.product-type.application";
 		};
+		DA0001002F9B000000001001 /* Western Dance Studio Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DA000A002F9B00000000100A /* Build configuration list for PBXNativeTarget "Western Dance Studio Tests" */;
+			buildPhases = (
+				DA0004002F9B000000001004 /* Sources */,
+				DA0005002F9B000000001005 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DA0006002F9B000000001006 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				DA0003002F9B000000001003 /* WesternDanceStudioTests */,
+			);
+			name = "Western Dance Studio Tests";
+			productName = "Western Dance Studio Tests";
+			productReference = DA0002002F9B000000001002 /* Western Dance Studio Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -104,6 +148,10 @@
 				TargetAttributes = {
 					DA03639E2F8DB59A0029568F = {
 						CreatedOnToolsVersion = 26.4;
+					};
+					DA0001002F9B000000001001 = {
+						CreatedOnToolsVersion = 26.4;
+						TestTargetID = DA03639E2F8DB59A0029568F;
 					};
 				};
 			};
@@ -126,6 +174,7 @@
 			projectRoot = "";
 			targets = (
 				DA03639E2F8DB59A0029568F /* Western Dance Studio */,
+				DA0001002F9B000000001001 /* Western Dance Studio Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -148,7 +197,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		DA0004002F9B000000001004 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DA0006002F9B000000001006 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DA03639E2F8DB59A0029568F /* Western Dance Studio */;
+			targetProxy = DA0007002F9B000000001007 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		DA0363A82F8DB59B0029568F /* Debug */ = {
@@ -346,6 +410,51 @@
 			};
 			name = Release;
 		};
+		DA0008002F9B000000001008 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = XXY79DCD4H;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.4;
+				MARKETING_VERSION = 1.1;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.defnota.WesternDanceStudio.Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Western Dance Studio.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Western Dance Studio";
+			};
+			name = Debug;
+		};
+		DA0009002F9B000000001009 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = XXY79DCD4H;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.4;
+				MARKETING_VERSION = 1.1;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.defnota.WesternDanceStudio.Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Western Dance Studio.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Western Dance Studio";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -363,6 +472,15 @@
 			buildConfigurations = (
 				DA0363AB2F8DB59B0029568F /* Debug */,
 				DA0363AC2F8DB59B0029568F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DA000A002F9B00000000100A /* Build configuration list for PBXNativeTarget "Western Dance Studio Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DA0008002F9B000000001008 /* Debug */,
+				DA0009002F9B000000001009 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
