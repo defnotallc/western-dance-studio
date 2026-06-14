@@ -44,6 +44,7 @@ final class DanceStore {
             favorites.remove(dance.id)
         } else {
             favorites.insert(dance.id)
+            ReviewManager.shared.recordEngagement()
         }
         saveFavorites()
     }

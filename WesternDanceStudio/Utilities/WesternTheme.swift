@@ -176,6 +176,8 @@ struct DifficultyStars: View {
                     .foregroundStyle(i <= difficulty ? WesternTheme.primary : Color.gray.opacity(0.35))
             }
         }
+        .accessibilityElement(children: .ignore)
+        .accessibilityLabel("Difficulty \(difficulty) out of 10")
     }
 }
 

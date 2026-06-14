@@ -23,6 +23,7 @@ final class CurriculumStore {
             completedModuleIDs.remove(module.id)
         } else {
             completedModuleIDs.insert(module.id)
+            ReviewManager.shared.recordEngagement()
         }
         persist()
     }

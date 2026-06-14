@@ -1,13 +1,16 @@
 import SwiftUI
+import StoreKit
 
 @main
 struct WesternDanceStudioApp: App {
     @State private var store = DanceStore.shared
     @State private var iap = IAPManager.shared
+    @State private var reviews = ReviewManager.shared
     @State private var selectedTab: Int = 0
     @AppStorage("hasSeenWelcome") private var hasSeenWelcome: Bool = false
     @State private var showWelcome: Bool
     @State private var showSplash: Bool
+    @Environment(\.requestReview) private var requestReview
 
     init() {
         // Apply themed serif fonts + leather color to every navigation bar title.
@@ -44,6 +47,12 @@ struct WesternDanceStudioApp: App {
             .task {
                 // Preload the Remove Ads product so the paywall shows the price immediately.
                 await iap.loadProducts()
+            }
+            .onChange(of: reviews.shouldPrompt) { _, prompt in
+                if prompt {
+                    requestReview()
+                    reviews.didPrompt()
+                }
             }
         }
     }

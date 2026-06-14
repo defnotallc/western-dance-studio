@@ -25,15 +25,19 @@ struct DanceListView: View {
     var body: some View {
         NavigationStack {
             List {
-                ForEach(groupedDances, id: \.0) { category, categoryDances in
-                    Section(header:
-                        Text(category.rawValue)
-                            .font(WesternTheme.displayFont(size: 16, weight: .bold))
-                            .foregroundStyle(WesternTheme.primaryDark)
-                    ) {
-                        ForEach(categoryDances) { dance in
-                            NavigationLink(value: dance) {
-                                DanceRow(dance: dance, store: store)
+                if groupedDances.isEmpty && !debouncedSearch.isEmpty {
+                    ContentUnavailableView.search(text: debouncedSearch)
+                } else {
+                    ForEach(groupedDances, id: \.0) { category, categoryDances in
+                        Section(header:
+                            Text(category.rawValue)
+                                .font(WesternTheme.displayFont(size: 16, weight: .bold))
+                                .foregroundStyle(WesternTheme.primaryDark)
+                        ) {
+                            ForEach(categoryDances) { dance in
+                                NavigationLink(value: dance) {
+                                    DanceRow(dance: dance, store: store)
+                                }
                             }
                         }
                     }

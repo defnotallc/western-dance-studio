@@ -16,14 +16,14 @@ struct WelcomeView: View {
             body: "Welcome to Western Dance Studio — your trail guide for country and western partner dances and line dances."
         ),
         WelcomePage(
-            icon: "figure.dance",
-            title: "Master Every Step",
-            body: "From Texas Two-Step to Tush Push, every dance is broken down beat by beat with tempo and song recommendations."
+            icon: "graduationcap.fill",
+            title: "A Clear Learning Path",
+            body: "Eight progressive modules take you from beat-counting and floor safety all the way through Two-Step, line dances, and swing — at your own pace."
         ),
         WelcomePage(
-            icon: "metronome.fill",
-            title: "Practice to the Beat",
-            body: "A built-in metronome lets you slow it down and master the rhythm before you hit the dance floor."
+            icon: "exclamationmark.shield.fill",
+            title: "Safety First, Always",
+            body: "Country dancing has a code: consent at every step, counterclockwise floor traffic, and technique that communicates — never forces. We cover it all before you step out."
         ),
         WelcomePage(
             icon: "mappin.and.ellipse",
