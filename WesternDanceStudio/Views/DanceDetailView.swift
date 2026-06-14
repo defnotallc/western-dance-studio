@@ -53,6 +53,9 @@ struct DanceDetailView: View {
                 }
                 tempoSection
                 songsSection
+                if !danceErrors.isEmpty {
+                    commonMistakesSection
+                }
             }
             .padding(.bottom, 32)
             // Cap content width on iPad/sidebar; outer frame centers the capped block.
@@ -409,6 +412,47 @@ struct DanceDetailView: View {
                     .foregroundStyle(.secondary)
                 }
             }
+        }
+        .padding(.horizontal)
+    }
+
+    // MARK: - Common Mistakes (Phase 5)
+
+    private var danceErrors: [CommonError] {
+        CommonError.all.filter { $0.danceIDs.contains(dance.id) }
+    }
+
+    private var commonMistakesSection: some View {
+        GroupBox {
+            VStack(alignment: .leading, spacing: 12) {
+                Label("Common Mistakes", systemImage: "exclamationmark.triangle.fill")
+                    .font(.headline)
+                    .foregroundStyle(.orange)
+
+                ForEach(danceErrors) { error in
+                    VStack(alignment: .leading, spacing: 4) {
+                        HStack(spacing: 5) {
+                            Image(systemName: error.category.icon)
+                                .font(.caption2)
+                                .foregroundStyle(.secondary)
+                            Text(error.category.rawValue)
+                                .font(.caption2)
+                                .foregroundStyle(.secondary)
+                        }
+                        Text(error.title)
+                            .font(.subheadline.weight(.semibold))
+                        Text(error.fix)
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                    }
+                    .padding(.vertical, 2)
+
+                    if error.id != danceErrors.last?.id {
+                        Divider()
+                    }
+                }
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
         }
         .padding(.horizontal)
     }

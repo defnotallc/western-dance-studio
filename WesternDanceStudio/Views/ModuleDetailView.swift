@@ -15,6 +15,7 @@ struct ModuleDetailView: View {
                 if !module.concepts.isEmpty { conceptsSection }
                 if !module.danceIDs.isEmpty { dancesSection }
                 if !module.glossaryTerms.isEmpty { glossarySection }
+                if !moduleErrors.isEmpty { commonMistakesSection }
                 completeButton
             }
             .padding(.horizontal)
@@ -215,6 +216,54 @@ struct ModuleDetailView: View {
         .padding(.horizontal, 10)
         .padding(.vertical, 6)
         .background(WesternTheme.primary.opacity(0.08), in: RoundedRectangle(cornerRadius: 8))
+    }
+
+    // MARK: - Common Mistakes (Phase 5)
+
+    private var moduleErrors: [CommonError] {
+        CommonError.all.filter { $0.moduleIDs.contains(module.id) }
+    }
+
+    private var commonMistakesSection: some View {
+        GroupBox {
+            VStack(alignment: .leading, spacing: 12) {
+                HStack {
+                    Label("Watch Out For", systemImage: "exclamationmark.triangle.fill")
+                        .font(.headline)
+                        .foregroundStyle(.orange)
+                    Spacer()
+                    NavigationLink {
+                        CommonErrorsView()
+                    } label: {
+                        Text("See all")
+                            .font(.caption.weight(.semibold))
+                            .foregroundStyle(WesternTheme.primary)
+                    }
+                }
+
+                ForEach(moduleErrors) { error in
+                    HStack(alignment: .top, spacing: 10) {
+                        Image(systemName: error.category.icon)
+                            .font(.caption)
+                            .foregroundStyle(WesternTheme.primary.opacity(0.7))
+                            .frame(width: 16)
+                            .padding(.top, 2)
+                        VStack(alignment: .leading, spacing: 3) {
+                            Text(error.title)
+                                .font(.subheadline.weight(.semibold))
+                            Text(error.fix)
+                                .font(.caption)
+                                .foregroundStyle(.secondary)
+                        }
+                    }
+
+                    if error.id != moduleErrors.last?.id {
+                        Divider()
+                    }
+                }
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
+        }
     }
 
     // MARK: - Complete Button

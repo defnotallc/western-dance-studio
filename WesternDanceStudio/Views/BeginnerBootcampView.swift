@@ -38,6 +38,33 @@ struct BeginnerBootcampView: View {
                     CurriculumView(store: store)
                         .padding(.horizontal)
 
+                    // MARK: Common Mistakes (Phase 5)
+                    NavigationLink {
+                        CommonErrorsView()
+                    } label: {
+                        GroupBox {
+                            HStack(spacing: 12) {
+                                Image(systemName: "exclamationmark.triangle.fill")
+                                    .font(.title3)
+                                    .foregroundStyle(.orange)
+                                VStack(alignment: .leading, spacing: 3) {
+                                    Text("Common Mistakes to Avoid")
+                                        .font(.subheadline.weight(.semibold))
+                                        .foregroundStyle(.primary)
+                                    Text("25 mistakes beginners make — and exactly how to fix them")
+                                        .font(.caption)
+                                        .foregroundStyle(.secondary)
+                                }
+                                Spacer()
+                                Image(systemName: "chevron.right")
+                                    .font(.caption)
+                                    .foregroundStyle(.tertiary)
+                            }
+                        }
+                    }
+                    .buttonStyle(.plain)
+                    .padding(.horizontal)
+
                     // MARK: Practice Tools
                     metronomeSection
                         .padding(.horizontal)
