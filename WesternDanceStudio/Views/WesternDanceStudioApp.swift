@@ -26,15 +26,7 @@ struct WesternDanceStudioApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ZStack {
-                mainContent
-
-                if showSplash {
-                    LaunchScreenView(iap: iap, onDismiss: dismissSplash)
-                        .transition(.opacity)
-                        .zIndex(1)
-                }
-            }
+            mainContent
             .task(id: iap.isPremium) {
                 // Premium users get a plain 2s splash with no paywall.
                 // Non-premium users see an indefinite paywall and dismiss manually.
@@ -102,6 +94,9 @@ struct WesternDanceStudioApp: App {
         .tint(WesternTheme.primary)
         .fullScreenCover(isPresented: $showWelcome) {
             WelcomeView(isPresented: $showWelcome)
+        }
+        .fullScreenCover(isPresented: $showSplash) {
+            LaunchScreenView(iap: iap, onDismiss: dismissSplash)
         }
     }
 }

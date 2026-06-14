@@ -44,23 +44,7 @@ final class IAPManager {
         isPremium = UserDefaults.standard.bool(forKey: Keys.isPremium)
 
         #if DEBUG
-        // SCREENSHOT MODE: when this is true, premium is forced on so banner
-        // and interstitial ads are hidden. Set to true before taking App Store
-        // screenshots, then set back to false before submitting builds.
-        // (Only effective in DEBUG builds — release builds ignore this.)
-        let SCREENSHOT_MODE = false
-
-        if SCREENSHOT_MODE {
-            isPremium = true
-            print("🎬 SCREENSHOT MODE ON — ads disabled, premium forced. Disable before shipping!")
-
-            // CRITICAL: also skip the StoreKit refresh + transaction listener,
-            // because either of those would set isPremium back to false (since
-            // there's no actual purchase entitlement in this sandbox).
-            // Just preload products so the price displays for screenshots.
-            Task { await loadProducts() }
-            return
-        } else if ProcessInfo.processInfo.environment["DISABLE_ADS"] == "1" {
+        if ProcessInfo.processInfo.environment["DISABLE_ADS"] == "1" {
             isPremium = true
             Task { await loadProducts() }
             return
