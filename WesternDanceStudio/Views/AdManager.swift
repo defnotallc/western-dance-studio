@@ -13,7 +13,6 @@ final class AdManager {
     // MARK: - State
 
     private var interstitial: InterstitialAd?
-    private var isStarted = false
 
     /// How many detail-view "returns" have happened in this session.
     /// An interstitial shows every `returnsPerInterstitial` returns.
@@ -31,18 +30,12 @@ final class AdManager {
 
     private init() {}
 
-    // MARK: - SDK init
-
-    private func ensureStarted() {
-        guard !isStarted else { return }
-        isStarted = true
-        MobileAds.shared.start()
-        Task { await loadInterstitial() }
-    }
-
     // MARK: - Interstitial lifecycle
 
-    private func loadInterstitial() async {
+    /// Pre-loads an interstitial. Call once after ConsentManager.adsInitialized
+    /// becomes true; subsequent loads are triggered internally after each show.
+    func loadInterstitial() async {
+        guard ConsentManager.shared.adsInitialized else { return }
         guard !IAPManager.shared.isPremium else { return }
         do {
             interstitial = try await InterstitialAd.load(
@@ -61,8 +54,8 @@ final class AdManager {
     /// (and respecting the cooldown), an interstitial is presented if one is
     /// ready.
     func recordDetailReturn() {
+        guard ConsentManager.shared.adsInitialized else { return }
         guard !IAPManager.shared.isPremium else { return }
-        ensureStarted()
         returnCount += 1
 
         guard returnCount % returnsPerInterstitial == 0 else { return }

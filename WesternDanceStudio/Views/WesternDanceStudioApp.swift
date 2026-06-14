@@ -6,6 +6,7 @@ struct WesternDanceStudioApp: App {
     @State private var store = DanceStore.shared
     @State private var iap = IAPManager.shared
     @State private var reviews = ReviewManager.shared
+    @State private var consent = ConsentManager.shared
     @State private var selectedTab: Int = 0
     @AppStorage("hasSeenWelcome") private var hasSeenWelcome: Bool = false
     @State private var showWelcome: Bool
@@ -47,6 +48,12 @@ struct WesternDanceStudioApp: App {
             .task {
                 // Preload the Remove Ads product so the paywall shows the price immediately.
                 await iap.loadProducts()
+            }
+            .task {
+                // UMP consent → ATT → SDK start (order is mandatory).
+                // adsInitialized is set true unconditionally so the app never hangs.
+                await ConsentManager.shared.gatherConsentAndInitializeAds()
+                await AdManager.shared.loadInterstitial()
             }
             .onChange(of: reviews.shouldPrompt) { _, prompt in
                 if prompt {

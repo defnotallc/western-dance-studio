@@ -4,6 +4,7 @@ struct BeginnerBootcampView: View {
     @Bindable var store: DanceStore
     @State private var engine = MetronomeEngine()
     @State private var iap = IAPManager.shared
+    @State private var consent = ConsentManager.shared
     @State private var showingRemoveAdsSheet = false
     /// Optional callback to navigate to another tab (wired by parent)
     var onOpenGlossary: (() -> Void)? = nil
@@ -188,6 +189,36 @@ struct BeginnerBootcampView: View {
                                     .font(.subheadline.weight(.semibold))
                                     .foregroundStyle(.primary)
                                 Text("One-time upgrade — support the app")
+                                    .font(.caption2)
+                                    .foregroundStyle(.secondary)
+                            }
+                            Spacer()
+                            Image(systemName: "chevron.right")
+                                .font(.caption)
+                                .foregroundStyle(.tertiary)
+                        }
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                    }
+                    .buttonStyle(.plain)
+                }
+            }
+
+            // Ad Preferences — only visible to EEA/UK/CH users (GDPR).
+            // privacyOptionsRequired is false for US users, so this is a no-op there.
+            if consent.privacyOptionsRequired {
+                GroupBox {
+                    Button {
+                        Haptics.selection()
+                        Task { await ConsentManager.shared.presentPrivacyOptionsForm() }
+                    } label: {
+                        HStack {
+                            Image(systemName: "hand.raised.fill")
+                                .foregroundStyle(WesternTheme.primary)
+                            VStack(alignment: .leading, spacing: 2) {
+                                Text("Ad Preferences")
+                                    .font(.subheadline.weight(.semibold))
+                                    .foregroundStyle(.primary)
+                                Text("Manage your advertising consent (GDPR)")
                                     .font(.caption2)
                                     .foregroundStyle(.secondary)
                             }

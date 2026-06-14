@@ -17,22 +17,24 @@ import SwiftUI
 /// .withBannerAd()
 /// ```
 struct BannerAdModifier: ViewModifier {
-    /// Direct read of the singleton — `@Observable` SwiftUI integration tracks
-    /// this read and re-renders when `isPremium` changes.
+    /// Direct reads of singletons — `@Observable` tracks these and re-renders
+    /// when `isPremium` or `adsInitialized` changes.
     private var iap: IAPManager { IAPManager.shared }
+    private var consent: ConsentManager { ConsentManager.shared }
     /// Flipped to false when the ad fails to load, collapsing the 50 pt slot.
     @State private var bannerVisible = true
 
     func body(content: Content) -> some View {
         let premium = iap.isPremium
+        let sdkReady = consent.adsInitialized
 
         #if DEBUG
-        let _ = print("📺 BannerAdModifier render — isPremium=\(premium)")
+        let _ = print("📺 BannerAdModifier render — isPremium=\(premium) adsInitialized=\(sdkReady)")
         #endif
 
         return content
             .safeAreaInset(edge: .bottom, spacing: 0) {
-                if !premium && bannerVisible {
+                if !premium && bannerVisible && sdkReady {
                     VStack(spacing: 0) {
                         Divider()
                             .opacity(0.35)
