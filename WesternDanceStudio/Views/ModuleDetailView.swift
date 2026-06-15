@@ -185,37 +185,33 @@ struct ModuleDetailView: View {
 
     private var glossarySection: some View {
         GroupBox {
-            VStack(alignment: .leading, spacing: 10) {
+            VStack(alignment: .leading, spacing: 12) {
                 Label("Terms to Know", systemImage: "book.closed.fill")
                     .font(.headline)
                     .foregroundStyle(WesternTheme.primaryDark)
 
-                FlowLayout(spacing: 8) {
-                    ForEach(module.glossaryTerms, id: \.self) { termName in
-                        termChip(termName)
+                ForEach(module.glossaryTerms, id: \.self) { termName in
+                    let term = DanceTerm.allTerms.first { $0.term == termName }
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text(termName)
+                            .font(.subheadline.weight(.semibold))
+                            .foregroundStyle(WesternTheme.primaryDark)
+                        if let def = term?.definition {
+                            Text(def)
+                                .font(.caption)
+                                .foregroundStyle(.secondary)
+                                .fixedSize(horizontal: false, vertical: true)
+                        }
+                    }
+                    .frame(maxWidth: .infinity, alignment: .leading)
+
+                    if termName != module.glossaryTerms.last {
+                        Divider()
                     }
                 }
             }
             .frame(maxWidth: .infinity, alignment: .leading)
         }
-    }
-
-    private func termChip(_ name: String) -> some View {
-        let term = DanceTerm.allTerms.first { $0.term == name }
-        return VStack(alignment: .leading, spacing: 2) {
-            Text(name)
-                .font(.caption.weight(.semibold))
-                .foregroundStyle(WesternTheme.primaryDark)
-            if let def = term?.definition {
-                Text(def)
-                    .font(.caption2)
-                    .foregroundStyle(.secondary)
-                    .lineLimit(2)
-            }
-        }
-        .padding(.horizontal, 10)
-        .padding(.vertical, 6)
-        .background(WesternTheme.primary.opacity(0.08), in: RoundedRectangle(cornerRadius: 8))
     }
 
     // MARK: - Common Mistakes (Phase 5)
@@ -288,54 +284,3 @@ struct ModuleDetailView: View {
     }
 }
 
-// MARK: - Flow Layout
-
-/// Simple wrapping HStack for variable-width chips.
-private struct FlowLayout: Layout {
-    var spacing: CGFloat = 8
-
-    func sizeThatFits(proposal: ProposedViewSize, subviews: Subviews, cache: inout Void) -> CGSize {
-        let rows = computeRows(proposal: proposal, subviews: subviews)
-        let height = rows.map(\.height).reduce(0, +) + CGFloat(max(rows.count - 1, 0)) * spacing
-        return CGSize(width: proposal.width ?? 0, height: height)
-    }
-
-    func placeSubviews(in bounds: CGRect, proposal: ProposedViewSize, subviews: Subviews, cache: inout Void) {
-        let rows = computeRows(proposal: ProposedViewSize(width: bounds.width, height: nil), subviews: subviews)
-        var y = bounds.minY
-        for row in rows {
-            var x = bounds.minX
-            for item in row.items {
-                item.view.place(at: CGPoint(x: x, y: y), proposal: .unspecified)
-                x += item.width + spacing
-            }
-            y += row.height + spacing
-        }
-    }
-
-    private struct Row {
-        var items: [(view: LayoutSubview, width: CGFloat)] = []
-        var height: CGFloat = 0
-    }
-
-    private func computeRows(proposal: ProposedViewSize, subviews: Subviews) -> [Row] {
-        let maxWidth = proposal.width ?? .infinity
-        var rows: [Row] = []
-        var currentRow = Row()
-        var rowWidth: CGFloat = 0
-
-        for view in subviews {
-            let size = view.sizeThatFits(.unspecified)
-            if rowWidth + size.width > maxWidth, !currentRow.items.isEmpty {
-                rows.append(currentRow)
-                currentRow = Row()
-                rowWidth = 0
-            }
-            currentRow.items.append((view, size.width))
-            currentRow.height = max(currentRow.height, size.height)
-            rowWidth += size.width + spacing
-        }
-        if !currentRow.items.isEmpty { rows.append(currentRow) }
-        return rows
-    }
-}
