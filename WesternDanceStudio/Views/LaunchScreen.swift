@@ -18,16 +18,16 @@ struct LaunchScreenView: View {
                 if !iap.isPremium {
                     featuresSection
                         .padding(.horizontal, 28)
-                        .padding(.top, 32)
+                        .padding(.top, 20)
 
                     Divider()
                         .padding(.horizontal, 28)
-                        .padding(.top, 28)
+                        .padding(.top, 16)
 
                     supportSection
                         .padding(.horizontal, 28)
-                        .padding(.top, 24)
-                        .padding(.bottom, 48)
+                        .padding(.top, 16)
+                        .padding(.bottom, 28)
                 }
             }
         }
@@ -40,38 +40,38 @@ struct LaunchScreenView: View {
     private var headerSection: some View {
         ZStack {
             WesternSunsetGradient()
-            VStack(spacing: 10) {
-                Spacer(minLength: 60)
+            VStack(spacing: 6) {
+                Spacer(minLength: 20)
 
                 Image("Cowboy")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .frame(maxWidth: 110, maxHeight: 110)
-                    .shadow(color: .black.opacity(0.25), radius: 10, x: 0, y: 5)
+                    .frame(maxWidth: 72, maxHeight: 72)
+                    .shadow(color: .black.opacity(0.25), radius: 8, x: 0, y: 4)
                     .accessibilityHidden(true)
 
                 Text("Western Dance Studio")
-                    .font(.system(size: 30, weight: .heavy, design: .serif))
+                    .font(.system(size: 24, weight: .heavy, design: .serif))
                     .foregroundStyle(.white)
                     .multilineTextAlignment(.center)
                     .shadow(color: .black.opacity(0.3), radius: 4, x: 0, y: 2)
 
                 Text("Your complete guide to country dancing")
-                    .font(.system(size: 14, weight: .medium, design: .rounded))
+                    .font(.system(size: 13, weight: .medium, design: .rounded))
                     .foregroundStyle(.white.opacity(0.88))
                     .multilineTextAlignment(.center)
                     .padding(.horizontal, 40)
 
-                Spacer(minLength: 44)
+                Spacer(minLength: 20)
             }
         }
-        .frame(minHeight: 280)
+        .frame(height: 180)
     }
 
     // MARK: - Feature Bullets
 
     private var featuresSection: some View {
-        VStack(alignment: .leading, spacing: 22) {
+        VStack(alignment: .leading, spacing: 14) {
             featureRow(
                 icon: "figure.dance",
                 color: WesternTheme.primary,
@@ -120,7 +120,7 @@ struct LaunchScreenView: View {
     // MARK: - Support / Paywall
 
     private var supportSection: some View {
-        VStack(spacing: 16) {
+        VStack(spacing: 12) {
             Text("Support Western Dance Studio")
                 .font(.title3.weight(.bold))
                 .multilineTextAlignment(.center)
