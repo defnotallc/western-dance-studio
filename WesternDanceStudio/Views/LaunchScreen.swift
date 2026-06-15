@@ -3,62 +3,139 @@ import StoreKit
 
 /// Branded launch screen for returning users. Two modes:
 ///   - Premium user: auto-dismisses after a short duration (plain splash)
-///   - Non-premium: shows indefinite paywall with Upgrade / Continue-with-Ads buttons
+///   - Non-premium: scrollable paywall with feature highlights + Upgrade / Continue buttons
 ///
-/// First-time users NEVER see this screen — they go straight into WelcomeView,
-/// which has its own final page that serves the same paywall role.
-///
-/// The parent view controls dismiss lifecycle via `onDismiss`.
+/// First-time users NEVER see this screen — they go straight into WelcomeView.
 struct LaunchScreenView: View {
     @Bindable var iap: IAPManager
     var onDismiss: () -> Void
 
     var body: some View {
+        ScrollView {
+            VStack(spacing: 0) {
+                headerSection
+
+                if !iap.isPremium {
+                    featuresSection
+                        .padding(.horizontal, 28)
+                        .padding(.top, 32)
+
+                    Divider()
+                        .padding(.horizontal, 28)
+                        .padding(.top, 28)
+
+                    supportSection
+                        .padding(.horizontal, 28)
+                        .padding(.top, 24)
+                        .padding(.bottom, 48)
+                }
+            }
+        }
+        .background(Color(.systemBackground))
+        .task { await iap.loadProducts() }
+    }
+
+    // MARK: - Header
+
+    private var headerSection: some View {
         ZStack {
             WesternSunsetGradient()
-
-            VStack(spacing: 28) {
-                Spacer()
+            VStack(spacing: 10) {
+                Spacer(minLength: 60)
 
                 Image("Cowboy")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .frame(maxWidth: 260, maxHeight: 260)
-                    .shadow(color: .black.opacity(0.25), radius: 12, x: 0, y: 6)
-                    .accessibilityLabel("Western Dance Studio mascot")
+                    .frame(maxWidth: 110, maxHeight: 110)
+                    .shadow(color: .black.opacity(0.25), radius: 10, x: 0, y: 5)
+                    .accessibilityHidden(true)
 
-                VStack(spacing: 4) {
-                    Text("Western")
-                        .font(.system(size: 42, weight: .heavy, design: .serif))
-                        .foregroundStyle(.white)
-                    Text("Dance Studio")
-                        .font(.system(size: 42, weight: .heavy, design: .serif))
-                        .foregroundStyle(.white)
-                }
-                .multilineTextAlignment(.center)
-                .shadow(color: .black.opacity(0.3), radius: 4, x: 0, y: 2)
+                Text("Western Dance Studio")
+                    .font(.system(size: 30, weight: .heavy, design: .serif))
+                    .foregroundStyle(.white)
+                    .multilineTextAlignment(.center)
+                    .shadow(color: .black.opacity(0.3), radius: 4, x: 0, y: 2)
 
-                Text("Boot-scoot your way through country dances")
-                    .font(.system(size: 15, weight: .medium, design: .rounded))
-                    .foregroundStyle(.white.opacity(0.9))
+                Text("Your complete guide to country dancing")
+                    .font(.system(size: 14, weight: .medium, design: .rounded))
+                    .foregroundStyle(.white.opacity(0.88))
                     .multilineTextAlignment(.center)
                     .padding(.horizontal, 40)
 
-                Spacer()
-
-                // Paywall for non-premium users only. Premium users get a
-                // plain splash that auto-dismisses via the parent's timer.
-                if !iap.isPremium {
-                    PremiumPaywallFooter(iap: iap, onContinue: onDismiss)
-                        .padding(.horizontal, 24)
-                        .padding(.bottom, 36)
-                        .transition(.opacity)
-                }
+                Spacer(minLength: 44)
             }
-            .padding(.horizontal, 24)
         }
-        .task {
-            await iap.loadProducts()
+        .frame(minHeight: 280)
+    }
+
+    // MARK: - Feature Bullets
+
+    private var featuresSection: some View {
+        VStack(alignment: .leading, spacing: 22) {
+            featureRow(
+                icon: "figure.dance",
+                color: WesternTheme.primary,
+                title: "20+ Dances",
+                detail: "Two-Step, Waltz, Line Dancing, West Coast Swing & more"
+            )
+            featureRow(
+                icon: "list.bullet.clipboard.fill",
+                color: .blue,
+                title: "Structured Curriculum",
+                detail: "Progressive modules from first steps to floor-ready confidence"
+            )
+            featureRow(
+                icon: "exclamationmark.triangle.fill",
+                color: .orange,
+                title: "Common Mistakes Guide",
+                detail: "25 beginner errors explained — and exactly how to fix them"
+            )
+            featureRow(
+                icon: "wifi.slash",
+                color: .secondary,
+                title: "100% Offline",
+                detail: "No account, no internet required — all content ships with the app"
+            )
+        }
+    }
+
+    private func featureRow(icon: String, color: Color, title: String, detail: String) -> some View {
+        HStack(alignment: .top, spacing: 16) {
+            Image(systemName: icon)
+                .font(.title2)
+                .foregroundStyle(color)
+                .frame(width: 30)
+            VStack(alignment: .leading, spacing: 3) {
+                Text(title)
+                    .font(.subheadline.weight(.bold))
+                Text(detail)
+                    .font(.subheadline)
+                    .foregroundStyle(.secondary)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
+            Spacer()
+        }
+    }
+
+    // MARK: - Support / Paywall
+
+    private var supportSection: some View {
+        VStack(spacing: 16) {
+            Text("Support Western Dance Studio")
+                .font(.title3.weight(.bold))
+                .multilineTextAlignment(.center)
+
+            Text("Remove all ads with a one-time purchase. Helps keep the app updated and ad-free forever.")
+                .font(.subheadline)
+                .foregroundStyle(.secondary)
+                .multilineTextAlignment(.center)
+
+            PremiumPaywallFooter(iap: iap, onContinue: onDismiss)
+
+            Text("All content is 100% offline. No account required.")
+                .font(.caption)
+                .foregroundStyle(.tertiary)
+                .multilineTextAlignment(.center)
         }
     }
 }

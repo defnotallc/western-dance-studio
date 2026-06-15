@@ -39,11 +39,9 @@ struct WelcomeView: View {
 
     var body: some View {
         ZStack {
-            // Use different backgrounds for intro pages vs paywall page so the
-            // paywall visually matches the launch screen for returning users.
-            if isOnPaywallPage {
-                WesternSunsetGradient()
-            } else {
+            // Intro pages use the western gradient background.
+            // The paywall page manages its own background (white + gradient header).
+            if !isOnPaywallPage {
                 westernBackground
             }
 
@@ -307,38 +305,84 @@ struct WelcomeView: View {
     /// returning non-premium users see — same cowboy art, sunset gradient,
     /// and paywall footer buttons.
     private var paywallPage: some View {
-        VStack(spacing: 28) {
-            Spacer()
+        ScrollView {
+            VStack(spacing: 0) {
+                // Gradient header — matches LaunchScreenView
+                ZStack {
+                    WesternSunsetGradient()
+                    VStack(spacing: 10) {
+                        Spacer(minLength: 40)
+                        Image("Cowboy")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(maxWidth: 100, maxHeight: 100)
+                            .shadow(color: .black.opacity(0.25), radius: 10, x: 0, y: 5)
+                            .accessibilityHidden(true)
+                        Text("Western Dance Studio")
+                            .font(.system(size: 28, weight: .heavy, design: .serif))
+                            .foregroundStyle(.white)
+                            .multilineTextAlignment(.center)
+                            .shadow(color: .black.opacity(0.3), radius: 4, x: 0, y: 2)
+                        Text("Your complete guide to country dancing")
+                            .font(.system(size: 14, weight: .medium, design: .rounded))
+                            .foregroundStyle(.white.opacity(0.88))
+                            .multilineTextAlignment(.center)
+                            .padding(.horizontal, 40)
+                        Spacer(minLength: 36)
+                    }
+                }
+                .frame(minHeight: 240)
 
-            Image("Cowboy")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(maxWidth: 220, maxHeight: 220)
-                .shadow(color: .black.opacity(0.25), radius: 12, x: 0, y: 6)
-                .accessibilityLabel("Western Dance Studio mascot")
+                // Features
+                VStack(alignment: .leading, spacing: 20) {
+                    paywallFeatureRow(icon: "figure.dance",              color: WesternTheme.primary, title: "20+ Dances",             detail: "Two-Step, Waltz, Line Dancing, West Coast Swing & more")
+                    paywallFeatureRow(icon: "list.bullet.clipboard.fill", color: .blue,               title: "Structured Curriculum",  detail: "Progressive modules from first steps to floor-ready confidence")
+                    paywallFeatureRow(icon: "exclamationmark.triangle.fill", color: .orange,          title: "Common Mistakes Guide",  detail: "25 beginner errors explained — and exactly how to fix them")
+                    paywallFeatureRow(icon: "wifi.slash",                color: .secondary,           title: "100% Offline",           detail: "No account, no internet required — all content ships with the app")
+                }
+                .padding(.horizontal, 28)
+                .padding(.top, 28)
 
-            VStack(spacing: 4) {
-                Text("Ready to Dance?")
-                    .font(.system(size: 32, weight: .heavy, design: .serif))
-                    .foregroundStyle(.white)
+                Divider()
+                    .padding(.horizontal, 28)
+                    .padding(.top, 24)
 
-                Text("Support the app and get an ad-free experience, or continue with ads.")
-                    .font(.system(size: 14, weight: .medium, design: .rounded))
-                    .foregroundStyle(.white.opacity(0.9))
-                    .multilineTextAlignment(.center)
-                    .padding(.horizontal, 32)
-                    .padding(.top, 4)
+                // Support section
+                VStack(spacing: 16) {
+                    Text("Support Western Dance Studio")
+                        .font(.title3.weight(.bold))
+                        .multilineTextAlignment(.center)
+                    Text("Remove all ads with a one-time purchase. Helps keep the app updated and ad-free forever.")
+                        .font(.subheadline)
+                        .foregroundStyle(.secondary)
+                        .multilineTextAlignment(.center)
+                    PremiumPaywallFooter(iap: iap, onContinue: finishWelcome)
+                    Text("All content is 100% offline. No account required.")
+                        .font(.caption)
+                        .foregroundStyle(.tertiary)
+                        .multilineTextAlignment(.center)
+                }
+                .padding(.horizontal, 28)
+                .padding(.top, 24)
+                .padding(.bottom, 48)
             }
-            .multilineTextAlignment(.center)
-            .shadow(color: .black.opacity(0.3), radius: 4, x: 0, y: 2)
-
-            Spacer()
-
-            PremiumPaywallFooter(iap: iap, onContinue: finishWelcome)
-                .padding(.horizontal, 24)
-                .padding(.bottom, 36)
         }
-        .padding(.horizontal, 24)
+        .background(Color(.systemBackground))
+    }
+
+    private func paywallFeatureRow(icon: String, color: Color, title: String, detail: String) -> some View {
+        HStack(alignment: .top, spacing: 16) {
+            Image(systemName: icon)
+                .font(.title2)
+                .foregroundStyle(color)
+                .frame(width: 30)
+            VStack(alignment: .leading, spacing: 3) {
+                Text(title).font(.subheadline.weight(.bold))
+                Text(detail).font(.subheadline).foregroundStyle(.secondary)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
+            Spacer()
+        }
     }
 
     private func finishWelcome() {
