@@ -15,11 +15,6 @@ struct GlossaryView: View {
         }
     }
 
-    private func groupedTerms(from terms: [DanceTerm]) -> [(String, [DanceTerm])] {
-        Dictionary(grouping: terms) { String($0.term.prefix(1)).uppercased() }
-            .sorted { $0.key < $1.key }
-    }
-
     var body: some View {
         let terms = filteredTerms
         NavigationStack {
@@ -27,37 +22,9 @@ struct GlossaryView: View {
                 if terms.isEmpty && !debouncedSearch.isEmpty {
                     ContentUnavailableView("No matching terms", systemImage: "magnifyingglass")
                 } else {
-                    ForEach(groupedTerms(from: terms), id: \.0) { letter, terms in
-                        Section(header: Text(letter).font(.headline).foregroundStyle(.orange)) {
-                            ForEach(terms) { term in
-                                VStack(alignment: .leading, spacing: 6) {
-                                    HStack(alignment: .firstTextBaseline, spacing: 6) {
-                                        Text(term.term)
-                                            .font(.headline)
-                                        Text(term.category.rawValue)
-                                            .font(.caption2)
-                                            .foregroundStyle(.white)
-                                            .padding(.horizontal, 6)
-                                            .padding(.vertical, 2)
-                                            .background(WesternTheme.primary.opacity(0.75), in: Capsule())
-                                    }
-                                    Text(term.definition)
-                                        .font(.subheadline)
-                                        .foregroundStyle(.secondary)
-                                    if let note = term.technicalNote {
-                                        Label(note, systemImage: "info.circle")
-                                            .font(.caption)
-                                            .foregroundStyle(.blue.opacity(0.85))
-                                    }
-                                    if let myth = term.commonMisconceptions {
-                                        Label(myth, systemImage: "exclamationmark.triangle")
-                                            .font(.caption)
-                                            .foregroundStyle(.orange.opacity(0.9))
-                                    }
-                                }
-                                .padding(.vertical, 8)
-                            }
-                        }
+                    ForEach(terms) { term in
+                        GlossaryRow(term: term)
+                            .padding(.vertical, 6)
                     }
                 }
             }
@@ -67,5 +34,57 @@ struct GlossaryView: View {
             .navigationTitle("Dance Glossary")
             .navigationBarTitleDisplayMode(.large)
         }
+    }
+}
+
+private struct GlossaryRow: View {
+    let term: DanceTerm
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 6) {
+            HStack(alignment: .top) {
+                Text(term.term)
+                    .font(.headline)
+                Spacer()
+                CategoryBadge(category: term.category)
+            }
+            Text(term.definition)
+                .font(.subheadline)
+                .foregroundStyle(.secondary)
+            if let note = term.technicalNote {
+                Label(note, systemImage: "info.circle")
+                    .font(.caption)
+                    .foregroundStyle(.blue.opacity(0.85))
+            }
+            if let myth = term.commonMisconceptions {
+                Label(myth, systemImage: "exclamationmark.triangle")
+                    .font(.caption)
+                    .foregroundStyle(.orange.opacity(0.9))
+            }
+        }
+    }
+}
+
+private struct CategoryBadge: View {
+    let category: DanceTerm.TermCategory
+
+    var color: Color {
+        switch category {
+        case .musicAndTiming:    return .purple
+        case .footwork:          return .blue
+        case .partnerDance:      return Color(red: 0.8, green: 0.2, blue: 0.4)
+        case .lineDance:         return .teal
+        case .danceStyles:       return Color(red: 0.55, green: 0.35, blue: 0.1)
+        case .venueAndEtiquette: return .green
+        }
+    }
+
+    var body: some View {
+        Text(category.rawValue)
+            .font(.caption2.weight(.semibold))
+            .foregroundStyle(.white)
+            .padding(.horizontal, 7)
+            .padding(.vertical, 3)
+            .background(color, in: Capsule())
     }
 }
