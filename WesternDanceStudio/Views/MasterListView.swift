@@ -100,8 +100,10 @@ struct MasterListView: View {
             }
             .onChange(of: searchText) { _, newValue in
                 let trimmed = newValue.trimmingCharacters(in: .whitespaces)
+                // Always clear the previous geocode result so stale coordinates
+                // don't filter results while the user is still editing.
+                searchCenter = nil
                 if trimmed.isEmpty {
-                    searchCenter = nil
                     geocodingError = nil
                     return
                 }

@@ -21,7 +21,7 @@ func openInMaps(_ hall: DanceHall) {
         item = MKMapItem(placemark: mark)
     }
     item.name = hall.name
-    item.openInMaps(launchOptions: nil)
+    item.openInMaps(launchOptions: [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving])
 }
 
 // MARK: - Parent with tabs

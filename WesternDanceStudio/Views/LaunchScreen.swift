@@ -11,24 +11,52 @@ struct LaunchScreenView: View {
     var onDismiss: () -> Void
 
     var body: some View {
+        if iap.isPremium {
+            premiumSplash
+        } else {
+            paywallSplash
+        }
+    }
+
+    private var premiumSplash: some View {
+        ZStack {
+            WesternSunsetGradient()
+            VStack(spacing: 10) {
+                Image("Cowboy")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(maxWidth: 90, maxHeight: 90)
+                    .shadow(color: .black.opacity(0.3), radius: 10, x: 0, y: 5)
+                    .accessibilityHidden(true)
+                Text("Western Dance Studio")
+                    .font(.system(size: 28, weight: .heavy, design: .serif))
+                    .foregroundStyle(.white)
+                    .shadow(color: .black.opacity(0.3), radius: 4, x: 0, y: 2)
+                Text("Welcome back")
+                    .font(.system(size: 15, weight: .medium, design: .rounded))
+                    .foregroundStyle(.white.opacity(0.85))
+            }
+        }
+        .ignoresSafeArea()
+    }
+
+    private var paywallSplash: some View {
         ScrollView {
             VStack(spacing: 0) {
                 headerSection
 
-                if !iap.isPremium {
-                    featuresSection
-                        .padding(.horizontal, 28)
-                        .padding(.top, 20)
+                featuresSection
+                    .padding(.horizontal, 28)
+                    .padding(.top, 20)
 
-                    Divider()
-                        .padding(.horizontal, 28)
-                        .padding(.top, 16)
+                Divider()
+                    .padding(.horizontal, 28)
+                    .padding(.top, 16)
 
-                    supportSection
-                        .padding(.horizontal, 28)
-                        .padding(.top, 16)
-                        .padding(.bottom, 28)
-                }
+                supportSection
+                    .padding(.horizontal, 28)
+                    .padding(.top, 16)
+                    .padding(.bottom, 28)
             }
         }
         .background(Color(.systemBackground))

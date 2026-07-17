@@ -18,10 +18,17 @@ struct WesternDanceStudioApp: App {
         WesternTheme.configureNavigationBarAppearance()
 
         // First-time users go straight into the welcome flow (which includes
-        // the paywall on its final page). Returning users see the splash first.
+        // the paywall on its final page). Returning users see the splash/paywall
+        // at most once per calendar day to avoid repetitive friction.
         let firstLaunch = !UserDefaults.standard.bool(forKey: "hasSeenWelcome")
+        let today = Calendar.current.ordinality(of: .day, in: .era, for: Date()) ?? 0
+        let lastSplashDay = UserDefaults.standard.integer(forKey: "lastSplashDay")
+        let showSplash = !firstLaunch && lastSplashDay != today
+        if showSplash {
+            UserDefaults.standard.set(today, forKey: "lastSplashDay")
+        }
         _showWelcome = State(initialValue: firstLaunch)
-        _showSplash = State(initialValue: !firstLaunch)
+        _showSplash = State(initialValue: showSplash)
     }
 
     var body: some Scene {

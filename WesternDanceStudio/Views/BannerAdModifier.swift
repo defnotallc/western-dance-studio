@@ -22,7 +22,9 @@ struct BannerAdModifier: ViewModifier {
     private var iap: IAPManager { IAPManager.shared }
     private var consent: ConsentManager { ConsentManager.shared }
     /// Flipped to false when the ad fails to load, collapsing the 50 pt slot.
+    /// Reset to true when the scene returns to the foreground so a later fill attempt can succeed.
     @State private var bannerVisible = true
+    @Environment(\.scenePhase) private var scenePhase
 
     func body(content: Content) -> some View {
         let premium = iap.isPremium
@@ -42,6 +44,11 @@ struct BannerAdModifier: ViewModifier {
                             .frame(height: 50)
                             .background(Color(.systemBackground))
                     }
+                }
+            }
+            .onChange(of: scenePhase) { _, phase in
+                if phase == .active && !premium {
+                    bannerVisible = true
                 }
             }
     }

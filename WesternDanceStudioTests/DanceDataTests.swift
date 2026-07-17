@@ -89,4 +89,56 @@ final class DanceDataTests: XCTestCase {
                            "Category '\(cat.rawValue)' group must not be empty")
         }
     }
+
+    // MARK: - Referential Integrity
+
+    func testModuleDanceIDsResolve() {
+        let danceIDs = Set(dances.map(\.id))
+        for module in CurriculumModule.all {
+            for id in module.danceIDs {
+                XCTAssertTrue(danceIDs.contains(id),
+                              "Module '\(module.id)' references unknown danceID '\(id)'")
+            }
+        }
+    }
+
+    func testModuleGlossaryTermsResolve() {
+        let termNames = Set(DanceTerm.allTerms.map(\.term))
+        for module in CurriculumModule.all {
+            for name in module.glossaryTerms {
+                XCTAssertTrue(termNames.contains(name),
+                              "Module '\(module.id)' references unknown glossary term '\(name)'")
+            }
+        }
+    }
+
+    func testCommonErrorDanceIDsResolve() {
+        let danceIDs = Set(dances.map(\.id))
+        for error in CommonError.all {
+            for id in error.danceIDs {
+                XCTAssertTrue(danceIDs.contains(id),
+                              "CommonError '\(error.id)' references unknown danceID '\(id)'")
+            }
+        }
+    }
+
+    func testCommonErrorModuleIDsResolve() {
+        let moduleIDs = Set(CurriculumModule.all.map(\.id))
+        for error in CommonError.all {
+            for id in error.moduleIDs {
+                XCTAssertTrue(moduleIDs.contains(id),
+                              "CommonError '\(error.id)' references unknown moduleID '\(id)'")
+            }
+        }
+    }
+
+    func testStepSheetDanceIDsResolve() {
+        let danceIDs = Set(dances.map(\.id))
+        for dance in dances {
+            if let sheet = dance.stepSheet {
+                XCTAssertTrue(danceIDs.contains(dance.id),
+                              "LineDanceStepSheet attached to unknown danceID '\(dance.id)' (sheet id: \(sheet.id))")
+            }
+        }
+    }
 }

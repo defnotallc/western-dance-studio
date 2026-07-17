@@ -5,7 +5,7 @@ struct DanceListView: View {
     @State private var searchText = ""
     @State private var debouncedSearch = ""
     /// Cached filter+group+sort result. Updated only when debouncedSearch changes,
-    /// so store mutations (favorites, practiced) never trigger a recompute.
+    /// so store mutations (e.g. favorites) never trigger a recompute.
     @State private var groupedDances: [(Dance.DanceCategory, [Dance])] = Self.makeGrouped(query: "")
 
     private static func makeGrouped(query: String) -> [(Dance.DanceCategory, [Dance])] {

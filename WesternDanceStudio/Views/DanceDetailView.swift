@@ -136,15 +136,6 @@ struct DanceDetailView: View {
                 .cornerRadius(16)
                 .padding(.horizontal)
                 .id(url)
-        } else {
-            VStack(spacing: 8) {
-                Image(systemName: "video.slash")
-                    .font(.largeTitle)
-                    .foregroundStyle(.secondary)
-                Text("Video coming soon")
-                    .foregroundStyle(.secondary)
-            }
-            .frame(height: 200)
         }
     }
 

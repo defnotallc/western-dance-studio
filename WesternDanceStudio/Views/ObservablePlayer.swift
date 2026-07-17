@@ -22,10 +22,6 @@ final class ObservablePlayer {
         player = AVPlayer(url: url)
     }
 
-    func setRate(_ rate: Float) {
-        player?.rate = rate
-    }
-
     /// Explicit teardown; call from `.onDisappear` when appropriate.
     func teardown() {
         player?.pause()

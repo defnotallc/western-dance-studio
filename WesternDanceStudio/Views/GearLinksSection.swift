@@ -8,8 +8,8 @@ struct GearLinksSection: View {
     /// Amazon Associates tracking tag.
     private let amazonAffiliateTag = "defnota-20"
 
-    /// 4-star-and-up filter code in Amazon's URL format.
-    private let amazonFourStarsAndUpFilter = "p_72%3A1248879011"
+    /// 4-star-and-up filter code in Amazon's refinement format (unencoded; URLComponents encodes once).
+    private let amazonFourStarsAndUpFilter = "p_72:1248879011"
 
     /// Curated brand allowlists, keyed by gear category.
     /// The same reputable western brands stocked by Cavender's and Boot Barn.
@@ -105,16 +105,13 @@ struct GearLinksSection: View {
     /// Builds a curated Amazon search URL with:
     /// keyword + brand allowlist + 4-star filter + price floor + affiliate tag.
     private func buildAmazonURL(keywords: String, brands: [String], minPriceDollars: Int) -> URL {
-        let minPriceParam = "p_36%3A\(minPriceDollars * 100)-"
+        let minPriceParam = "p_36:\(minPriceDollars * 100)-"
 
         let brandParam: String
         if brands.isEmpty {
             brandParam = ""
         } else {
-            let encoded = brands
-                .map { $0.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? $0 }
-                .joined(separator: "%7C")
-            brandParam = ",p_89%3A\(encoded)"
+            brandParam = ",p_89:" + brands.joined(separator: "|")
         }
 
         let rhFilter = "\(amazonFourStarsAndUpFilter),\(minPriceParam)\(brandParam)"

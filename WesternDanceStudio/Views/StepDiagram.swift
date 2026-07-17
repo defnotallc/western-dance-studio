@@ -59,26 +59,28 @@ enum StepParser {
     static func parse(_ text: String) -> (foot: StepFoot, direction: StepDirection) {
         let lower = text.lowercased()
 
-        // Foot detection
+        // Foot detection — require "foot" proximity to avoid confusing directional
+        // phrases ("to the left") with foot labels. Bare \bleft\b is intentionally
+        // excluded because it also matches "to the left" and mislabels the foot.
         let foot: StepFoot = {
-            let hasLeft = lower.contains("left foot") || lower.contains("left (")
-                || lower.range(of: #"\bleft\b"#, options: .regularExpression) != nil
-            let hasRight = lower.contains("right foot") || lower.contains("right (")
-                || lower.range(of: #"\bright\b"#, options: .regularExpression) != nil
+            let hasLeft = lower.contains("left foot") || lower.contains("left (") || lower.contains("(left")
+            let hasRight = lower.contains("right foot") || lower.contains("right (") || lower.contains("(right")
             if hasLeft && hasRight { return .both }
             if hasLeft { return .left }
             if hasRight { return .right }
             return .unknown
         }()
 
-        // Direction detection (priority order matters — check specific before general)
+        // Direction detection — explicit directional phrases checked before the
+        // generic "side" keyword so "step to the left side" maps to .left, not .right.
         let direction: StepDirection = {
             if lower.contains("cross") { return .crossOver }
             if lower.contains("diagonal") { return .diagonal }
             if lower.contains("forward") { return .forward }
             if lower.contains("back") { return .backward }
-            if lower.contains("side") || lower.contains("to the right") || lower.contains("slide right") { return .right }
             if lower.contains("to the left") || lower.contains("slide left") { return .left }
+            if lower.contains("to the right") || lower.contains("slide right") { return .right }
+            if lower.contains("side") { return .right }
             if lower.contains("in place") || lower.contains("bounce") || lower.contains("wobble") { return .inPlace }
             return .unknown
         }()
