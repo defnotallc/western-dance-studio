@@ -273,18 +273,114 @@ extension DanceStep {
             DanceStep(id: "triple-two-step-follower-8", count: 8, beat: "6",   foot: .left,  direction: .backward, timing: .quick,    weightChange: true,  note: "Walk back on 6. Pattern repeats."),
         ]
 
+        // MARK: Country Waltz (basic traveling box — 2 measures of 3/4 time)
+        //
+        // Pattern: forward-side-close, forward-side-close (6 counts, 6 beats).
+        // Beat 1 of each measure is accented (the "down" beat).
+        // Leader starts on left foot traveling forward along the line of dance.
+        // Follower starts on right foot traveling backward.
+        //
+        // Source: audit Section 3.1; standard country waltz syllabus.
+
+        private static let countryWaltzLeader: [DanceStep] = [
+            DanceStep(id: "country-waltz-leader-1", count: 1, beat: "1", foot: .left,  direction: .forward,  timing: .quick, weightChange: true,  note: "Accented down-beat; heel lead, travel along line of dance"),
+            DanceStep(id: "country-waltz-leader-2", count: 2, beat: "2", foot: .right, direction: .sideRight, timing: .quick, weightChange: true,  note: nil),
+            DanceStep(id: "country-waltz-leader-3", count: 3, beat: "3", foot: .left,  direction: .inPlace,  timing: .quick, weightChange: true,  note: "Close left to right; weight fully on left"),
+            DanceStep(id: "country-waltz-leader-4", count: 4, beat: "1", foot: .right, direction: .forward,  timing: .quick, weightChange: true,  note: "Accented down-beat of measure 2; continue traveling"),
+            DanceStep(id: "country-waltz-leader-5", count: 5, beat: "2", foot: .left,  direction: .sideLeft, timing: .quick, weightChange: true,  note: nil),
+            DanceStep(id: "country-waltz-leader-6", count: 6, beat: "3", foot: .right, direction: .inPlace,  timing: .quick, weightChange: true,  note: "Close right to left. Pattern repeats from count 1."),
+        ]
+
+        private static let countryWaltzFollower: [DanceStep] = [
+            DanceStep(id: "country-waltz-follower-1", count: 1, beat: "1", foot: .right, direction: .backward,  timing: .quick, weightChange: true,  note: "Ball of foot lands first on back steps"),
+            DanceStep(id: "country-waltz-follower-2", count: 2, beat: "2", foot: .left,  direction: .sideLeft,  timing: .quick, weightChange: true,  note: nil),
+            DanceStep(id: "country-waltz-follower-3", count: 3, beat: "3", foot: .right, direction: .inPlace,   timing: .quick, weightChange: true,  note: "Close right to left; weight fully on right"),
+            DanceStep(id: "country-waltz-follower-4", count: 4, beat: "1", foot: .left,  direction: .backward,  timing: .quick, weightChange: true,  note: "Accented down-beat; continue traveling backward"),
+            DanceStep(id: "country-waltz-follower-5", count: 5, beat: "2", foot: .right, direction: .sideRight, timing: .quick, weightChange: true,  note: nil),
+            DanceStep(id: "country-waltz-follower-6", count: 6, beat: "3", foot: .left,  direction: .inPlace,   timing: .quick, weightChange: true,  note: "Close left to right. Pattern repeats from count 1."),
+        ]
+
+        // MARK: East Coast Swing (basic 6-count — triple-step, triple-step, rock-step)
+        //
+        // Pattern: triple L (1-and-2), triple R (3-and-4), rock-step (5-6)
+        // 6 beats of music; the two triple-steps each span 2 beats with an & count.
+        // Leader starts side left; follower starts side right.
+        // Typically danced in place / small rotation rather than traveling.
+        //
+        // Source: audit Section 3.2; UCWDC ECS basic.
+
+        private static let eastCoastSwingLeader: [DanceStep] = [
+            DanceStep(id: "ecs-leader-1", count: 1, beat: "1",   foot: .left,  direction: .sideLeft,  timing: .quick,    weightChange: true,  note: "First triple; step a small amount to the left"),
+            DanceStep(id: "ecs-leader-2", count: 2, beat: "and", foot: .right, direction: .inPlace,   timing: .andCount, weightChange: true,  note: "Close right beside left (ball of foot)"),
+            DanceStep(id: "ecs-leader-3", count: 3, beat: "2",   foot: .left,  direction: .sideLeft,  timing: .quick,    weightChange: true,  note: "Complete left triple; small step"),
+            DanceStep(id: "ecs-leader-4", count: 4, beat: "3",   foot: .right, direction: .sideRight, timing: .quick,    weightChange: true,  note: "Second triple; step right"),
+            DanceStep(id: "ecs-leader-5", count: 5, beat: "and", foot: .left,  direction: .inPlace,   timing: .andCount, weightChange: true,  note: "Close left beside right (ball of foot)"),
+            DanceStep(id: "ecs-leader-6", count: 6, beat: "4",   foot: .right, direction: .sideRight, timing: .quick,    weightChange: true,  note: "Complete right triple; small step"),
+            DanceStep(id: "ecs-leader-7", count: 7, beat: "5",   foot: .left,  direction: .backward,  timing: .quick,    weightChange: true,  note: "Rock back — step back on left, transferring weight"),
+            DanceStep(id: "ecs-leader-8", count: 8, beat: "6",   foot: .right, direction: .inPlace,   timing: .quick,    weightChange: true,  note: "Replace — step in place on right, recovering weight. Pattern repeats."),
+        ]
+
+        private static let eastCoastSwingFollower: [DanceStep] = [
+            DanceStep(id: "ecs-follower-1", count: 1, beat: "1",   foot: .right, direction: .sideRight, timing: .quick,    weightChange: true,  note: "First triple; step a small amount to the right"),
+            DanceStep(id: "ecs-follower-2", count: 2, beat: "and", foot: .left,  direction: .inPlace,   timing: .andCount, weightChange: true,  note: "Close left beside right (ball of foot)"),
+            DanceStep(id: "ecs-follower-3", count: 3, beat: "2",   foot: .right, direction: .sideRight, timing: .quick,    weightChange: true,  note: "Complete right triple; small step"),
+            DanceStep(id: "ecs-follower-4", count: 4, beat: "3",   foot: .left,  direction: .sideLeft,  timing: .quick,    weightChange: true,  note: "Second triple; step left"),
+            DanceStep(id: "ecs-follower-5", count: 5, beat: "and", foot: .right, direction: .inPlace,   timing: .andCount, weightChange: true,  note: "Close right beside left (ball of foot)"),
+            DanceStep(id: "ecs-follower-6", count: 6, beat: "4",   foot: .left,  direction: .sideLeft,  timing: .quick,    weightChange: true,  note: "Complete left triple; small step"),
+            DanceStep(id: "ecs-follower-7", count: 7, beat: "5",   foot: .right, direction: .backward,  timing: .quick,    weightChange: true,  note: "Rock back — step back on right, transferring weight"),
+            DanceStep(id: "ecs-follower-8", count: 8, beat: "6",   foot: .left,  direction: .inPlace,   timing: .quick,    weightChange: true,  note: "Replace — step in place on left, recovering weight. Pattern repeats."),
+        ]
+
+        // MARK: Country Polka (hop-step-close-step, 2/4 time, 4 counts per half-cycle)
+        //
+        // Pattern: hop (&), step-close-step (1-and-2), hop (&), step-close-step (3-and-4)
+        // The preparatory hop shifts weight to the opposite foot before each traveling unit.
+        // Leader starts hopping on right (freeing left for the first step forward).
+        // Follower mirrors: hops on left, first step on right.
+        // Both travel forward along the line of dance.
+        //
+        // Source: audit Section 3.3; standard Western polka syllabus.
+
+        private static let countryPolkaLeader: [DanceStep] = [
+            DanceStep(id: "polka-leader-1", count: 1, beat: "and", foot: .right, direction: .inPlace,  timing: .andCount, weightChange: true,  note: "Preparatory hop on right — left foot lifts, ready to travel"),
+            DanceStep(id: "polka-leader-2", count: 2, beat: "1",   foot: .left,  direction: .forward,  timing: .quick,    weightChange: true,  note: "Step forward on left; begin traveling along line of dance"),
+            DanceStep(id: "polka-leader-3", count: 3, beat: "and", foot: .right, direction: .inPlace,  timing: .andCount, weightChange: true,  note: "Close right beside left (ball of foot); keep weight light"),
+            DanceStep(id: "polka-leader-4", count: 4, beat: "2",   foot: .left,  direction: .forward,  timing: .quick,    weightChange: true,  note: "Step forward on left; complete first traveling unit"),
+            DanceStep(id: "polka-leader-5", count: 5, beat: "and", foot: .left,  direction: .inPlace,  timing: .andCount, weightChange: true,  note: "Preparatory hop on left — right foot lifts"),
+            DanceStep(id: "polka-leader-6", count: 6, beat: "3",   foot: .right, direction: .forward,  timing: .quick,    weightChange: true,  note: "Step forward on right"),
+            DanceStep(id: "polka-leader-7", count: 7, beat: "and", foot: .left,  direction: .inPlace,  timing: .andCount, weightChange: true,  note: "Close left beside right (ball of foot)"),
+            DanceStep(id: "polka-leader-8", count: 8, beat: "4",   foot: .right, direction: .forward,  timing: .quick,    weightChange: true,  note: "Step forward on right; complete cycle. Pattern repeats from count 1."),
+        ]
+
+        private static let countryPolkaFollower: [DanceStep] = [
+            DanceStep(id: "polka-follower-1", count: 1, beat: "and", foot: .left,  direction: .inPlace,  timing: .andCount, weightChange: true,  note: "Preparatory hop on left — right foot lifts, ready to travel"),
+            DanceStep(id: "polka-follower-2", count: 2, beat: "1",   foot: .right, direction: .forward,  timing: .quick,    weightChange: true,  note: "Step forward on right; travel with the lead"),
+            DanceStep(id: "polka-follower-3", count: 3, beat: "and", foot: .left,  direction: .inPlace,  timing: .andCount, weightChange: true,  note: "Close left beside right (ball of foot)"),
+            DanceStep(id: "polka-follower-4", count: 4, beat: "2",   foot: .right, direction: .forward,  timing: .quick,    weightChange: true,  note: "Step forward on right; complete first traveling unit"),
+            DanceStep(id: "polka-follower-5", count: 5, beat: "and", foot: .right, direction: .inPlace,  timing: .andCount, weightChange: true,  note: "Preparatory hop on right — left foot lifts"),
+            DanceStep(id: "polka-follower-6", count: 6, beat: "3",   foot: .left,  direction: .forward,  timing: .quick,    weightChange: true,  note: "Step forward on left"),
+            DanceStep(id: "polka-follower-7", count: 7, beat: "and", foot: .right, direction: .inPlace,  timing: .andCount, weightChange: true,  note: "Close right beside left (ball of foot)"),
+            DanceStep(id: "polka-follower-8", count: 8, beat: "4",   foot: .left,  direction: .forward,  timing: .quick,    weightChange: true,  note: "Step forward on left; complete cycle. Pattern repeats from count 1."),
+        ]
+
         // MARK: Lookup tables
 
         static let leader: [String: [DanceStep]] = [
             "texas-two-step":  texasTwoStepLeader,
             "one-step":        oneStepLeader,
             "triple-two-step": tripleTwoStepLeader,
+            "country-waltz":   countryWaltzLeader,
+            "east-coast-swing": eastCoastSwingLeader,
+            "country-polka":   countryPolkaLeader,
         ]
 
         static let follower: [String: [DanceStep]] = [
             "texas-two-step":  texasTwoStepFollower,
             "one-step":        oneStepFollower,
             "triple-two-step": tripleTwoStepFollower,
+            "country-waltz":   countryWaltzFollower,
+            "east-coast-swing": eastCoastSwingFollower,
+            "country-polka":   countryPolkaFollower,
         ]
     }
 }

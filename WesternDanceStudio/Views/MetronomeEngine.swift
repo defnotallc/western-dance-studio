@@ -8,6 +8,10 @@ import Observation
 final class MetronomeEngine {
     var isPlaying: Bool = false
     var beatPulse: Bool = false
+    var accentPulse: Bool = false
+
+    /// 1-based position within the current rhythm pattern cycle; 0 when stopped.
+    private(set) var currentBeat: Int = 0
 
     var bpm: Double = 140 {
         didSet {
@@ -16,15 +20,25 @@ final class MetronomeEngine {
         }
     }
 
+    var rhythmPattern: RhythmPattern = .steady {
+        didSet {
+            currentBeat = 0
+            if isPlaying { restart() }
+        }
+    }
+
+    var countInEnabled: Bool = false
+
     private var audioPlayer: AVAudioPlayer?
-    /// Reference-type holder so `deinit` (nonisolated) can cancel the timer without
-    /// touching main-actor state. `DispatchSourceTimer.cancel()` is thread-safe.
     private let timerHolder = TimerHolder()
     private var audioSessionConfigured = false
+    private var countInRemaining: Int = 0
 
     func start() {
         guard !isPlaying else { return }
         isPlaying = true
+        currentBeat = 0
+        countInRemaining = countInEnabled ? 4 : 0
         configureAudioSessionIfNeeded()
         preparePlayer()
         scheduleTimer()
@@ -33,6 +47,7 @@ final class MetronomeEngine {
     func stop() {
         guard isPlaying else { return }
         isPlaying = false
+        currentBeat = 0
         timerHolder.cancel()
         audioPlayer?.stop()
         deactivateAudioSession()
@@ -44,6 +59,8 @@ final class MetronomeEngine {
 
     private func restart() {
         guard isPlaying else { return }
+        currentBeat = 0
+        countInRemaining = countInEnabled ? 4 : 0
         timerHolder.cancel()
         scheduleTimer()
     }
@@ -61,8 +78,6 @@ final class MetronomeEngine {
         }
     }
 
-    /// Release audio priority so other apps can claim it. Called when the metronome
-    /// stops. Uses `.notifyOthersOnDeactivation` so paused music apps can resume.
     private func deactivateAudioSession() {
         do {
             try AVAudioSession.sharedInstance().setActive(false, options: [.notifyOthersOnDeactivation])
@@ -108,12 +123,30 @@ final class MetronomeEngine {
 
     private func fireBeat() {
         guard isPlaying else { return }
+
+        // Count-in: 4 steady preparatory clicks before the pattern starts.
+        if countInRemaining > 0 {
+            countInRemaining -= 1
+            playClick(accent: countInRemaining == 3)
+            return
+        }
+
+        // Advance position within the rhythm pattern cycle.
+        currentBeat = (currentBeat % rhythmPattern.length) + 1
+
+        guard rhythmPattern.soundsOnBeat(currentBeat) else { return }
+        playClick(accent: rhythmPattern.isAccent(currentBeat))
+    }
+
+    private func playClick(accent: Bool) {
         audioPlayer?.currentTime = 0
         audioPlayer?.play()
         beatPulse = true
+        accentPulse = accent
         Task { @MainActor in
             try? await Task.sleep(for: .milliseconds(80))
             beatPulse = false
+            accentPulse = false
         }
     }
 }

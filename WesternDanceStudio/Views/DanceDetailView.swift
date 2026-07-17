@@ -377,15 +377,28 @@ struct DanceDetailView: View {
 
     private var tempoSection: some View {
         GroupBox("Tempo") {
-            HStack {
-                Image(systemName: "metronome")
-                    .foregroundStyle(.orange)
-                Text("\(dance.bpm) BPM")
-                    .font(.headline)
-                Spacer()
-                Text("Set this tempo in the Start Here tab")
-                    .font(.caption)
-                    .foregroundStyle(.secondary)
+            VStack(spacing: 10) {
+                HStack {
+                    Image(systemName: "metronome")
+                        .foregroundStyle(.orange)
+                    Text("\(dance.bpm) BPM")
+                        .font(.headline)
+                    Spacer()
+                    Text(dance.suggestedPattern.subtitle)
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                }
+                Button {
+                    Haptics.selection()
+                    PracticeRequest.shared.pendingBPM = Double(dance.bpm)
+                    PracticeRequest.shared.pendingPattern = dance.suggestedPattern
+                    NotificationCenter.default.post(name: .openStartHereTab, object: nil)
+                } label: {
+                    Label("Practice at \(dance.bpm) BPM", systemImage: "metronome.fill")
+                        .frame(maxWidth: .infinity)
+                }
+                .buttonStyle(.bordered)
+                .tint(.orange)
             }
         }
         .padding(.horizontal)

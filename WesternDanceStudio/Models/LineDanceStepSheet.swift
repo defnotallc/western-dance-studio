@@ -75,12 +75,16 @@ extension Dance {
 extension LineDanceStepSheet {
 
     static let data: [String: LineDanceStepSheet] = [
-        "electric-slide":     electricSlide,
-        "cupid-shuffle":      cupidShuffle,
+        "electric-slide":      electricSlide,
+        "cupid-shuffle":       cupidShuffle,
         "boot-scootin-boogie": bootScootinBoogie,
-        "copperhead-road":    copperheadRoad,
-        "watermelon-crawl":   watermelonCrawl,
-        "tush-push":          tushPush,
+        "copperhead-road":     copperheadRoad,
+        "watermelon-crawl":    watermelonCrawl,
+        "tush-push":           tushPush,
+        "cowboy-boogie":       cowboyBoogie,
+        "cowboy-hustle":       cowboyHustle,
+        "wobble":              wobble,
+        "achy-breaky-heart":   achyBreakyHeart,
     ]
 
     // ─── Electric Slide ────────────────────────────────────────────────────
@@ -501,5 +505,252 @@ extension LineDanceStepSheet {
                 description: "Some regional versions insert 2 additional hip bump counts (21-22) before the chassé section begins. If you see a 42-count step sheet, this tag is the difference."
             ),
         ]
+    )
+
+    // ─── Cowboy Boogie ─────────────────────────────────────────────────────
+    // Choreographer: Unknown / Traditional
+    // Music: Any up-tempo country, 120–140 BPM
+    //   Commonly: "Boot Scootin' Boogie" — Brooks & Dunn; "Prop Me Up Beside the Jukebox" — Joe Diffie
+    // Count: 28   Walls: 4   Level: Beginner
+    //
+    // A staple at beginner nights. Combines a vine, a walk-back, a Charleston
+    // rock, forward shuffles, and a Monterey turn for the wall change.
+
+    private static let cowboyBoogie = LineDanceStepSheet(
+        danceID: "cowboy-boogie",
+        totalCounts: 28,
+        walls: 4,
+        level: .beginner,
+        choreographer: nil,
+        steps: [
+            LineDanceStep(
+                countRange: "1-4",
+                figure: "Vine Right",
+                description: "Step R to right side; cross L behind R; step R to right side; touch L beside R (no weight).",
+                note: "Keep the cross-behind low and flat — no need to lift the foot high."
+            ),
+            LineDanceStep(
+                countRange: "5-8",
+                figure: "Vine Left",
+                description: "Step L to left side; cross R behind L; step L to left side; touch R beside L (no weight).",
+                note: nil
+            ),
+            LineDanceStep(
+                countRange: "9-12",
+                figure: "Walk Back 4",
+                description: "Step back R; step back L; step back R; touch L beside R (no weight). Travel backward 3 steps, then close.",
+                note: "Keep your chest up and weight over the balls of your feet — do not lean back."
+            ),
+            LineDanceStep(
+                countRange: "13-16",
+                figure: "Charleston Rock",
+                description: "Rock forward on L (count 13); replace weight back onto R (count 14); rock back on L (count 15); replace forward onto R (count 16).",
+                note: "A rock is a weight transfer, not a full step — the free foot barely leaves the floor."
+            ),
+            LineDanceStep(
+                countRange: "17&18",
+                figure: "Shuffle Forward Right",
+                description: "Step forward R (count 17); close L beside R on the & (half-beat); step forward R (count 18). Three steps, 2 beats.",
+                note: nil
+            ),
+            LineDanceStep(
+                countRange: "19&20",
+                figure: "Shuffle Forward Left",
+                description: "Step forward L (count 19); close R beside L on the &; step forward L (count 20).",
+                note: nil
+            ),
+            LineDanceStep(
+                countRange: "21-24",
+                figure: "Monterey Quarter Turn",
+                description: "Touch R toe to right side (count 21); step R beside L making a 1/4 turn right (count 22); touch L toe to left side (count 23); step L beside R (count 24, no turn).",
+                note: "The turn happens entirely on count 22 as the right foot steps home. You are now facing the new wall."
+            ),
+            LineDanceStep(
+                countRange: "25-28",
+                figure: "Step & Stomps",
+                description: "Step R to right side (count 25); stomp L beside R (no weight, count 26); stomp L again in place (count 27); hold (count 28).",
+                note: "Stomps have no weight — the L foot contacts the floor with authority but the R foot continues bearing your weight."
+            ),
+        ],
+        restarts: [],
+        tags: []
+    )
+
+    // ─── Cowboy Hustle ─────────────────────────────────────────────────────
+    // Choreographer: Unknown / Traditional
+    // Music: Any 4/4 country, 115–130 BPM
+    //   Commonly: "Achy Breaky Heart" — Billy Ray Cyrus; "Neon Moon" — Brooks & Dunn
+    // Count: 20   Walls: 4   Level: Beginner
+    //
+    // One of the shortest and easiest true 4-wall line dances. Five clean figures
+    // that repeat reliably every 20 counts. Excellent first dance for absolute beginners.
+
+    private static let cowboyHustle = LineDanceStepSheet(
+        danceID: "cowboy-hustle",
+        totalCounts: 20,
+        walls: 4,
+        level: .beginner,
+        choreographer: nil,
+        steps: [
+            LineDanceStep(
+                countRange: "1-4",
+                figure: "Two Steps Right",
+                description: "Step R to right side; close L beside R (weight transfers). Step R to right side again; close L beside R. Two side-close pairs, traveling right.",
+                note: "Keep the steps compact — this is not a grapevine. Both feet stay roughly hip-width throughout."
+            ),
+            LineDanceStep(
+                countRange: "5-8",
+                figure: "Two Steps Left",
+                description: "Step L to left side; close R beside L. Step L again; close R beside L. Two side-close pairs, traveling left.",
+                note: nil
+            ),
+            LineDanceStep(
+                countRange: "9-12",
+                figure: "Walk Back",
+                description: "Step back R (count 9); step back L (count 10); step back R (count 11); touch L beside R — no weight (count 12).",
+                note: nil
+            ),
+            LineDanceStep(
+                countRange: "13-16",
+                figure: "Shuffle Forward",
+                description: "Step forward L (count 13); close R beside L on the & (half-beat); step forward L (count 14). Step forward R (count 15); close L on &; step forward R (count 16). Two forward shuffles, L-R-L then R-L-R.",
+                note: "This is the syncopated 1-&-2, 3-&-4 shuffle. Stay light on your feet."
+            ),
+            LineDanceStep(
+                countRange: "17-20",
+                figure: "Quarter Turn Left + Stomp",
+                description: "Step forward L making a 1/4 turn left (count 17); stomp R beside L (no weight, count 18); stomp R again (count 19); hold (count 20).",
+                note: "The 1/4 turn on count 17 completes the wall change. You are now facing the next of the 4 walls."
+            ),
+        ],
+        restarts: [],
+        tags: []
+    )
+
+    // ─── Wobble ────────────────────────────────────────────────────────────
+    // Choreographer: V.I.C. / Migos-era choreography (popularized ~2010)
+    // Music: "Wobble Baby" — V.I.C. (2008); also danced to any groove-heavy country
+    // Count: 24   Walls: 4   Level: Beginner
+    //
+    // The Wobble is anchored in hip isolations and a characteristic double-dip
+    // at the top of each cycle. Very forgiving for beginners — timing matters more
+    // than precision footwork. Popular at country bars and wedding receptions alike.
+
+    private static let wobble = LineDanceStepSheet(
+        danceID: "wobble",
+        totalCounts: 24,
+        walls: 4,
+        level: .beginner,
+        choreographer: "Popularized by V.I.C. (2010)",
+        steps: [
+            LineDanceStep(
+                countRange: "1-4",
+                figure: "Hip Dip Forward",
+                description: "Shift hips forward-right, dipping low (count 1); recover center (count 2); shift hips forward-right and dip again (count 3); recover center (count 4). This is a hip isolation, not a step — feet stay planted.",
+                note: "Bend your knees slightly to get into the dip. The 'wobble' comes from a controlled hip drop, not from bouncing on the balls of your feet."
+            ),
+            LineDanceStep(
+                countRange: "5-8",
+                figure: "Hip Dip Back",
+                description: "Shift hips back-right and dip (count 5); recover (count 6); dip back-right again (count 7); recover (count 8).",
+                note: nil
+            ),
+            LineDanceStep(
+                countRange: "9-12",
+                figure: "Hip Sway Right",
+                description: "Sway hips right (count 9); sway left (count 10); sway right (count 11); sway left (count 12). Four alternating hip isolations.",
+                note: "Keep the sways controlled and rhythmic — one full sway per count of music."
+            ),
+            LineDanceStep(
+                countRange: "13-16",
+                figure: "Walk Right 4",
+                description: "Walk four steps to the right: step R (13), step L (14), step R (15), step L (16). Travel right along the floor.",
+                note: nil
+            ),
+            LineDanceStep(
+                countRange: "17-20",
+                figure: "Walk Left 4",
+                description: "Walk four steps back to the left: step L (17), step R (18), step L (19), step R (20).",
+                note: nil
+            ),
+            LineDanceStep(
+                countRange: "21-24",
+                figure: "Quarter Turn + Stomps",
+                description: "Step L forward making a 1/4 turn left (count 21); stomp R beside L (no weight, count 22); stomp R in place again (count 23); hold (count 24). You are now facing the new wall.",
+                note: "Four 1/4 turns across 4 repetitions complete a full 360°."
+            ),
+        ],
+        restarts: [],
+        tags: []
+    )
+
+    // ─── Achy Breaky Heart ─────────────────────────────────────────────────
+    // Choreographer: Melanie Greenfield (1992)
+    // Music: "Achy Breaky Heart" — Billy Ray Cyrus (1992)
+    // Count: 32   Walls: 4   Level: Intermediate
+    //
+    // One of the most famous country line dances ever recorded — helped launch
+    // the country line dance craze of the 1990s. Greenfield's original is
+    // intermediate primarily because of the hip-roll and pivot sequence in the
+    // second half; the first half is accessible to beginners.
+
+    private static let achyBreakyHeart = LineDanceStepSheet(
+        danceID: "achy-breaky-heart",
+        totalCounts: 32,
+        walls: 4,
+        level: .intermediate,
+        choreographer: "Melanie Greenfield (1992)",
+        steps: [
+            LineDanceStep(
+                countRange: "1-4",
+                figure: "Walk R then L",
+                description: "Step forward R (1); touch L behind R heel (2); step forward L (3); touch R behind L heel (4). Two walks with a touch-behind.",
+                note: "The touch is literally the heel of the free foot tapping behind the heel of the standing foot — a characteristic shape of this dance."
+            ),
+            LineDanceStep(
+                countRange: "5-8",
+                figure: "Walk Right + Touch",
+                description: "Step R to right side (5); step L beside R (6); step R to right side (7); touch L beside R — no weight (8). A side-close-side-touch pattern.",
+                note: nil
+            ),
+            LineDanceStep(
+                countRange: "9-12",
+                figure: "Walk Left + Touch",
+                description: "Step L to left side (9); step R beside L (10); step L to left side (11); touch R beside L — no weight (12).",
+                note: nil
+            ),
+            LineDanceStep(
+                countRange: "13-16",
+                figure: "Vine Right with Kick",
+                description: "Step R to right side (13); cross L behind R (14); step R to right side (15); kick L forward across (16).",
+                note: "The kick on count 16 crosses in front of the body — it is a diagonal forward kick, not straight out to the side."
+            ),
+            LineDanceStep(
+                countRange: "17-20",
+                figure: "Vine Left with Kick",
+                description: "Step L to left side (17); cross R behind L (18); step L to left side (19); kick R forward across (20).",
+                note: nil
+            ),
+            LineDanceStep(
+                countRange: "21-24",
+                figure: "Hip Roll + Walk Back",
+                description: "Roll your hips in a full circle (counts 21-22, 2 beats); walk back R (23); walk back L (24).",
+                note: "The hip roll is the most challenging element for beginners: rotate the pelvis in a smooth circle over 2 counts. If uncertain, substitute 2 hip bumps right-left."
+            ),
+            LineDanceStep(
+                countRange: "25-28",
+                figure: "Scoot Forward",
+                description: "Hop forward on R while scooting (count 25); hop on R again (count 26); hop on R (count 27); hop on R (count 28). Four consecutive forward scoots on the right foot while the L foot drags.",
+                note: "Each scoot is a small jump forward landing on R — L foot brushes/drags along for the ride. Knees stay soft."
+            ),
+            LineDanceStep(
+                countRange: "29-32",
+                figure: "Half-Turn + Quarter Turn",
+                description: "Step L forward (29); pivot 1/2 turn right on the balls of both feet (30, you now face the opposite wall); step L forward (31); pivot 1/4 turn right (32, you now face the new wall, having turned 3/4 total from your starting position on count 29).",
+                note: "The turn sequence: pivot 180° on count 30, then 90° on count 32 = 270° total. After four complete repetitions of this dance you will have made four 270° turns, completing three full rotations — this is a characteristic that makes the wall math non-obvious at first. Focus on the music and let the turns become automatic."
+            ),
+        ],
+        restarts: [],
+        tags: []
     )
 }

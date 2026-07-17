@@ -60,6 +60,9 @@ struct WesternDanceStudioApp: App {
                     reviews.didPrompt()
                 }
             }
+            .onReceive(NotificationCenter.default.publisher(for: .openStartHereTab)) { _ in
+                selectedTab = 0
+            }
         }
     }
 

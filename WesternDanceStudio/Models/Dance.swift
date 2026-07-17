@@ -24,10 +24,28 @@ struct Dance: Identifiable, Hashable, Codable {
     enum DanceCategory: String, CaseIterable, Identifiable, Codable {
         case twoStep = "Two-Step Variations"
         case lineDance = "Line Dances"
-        case swing = "Western Swing & Partner"
+        case swing = "Western Swing"
+        case polka = "Polkas & Pattern Dances"
         case waltz = "Waltzes & Schottisches"
         case other = "Other Country Dances"
         var id: String { rawValue }
+    }
+
+    /// Rhythm pattern that best fits this dance's timing for the practice metronome.
+    var suggestedPattern: RhythmPattern {
+        switch id {
+        case "texas-two-step", "double-two-step", "triple-two-step", "rhythm-two-step",
+             "nightclub-two-step", "schatzi", "shuffle-two-step", "polka-ten-step",
+             "ten-step", "cowboy-cha-cha", "traveling-cha-cha":
+            return .qqss
+        case "country-waltz", "cross-step-waltz", "pursuit-waltz", "queens-waltz",
+             "schottische", "sweetheart-schottische":
+            return .waltz
+        case "east-coast-swing", "country-jitterbug", "west-coast-swing", "aggie-swing":
+            return .swing
+        default:
+            return .steady
+        }
     }
 
     /// True if this dance has a distinct lead/follow (partner dance).
@@ -319,29 +337,31 @@ extension Dance {
             id: "aggie-swing",
             name: "Aggie Swing",
             category: .swing,
-            summary: "Show-style swing popularized by the Texas A&M Aggie Wranglers. Spins, tricks, and lifts.",
-            description: "Exhibition-style swing first popularized by the Aggie Wranglers, a show dance team from Texas A&M University. Combines Polka and Jitterbug steps with spins, tricks, and lifts. Intended for performance — not typical social dancing.",
+            summary: "Show-style swing from Texas A&M Aggie Wranglers. Spins, tricks, lifts — performance only.",
+            description: "⚠️ Performance Dance Only — do NOT attempt aerials, drops, or lifts in a social dance setting without extensive supervised training. Exhibition-style swing first popularized by the Aggie Wranglers (Texas A&M). Combines Polka and Jitterbug footwork with competition-level acrobatics. Watching it is inspiring; performing the aerials without training is dangerous.",
             leaderVideoURL: nil, followerVideoURL: nil,
             bpm: 170, isPartnerDance: true, difficulty: 9,
             recommendedSongs: ["Deep in the Heart of Texas — various"],
             leadSteps: [
+                "⚠️ Aerials and lifts in this dance require years of supervised training — never attempt them at a social dance.",
                 "Start in a polka-style closed hold with the follow",
-                "Polka basic: hop-step forward with your left foot, close right, step forward left — then repeat starting right",
-                "Build momentum into spins: lead a free spin by raising your left hand",
-                "Transition into dips, drops, and aerial tricks — requires trained follow and spotters"
+                "Polka basic: hop-step forward with your left foot, close right, step forward left — repeat starting right",
+                "Build momentum into free spins: lead by raising your left hand with clear intention",
+                "Dips, drops, and lifts — performance context only, with spotters and a fully trained partner"
             ],
             followSteps: [
+                "⚠️ Only perform aerials with a trained lead you have rehearsed with extensively — never with a stranger.",
                 "Start in closed polka hold with the lead",
                 "Polka basic: hop-step forward with your right foot, close left, step forward right — mirror the lead",
-                "Follow spin leads by staying on the ball of your foot",
-                "Trust the lead for tricks and lifts — never attempt aerials without proper training"
+                "Stay on the ball of your foot for spins; wait for a clear lead before committing to a rotation",
+                "For dips and lifts: trust only a partner you have rehearsed with, never a first-time lead"
             ],
             youtubeID: nil
         ),
         Dance(
             id: "country-polka",
             name: "Country Polka",
-            category: .swing,
+            category: .polka,
             summary: "Fast, bouncy partner dance that travels around the floor. A traditional dance hall staple.",
             description: "Traditional partner dance with a lively 2/4 rhythm. Hop-step-close-step pattern travels around the floor counter-clockwise. A staple at classic Texas dance halls.",
             leaderVideoURL: nil, followerVideoURL: nil,
@@ -366,7 +386,7 @@ extension Dance {
         Dance(
             id: "polka-ten-step",
             name: "Polka Ten Step",
-            category: .swing,
+            category: .polka,
             summary: "Ten-count promenade dance in polka rhythm. Also called Ten Step Polka.",
             description: "Classic Western promenade dance that combines a 10-step stationary pattern with polka-style forward travel. Partners dance side-by-side in sweetheart position around the floor.",
             leaderVideoURL: nil, followerVideoURL: nil,
@@ -380,13 +400,20 @@ extension Dance {
                 "Touch your right heel forward (count 7), then close your right foot next to your left (count 8)",
                 "Two polka steps forward around the floor: hop-step-close-step, then repeat (counts 9-10 and beyond)"
             ],
-            followSteps: ["Mirror the lead's 10-step pattern in sweetheart position, using the same footwork starting with your left foot"],
+            followSteps: [
+                "Start in sweetheart position on the lead's right, hands joined in front",
+                "Touch your left heel forward (count 1), then touch your left toe next to your right foot (count 2)",
+                "Touch your left heel forward (count 3), then close your left foot next to your right (count 4)",
+                "Touch your right heel forward (count 5), then touch your right toe next to your left foot (count 6)",
+                "Touch your right heel forward (count 7), then close your right foot next to your left (count 8)",
+                "Two polka steps forward with the lead around the floor: hop-step-close-step right, hop-step-close-step left (counts 9-10 and beyond)"
+            ],
             youtubeID: nil
         ),
         Dance(
             id: "traveling-cha-cha",
             name: "Traveling Cha-Cha",
-            category: .swing,
+            category: .polka,
             summary: "Progressive country cha-cha that travels around the floor. Upbeat and fun.",
             description: "Country variation of the cha-cha that travels counter-clockwise around the dance floor. Maintains classic cha-cha timing (1, 2, 3-and-4) but with a progressive, traveling feel instead of ballroom's stationary hip action.",
             leaderVideoURL: nil, followerVideoURL: nil,
@@ -413,7 +440,7 @@ extension Dance {
         Dance(
             id: "cowboy-cha-cha",
             name: "Cowboy Cha-Cha",
-            category: .swing,
+            category: .polka,
             summary: "20-count 90s-era dance. Can be done as singles, partnered, or as a line dance.",
             description: "20-count partner dance from the 1990s. Can be danced as singles, partnered, or as a line dance. Five repeated step patterns.",
             leaderVideoURL: nil, followerVideoURL: nil,
@@ -428,13 +455,21 @@ extension Dance {
                 "Execute a 4-count turn — lead the follow under your joined hands as you rotate right",
                 "Repeat the full 20-count pattern"
             ],
-            followSteps: ["Mirror the lead's pattern starting with your right foot, accepting the turn lead"],
+            followSteps: [
+                "Start side-by-side with the lead in sweetheart position, the lead on your left",
+                "Rock step forward with your right foot, replace back onto your left (counts 1-2)",
+                "Triple step in place: right-left-right (counts 3-and-4)",
+                "Rock step back with your left foot, replace forward onto your right (counts 5-6)",
+                "Triple step in place: left-right-left (counts 7-and-8)",
+                "During the 4-count turn: step under the raised joined hands and turn left (counterclockwise) back to sweetheart position",
+                "Repeat the full 20-count pattern"
+            ],
             youtubeID: nil
         ),
         Dance(
             id: "ten-step",
             name: "Ten Step",
-            category: .swing,
+            category: .polka,
             summary: "Ten stationary footwork steps followed by forward shuffles. Danced as partners with optional twirls.",
             description: "Partner dance with ten stationary footwork steps followed by a series of forward shuffles. The pair holds hands and repeats the pattern with optional twirls.",
             leaderVideoURL: nil, followerVideoURL: nil,
@@ -450,13 +485,22 @@ extension Dance {
                 "Shuffle forward: right-left-right (counts 11-and-12)",
                 "Optional: lead the follow through a twirl on the shuffle counts"
             ],
-            followSteps: ["Mirror the lead's 10-step pattern starting with the same heel-toe touches, accept twirl leads during shuffles"],
+            followSteps: [
+                "Start side-by-side with the lead in sweetheart position, the lead on your left, hands joined in front",
+                "Touch your left heel forward (count 1), then touch your left toe back (count 2)",
+                "Touch your left heel forward (count 3), then close your left foot beside your right (count 4)",
+                "Touch your right heel forward (count 5), then cross your right toe over your left (count 6)",
+                "Touch your right heel to the side (count 7), then close your right foot beside your left (count 8)",
+                "Shuffle forward with the lead: left-right-left (counts 9-and-10)",
+                "Shuffle forward: right-left-right (counts 11-and-12)",
+                "When the lead raises your hand on the shuffle, complete a full twirl (clockwise spin) and return to sweetheart position"
+            ],
             youtubeID: nil
         ),
         Dance(
             id: "horseshoe",
             name: "Horseshoe",
-            category: .swing,
+            category: .polka,
             summary: "Circle-style partner promenade danced around the floor as a group.",
             description: "Traditional Western promenade dance where couples form a large circle (horseshoe) and travel around the floor together. Includes a round-the-room couples mixer.",
             leaderVideoURL: nil, followerVideoURL: nil,
@@ -470,7 +514,13 @@ extension Dance {
                 "Quarter turn left together, progressing around the floor",
                 "Repeat the pattern — the couple ahead is your next partner in the mixer exchange"
             ],
-            followSteps: ["Mirror the lead's grapevine pattern in sweetheart position, moving with the circle"],
+            followSteps: [
+                "Take sweetheart position on the lead's right, hands joined in front, both facing counter-clockwise in the large circle",
+                "Grapevine to the right with the lead: step right, cross your left behind right, step right, touch left beside right",
+                "Grapevine to the left: step left, cross your right behind left, step left, touch right beside left",
+                "Quarter turn left together, progressing counter-clockwise around the floor",
+                "In the mixer exchange, release hands and join the next couple approaching from behind"
+            ],
             youtubeID: nil
         ),
     ]
@@ -522,7 +572,16 @@ extension Dance {
                 "Step to the side with your left foot (count 2)",
                 "Step in place with your right foot (count 3)"
             ],
-            followSteps: ["Mirror the lead's crossing pattern, starting with your right foot crossing over your left"],
+            followSteps: [
+                "Begin in closed or open waltz hold facing the lead",
+                "Cross your right foot over your left foot (count 1) — this mirrors the lead's cross",
+                "Step to the side with your left foot (count 2)",
+                "Step in place with your right foot (count 3)",
+                "Cross your left foot over your right foot (count 1)",
+                "Step to the side with your right foot (count 2)",
+                "Step in place with your left foot (count 3)",
+                "Allow the frame to rotate — the lead steers the rotation direction between measures"
+            ],
             youtubeID: nil
         ),
         Dance(
@@ -867,7 +926,7 @@ extension Dance {
             name: "Macarena",
             category: .lineDance,
             summary: "1990s worldwide craze. Arm sequence then hip sway and jump-turn.",
-            description: "Los Del Rio's 1990s hit. Series of arm movements (hands out, palms down, shoulders, head, hips) followed by a hip sway and jump-turn. Danced in country bars worldwide despite being a Spanish song.",
+            description: "Los Del Rio's 1990s hit. Series of arm movements (hands out, palms down, shoulders, head, hips) followed by a hip sway and jump-turn. Danced in country bars worldwide despite being a Spanish song. 🎉 Party staple — if you only learn one line dance to break the ice at any venue, make it this one.",
             leaderVideoURL: nil, followerVideoURL: nil,
             bpm: 105, isPartnerDance: false, difficulty: 1,
             recommendedSongs: ["Macarena — Los Del Rio"],

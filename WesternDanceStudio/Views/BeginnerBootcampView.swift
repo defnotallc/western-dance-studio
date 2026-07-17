@@ -282,58 +282,113 @@ struct BeginnerBootcampView: View {
 
     // MARK: - Metronome
 
+    private var pendingBPM: Double? { PracticeRequest.shared.pendingBPM }
+    private var pendingPattern: RhythmPattern? { PracticeRequest.shared.pendingPattern }
+
     private var metronomeSection: some View {
         GroupBox("Practice Metronome") {
-            VStack(spacing: 20) {
+            VStack(spacing: 16) {
+
+                // Rhythm pattern picker
+                VStack(alignment: .leading, spacing: 6) {
+                    Text("Rhythm Pattern")
+                        .font(.caption.weight(.semibold))
+                        .foregroundStyle(.secondary)
+                    Picker("Pattern", selection: $engine.rhythmPattern) {
+                        ForEach(RhythmPattern.allCases) { pattern in
+                            Text(pattern.displayName).tag(pattern)
+                        }
+                    }
+                    .pickerStyle(.segmented)
+                    Text(engine.rhythmPattern.subtitle)
+                        .font(.caption2)
+                        .foregroundStyle(.secondary)
+                }
+
+                // Beat position indicator
+                if engine.rhythmPattern.length > 1 {
+                    HStack(spacing: 8) {
+                        ForEach(1...engine.rhythmPattern.length, id: \.self) { pos in
+                            let sounds = engine.rhythmPattern.soundsOnBeat(pos)
+                            let isCurrent = engine.isPlaying && engine.currentBeat == pos
+                            let isAccent = engine.rhythmPattern.isAccent(pos)
+                            Circle()
+                                .fill(
+                                    isCurrent
+                                        ? (isAccent ? WesternTheme.primary : Color.orange)
+                                        : (sounds ? Color.orange.opacity(0.25) : Color.gray.opacity(0.12))
+                                )
+                                .frame(width: isCurrent ? 16 : 12, height: isCurrent ? 16 : 12)
+                                .overlay(
+                                    Circle()
+                                        .stroke(sounds ? Color.orange.opacity(0.6) : Color.gray.opacity(0.3), lineWidth: 1)
+                                )
+                                .animation(.easeInOut(duration: 0.08), value: isCurrent)
+                        }
+                    }
+                }
+
+                // BPM display + pulse circle
                 Text("\(Int(engine.bpm)) BPM")
-                    .font(.system(size: 56, weight: .bold, design: .rounded))
+                    .font(.system(size: 52, weight: .bold, design: .rounded))
                     .foregroundStyle(.orange)
 
                 ZStack {
                     Circle()
                         .stroke(lineWidth: 10)
                         .foregroundStyle(.orange.opacity(0.3))
-                        .frame(width: 160, height: 160)
+                        .frame(width: 140, height: 140)
 
                     Circle()
-                        .fill(engine.isPlaying ? Color.orange : Color.gray)
-                        .frame(width: engine.beatPulse ? 80 : 55,
-                               height: engine.beatPulse ? 80 : 55)
-                        .animation(.easeInOut(duration: 0.1), value: engine.beatPulse)
+                        .fill(
+                            engine.accentPulse ? WesternTheme.primary :
+                            (engine.isPlaying ? Color.orange : Color.gray)
+                        )
+                        .frame(width: engine.beatPulse ? 75 : 50,
+                               height: engine.beatPulse ? 75 : 50)
+                        .animation(.easeInOut(duration: 0.08), value: engine.beatPulse)
+                        .animation(.easeInOut(duration: 0.08), value: engine.accentPulse)
                 }
 
-                Slider(value: $engine.bpm, in: 80...200, step: 1) {
+                Slider(value: $engine.bpm, in: 60...220, step: 1) {
                     Text("BPM")
                 } minimumValueLabel: {
-                    Text("80").font(.caption)
+                    Text("60").font(.caption)
                 } maximumValueLabel: {
-                    Text("200").font(.caption)
+                    Text("220").font(.caption)
                 }
                 .tint(.orange)
 
-                Button(engine.isPlaying ? "Stop" : "Start Metronome") {
-                    Haptics.impact(.medium)
-                    if engine.isPlaying {
-                        engine.stop()
-                    } else {
-                        engine.start()
+                // Count-in toggle + start button
+                VStack(spacing: 10) {
+                    Toggle(isOn: $engine.countInEnabled) {
+                        Label("Count-In (4 beats)", systemImage: "4.square")
+                            .font(.subheadline)
                     }
+                    .tint(.orange)
+
+                    Button(engine.isPlaying ? "Stop" : "Start") {
+                        Haptics.impact(.medium)
+                        engine.toggle()
+                    }
+                    .buttonStyle(.borderedProminent)
+                    .tint(.orange)
+                    .font(.headline)
+                    .frame(maxWidth: .infinity)
                 }
-                .buttonStyle(.borderedProminent)
-                .tint(.orange)
-                .font(.headline)
 
                 // Presets
                 VStack(alignment: .leading, spacing: 6) {
                     Text("Quick Presets")
-                        .font(.subheadline.bold())
+                        .font(.caption.weight(.semibold))
                         .foregroundStyle(.secondary)
 
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack {
-                            ForEach(Dance.sampleDances.prefix(8)) { dance in
+                            ForEach(Dance.sampleDances.prefix(10)) { dance in
                                 Button("\(dance.name) · \(dance.bpm)") {
                                     engine.bpm = Double(dance.bpm)
+                                    engine.rhythmPattern = dance.suggestedPattern
                                 }
                                 .buttonStyle(.bordered)
                                 .tint(.orange)
@@ -344,6 +399,18 @@ struct BeginnerBootcampView: View {
                 }
             }
             .padding(.vertical, 8)
+        }
+        .onChange(of: pendingBPM) { _, bpm in
+            if let bpm {
+                engine.bpm = bpm
+                PracticeRequest.shared.pendingBPM = nil
+            }
+        }
+        .onChange(of: pendingPattern) { _, pattern in
+            if let pattern {
+                engine.rhythmPattern = pattern
+                PracticeRequest.shared.pendingPattern = nil
+            }
         }
     }
 }
