@@ -3,10 +3,15 @@ import SwiftUI
 struct GlossaryView: View {
     @State private var searchText = ""
     @State private var debouncedSearch = ""
+    @State private var selectedCategory: DanceTerm.TermCategory?
 
     private var filteredTerms: [DanceTerm] {
-        let all = DanceTerm.allTerms
-        return debouncedSearch.isEmpty ? all : all.filter {
+        var all = DanceTerm.allTerms
+        if let cat = selectedCategory {
+            all = all.filter { $0.category == cat }
+        }
+        guard !debouncedSearch.isEmpty else { return all }
+        return all.filter {
             $0.term.localizedCaseInsensitiveContains(debouncedSearch) ||
             $0.definition.localizedCaseInsensitiveContains(debouncedSearch) ||
             ($0.technicalNote?.localizedCaseInsensitiveContains(debouncedSearch) == true) ||
@@ -19,8 +24,31 @@ struct GlossaryView: View {
         let terms = filteredTerms
         NavigationStack {
             List {
-                if terms.isEmpty && !debouncedSearch.isEmpty {
-                    ContentUnavailableView("No matching terms", systemImage: "magnifyingglass")
+                // Category filter chips
+                Section {
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        HStack(spacing: 8) {
+                            FilterChip(label: "All", isSelected: selectedCategory == nil) {
+                                selectedCategory = nil
+                            }
+                            ForEach(DanceTerm.TermCategory.allCases) { category in
+                                FilterChip(label: category.rawValue, isSelected: selectedCategory == category) {
+                                    selectedCategory = selectedCategory == category ? nil : category
+                                }
+                            }
+                        }
+                        .padding(.vertical, 2)
+                    }
+                }
+                .listRowInsets(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
+
+                if terms.isEmpty {
+                    ContentUnavailableView(
+                        selectedCategory != nil && debouncedSearch.isEmpty
+                            ? "No terms in this category"
+                            : "No matching terms",
+                        systemImage: "magnifyingglass"
+                    )
                 } else {
                     ForEach(terms) { term in
                         GlossaryRow(term: term)
@@ -34,6 +62,27 @@ struct GlossaryView: View {
             .navigationTitle("Dance Glossary")
             .navigationBarTitleDisplayMode(.large)
         }
+    }
+}
+
+private struct FilterChip: View {
+    let label: String
+    let isSelected: Bool
+    let action: () -> Void
+
+    var body: some View {
+        Button(action: action) {
+            Text(label)
+                .font(.caption.weight(.semibold))
+                .foregroundStyle(isSelected ? .white : WesternTheme.primary)
+                .padding(.horizontal, 12)
+                .padding(.vertical, 6)
+                .background(
+                    isSelected ? WesternTheme.primary : WesternTheme.primary.opacity(0.1),
+                    in: Capsule()
+                )
+        }
+        .buttonStyle(.plain)
     }
 }
 

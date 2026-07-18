@@ -44,6 +44,7 @@ struct LaunchScreenView: View {
         ScrollView {
             VStack(spacing: 0) {
                 headerSection
+                    .ignoresSafeArea(edges: .top)
 
                 featuresSection
                     .padding(.horizontal, 28)

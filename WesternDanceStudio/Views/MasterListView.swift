@@ -288,6 +288,11 @@ struct MasterListView: View {
             do {
                 let items = try await request.mapItems
                 await MainActor.run {
+                    // Discard stale result if the search text changed while in flight.
+                    guard searchText.trimmingCharacters(in: .whitespaces) == text else {
+                        isGeocoding = false
+                        return
+                    }
                     searchCenter = items.first?.location.coordinate
                     isGeocoding = false
                 }
@@ -298,6 +303,11 @@ struct MasterListView: View {
             let geocoder = CLGeocoder()
             geocoder.geocodeAddressString(text) { placemarks, _ in
                 Task { @MainActor in
+                    // Discard stale result if the search text changed while in flight.
+                    guard self.searchText.trimmingCharacters(in: .whitespaces) == text else {
+                        self.isGeocoding = false
+                        return
+                    }
                     self.searchCenter = placemarks?.first?.location?.coordinate
                     self.isGeocoding = false
                 }
