@@ -5,6 +5,7 @@ struct BeginnerBootcampView: View {
     @State private var engine = MetronomeEngine()
     @State private var iap = IAPManager.shared
     @State private var consent = ConsentManager.shared
+    @State private var practiceStore = PracticeStore.shared
     @State private var showingRemoveAdsSheet = false
     /// Optional callback to navigate to another tab (wired by parent)
     var onOpenGlossary: (() -> Void)? = nil
@@ -34,6 +35,12 @@ struct BeginnerBootcampView: View {
                     // MARK: Safety & Etiquette
                     safetyTeaser
                         .padding(.horizontal)
+
+                    // MARK: Practice Streak
+                    if practiceStore.totalSessions > 0 {
+                        practiceStreakWidget
+                            .padding(.horizontal)
+                    }
 
                     // MARK: Learning Path (Phase 4)
                     CurriculumView(store: store)
@@ -279,6 +286,64 @@ struct BeginnerBootcampView: View {
         formatter.timeStyle = .none
         return formatter.string(from: date)
     }()
+
+    // MARK: - Practice streak widget
+
+    private var practiceStreakWidget: some View {
+        GroupBox {
+            VStack(alignment: .leading, spacing: 12) {
+                HStack(spacing: 16) {
+                    // Streak counter
+                    VStack(spacing: 2) {
+                        Text("\(practiceStore.currentStreak)")
+                            .font(.system(size: 36, weight: .bold, design: .rounded))
+                            .foregroundStyle(.orange)
+                        Text(practiceStore.currentStreak == 1 ? "day streak" : "day streak")
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                    }
+
+                    Divider().frame(height: 44)
+
+                    // Totals
+                    VStack(alignment: .leading, spacing: 4) {
+                        Label("\(practiceStore.totalSessions) total sessions", systemImage: "checkmark.circle")
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                        Label("\(practiceStore.uniqueDancesPracticed) dance\(practiceStore.uniqueDancesPracticed == 1 ? "" : "s") practiced", systemImage: "figure.dance")
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                    }
+                }
+
+                // 14-day activity dots
+                let activeDays = practiceStore.activeDays(inLast: 14)
+                let calendar = Calendar.current
+                HStack(spacing: 4) {
+                    ForEach(0..<14, id: \.self) { daysAgo in
+                        let day = calendar.date(byAdding: .day, value: -(13 - daysAgo), to: calendar.startOfDay(for: Date())) ?? Date()
+                        let active = activeDays.contains(day)
+                        let isToday = daysAgo == 13
+                        Circle()
+                            .fill(active ? Color.orange : Color.gray.opacity(0.2))
+                            .frame(width: isToday ? 13 : 10, height: isToday ? 13 : 10)
+                            .overlay(
+                                Circle().stroke(isToday ? Color.orange : Color.clear, lineWidth: 1.5)
+                            )
+                    }
+                    Spacer()
+                    Text("14 days")
+                        .font(.caption2)
+                        .foregroundStyle(.tertiary)
+                }
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
+        } label: {
+            Label("Practice Streak", systemImage: "flame.fill")
+                .font(.subheadline.weight(.semibold))
+                .foregroundStyle(WesternTheme.primaryDark)
+        }
+    }
 
     // MARK: - Metronome
 

@@ -7,6 +7,11 @@ struct DanceDetailView: View {
     @State private var selectedPerspective: Perspective = .leader
     @State private var player = ObservablePlayer()
     @State private var stepsExpanded: Bool = true
+    @State private var practiceStore = PracticeStore.shared
+
+    // Beat-synced step highlighter — local metronome, independent of the Start Here tab's engine.
+    @State private var stepEngine = MetronomeEngine()
+    @State private var highlightedStepIndex: Int = 0
 
     enum Perspective: String, CaseIterable, Identifiable {
         case leader = "Leader"
@@ -52,6 +57,7 @@ struct DanceDetailView: View {
                     stepsSection
                 }
                 tempoSection
+                practiceSection
                 songsSection
                 if !danceErrors.isEmpty {
                     commonMistakesSection
@@ -70,7 +76,18 @@ struct DanceDetailView: View {
         }
         .onDisappear {
             player.teardown()
+            stepEngine.stop()
             AdManager.shared.recordDetailReturn()
+        }
+        .onChange(of: stepEngine.currentBeat) { _, beat in
+            guard stepEngine.isPlaying,
+                  let steps = currentStructuredSteps, !steps.isEmpty,
+                  stepEngine.rhythmPattern.soundsOnBeat(beat) else { return }
+            highlightedStepIndex = (highlightedStepIndex + 1) % steps.count
+        }
+        .onChange(of: selectedPerspective) { _, _ in
+            stepEngine.stop()
+            highlightedStepIndex = 0
         }
         .withBannerAd()
     }
@@ -319,9 +336,59 @@ struct DanceDetailView: View {
     @ViewBuilder
     private var structuredStepsSection: some View {
         if let steps = currentStructuredSteps {
-            GroupBox("Beat Chart") {
+            GroupBox {
                 VStack(spacing: 0) {
-                    // Header row
+                    // Beat-player controls
+                    HStack {
+                        VStack(alignment: .leading, spacing: 2) {
+                            Text("Beat Chart")
+                                .font(.subheadline.weight(.semibold))
+                                .foregroundStyle(WesternTheme.primaryDark)
+                            Text(stepEngine.isPlaying
+                                 ? "Step \(highlightedStepIndex + 1) of \(steps.count)"
+                                 : "\(steps.count) counts · tap ▶ to follow along")
+                                .font(.caption)
+                                .foregroundStyle(.secondary)
+                        }
+                        Spacer()
+                        // BPM stepper
+                        HStack(spacing: 6) {
+                            Button {
+                                stepEngine.bpm = max(40, stepEngine.bpm - 10)
+                            } label: { Image(systemName: "minus.circle").foregroundStyle(.orange) }
+                            .buttonStyle(.plain)
+                            Text("\(Int(stepEngine.bpm))")
+                                .font(.caption.monospacedDigit())
+                                .frame(width: 32)
+                            Button {
+                                stepEngine.bpm = min(220, stepEngine.bpm + 10)
+                            } label: { Image(systemName: "plus.circle").foregroundStyle(.orange) }
+                            .buttonStyle(.plain)
+                        }
+                        // Play / Stop
+                        Button {
+                            Haptics.impact(.light)
+                            if stepEngine.isPlaying {
+                                stepEngine.stop()
+                                highlightedStepIndex = 0
+                            } else {
+                                stepEngine.bpm = Double(dance.bpm)
+                                stepEngine.rhythmPattern = dance.suggestedPattern
+                                highlightedStepIndex = 0
+                                stepEngine.start()
+                            }
+                        } label: {
+                            Image(systemName: stepEngine.isPlaying ? "stop.circle.fill" : "play.circle.fill")
+                                .font(.title2)
+                                .foregroundStyle(.orange)
+                        }
+                        .buttonStyle(.plain)
+                    }
+                    .padding(.bottom, 8)
+
+                    Divider()
+
+                    // Column headers
                     HStack(spacing: 0) {
                         Text("#").frame(width: 28, alignment: .center)
                         Text("Beat").frame(width: 44, alignment: .center)
@@ -336,7 +403,8 @@ struct DanceDetailView: View {
 
                     Divider()
 
-                    ForEach(steps) { step in
+                    ForEach(Array(steps.enumerated()), id: \.element.id) { index, step in
+                        let isHighlighted = stepEngine.isPlaying && index == highlightedStepIndex
                         HStack(spacing: 0) {
                             Text("\(step.count)")
                                 .frame(width: 28, alignment: .center)
@@ -355,6 +423,13 @@ struct DanceDetailView: View {
                         .font(.subheadline)
                         .padding(.vertical, 6)
                         .padding(.horizontal, 4)
+                        .background(
+                            isHighlighted
+                                ? Color.orange.opacity(0.15)
+                                : Color.clear
+                        )
+                        .clipShape(RoundedRectangle(cornerRadius: 6))
+                        .animation(.easeInOut(duration: 0.1), value: isHighlighted)
 
                         if let note = step.note {
                             Text(note)
@@ -373,6 +448,52 @@ struct DanceDetailView: View {
             }
             .padding(.horizontal)
         }
+    }
+
+    // MARK: - Practice section
+
+    private var practiceSection: some View {
+        GroupBox {
+            VStack(spacing: 12) {
+                HStack {
+                    Label("Practice Log", systemImage: "checkmark.circle.fill")
+                        .font(.subheadline.weight(.semibold))
+                        .foregroundStyle(WesternTheme.primaryDark)
+                    Spacer()
+                    if practiceStore.practiceCount(for: dance.id) > 0 {
+                        Text("\(practiceStore.practiceCount(for: dance.id)) session\(practiceStore.practiceCount(for: dance.id) == 1 ? "" : "s")")
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                    }
+                }
+
+                if let last = practiceStore.lastPracticed(dance.id) {
+                    HStack(spacing: 6) {
+                        Image(systemName: "clock")
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                        Text("Last practiced \(last.formatted(.relative(presentation: .named)))")
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                        Spacer()
+                    }
+                }
+
+                Button {
+                    Haptics.impact(.medium)
+                    practiceStore.logPractice(danceID: dance.id)
+                } label: {
+                    Label(
+                        practiceStore.practicedToday(dance.id) ? "Practiced today ✓" : "Log Practice",
+                        systemImage: practiceStore.practicedToday(dance.id) ? "checkmark.circle.fill" : "checkmark.circle"
+                    )
+                    .frame(maxWidth: .infinity)
+                }
+                .buttonStyle(.bordered)
+                .tint(practiceStore.practicedToday(dance.id) ? .green : .orange)
+            }
+        }
+        .padding(.horizontal)
     }
 
     private var tempoSection: some View {
