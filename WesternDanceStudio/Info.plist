@@ -197,6 +197,8 @@
 			<string>3qcr597p9d.skadnetwork</string>
 		</dict>
 	</array>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Western Dance Studio uses your location to find country dance venues near you.</string>
 	<key>UILaunchScreen</key>
 	<dict>
 		<key>UIColorName</key>

@@ -9,6 +9,7 @@ struct MasterListView: View {
     @State private var searchCenter: CLLocationCoordinate2D?
     @State private var isGeocoding: Bool = false
     @State private var geocodingError: String?
+    @State private var locationManager = LocationManager.shared
 
     private let store = DanceHallStore.shared
 
@@ -49,6 +50,10 @@ struct MasterListView: View {
         return store.venues(within: 50, of: center)
     }
 
+    private var nearbyVenueCount: Int {
+        nearbySortedByDistance?.count ?? 0
+    }
+
     var body: some View {
         VStack(spacing: 0) {
             List {
@@ -60,10 +65,12 @@ struct MasterListView: View {
                         Text("List last updated \(store.lastUpdated)")
                             .font(.caption)
                             .foregroundStyle(.secondary)
+                        Spacer()
+                        nearMeButton
                     }
                 }
 
-                if let error = geocodingError {
+                if let error = geocodingError ?? locationManager.errorMessage {
                     Section {
                         Label(error, systemImage: "exclamationmark.triangle.fill")
                             .foregroundStyle(.red)
@@ -72,16 +79,19 @@ struct MasterListView: View {
                 }
 
                 if let nearby = nearbySortedByDistance, !searchText.isEmpty {
-                    Section("Within 50 miles of '\(searchText)'") {
+                    Section {
                         if nearby.isEmpty {
-                            Text("No venues within 50 miles. Try a different location.")
-                                .font(.caption)
-                                .foregroundStyle(.secondary)
+                            thinCoverageNote(count: 0)
                         } else {
+                            if nearby.count < 4 {
+                                thinCoverageNote(count: nearby.count)
+                            }
                             ForEach(nearby) { hall in
                                 venueRow(hall, distanceFrom: searchCenter)
                             }
                         }
+                    } header: {
+                        Text("Within 50 miles of '\(searchText)'")
                     }
                 } else {
                     ForEach(filteredByState, id: \.state) { group in
@@ -92,6 +102,11 @@ struct MasterListView: View {
                         }
                     }
                 }
+
+                // Suggest a venue footer
+                Section {
+                    suggestVenueRow
+                }
             }
             .listStyle(.insetGrouped)
             .searchable(text: $searchText, prompt: "Search zip, city, or venue name")
@@ -100,9 +115,8 @@ struct MasterListView: View {
             }
             .onChange(of: searchText) { _, newValue in
                 let trimmed = newValue.trimmingCharacters(in: .whitespaces)
-                // Always clear the previous geocode result so stale coordinates
-                // don't filter results while the user is still editing.
                 searchCenter = nil
+                locationManager.errorMessage = nil
                 if trimmed.isEmpty {
                     geocodingError = nil
                     return
@@ -111,8 +125,13 @@ struct MasterListView: View {
                     tryGeocode(trimmed)
                 }
             }
+            .onChange(of: locationManager.lastCoordinate?.latitude) { _, _ in
+                guard let coord = locationManager.lastCoordinate else { return }
+                searchText = "Near Me"
+                searchCenter = coord
+            }
             .overlay {
-                if isGeocoding {
+                if isGeocoding || locationManager.isLocating {
                     ProgressView().padding(12)
                         .background(.ultraThinMaterial)
                         .clipShape(RoundedRectangle(cornerRadius: 12))
@@ -129,48 +148,94 @@ struct MasterListView: View {
         }
     }
 
-    private func tryGeocode(_ text: String) {
-        let trimmed = text.trimmingCharacters(in: .whitespaces)
-        guard !trimmed.isEmpty else {
-            searchCenter = nil
-            return
+    // MARK: - Near Me button
+
+    @ViewBuilder
+    private var nearMeButton: some View {
+        Button {
+            Haptics.impact(.light)
+            locationManager.requestLocation()
+        } label: {
+            HStack(spacing: 4) {
+                if locationManager.isLocating {
+                    ProgressView().scaleEffect(0.7)
+                } else {
+                    Image(systemName: "location.fill")
+                        .font(.caption2)
+                }
+                Text("Near Me")
+                    .font(.caption.weight(.semibold))
+            }
+            .foregroundStyle(WesternTheme.primary)
         }
-        isGeocoding = true
-        geocodingError = nil
-        Task { await geocodeAsync(trimmed) }
+        .buttonStyle(.plain)
+        .disabled(locationManager.isLocating)
     }
 
-    private func geocodeAsync(_ text: String) async {
-        if #available(iOS 26.0, *) {
-            guard let request = MKGeocodingRequest(addressString: text) else {
-                await MainActor.run {
-                    isGeocoding = false
-                    searchCenter = nil
-                }
-                return
-            }
-            do {
-                let items = try await request.mapItems
-                await MainActor.run {
-                    searchCenter = items.first?.location.coordinate
-                    isGeocoding = false
-                }
-            } catch {
-                await MainActor.run {
-                    isGeocoding = false
-                    searchCenter = nil
-                }
-            }
-        } else {
-            let geocoder = CLGeocoder()
-            geocoder.geocodeAddressString(text) { placemarks, _ in
-                Task { @MainActor in
-                    searchCenter = placemarks?.first?.location?.coordinate
-                    isGeocoding = false
+    // MARK: - Thin coverage disclaimer
+
+    private func thinCoverageNote(count: Int) -> some View {
+        HStack(alignment: .top, spacing: 8) {
+            Image(systemName: "exclamationmark.triangle")
+                .font(.caption)
+                .foregroundStyle(.orange)
+            VStack(alignment: .leading, spacing: 2) {
+                if count == 0 {
+                    Text("No curated venues in this area yet.")
+                        .font(.caption.weight(.semibold))
+                    Text("Coverage is growing — suggest a venue below to help us expand.")
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                } else {
+                    Text("Thin coverage — \(count) venue\(count == 1 ? "" : "s") within 50 miles.")
+                        .font(.caption.weight(.semibold))
+                    Text("Verified curated list only. Suggest additional venues below.")
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
                 }
             }
         }
+        .padding(.vertical, 4)
     }
+
+    // MARK: - Suggest a venue
+
+    private var suggestVenueRow: some View {
+        Button {
+            Haptics.impact(.light)
+            openSuggestVenueMail()
+        } label: {
+            HStack(spacing: 12) {
+                Image(systemName: "mappin.and.ellipse")
+                    .font(.title3)
+                    .foregroundStyle(WesternTheme.primary)
+                VStack(alignment: .leading, spacing: 2) {
+                    Text("Suggest a Venue")
+                        .font(.subheadline.weight(.semibold))
+                        .foregroundStyle(.primary)
+                    Text("Know a dance hall that's missing? Let us know.")
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                }
+                Spacer()
+                Image(systemName: "envelope")
+                    .font(.caption)
+                    .foregroundStyle(.tertiary)
+            }
+        }
+        .buttonStyle(.plain)
+    }
+
+    private func openSuggestVenueMail() {
+        let subject = "Venue Suggestion — Western Dance Studio"
+        let body = "Venue name:\nCity, State, ZIP:\nWebsite (if any):\nDances offered:\nNotes:"
+        let encoded = "\(subject)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? subject
+        let bodyEncoded = body.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+        guard let url = URL(string: "mailto:Defnota.official@gmail.com?subject=\(encoded)&body=\(bodyEncoded)") else { return }
+        UIApplication.shared.open(url)
+    }
+
+    // MARK: - Venue row
 
     @ViewBuilder
     private func venueRow(_ hall: DanceHall, distanceFrom center: CLLocationCoordinate2D?) -> some View {
@@ -196,6 +261,45 @@ struct MasterListView: View {
                         .font(.caption2)
                         .foregroundStyle(.tertiary)
                         .lineLimit(1)
+                }
+            }
+        }
+    }
+
+    // MARK: - Geocode
+
+    private func tryGeocode(_ text: String) {
+        let trimmed = text.trimmingCharacters(in: .whitespaces)
+        guard !trimmed.isEmpty else {
+            searchCenter = nil
+            return
+        }
+        isGeocoding = true
+        geocodingError = nil
+        Task { await geocodeAsync(trimmed) }
+    }
+
+    private func geocodeAsync(_ text: String) async {
+        if #available(iOS 26.0, *) {
+            guard let request = MKGeocodingRequest(addressString: text) else {
+                await MainActor.run { isGeocoding = false; searchCenter = nil }
+                return
+            }
+            do {
+                let items = try await request.mapItems
+                await MainActor.run {
+                    searchCenter = items.first?.location.coordinate
+                    isGeocoding = false
+                }
+            } catch {
+                await MainActor.run { isGeocoding = false; searchCenter = nil }
+            }
+        } else {
+            let geocoder = CLGeocoder()
+            geocoder.geocodeAddressString(text) { placemarks, _ in
+                Task { @MainActor in
+                    self.searchCenter = placemarks?.first?.location?.coordinate
+                    self.isGeocoding = false
                 }
             }
         }
