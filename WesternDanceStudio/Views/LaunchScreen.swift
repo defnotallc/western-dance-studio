@@ -44,7 +44,6 @@ struct LaunchScreenView: View {
         ScrollView {
             VStack(spacing: 0) {
                 headerSection
-                    .ignoresSafeArea(edges: .top)
 
                 featuresSection
                     .padding(.horizontal, 28)
@@ -60,6 +59,10 @@ struct LaunchScreenView: View {
                     .padding(.bottom, 28)
             }
         }
+        // Extend the scroll view to fill behind the status bar so the header
+        // gradient reaches the top edge. Content inside headerSection uses
+        // .safeAreaPadding(.top) to stay below the status bar.
+        .ignoresSafeArea(edges: .top)
         .background(Color(.systemBackground))
         .task { await iap.loadProducts() }
     }
@@ -93,8 +96,10 @@ struct LaunchScreenView: View {
 
                 Spacer(minLength: 20)
             }
+            // Push text content below the status bar while the gradient fills all the way up.
+            .safeAreaPadding(.top)
         }
-        .frame(height: 180)
+        .frame(minHeight: 180)
     }
 
     // MARK: - Feature Bullets
