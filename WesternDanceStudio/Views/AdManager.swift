@@ -43,9 +43,7 @@ final class AdManager {
                 request: Request()
             )
         } catch {
-            #if DEBUG
-            print("Interstitial ad failed to load: \(error)")
-            #endif
+            AppLog.ads.error("Interstitial ad failed to load: \(error.localizedDescription, privacy: .public)")
         }
     }
 

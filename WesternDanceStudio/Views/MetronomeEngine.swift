@@ -72,9 +72,7 @@ final class MetronomeEngine {
             try AVAudioSession.sharedInstance().setActive(true)
             audioSessionConfigured = true
         } catch {
-            #if DEBUG
-            print("⚠️ AVAudioSession configuration failed: \(error)")
-            #endif
+            AppLog.metronome.error("AVAudioSession configuration failed: \(error.localizedDescription, privacy: .public)")
         }
     }
 
@@ -83,18 +81,14 @@ final class MetronomeEngine {
             try AVAudioSession.sharedInstance().setActive(false, options: [.notifyOthersOnDeactivation])
             audioSessionConfigured = false
         } catch {
-            #if DEBUG
-            print("⚠️ AVAudioSession deactivation failed: \(error)")
-            #endif
+            AppLog.metronome.error("AVAudioSession deactivation failed: \(error.localizedDescription, privacy: .public)")
         }
     }
 
     private func preparePlayer() {
         guard audioPlayer == nil else { return }
         guard let url = Bundle.main.url(forResource: "metronomeTick", withExtension: "wav") else {
-            #if DEBUG
-            print("⚠️ metronomeTick.wav not found — metronome will be visual only")
-            #endif
+            AppLog.metronome.fault("metronomeTick.wav not found — metronome will be visual only")
             return
         }
         do {
@@ -102,9 +96,7 @@ final class MetronomeEngine {
             audioPlayer?.prepareToPlay()
             audioPlayer?.volume = 1.0
         } catch {
-            #if DEBUG
-            print("Audio player error: \(error)")
-            #endif
+            AppLog.metronome.error("Audio player error: \(error.localizedDescription, privacy: .public)")
         }
     }
 

@@ -31,9 +31,7 @@ struct MediaPlayerView: View {
                         do {
                             try await youtubePlayer.load(source: .video(id: videoID))
                         } catch {
-                            #if DEBUG
-                            print("Failed to load YouTube video: \(error)")
-                            #endif
+                            AppLog.media.error("Failed to load YouTube video: \(error.localizedDescription, privacy: .public)")
                         }
                     }
             }

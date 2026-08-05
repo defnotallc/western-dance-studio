@@ -1,10 +1,14 @@
 import Foundation
 
-struct PracticeEntry: Codable {
+struct PracticeEntry: Codable, Hashable {
     let danceID: String
     let date: Date
 }
 
+/// Tracks logged practice sessions. Mirrors to iCloud via `CloudKeyValueSync`
+/// using union-merge (not last-writer-wins) because this is an append-only
+/// log: a session logged on one device between syncs must never be dropped
+/// just because another device pushed first.
 @Observable
 @MainActor
 final class PracticeStore {
@@ -14,9 +18,18 @@ final class PracticeStore {
 
     private enum Keys {
         static let log = "PracticeStore.log"
+        static let cloudKey = "sync.PracticeStore.log"
     }
 
-    private init() { load() }
+    private let log = AppLog.data
+    private var isApplyingRemote = false
+
+    private init() {
+        load()
+        CloudKeyValueSync.shared.register(key: Keys.cloudKey) { [weak self] data in
+            self?.applyRemote(data)
+        }
+    }
 
     // MARK: - Mutations
 
@@ -74,6 +87,12 @@ final class PracticeStore {
     private func save() {
         guard let data = try? JSONEncoder().encode(entries) else { return }
         UserDefaults.standard.set(data, forKey: Keys.log)
+        guard !isApplyingRemote else { return }
+        guard let payload = try? JSONEncoder().encode(entries) else {
+            log.error("Failed to encode practice log for iCloud push")
+            return
+        }
+        CloudKeyValueSync.shared.push(key: Keys.cloudKey, payload: payload)
     }
 
     private func load() {
@@ -82,5 +101,36 @@ final class PracticeStore {
             let decoded = try? JSONDecoder().decode([PracticeEntry].self, from: data)
         else { return }
         entries = decoded
+    }
+
+    private func applyRemote(_ data: Data) {
+        guard let remoteEntries = try? JSONDecoder().decode([PracticeEntry].self, from: data) else {
+            log.error("Failed to decode remote practice log")
+            return
+        }
+        let merged = Self.union(local: entries, remote: remoteEntries)
+        guard merged.count != entries.count else {
+            log.debug("Remote practice log had nothing new to merge")
+            return
+        }
+        log.info("Merged \(merged.count - self.entries.count, privacy: .public) new practice entries from iCloud")
+        isApplyingRemote = true
+        entries = merged
+        save()
+        isApplyingRemote = false
+    }
+
+    /// Pure union merge extracted for unit testing without iCloud. Dedupes by
+    /// (danceID, date) — the pair StoreKit-style identity for an entry — and
+    /// returns entries sorted oldest-first, matching append order.
+    static func union(local: [PracticeEntry], remote: [PracticeEntry]) -> [PracticeEntry] {
+        var seen = Set<PracticeEntry>()
+        var result: [PracticeEntry] = []
+        for entry in (local + remote).sorted(by: { $0.date < $1.date }) {
+            guard !seen.contains(entry) else { continue }
+            seen.insert(entry)
+            result.append(entry)
+        }
+        return result
     }
 }

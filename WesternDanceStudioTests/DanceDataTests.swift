@@ -56,7 +56,7 @@ final class DanceDataTests: XCTestCase {
     func testKnownDancesPresent() {
         let names = Set(dances.map(\.name))
         XCTAssertTrue(names.contains("Texas Two-Step"), "Texas Two-Step must be present")
-        XCTAssertTrue(names.contains("Waltz"),          "Waltz must be present")
+        XCTAssertTrue(names.contains("Country Waltz"),  "Country Waltz must be present")
     }
 
     func testAllCategoriesRepresented() {
@@ -69,9 +69,9 @@ final class DanceDataTests: XCTestCase {
 
     func testSearchByNameFindsKnownDance() {
         let results = dances.filter {
-            $0.name.localizedCaseInsensitiveContains("two step")
+            $0.name.localizedCaseInsensitiveContains("two-step")
         }
-        XCTAssertFalse(results.isEmpty, "Should find dances matching 'two step'")
+        XCTAssertFalse(results.isEmpty, "Should find dances matching 'two-step'")
     }
 
     func testNonsenseSearchReturnsEmpty() {
@@ -137,7 +137,7 @@ final class DanceDataTests: XCTestCase {
         for dance in dances {
             if let sheet = dance.stepSheet {
                 XCTAssertTrue(danceIDs.contains(dance.id),
-                              "LineDanceStepSheet attached to unknown danceID '\(dance.id)' (sheet id: \(sheet.id))")
+                              "LineDanceStepSheet attached to unknown danceID '\(dance.id)' (sheet danceID: \(sheet.danceID))")
             }
         }
     }

@@ -1,5 +1,8 @@
 import Foundation
 
+/// Tracks which curriculum modules the user has completed. Mirrors to iCloud
+/// via `CloudKeyValueSync` (last-writer-wins by timestamp) so progress
+/// follows the user across devices.
 @Observable
 @MainActor
 final class CurriculumStore {
@@ -9,11 +12,20 @@ final class CurriculumStore {
 
     private enum Keys {
         static let completed = "CurriculumStore.completedModuleIDs"
+        static let completedModified = "CurriculumStore.completedModifiedAt"
+        static let cloudKey = "sync.CurriculumStore.completedModuleIDs"
     }
+
+    private let defaults = UserDefaults.standard
+    private let log = AppLog.data
+    private var isApplyingRemote = false
 
     private init() {
         let saved = UserDefaults.standard.stringArray(forKey: Keys.completed) ?? []
         completedModuleIDs = Set(saved)
+        CloudKeyValueSync.shared.register(key: Keys.cloudKey) { [weak self] data in
+            self?.applyRemote(data)
+        }
     }
 
     // MARK: - Mutations
@@ -54,7 +66,38 @@ final class CurriculumStore {
 
     // MARK: - Persistence
 
+    private var lastModified: Date {
+        get { (defaults.object(forKey: Keys.completedModified) as? Date) ?? .distantPast }
+        set { defaults.set(newValue, forKey: Keys.completedModified) }
+    }
+
     private func persist() {
         UserDefaults.standard.set(Array(completedModuleIDs), forKey: Keys.completed)
+        guard !isApplyingRemote else { return }
+        let now = Date()
+        lastModified = now
+        let envelope = SyncEnvelope(timestamp: now, value: Array(completedModuleIDs))
+        guard let payload = try? JSONEncoder().encode(envelope) else {
+            log.error("Failed to encode completed-modules envelope for iCloud push")
+            return
+        }
+        CloudKeyValueSync.shared.push(key: Keys.cloudKey, payload: payload)
+    }
+
+    private func applyRemote(_ data: Data) {
+        guard let envelope = try? JSONDecoder().decode(SyncEnvelope<[String]>.self, from: data) else {
+            log.error("Failed to decode remote completed-modules envelope")
+            return
+        }
+        guard DanceStore.shouldAdoptRemote(remoteTimestamp: envelope.timestamp, localTimestamp: lastModified) else {
+            log.debug("Ignoring remote completed-modules update — local is newer or equal")
+            return
+        }
+        log.info("Adopting remote completed-modules update (\(envelope.value.count, privacy: .public) items)")
+        isApplyingRemote = true
+        completedModuleIDs = Set(envelope.value)
+        lastModified = envelope.timestamp
+        persist()
+        isApplyingRemote = false
     }
 }

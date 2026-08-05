@@ -30,9 +30,7 @@ struct BannerAdModifier: ViewModifier {
         let premium = iap.isPremium
         let sdkReady = consent.adsInitialized
 
-        #if DEBUG
-        let _ = print("📺 BannerAdModifier render — isPremium=\(premium) adsInitialized=\(sdkReady)")
-        #endif
+        AppLog.ads.debug("BannerAdModifier render — isPremium=\(premium, privacy: .public) adsInitialized=\(sdkReady, privacy: .public)")
 
         return content
             .safeAreaInset(edge: .bottom, spacing: 0) {

@@ -5,6 +5,9 @@ import Observation
 /// Main-actor-isolated because SwiftUI views read from it on the main thread
 /// and `@Observable` mutations must originate on the same actor to avoid
 /// inconsistent reads during rendering.
+///
+/// Favorites also mirror to iCloud via `CloudKeyValueSync` (last-writer-wins
+/// by timestamp) so they follow the user across devices.
 @Observable
 @MainActor
 final class DanceStore {
@@ -19,12 +22,22 @@ final class DanceStore {
 
     private enum Keys {
         static let favorites = "DanceStore.favorites"
+        static let favoritesModified = "DanceStore.favoritesModifiedAt"
+        static let cloudKey = "sync.DanceStore.favorites"
     }
 
     private let defaults = UserDefaults.standard
+    private let log = AppLog.data
+
+    /// Set while applying a remote update, so the resulting `saveFavorites()`
+    /// doesn't immediately push the just-received value back to iCloud.
+    private var isApplyingRemote = false
 
     private init() {
         loadFavorites()
+        CloudKeyValueSync.shared.register(key: Keys.cloudKey) { [weak self] data in
+            self?.applyRemote(data)
+        }
     }
 
     private func loadFavorites() {
@@ -33,8 +46,48 @@ final class DanceStore {
         }
     }
 
+    private var lastModified: Date {
+        get { (defaults.object(forKey: Keys.favoritesModified) as? Date) ?? .distantPast }
+        set { defaults.set(newValue, forKey: Keys.favoritesModified) }
+    }
+
     private func saveFavorites() {
         defaults.set(Array(favorites), forKey: Keys.favorites)
+        guard !isApplyingRemote else { return }
+        let now = Date()
+        lastModified = now
+        let envelope = SyncEnvelope(timestamp: now, value: Array(favorites))
+        guard let payload = try? JSONEncoder().encode(envelope) else {
+            log.error("Failed to encode favorites envelope for iCloud push")
+            return
+        }
+        CloudKeyValueSync.shared.push(key: Keys.cloudKey, payload: payload)
+    }
+
+    /// Applies a remote envelope if it's newer than the last local write.
+    /// Last-writer-wins is correct here because favorites are current toggle
+    /// state, not an append-only log — a stale device pushing its old set
+    /// must not resurrect items the newer device already removed.
+    private func applyRemote(_ data: Data) {
+        guard let envelope = try? JSONDecoder().decode(SyncEnvelope<[String]>.self, from: data) else {
+            log.error("Failed to decode remote favorites envelope")
+            return
+        }
+        guard Self.shouldAdoptRemote(remoteTimestamp: envelope.timestamp, localTimestamp: lastModified) else {
+            log.debug("Ignoring remote favorites update — local is newer or equal")
+            return
+        }
+        log.info("Adopting remote favorites update (\(envelope.value.count, privacy: .public) items)")
+        isApplyingRemote = true
+        favorites = Set(envelope.value)
+        lastModified = envelope.timestamp
+        saveFavorites()
+        isApplyingRemote = false
+    }
+
+    /// Pure comparison extracted for unit testing without iCloud.
+    static func shouldAdoptRemote(remoteTimestamp: Date, localTimestamp: Date) -> Bool {
+        remoteTimestamp > localTimestamp
     }
 
     // MARK: - Public API

@@ -55,14 +55,11 @@ final class DanceHallStore {
 
     private init() {
         guard let url = Bundle.main.url(forResource: "DanceHalls", withExtension: "json") else {
-            #if DEBUG
-            print("❌ DanceHalls.json NOT FOUND in app bundle.")
-            print("   Bundle path: \(Bundle.main.bundlePath)")
-            print("   Fix: Add DanceHalls.json to the WesternDanceStudio target:")
-            print("   1. In Xcode, click DanceHalls.json in the navigator")
-            print("   2. Open the File Inspector (right sidebar, top tab)")
-            print("   3. Under 'Target Membership', check ✓ WesternDanceStudio")
-            #endif
+            AppLog.data.fault("""
+                DanceHalls.json NOT FOUND in app bundle (bundle path: \(Bundle.main.bundlePath, privacy: .public)). \
+                Fix: select DanceHalls.json in Xcode's navigator, open the File Inspector, and check \
+                Target Membership → WesternDanceStudio.
+                """)
             self.database = DanceHallDatabase(lastUpdated: "", venues: [])
             return
         }
@@ -71,14 +68,12 @@ final class DanceHallStore {
             let data = try Data(contentsOf: url)
             let decoded = try JSONDecoder().decode(DanceHallDatabase.self, from: data)
             self.database = decoded
+            AppLog.data.info("Loaded \(decoded.venues.count, privacy: .public) dance halls from bundle (updated \(decoded.lastUpdated, privacy: .public))")
             #if DEBUG
-            print("✅ Loaded \(decoded.venues.count) dance halls from bundle (updated \(decoded.lastUpdated))")
             Self.warnIfStale(lastUpdated: decoded.lastUpdated)
             #endif
         } catch {
-            #if DEBUG
-            print("❌ DanceHalls.json found but failed to decode: \(error)")
-            #endif
+            AppLog.data.error("DanceHalls.json found but failed to decode: \(error.localizedDescription, privacy: .public)")
             self.database = DanceHallDatabase(lastUpdated: "", venues: [])
         }
     }
@@ -94,7 +89,7 @@ final class DanceHallStore {
         formatter.timeZone = TimeZone(identifier: "UTC")
 
         guard let lastDate = formatter.date(from: lastUpdated) else {
-            print("⚠️ Could not parse DanceHalls.lastUpdated value '\(lastUpdated)' — expected YYYY-MM-DD format")
+            AppLog.data.error("Could not parse DanceHalls.lastUpdated value '\(lastUpdated, privacy: .public)' — expected YYYY-MM-DD format")
             return
         }
 
@@ -102,12 +97,11 @@ final class DanceHallStore {
         let staleThresholdDays = 183  // ~6 months
 
         if ageInDays > staleThresholdDays {
-            print("")
-            print("⚠️⚠️⚠️ VENUE MASTER LIST IS STALE ⚠️⚠️⚠️")
-            print("   Last updated: \(lastUpdated) (\(ageInDays) days ago)")
-            print("   Action: audit venue addresses, descriptions, and closures.")
-            print("   After auditing, update the lastUpdated field in DanceHalls.json.")
-            print("")
+            AppLog.data.fault("""
+                VENUE MASTER LIST IS STALE — last updated \(lastUpdated, privacy: .public) \
+                (\(ageInDays, privacy: .public) days ago). Audit venue addresses, descriptions, and \
+                closures, then update the lastUpdated field in DanceHalls.json.
+                """)
         }
     }
     #endif

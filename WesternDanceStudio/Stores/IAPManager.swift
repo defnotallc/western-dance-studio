@@ -72,27 +72,19 @@ final class IAPManager {
     /// or when a transient network/sandbox failure left the product unavailable).
     @discardableResult
     func loadProducts() async -> Bool {
-        #if DEBUG
-        print("🛒 IAPManager.loadProducts() — requesting [\(Self.removeAdsProductID)]")
-        #endif
+        AppLog.iap.debug("loadProducts() requesting [\(Self.removeAdsProductID, privacy: .public)]")
         do {
             let products = try await Product.products(for: [Self.removeAdsProductID])
             if let product = products.first {
                 removeAdsProduct = product
-                #if DEBUG
-                print("🛒 ✅ Loaded product: \(product.id) at \(product.displayPrice)")
-                #endif
+                AppLog.iap.info("Loaded product \(product.id, privacy: .public) at \(product.displayPrice, privacy: .public)")
                 return true
             } else {
-                #if DEBUG
-                print("🛒 ⚠️ Product list returned empty — check Paid Applications Agreement is active and the IAP was submitted with this app version")
-                #endif
+                AppLog.iap.error("Product list returned empty — check Paid Applications Agreement is active and the IAP was submitted with this app version")
                 return false
             }
         } catch {
-            #if DEBUG
-            print("🛒 ❌ IAPManager failed to load products: \(error)")
-            #endif
+            AppLog.iap.error("Failed to load products: \(error.localizedDescription, privacy: .public)")
             return false
         }
     }
@@ -100,9 +92,7 @@ final class IAPManager {
     // MARK: - Purchase
 
     func purchaseRemoveAds() async {
-        #if DEBUG
-        print("🛒 purchaseRemoveAds() called — product nil? \(removeAdsProduct == nil)")
-        #endif
+        AppLog.iap.debug("purchaseRemoveAds() called — product nil? \(self.removeAdsProduct == nil, privacy: .public)")
         isPurchasing = true
         lastError = nil
         defer { isPurchasing = false }
@@ -120,13 +110,9 @@ final class IAPManager {
         }
 
         do {
-            #if DEBUG
-            print("🛒 Calling product.purchase()…")
-            #endif
+            AppLog.iap.debug("Calling product.purchase()")
             let result = try await product.purchase()
-            #if DEBUG
-            print("🛒 product.purchase() returned: \(result)")
-            #endif
+            AppLog.iap.info("product.purchase() returned")
             switch result {
             case .success(let verification):
                 await handle(transaction: verification)
@@ -138,9 +124,7 @@ final class IAPManager {
                 break
             }
         } catch {
-            #if DEBUG
-            print("🛒 ❌ Purchase threw: \(error)")
-            #endif
+            AppLog.iap.error("Purchase threw: \(error.localizedDescription, privacy: .public)")
             lastError = "Purchase failed: \(error.localizedDescription)"
         }
     }

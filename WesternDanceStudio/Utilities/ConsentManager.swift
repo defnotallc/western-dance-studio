@@ -38,9 +38,7 @@ final class ConsentManager {
             try await requestConsentInfoUpdate()
             try await presentConsentFormIfNeeded()
         } catch {
-            #if DEBUG
-            print("[ConsentManager] Consent flow error: \(error.localizedDescription)")
-            #endif
+            AppLog.consent.error("Consent flow error: \(error.localizedDescription, privacy: .public)")
         }
 
         // Set these even if consent errored — app must not hang.
@@ -65,9 +63,7 @@ final class ConsentManager {
                 }
             }
         } catch {
-            #if DEBUG
-            print("[ConsentManager] Privacy options form error: \(error.localizedDescription)")
-            #endif
+            AppLog.consent.error("Privacy options form error: \(error.localizedDescription, privacy: .public)")
         }
         // Refresh status in case the user changed their preference.
         privacyOptionsRequired = ConsentInformation.shared.privacyOptionsRequirementStatus == .required
