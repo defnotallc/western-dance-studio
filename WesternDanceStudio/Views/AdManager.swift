@@ -75,11 +75,23 @@ final class AdManager {
             return
         }
 
-        guard let rootVC = Self.currentRootViewController() else { return }
-
-        interstitial.present(from: rootVC)
-        lastInterstitialShownAt = Date()
+        // recordDetailReturn() is called from a detail view's onDisappear,
+        // which fires while the pop/dismiss navigation transition is still
+        // animating. Presenting a full-screen interstitial mid-transition
+        // risks "unbalanced calls to begin/end appearance transitions" and
+        // can cause the presentation to silently fail. Give the transition
+        // a moment to finish first — this is Google's own recommended
+        // pattern for triggering interstitials around navigation events.
         self.interstitial = nil
+        Task {
+            try? await Task.sleep(for: .milliseconds(400))
+            guard !IAPManager.shared.isPremium else { return }
+            guard let rootVC = Self.currentRootViewController(),
+                  rootVC.presentedViewController == nil
+            else { return }
+            interstitial.present(from: rootVC)
+            lastInterstitialShownAt = Date()
+        }
 
         // Preload the next one for later
         Task { await loadInterstitial() }

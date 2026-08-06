@@ -21,7 +21,7 @@ struct BannerAdModifier: ViewModifier {
     /// when `isPremium` or `adsInitialized` changes.
     private var iap: IAPManager { IAPManager.shared }
     private var consent: ConsentManager { ConsentManager.shared }
-    /// Flipped to false when the ad fails to load, collapsing the 50 pt slot.
+    /// Flipped to false when the ad fails to load, collapsing the bannerAdHeight-pt slot.
     /// Reset to true when the scene returns to the foreground so a later fill attempt can succeed.
     @State private var bannerVisible = true
     @Environment(\.scenePhase) private var scenePhase
@@ -39,7 +39,7 @@ struct BannerAdModifier: ViewModifier {
                         Divider()
                             .opacity(0.35)
                         BannerAdView(onAdFailed: { bannerVisible = false })
-                            .frame(height: 50)
+                            .frame(height: bannerAdHeight)
                             .background(Color(.systemBackground))
                     }
                 }
