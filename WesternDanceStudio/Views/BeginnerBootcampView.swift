@@ -3,10 +3,8 @@ import SwiftUI
 struct BeginnerBootcampView: View {
     @Bindable var store: DanceStore
     @State private var engine = MetronomeEngine()
-    @State private var iap = IAPManager.shared
-    @State private var consent = ConsentManager.shared
     @State private var practiceStore = PracticeStore.shared
-    @State private var showingRemoveAdsSheet = false
+    @State private var showSettings = false
     /// Optional callback to navigate to another tab (wired by parent)
     var onOpenGlossary: (() -> Void)? = nil
 
@@ -81,19 +79,9 @@ struct BeginnerBootcampView: View {
                     glossaryTip
                         .padding(.horizontal)
 
-                    // MARK: More section — Remove Ads + Gear affiliate links
-                    moreSection
+                    // MARK: Gear affiliate links
+                    GearLinksSection()
                         .padding(.horizontal)
-
-                    // MARK: App version footer
-                    versionFooter
-                        .padding(.top, 16)
-
-                    #if DEBUG
-                    diagnosticsButton
-                        .padding(.horizontal)
-                        .padding(.top, 8)
-                    #endif
 
                     Spacer(minLength: 24)
                 }
@@ -101,7 +89,21 @@ struct BeginnerBootcampView: View {
             }
             .navigationTitle("")
             .navigationBarTitleDisplayMode(.inline)
-            .toolbar(.hidden, for: .navigationBar)
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button {
+                        Haptics.selection()
+                        showSettings = true
+                    } label: {
+                        Image(systemName: "gearshape.fill")
+                            .foregroundStyle(WesternTheme.primary)
+                    }
+                    .accessibilityLabel("Settings")
+                }
+            }
+            .sheet(isPresented: $showSettings) {
+                SettingsView()
+            }
             .onDisappear {
                 engine.stop()
             }
@@ -183,142 +185,6 @@ struct BeginnerBootcampView: View {
             .frame(maxWidth: .infinity, alignment: .leading)
         }
     }
-
-    // MARK: - More section (Remove Ads + Gear links)
-
-    private var moreSection: some View {
-        VStack(spacing: 12) {
-            if !iap.isPremium {
-                GroupBox {
-                    Button {
-                        Haptics.selection()
-                        showingRemoveAdsSheet = true
-                    } label: {
-                        HStack {
-                            Image(systemName: "sparkles")
-                                .foregroundStyle(WesternTheme.primary)
-                            VStack(alignment: .leading, spacing: 2) {
-                                Text("Remove Ads")
-                                    .font(.subheadline.weight(.semibold))
-                                    .foregroundStyle(.primary)
-                                Text("One-time upgrade — support the app")
-                                    .font(.caption2)
-                                    .foregroundStyle(.secondary)
-                            }
-                            Spacer()
-                            Image(systemName: "chevron.right")
-                                .font(.caption)
-                                .foregroundStyle(.tertiary)
-                        }
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                    }
-                    .buttonStyle(.plain)
-                }
-            }
-
-            // Ad Preferences — only visible to EEA/UK/CH users (GDPR).
-            // privacyOptionsRequired is false for US users, so this is a no-op there.
-            if consent.privacyOptionsRequired {
-                GroupBox {
-                    Button {
-                        Haptics.selection()
-                        Task { await ConsentManager.shared.presentPrivacyOptionsForm() }
-                    } label: {
-                        HStack {
-                            Image(systemName: "hand.raised.fill")
-                                .foregroundStyle(WesternTheme.primary)
-                            VStack(alignment: .leading, spacing: 2) {
-                                Text("Ad Preferences")
-                                    .font(.subheadline.weight(.semibold))
-                                    .foregroundStyle(.primary)
-                                Text("Manage your advertising consent (GDPR)")
-                                    .font(.caption2)
-                                    .foregroundStyle(.secondary)
-                            }
-                            Spacer()
-                            Image(systemName: "chevron.right")
-                                .font(.caption)
-                                .foregroundStyle(.tertiary)
-                        }
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                    }
-                    .buttonStyle(.plain)
-                }
-            }
-
-            GearLinksSection()
-        }
-        .sheet(isPresented: $showingRemoveAdsSheet) {
-            RemoveAdsSheet(iap: iap)
-        }
-    }
-
-    // MARK: - Version footer
-
-    private var versionFooter: some View {
-        VStack(spacing: 4) {
-            Text("Western Dance Studio")
-                .font(.caption.weight(.semibold))
-                .foregroundStyle(.secondary)
-            Text("Version \(Self.appVersion) (Build \(Self.appBuild))")
-                .font(.caption2)
-                .foregroundStyle(.secondary)
-            Text("Released \(Self.releaseDate)")
-                .font(.caption2)
-                .foregroundStyle(.tertiary)
-        }
-        .frame(maxWidth: .infinity)
-    }
-
-    private static let appVersion: String = {
-        Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "—"
-    }()
-
-    private static let appBuild: String = {
-        Bundle.main.infoDictionary?["CFBundleVersion"] as? String ?? "—"
-    }()
-
-    /// Executable creation/modification date, read once at app start.
-    private static let releaseDate: String = {
-        guard
-            let executableURL = Bundle.main.executableURL,
-            let attrs = try? FileManager.default.attributesOfItem(atPath: executableURL.path),
-            let date = attrs[.creationDate] as? Date ?? attrs[.modificationDate] as? Date
-        else {
-            return "—"
-        }
-        let formatter = DateFormatter()
-        formatter.dateStyle = .medium
-        formatter.timeStyle = .none
-        return formatter.string(from: date)
-    }()
-
-    // MARK: - Diagnostics button (DEBUG only)
-
-    #if DEBUG
-    @State private var showDiagnosticsCopied = false
-
-    private var diagnosticsButton: some View {
-        Button {
-            let report = DiagnosticsCollector.generateReport()
-            UIPasteboard.general.string = report
-            showDiagnosticsCopied = true
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                showDiagnosticsCopied = false
-            }
-        } label: {
-            Text(showDiagnosticsCopied ? "Copied to Clipboard ✓" : "Copy Diagnostics (DEBUG)")
-                .frame(maxWidth: .infinity)
-                .padding(.vertical, 14)
-                .background(Color.orange)
-                .foregroundStyle(.white)
-                .clipShape(RoundedRectangle(cornerRadius: 12))
-                .font(.headline)
-        }
-        .accessibilityLabel("Copy diagnostics report to clipboard")
-        .animation(.easeInOut(duration: 0.2), value: showDiagnosticsCopied)
-    }
-    #endif
 
     // MARK: - Practice streak widget
 

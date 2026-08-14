@@ -9,6 +9,7 @@ struct WesternDanceStudioApp: App {
     @State private var consent = ConsentManager.shared
     @State private var selectedTab: Int = 0
     @AppStorage("hasSeenWelcome") private var hasSeenWelcome: Bool = false
+    @AppStorage("theme") private var theme: String = "system"
     @State private var showWelcome: Bool
     @State private var showSplash: Bool
     @Environment(\.requestReview) private var requestReview
@@ -34,6 +35,7 @@ struct WesternDanceStudioApp: App {
     var body: some Scene {
         WindowGroup {
             mainContent
+                .preferredColorScheme(resolvedColorScheme)
             .task(id: iap.isPremium) {
                 // Premium users get a plain 2s splash with no paywall.
                 // Non-premium users see an indefinite paywall and dismiss manually.
@@ -63,6 +65,14 @@ struct WesternDanceStudioApp: App {
             .onReceive(NotificationCenter.default.publisher(for: .openStartHereTab)) { _ in
                 selectedTab = 0
             }
+        }
+    }
+
+    private var resolvedColorScheme: ColorScheme? {
+        switch theme {
+        case "light": return .light
+        case "dark":  return .dark
+        default:      return nil
         }
     }
 
