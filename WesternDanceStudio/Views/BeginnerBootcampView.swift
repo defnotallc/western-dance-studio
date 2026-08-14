@@ -89,6 +89,12 @@ struct BeginnerBootcampView: View {
                     versionFooter
                         .padding(.top, 16)
 
+                    #if DEBUG
+                    diagnosticsButton
+                        .padding(.horizontal)
+                        .padding(.top, 8)
+                    #endif
+
                     Spacer(minLength: 24)
                 }
                 .padding(.vertical)
@@ -286,6 +292,33 @@ struct BeginnerBootcampView: View {
         formatter.timeStyle = .none
         return formatter.string(from: date)
     }()
+
+    // MARK: - Diagnostics button (DEBUG only)
+
+    #if DEBUG
+    @State private var showDiagnosticsCopied = false
+
+    private var diagnosticsButton: some View {
+        Button {
+            let report = DiagnosticsCollector.generateReport()
+            UIPasteboard.general.string = report
+            showDiagnosticsCopied = true
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                showDiagnosticsCopied = false
+            }
+        } label: {
+            Text(showDiagnosticsCopied ? "Copied to Clipboard ✓" : "Copy Diagnostics (DEBUG)")
+                .frame(maxWidth: .infinity)
+                .padding(.vertical, 14)
+                .background(Color.orange)
+                .foregroundStyle(.white)
+                .clipShape(RoundedRectangle(cornerRadius: 12))
+                .font(.headline)
+        }
+        .accessibilityLabel("Copy diagnostics report to clipboard")
+        .animation(.easeInOut(duration: 0.2), value: showDiagnosticsCopied)
+    }
+    #endif
 
     // MARK: - Practice streak widget
 
