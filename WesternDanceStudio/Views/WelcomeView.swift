@@ -163,14 +163,14 @@ struct WelcomeView: View {
 
                 Text(item.title)
                     .font(.system(size: 38, weight: .heavy, design: .serif))
-                    .foregroundStyle(WesternTheme.primaryDark)
+                    .foregroundStyle(.white)
                     .multilineTextAlignment(.center)
-                    .shadow(color: WesternTheme.cream.opacity(0.5), radius: 2, x: 0, y: 1)
+                    .shadow(color: WesternTheme.primaryDark.opacity(0.6), radius: 3, x: 0, y: 1)
                     .padding(.horizontal, 24)
 
                 Text(item.body)
                     .font(.system(size: 16, weight: .regular, design: .rounded))
-                    .foregroundStyle(WesternTheme.primaryDark.opacity(0.85))
+                    .foregroundStyle(.white.opacity(0.90))
                     .multilineTextAlignment(.center)
                     .lineSpacing(3)
                     .padding(.horizontal, 36)
@@ -305,69 +305,79 @@ struct WelcomeView: View {
     /// returning non-premium users see — same cowboy art, sunset gradient,
     /// and paywall footer buttons.
     private var paywallPage: some View {
-        ScrollView {
-            VStack(spacing: 0) {
-                // Gradient header — matches LaunchScreenView
-                ZStack {
-                    WesternSunsetGradient()
-                    VStack(spacing: 10) {
-                        Spacer(minLength: 40)
-                        Image("Cowboy")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(maxWidth: 100, maxHeight: 100)
-                            .shadow(color: .black.opacity(0.25), radius: 10, x: 0, y: 5)
-                            .accessibilityHidden(true)
-                        Text("Western Dance Studio")
-                            .font(.system(size: 28, weight: .heavy, design: .serif))
-                            .foregroundStyle(.white)
-                            .multilineTextAlignment(.center)
-                            .shadow(color: .black.opacity(0.3), radius: 4, x: 0, y: 2)
-                        Text("Your complete guide to country dancing")
-                            .font(.system(size: 14, weight: .medium, design: .rounded))
-                            .foregroundStyle(.white.opacity(0.88))
-                            .multilineTextAlignment(.center)
-                            .padding(.horizontal, 40)
-                        Spacer(minLength: 36)
+        // No ScrollView here — the content fits on iPad without scrolling and
+        // nesting a ScrollView inside TabView(.page) causes the page view's
+        // UIScrollView to swallow all touches, making buttons unresponsive.
+        GeometryReader { proxy in
+            ScrollView {
+                VStack(spacing: 0) {
+                    // Gradient header — matches LaunchScreenView
+                    ZStack {
+                        WesternSunsetGradient()
+                        VStack(spacing: 10) {
+                            Spacer(minLength: 40)
+                            Image("Cowboy")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(maxWidth: 100, maxHeight: 100)
+                                .shadow(color: .black.opacity(0.25), radius: 10, x: 0, y: 5)
+                                .accessibilityHidden(true)
+                            Text("Western Dance Studio")
+                                .font(.system(size: 28, weight: .heavy, design: .serif))
+                                .foregroundStyle(.white)
+                                .multilineTextAlignment(.center)
+                                .shadow(color: .black.opacity(0.3), radius: 4, x: 0, y: 2)
+                            Text("Your complete guide to country dancing")
+                                .font(.system(size: 14, weight: .medium, design: .rounded))
+                                .foregroundStyle(.white.opacity(0.88))
+                                .multilineTextAlignment(.center)
+                                .padding(.horizontal, 40)
+                            Spacer(minLength: 36)
+                        }
                     }
-                }
-                .frame(minHeight: 240)
+                    .frame(minHeight: 240)
 
-                // Features
-                VStack(alignment: .leading, spacing: 20) {
-                    paywallFeatureRow(icon: "figure.dance",              color: WesternTheme.primary, title: "20+ Dances",             detail: "Two-Step, Waltz, Line Dancing, West Coast Swing & more")
-                    paywallFeatureRow(icon: "list.bullet.clipboard.fill", color: .blue,               title: "Structured Curriculum",  detail: "Progressive modules from first steps to floor-ready confidence")
-                    paywallFeatureRow(icon: "exclamationmark.triangle.fill", color: .orange,          title: "Common Mistakes Guide",  detail: "25 beginner errors explained — and exactly how to fix them")
-                    paywallFeatureRow(icon: "wifi.slash",                color: .secondary,           title: "100% Offline",           detail: "No account, no internet required — all content ships with the app")
-                }
-                .padding(.horizontal, 28)
-                .padding(.top, 28)
+                    // Features
+                    VStack(alignment: .leading, spacing: 20) {
+                        paywallFeatureRow(icon: "figure.dance",              color: WesternTheme.primary, title: "20+ Dances",             detail: "Two-Step, Waltz, Line Dancing, West Coast Swing & more")
+                        paywallFeatureRow(icon: "list.bullet.clipboard.fill", color: .blue,               title: "Structured Curriculum",  detail: "Progressive modules from first steps to floor-ready confidence")
+                        paywallFeatureRow(icon: "exclamationmark.triangle.fill", color: .orange,          title: "Common Mistakes Guide",  detail: "25 beginner errors explained — and exactly how to fix them")
+                        paywallFeatureRow(icon: "wifi.slash",                color: .secondary,           title: "100% Offline",           detail: "No account, no internet required — all content ships with the app")
+                    }
+                    .padding(.horizontal, 28)
+                    .padding(.top, 28)
 
-                Divider()
+                    Divider()
+                        .padding(.horizontal, 28)
+                        .padding(.top, 24)
+
+                    // Support section
+                    VStack(spacing: 16) {
+                        Text("Support Western Dance Studio")
+                            .font(.title3.weight(.bold))
+                            .multilineTextAlignment(.center)
+                        Text("Remove all ads with a one-time purchase. Helps keep the app updated and ad-free forever.")
+                            .font(.subheadline)
+                            .foregroundStyle(.secondary)
+                            .multilineTextAlignment(.center)
+                        PremiumPaywallFooter(iap: iap, onContinue: finishWelcome)
+                        Text("All content is 100% offline. No account required.")
+                            .font(.caption)
+                            .foregroundStyle(.tertiary)
+                            .multilineTextAlignment(.center)
+                    }
                     .padding(.horizontal, 28)
                     .padding(.top, 24)
-
-                // Support section
-                VStack(spacing: 16) {
-                    Text("Support Western Dance Studio")
-                        .font(.title3.weight(.bold))
-                        .multilineTextAlignment(.center)
-                    Text("Remove all ads with a one-time purchase. Helps keep the app updated and ad-free forever.")
-                        .font(.subheadline)
-                        .foregroundStyle(.secondary)
-                        .multilineTextAlignment(.center)
-                    PremiumPaywallFooter(iap: iap, onContinue: finishWelcome)
-                    Text("All content is 100% offline. No account required.")
-                        .font(.caption)
-                        .foregroundStyle(.tertiary)
-                        .multilineTextAlignment(.center)
+                    .padding(.bottom, 48)
                 }
-                .padding(.horizontal, 28)
-                .padding(.top, 24)
-                .padding(.bottom, 48)
+                .frame(minHeight: proxy.size.height)
             }
+            // Scrolling disabled: the content fits on iPad without scrolling.
+            // Disabling scroll prevents the nested UIScrollView from swallowing
+            // taps that would otherwise not reach the buttons.
+            .scrollDisabled(true)
+            .background(Color(.systemBackground))
         }
-        .background(Color(.systemBackground))
     }
 
     private func paywallFeatureRow(icon: String, color: Color, title: String, detail: String) -> some View {

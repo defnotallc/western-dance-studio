@@ -28,19 +28,19 @@ struct PremiumPaywallFooter: View {
                 .padding(.vertical, 16)
                 .background(WesternTheme.primary, in: RoundedRectangle(cornerRadius: 14))
             }
+            .buttonStyle(.plain)
             .disabled(iap.isPurchasing)
 
-            // Secondary — light gray fill
-            Button {
-                onContinue()
-            } label: {
-                Text("Continue with Ads")
-                    .font(.system(size: 16, weight: .semibold, design: .rounded))
-                    .foregroundStyle(.primary)
-                    .frame(maxWidth: .infinity)
-                    .padding(.vertical, 16)
-                    .background(Color(.systemGray5), in: RoundedRectangle(cornerRadius: 14))
-            }
+            // Secondary — onTapGesture instead of Button to reliably register taps
+            // inside nested TabView(.page) + ScrollView on iPad.
+            Text("Continue with Ads")
+                .font(.system(size: 16, weight: .semibold, design: .rounded))
+                .foregroundStyle(.primary)
+                .frame(maxWidth: .infinity)
+                .padding(.vertical, 16)
+                .background(Color(.systemGray5), in: RoundedRectangle(cornerRadius: 14))
+                .contentShape(Rectangle())
+                .onTapGesture { onContinue() }
 
             // Error
             if let err = iap.lastError {

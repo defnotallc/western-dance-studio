@@ -9,36 +9,40 @@ struct FavoritesView: View {
 
     var body: some View {
         NavigationStack {
-            ScrollView {
-                VStack(alignment: .leading, spacing: 16) {
-                    if favoriteDances.isEmpty {
-                        emptyState
-                            .padding(.horizontal)
-                            .padding(.top, 40)
-                    } else {
-                        VStack(spacing: 0) {
-                            ForEach(favoriteDances) { dance in
-                                NavigationLink(value: dance) {
-                                    favoriteRow(dance)
+            GeometryReader { proxy in
+                ScrollView {
+                    VStack(alignment: .leading, spacing: 16) {
+                        if favoriteDances.isEmpty {
+                            emptyState
+                                .padding(.horizontal)
+                                .padding(.top, 40)
+                        } else {
+                            VStack(spacing: 0) {
+                                ForEach(favoriteDances) { dance in
+                                    NavigationLink(value: dance) {
+                                        favoriteRow(dance)
+                                    }
+                                    .buttonStyle(.plain)
+                                    Divider()
+                                        .padding(.leading)
                                 }
-                                .buttonStyle(.plain)
-                                Divider()
-                                    .padding(.leading)
                             }
+                            .background(Color(.secondarySystemGroupedBackground))
+                            .clipShape(RoundedRectangle(cornerRadius: 10))
+                            .padding(.horizontal)
                         }
-                        .background(Color(.secondarySystemGroupedBackground))
-                        .clipShape(RoundedRectangle(cornerRadius: 10))
-                        .padding(.horizontal)
+
+                        // Gear section always visible — monetizes the empty state
+                        // and fills space below the user's favorites list.
+                        GearLinksSection()
+                            .padding(.horizontal)
+
+                        Spacer(minLength: 24)
                     }
-
-                    // Gear section always visible — monetizes the empty state
-                    // and fills space below the user's favorites list.
-                    GearLinksSection()
-                        .padding(.horizontal)
-
-                    Spacer(minLength: 24)
+                    .padding(.vertical)
+                    // Fills the full available height on iPad so no dead space below.
+                    .frame(minHeight: proxy.size.height)
                 }
-                .padding(.vertical)
             }
             .background(Color(.systemGroupedBackground))
             .navigationTitle("Favorites")

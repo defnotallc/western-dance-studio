@@ -41,29 +41,35 @@ struct LaunchScreenView: View {
     }
 
     private var paywallSplash: some View {
-        ScrollView {
-            VStack(spacing: 0) {
-                headerSection
+        GeometryReader { proxy in
+            ScrollView {
+                VStack(spacing: 0) {
+                    headerSection
 
-                featuresSection
-                    .padding(.horizontal, 28)
-                    .padding(.top, 20)
+                    featuresSection
+                        .padding(.horizontal, 28)
+                        .padding(.top, 20)
 
-                Divider()
-                    .padding(.horizontal, 28)
-                    .padding(.top, 16)
+                    Divider()
+                        .padding(.horizontal, 28)
+                        .padding(.top, 16)
 
-                supportSection
-                    .padding(.horizontal, 28)
-                    .padding(.top, 16)
-                    .padding(.bottom, 28)
+                    supportSection
+                        .padding(.horizontal, 28)
+                        .padding(.top, 16)
+                        .padding(.bottom, 28)
+                }
+                // Ensures content fills the full screen height on iPad,
+                // eliminating the black void below the paywall on large screens.
+                .frame(minHeight: proxy.size.height)
             }
+            // Extend the scroll view to fill behind the status bar so the header
+            // gradient reaches the top edge. Content inside headerSection uses
+            // .safeAreaPadding(.top) to stay below the status bar.
+            .ignoresSafeArea(edges: .top)
+            .background(Color(.systemBackground))
         }
-        // Extend the scroll view to fill behind the status bar so the header
-        // gradient reaches the top edge. Content inside headerSection uses
-        // .safeAreaPadding(.top) to stay below the status bar.
         .ignoresSafeArea(edges: .top)
-        .background(Color(.systemBackground))
         .task { await iap.loadProducts() }
     }
 
