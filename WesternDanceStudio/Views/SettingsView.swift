@@ -96,11 +96,7 @@ struct SettingsView: View {
     // MARK: - Theme resolution
 
     private var resolvedColorScheme: ColorScheme? {
-        switch theme {
-        case "light": return .light
-        case "dark":  return .dark
-        default:      return nil
-        }
+        WesternTheme.resolvedColorScheme(for: theme)
     }
 
     // MARK: - Go Premium row

@@ -13,7 +13,11 @@
 ///
 /// Usage: `AppLog.iap.info("Purchase started for \(productID, privacy: .public)")`
 enum AppLog {
-    private static let subsystem = "com.defnota.WesternDanceStudio"
+    // Must match the app's bundle ID so Console.app / `log stream --predicate`
+    // filters by subsystem work. Note: the IAP product ID uses "com.defnota"
+    // (a different prefix) because it was registered that way in App Store Connect
+    // before the bundle was finalized — do not change it.
+    private static let subsystem = "com.defnotallc.WesternDanceStudio"
 
     static let cloudSync = Logger(subsystem: subsystem, category: "CloudSync")
     static let iap = Logger(subsystem: subsystem, category: "IAP")

@@ -75,18 +75,22 @@ final class AdManager {
             return
         }
 
-        // recordDetailReturn() is called from a detail view's onDisappear,
+        // `recordDetailReturn()` is called from a detail view's onDisappear,
         // which fires while the pop/dismiss navigation transition is still
         // animating. Presenting a full-screen interstitial mid-transition
         // risks "unbalanced calls to begin/end appearance transitions" and
-        // can cause the presentation to silently fail. Give the transition
-        // a moment to finish first — this is Google's own recommended
-        // pattern for triggering interstitials around navigation events.
+        // can cause the presentation to silently fail. The 400ms delay lets
+        // the transition settle first — this follows Google's own recommended
+        // pattern for interstitials triggered around navigation events.
+        // Known limitation: on very slow devices the transition may still be
+        // in flight after 400ms; the `presentedViewController == nil` guard
+        // below catches the most common failure mode (another modal already
+        // visible), but cannot guarantee the transition is 100% complete.
         self.interstitial = nil
         Task {
             try? await Task.sleep(for: .milliseconds(400))
             guard !IAPManager.shared.isPremium else { return }
-            guard let rootVC = Self.currentRootViewController(),
+            guard let rootVC = UIApplication.topViewController(),
                   rootVC.presentedViewController == nil
             else { return }
             interstitial.present(from: rootVC)
@@ -95,23 +99,5 @@ final class AdManager {
 
         // Preload the next one for later
         Task { await loadInterstitial() }
-    }
-
-    // MARK: - Root VC helper
-
-    /// Finds the topmost view controller so the interstitial has a valid
-    /// presenter. Works with SwiftUI-hosted UIKit scenes.
-    private static func currentRootViewController() -> UIViewController? {
-        guard let scene = UIApplication.shared.connectedScenes
-            .compactMap({ $0 as? UIWindowScene })
-            .first(where: { $0.activationState == .foregroundActive }),
-              let window = scene.windows.first(where: { $0.isKeyWindow }) ?? scene.windows.first
-        else { return nil }
-
-        var vc = window.rootViewController
-        while let presented = vc?.presentedViewController {
-            vc = presented
-        }
-        return vc
     }
 }

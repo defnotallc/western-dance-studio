@@ -3,32 +3,46 @@ import XCTest
 
 @MainActor
 final class CurriculumStoreTests: XCTestCase {
-    private var store: CurriculumStore { CurriculumStore.shared }
+    private var store: CurriculumStore!
+    private var defaults: UserDefaults!
+    private var suiteName: String!
+
+    override func setUp() async throws {
+        try await super.setUp()
+        suiteName = "CurriculumStoreTests-\(UUID().uuidString)"
+        defaults = UserDefaults(suiteName: suiteName)!
+        store = CurriculumStore(defaults: defaults)
+    }
+
+    override func tearDown() async throws {
+        defaults.removePersistentDomain(forName: suiteName)
+        store = nil
+        defaults = nil
+        suiteName = nil
+        try await super.tearDown()
+    }
+
     private var firstModule: CurriculumModule { CurriculumModule.all[0] }
 
     func testToggleCompleteFlipsState() {
         let module = firstModule
-        let before = store.isComplete(module)
+        XCTAssertFalse(store.isComplete(module))
         store.toggleComplete(module)
-        XCTAssertNotEqual(store.isComplete(module), before)
-        store.toggleComplete(module) // restore
+        XCTAssertTrue(store.isComplete(module))
     }
 
     func testDoubleToggleRestoresState() {
         let module = firstModule
-        let before = store.isComplete(module)
         store.toggleComplete(module)
         store.toggleComplete(module)
-        XCTAssertEqual(store.isComplete(module), before)
+        XCTAssertFalse(store.isComplete(module))
     }
 
     func testMarkCompleteIsIdempotent() {
         let module = firstModule
-        let wasComplete = store.isComplete(module)
         store.markComplete(module)
         store.markComplete(module)
         XCTAssertTrue(store.isComplete(module))
-        if !wasComplete { store.toggleComplete(module) } // restore
     }
 
     func testCompletionFractionMatchesCompletedCount() {
@@ -50,5 +64,12 @@ final class CurriculumStoreTests: XCTestCase {
             XCTAssertNotNil(store.nextIncompleteModule)
             XCTAssertFalse(store.isComplete(store.nextIncompleteModule!))
         }
+    }
+
+    func testCompletionPersistedToDefaults() {
+        let module = firstModule
+        store.markComplete(module)
+        let store2 = CurriculumStore(defaults: defaults)
+        XCTAssertTrue(store2.isComplete(module), "completion must survive a store re-init from the same defaults")
     }
 }

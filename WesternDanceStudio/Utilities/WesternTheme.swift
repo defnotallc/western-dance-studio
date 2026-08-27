@@ -58,6 +58,20 @@ enum WesternTheme {
         UINavigationBar.appearance().scrollEdgeAppearance = appearance
         UINavigationBar.appearance().compactAppearance = appearance
     }
+
+    // MARK: - Color scheme
+
+    /// Converts the persisted `@AppStorage("theme")` string ("system", "light", "dark")
+    /// into a SwiftUI `ColorScheme?`. Returns nil for "system" so SwiftUI inherits
+    /// the device setting. Shared here to avoid duplicating the switch in every view
+    /// that applies `.preferredColorScheme`.
+    static func resolvedColorScheme(for theme: String) -> ColorScheme? {
+        switch theme {
+        case "light": return .light
+        case "dark":  return .dark
+        default:      return nil
+        }
+    }
 }
 
 // Helper: apply serif design to UIFont (mirrors SwiftUI's Font.system design: .serif)

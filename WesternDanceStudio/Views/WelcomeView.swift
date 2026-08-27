@@ -70,11 +70,8 @@ struct WelcomeView: View {
         }
         .interactiveDismissDisabled()
         .animation(.easeInOut(duration: 0.3), value: isOnPaywallPage)
-        .task {
-            // Preload the Remove Ads product so the paywall shows price immediately
-            // when the user swipes to the last page.
-            await iap.loadProducts()
-        }
+        // Product preload is handled once by WesternDanceStudioApp at root launch;
+        // no redundant load needed here.
     }
 
     // MARK: - Layered western background

@@ -10,26 +10,23 @@ final class CloudKeyValueSyncTests: XCTestCase {
 
     // MARK: - Last-writer-wins (DanceStore / CurriculumStore)
 
-    @MainActor
     func testNewerRemoteIsAdopted() {
         let local = Date()
         let remote = local.addingTimeInterval(60)
-        XCTAssertTrue(DanceStore.shouldAdoptRemote(remoteTimestamp: remote, localTimestamp: local))
+        XCTAssertTrue(CloudKeyValueSync.shouldAdoptRemote(remoteTimestamp: remote, localTimestamp: local))
     }
 
-    @MainActor
     func testOlderRemoteIsRejected() {
         let local = Date()
         let remote = local.addingTimeInterval(-60)
-        XCTAssertFalse(DanceStore.shouldAdoptRemote(remoteTimestamp: remote, localTimestamp: local))
+        XCTAssertFalse(CloudKeyValueSync.shouldAdoptRemote(remoteTimestamp: remote, localTimestamp: local))
     }
 
-    @MainActor
     func testEqualTimestampFavorsLocal() {
         let now = Date()
         // Equal timestamps must not adopt remote — local already reflects
         // this state, and adopting would be a needless no-op write at best.
-        XCTAssertFalse(DanceStore.shouldAdoptRemote(remoteTimestamp: now, localTimestamp: now))
+        XCTAssertFalse(CloudKeyValueSync.shouldAdoptRemote(remoteTimestamp: now, localTimestamp: now))
     }
 
     // MARK: - Union merge (PracticeStore)

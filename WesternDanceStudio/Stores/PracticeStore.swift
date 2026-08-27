@@ -21,15 +21,27 @@ final class PracticeStore {
         static let cloudKey = "sync.PracticeStore.log"
     }
 
+    let defaults: UserDefaults
     private let log = AppLog.data
     private var isApplyingRemote = false
 
     private init() {
+        self.defaults = .standard
         load()
         CloudKeyValueSync.shared.register(key: Keys.cloudKey) { [weak self] data in
             self?.applyRemote(data)
         }
     }
+
+    #if DEBUG
+    /// Testing entry point — uses an isolated UserDefaults suite so tests
+    /// don't bleed state into the production store or between test runs.
+    init(defaults: UserDefaults) {
+        self.defaults = defaults
+        load()
+        // Skip CloudKeyValueSync registration in test instances.
+    }
+    #endif
 
     // MARK: - Mutations
 
@@ -85,19 +97,18 @@ final class PracticeStore {
     // MARK: - Persistence
 
     private func save() {
-        guard let data = try? JSONEncoder().encode(entries) else { return }
-        UserDefaults.standard.set(data, forKey: Keys.log)
-        guard !isApplyingRemote else { return }
         guard let payload = try? JSONEncoder().encode(entries) else {
-            log.error("Failed to encode practice log for iCloud push")
+            log.error("Failed to encode practice log")
             return
         }
+        defaults.set(payload, forKey: Keys.log)
+        guard !isApplyingRemote else { return }
         CloudKeyValueSync.shared.push(key: Keys.cloudKey, payload: payload)
     }
 
     private func load() {
         guard
-            let data = UserDefaults.standard.data(forKey: Keys.log),
+            let data = defaults.data(forKey: Keys.log),
             let decoded = try? JSONDecoder().decode([PracticeEntry].self, from: data)
         else { return }
         entries = decoded

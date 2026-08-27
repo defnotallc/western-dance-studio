@@ -3,16 +3,33 @@ import XCTest
 
 @MainActor
 final class PracticeStoreTests: XCTestCase {
-    private var store: PracticeStore { PracticeStore.shared }
+    private var store: PracticeStore!
+    private var defaults: UserDefaults!
+    private var suiteName: String!
+
+    override func setUp() async throws {
+        try await super.setUp()
+        suiteName = "PracticeStoreTests-\(UUID().uuidString)"
+        defaults = UserDefaults(suiteName: suiteName)!
+        store = PracticeStore(defaults: defaults)
+    }
+
+    override func tearDown() async throws {
+        defaults.removePersistentDomain(forName: suiteName)
+        store = nil
+        defaults = nil
+        suiteName = nil
+        try await super.tearDown()
+    }
 
     func testLogPracticeIncrementsTotalSessions() {
-        let before = store.totalSessions
+        XCTAssertEqual(store.totalSessions, 0)
         store.logPractice(danceID: "two-step")
-        XCTAssertEqual(store.totalSessions, before + 1)
+        XCTAssertEqual(store.totalSessions, 1)
     }
 
     func testLogPracticeIncrementsPerDanceCount() {
-        let danceID = "waltz-\(UUID().uuidString)" // unique to isolate from other test runs
+        let danceID = "waltz"
         XCTAssertEqual(store.practiceCount(for: danceID), 0)
         store.logPractice(danceID: danceID)
         XCTAssertEqual(store.practiceCount(for: danceID), 1)
@@ -21,14 +38,14 @@ final class PracticeStoreTests: XCTestCase {
     }
 
     func testPracticedTodayTrueImmediatelyAfterLogging() {
-        let danceID = "line-dance-\(UUID().uuidString)"
+        let danceID = "line-dance"
         XCTAssertFalse(store.practicedToday(danceID))
         store.logPractice(danceID: danceID)
         XCTAssertTrue(store.practicedToday(danceID))
     }
 
     func testLastPracticedReturnsMostRecentEntry() {
-        let danceID = "swing-\(UUID().uuidString)"
+        let danceID = "swing"
         XCTAssertNil(store.lastPracticed(danceID))
         store.logPractice(danceID: danceID)
         let last = store.lastPracticed(danceID)
@@ -37,24 +54,27 @@ final class PracticeStoreTests: XCTestCase {
     }
 
     func testCurrentStreakIncludesTodayAfterLogging() {
-        let danceID = "streak-check-\(UUID().uuidString)"
-        store.logPractice(danceID: danceID)
-        // Logging today guarantees at least a 1-day streak.
+        store.logPractice(danceID: "streak-check")
         XCTAssertGreaterThanOrEqual(store.currentStreak, 1)
     }
 
     func testUniqueDancesPracticedCountsDistinctIDsOnly() {
-        let danceID = "repeat-dance-\(UUID().uuidString)"
-        let before = store.uniqueDancesPracticed
+        let danceID = "repeat-dance"
         store.logPractice(danceID: danceID)
-        store.logPractice(danceID: danceID) // same dance again
-        XCTAssertEqual(store.uniqueDancesPracticed, before + 1, "repeated logs of the same dance must not inflate the unique count")
+        store.logPractice(danceID: danceID)
+        XCTAssertEqual(store.uniqueDancesPracticed, 1,
+                       "repeated logs of the same dance must not inflate the unique count")
     }
 
     func testActiveDaysInLastNDaysIncludesToday() {
-        let danceID = "active-days-\(UUID().uuidString)"
-        store.logPractice(danceID: danceID)
+        store.logPractice(danceID: "active-days")
         let today = Calendar.current.startOfDay(for: Date())
         XCTAssertTrue(store.activeDays(inLast: 7).contains(today))
+    }
+
+    func testEntriesPersistedToDefaults() {
+        store.logPractice(danceID: "two-step")
+        let store2 = PracticeStore(defaults: defaults)
+        XCTAssertEqual(store2.totalSessions, 1, "entries must survive a store re-init from the same defaults")
     }
 }

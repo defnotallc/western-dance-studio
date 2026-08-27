@@ -69,11 +69,7 @@ struct WesternDanceStudioApp: App {
     }
 
     private var resolvedColorScheme: ColorScheme? {
-        switch theme {
-        case "light": return .light
-        case "dark":  return .dark
-        default:      return nil
-        }
+        WesternTheme.resolvedColorScheme(for: theme)
     }
 
     private func dismissSplash() {

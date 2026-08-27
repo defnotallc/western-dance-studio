@@ -26,7 +26,7 @@ final class DanceStore {
         static let cloudKey = "sync.DanceStore.favorites"
     }
 
-    private let defaults = UserDefaults.standard
+    let defaults: UserDefaults
     private let log = AppLog.data
 
     /// Set while applying a remote update, so the resulting `saveFavorites()`
@@ -34,11 +34,23 @@ final class DanceStore {
     private var isApplyingRemote = false
 
     private init() {
+        self.defaults = .standard
         loadFavorites()
         CloudKeyValueSync.shared.register(key: Keys.cloudKey) { [weak self] data in
             self?.applyRemote(data)
         }
     }
+
+    #if DEBUG
+    /// Testing entry point — uses an isolated UserDefaults suite so tests
+    /// don't bleed state into the production store or between test runs.
+    init(defaults: UserDefaults) {
+        self.defaults = defaults
+        loadFavorites()
+        // Skip CloudKeyValueSync registration in test instances;
+        // iCloud sync is not available in unit-test processes.
+    }
+    #endif
 
     private func loadFavorites() {
         if let arr = defaults.array(forKey: Keys.favorites) as? [String] {
@@ -73,7 +85,7 @@ final class DanceStore {
             log.error("Failed to decode remote favorites envelope")
             return
         }
-        guard Self.shouldAdoptRemote(remoteTimestamp: envelope.timestamp, localTimestamp: lastModified) else {
+        guard CloudKeyValueSync.shouldAdoptRemote(remoteTimestamp: envelope.timestamp, localTimestamp: lastModified) else {
             log.debug("Ignoring remote favorites update — local is newer or equal")
             return
         }
@@ -83,11 +95,6 @@ final class DanceStore {
         lastModified = envelope.timestamp
         saveFavorites()
         isApplyingRemote = false
-    }
-
-    /// Pure comparison extracted for unit testing without iCloud.
-    static func shouldAdoptRemote(remoteTimestamp: Date, localTimestamp: Date) -> Bool {
-        remoteTimestamp > localTimestamp
     }
 
     // MARK: - Public API

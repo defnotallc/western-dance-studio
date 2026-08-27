@@ -20,6 +20,11 @@ final class IAPManager {
     static let shared = IAPManager()
 
     /// Single StoreKit product identifier. Keep in sync with App Store Connect.
+    ///
+    /// Note: the prefix here is "com.defnota" while the app bundle ID uses
+    /// "com.defnotallc". This is intentional — the product was registered in
+    /// App Store Connect before the bundle ID was finalised. Do NOT change it;
+    /// existing purchasers' entitlements are bound to this exact string.
     static let removeAdsProductID = "com.defnota.WesternDanceStudio.removeAds"
 
     /// True once the user has purchased Remove Ads (or restored on a new device).
@@ -174,6 +179,11 @@ final class IAPManager {
             }
             await transaction.finish()
         case .unverified(let transaction, _):
+            // Finishing an unverified transaction is irreversible — StoreKit removes
+            // it from the queue permanently. This matches Apple's recommended sample
+            // code: if verification genuinely failed (fraud/malformed JWS), leaving
+            // it in the queue provides no recovery path. For transient failures the
+            // user can recover via restorePurchases() → AppStore.sync().
             lastError = "This purchase could not be verified."
             await transaction.finish()
         }

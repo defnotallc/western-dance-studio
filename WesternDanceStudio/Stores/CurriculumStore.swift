@@ -16,17 +16,29 @@ final class CurriculumStore {
         static let cloudKey = "sync.CurriculumStore.completedModuleIDs"
     }
 
-    private let defaults = UserDefaults.standard
+    let defaults: UserDefaults
     private let log = AppLog.data
     private var isApplyingRemote = false
 
     private init() {
-        let saved = UserDefaults.standard.stringArray(forKey: Keys.completed) ?? []
+        self.defaults = .standard
+        let saved = defaults.stringArray(forKey: Keys.completed) ?? []
         completedModuleIDs = Set(saved)
         CloudKeyValueSync.shared.register(key: Keys.cloudKey) { [weak self] data in
             self?.applyRemote(data)
         }
     }
+
+    #if DEBUG
+    /// Testing entry point — uses an isolated UserDefaults suite so tests
+    /// don't bleed state into the production store or between test runs.
+    init(defaults: UserDefaults) {
+        self.defaults = defaults
+        let saved = defaults.stringArray(forKey: Keys.completed) ?? []
+        completedModuleIDs = Set(saved)
+        // Skip CloudKeyValueSync registration in test instances.
+    }
+    #endif
 
     // MARK: - Mutations
 
@@ -72,7 +84,7 @@ final class CurriculumStore {
     }
 
     private func persist() {
-        UserDefaults.standard.set(Array(completedModuleIDs), forKey: Keys.completed)
+        defaults.set(Array(completedModuleIDs), forKey: Keys.completed)
         guard !isApplyingRemote else { return }
         let now = Date()
         lastModified = now
@@ -89,7 +101,7 @@ final class CurriculumStore {
             log.error("Failed to decode remote completed-modules envelope")
             return
         }
-        guard DanceStore.shouldAdoptRemote(remoteTimestamp: envelope.timestamp, localTimestamp: lastModified) else {
+        guard CloudKeyValueSync.shouldAdoptRemote(remoteTimestamp: envelope.timestamp, localTimestamp: lastModified) else {
             log.debug("Ignoring remote completed-modules update — local is newer or equal")
             return
         }

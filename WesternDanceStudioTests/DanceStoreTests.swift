@@ -3,23 +3,39 @@ import XCTest
 
 @MainActor
 final class DanceStoreTests: XCTestCase {
-    private var store: DanceStore { DanceStore.shared }
+    private var store: DanceStore!
+    private var defaults: UserDefaults!
+    private var suiteName: String!
+
+    override func setUp() async throws {
+        try await super.setUp()
+        suiteName = "DanceStoreTests-\(UUID().uuidString)"
+        defaults = UserDefaults(suiteName: suiteName)!
+        store = DanceStore(defaults: defaults)
+    }
+
+    override func tearDown() async throws {
+        defaults.removePersistentDomain(forName: suiteName)
+        store = nil
+        defaults = nil
+        suiteName = nil
+        try await super.tearDown()
+    }
+
     private var firstDance: Dance { Dance.sampleDances[0] }
 
     func testToggleFavoriteFlipsState() {
         let dance = firstDance
-        let before = store.isFavorite(dance)
+        XCTAssertFalse(store.isFavorite(dance))
         store.toggleFavorite(dance)
-        XCTAssertNotEqual(store.isFavorite(dance), before, "toggleFavorite must flip the state")
-        store.toggleFavorite(dance) // restore
+        XCTAssertTrue(store.isFavorite(dance), "toggleFavorite must flip the state")
     }
 
     func testDoubleToggleRestoresState() {
         let dance = firstDance
-        let before = store.isFavorite(dance)
         store.toggleFavorite(dance)
         store.toggleFavorite(dance)
-        XCTAssertEqual(store.isFavorite(dance), before, "two toggles must return to original state")
+        XCTAssertFalse(store.isFavorite(dance), "two toggles must return to original state")
     }
 
     func testFavoritesSetConsistentWithIsFavorite() {
@@ -30,27 +46,24 @@ final class DanceStoreTests: XCTestCase {
 
     func testFavoritesSetUpdatedAfterToggle() {
         let dance = firstDance
-        let wasFav = store.isFavorite(dance)
         store.toggleFavorite(dance)
-        XCTAssertEqual(store.favorites.contains(dance.id), !wasFav,
-                       "favorites set must reflect toggled state")
-        store.toggleFavorite(dance) // restore
+        XCTAssertTrue(store.favorites.contains(dance.id),
+                      "favorites set must reflect toggled state")
     }
 
     func testMultipleDanceFavoritesAreIndependent() {
         let danceA = Dance.sampleDances[0]
         let danceB = Dance.sampleDances[1]
-        let wasAFav = store.isFavorite(danceA)
-        let wasBFav = store.isFavorite(danceB)
-
-        if !wasAFav { store.toggleFavorite(danceA) }
-        if wasBFav  { store.toggleFavorite(danceB) }
-
+        store.toggleFavorite(danceA)
         XCTAssertTrue(store.isFavorite(danceA),  "danceA should be favorited")
         XCTAssertFalse(store.isFavorite(danceB), "danceB should not be favorited")
+    }
 
-        // Restore
-        if !wasAFav { store.toggleFavorite(danceA) }
-        if wasBFav  { store.toggleFavorite(danceB) }
+    func testFavoritesPersistedToDefaults() {
+        let dance = firstDance
+        store.toggleFavorite(dance)
+        // Create a second store backed by the same suite — simulates a relaunch.
+        let store2 = DanceStore(defaults: defaults)
+        XCTAssertTrue(store2.isFavorite(dance), "favorites must survive a store re-init from the same defaults")
     }
 }

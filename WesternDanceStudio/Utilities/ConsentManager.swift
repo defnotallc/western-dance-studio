@@ -51,7 +51,7 @@ final class ConsentManager {
     /// Present the GDPR privacy options form so the user can change their choice.
     /// Only call when `privacyOptionsRequired == true`.
     func presentPrivacyOptionsForm() async {
-        guard let rootVC = topViewController() else { return }
+        guard let rootVC = UIApplication.topViewController() else { return }
         do {
             try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<Void, Error>) in
                 ConsentForm.presentPrivacyOptionsForm(from: rootVC) { error in
@@ -75,9 +75,11 @@ final class ConsentManager {
         let parameters = RequestParameters()
         #if DEBUG
         let debugSettings = DebugSettings()
-        // Uncomment to simulate an EEA user during development:
-        // debugSettings.geography = .EEA
-        // debugSettings.testDeviceIdentifiers = ["YOUR_DEVICE_HASHED_ID"]
+        // Set the SIMULATE_EEA=1 environment variable (Scheme → Run → Arguments)
+        // to simulate an EEA user and trigger the GDPR consent form locally.
+        if ProcessInfo.processInfo.environment["SIMULATE_EEA"] == "1" {
+            debugSettings.geography = .EEA
+        }
         parameters.debugSettings = debugSettings
         #endif
         try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<Void, Error>) in
@@ -92,7 +94,7 @@ final class ConsentManager {
     }
 
     private func presentConsentFormIfNeeded() async throws {
-        guard let rootVC = topViewController() else { return }
+        guard let rootVC = UIApplication.topViewController() else { return }
         try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<Void, Error>) in
             ConsentForm.loadAndPresentIfRequired(from: rootVC) { error in
                 if let error {
@@ -114,23 +116,6 @@ final class ConsentManager {
     private func startMobileAdsSDK() {
         guard ConsentInformation.shared.canRequestAds else { return }
         MobileAds.shared.start()
-    }
-
-    // MARK: - Root VC helper
-
-    private func topViewController() -> UIViewController? {
-        guard
-            let scene = UIApplication.shared.connectedScenes
-                .compactMap({ $0 as? UIWindowScene })
-                .first(where: { $0.activationState == .foregroundActive }),
-            let window = scene.windows.first(where: { $0.isKeyWindow }) ?? scene.windows.first
-        else { return nil }
-
-        var vc = window.rootViewController
-        while let presented = vc?.presentedViewController {
-            vc = presented
-        }
-        return vc
     }
 
     // MARK: - Debug

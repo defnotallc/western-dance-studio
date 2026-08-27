@@ -1,4 +1,5 @@
 import Foundation
+import UIKit
 import os
 
 /// Envelope wrapping a synced value with the timestamp it was last written,
@@ -42,6 +43,16 @@ final class CloudKeyValueSync {
             name: NSUbiquitousKeyValueStore.didChangeExternallyNotification,
             object: store
         )
+        // Re-synchronize when the app returns to the foreground so that
+        // changes pushed by another device while this one was backgrounded
+        // (or offline) are picked up within the current session rather than
+        // waiting for the next cold launch.
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(handleForeground),
+            name: UIScene.willEnterForegroundNotification,
+            object: nil
+        )
         let ok = store.synchronize()
         AppLog.cloudSync.info("Initial synchronize() → \(ok, privacy: .public)")
     }
@@ -62,6 +73,24 @@ final class CloudKeyValueSync {
         store.set(payload, forKey: key)
         let ok = store.synchronize()
         AppLog.cloudSync.debug("Pushed \(payload.count, privacy: .public)B for \(key, privacy: .public), synchronize()=\(ok, privacy: .public)")
+    }
+
+    // MARK: - Conflict resolution (shared by all stores)
+
+    /// Returns true when the remote timestamp is strictly newer than the local
+    /// timestamp. Equal timestamps favour the local copy — equal means the local
+    /// write already reflects this state and adopting remote would be a no-op
+    /// write at best. Extracted here so neither DanceStore nor CurriculumStore
+    /// depends on the other for this pure comparison.
+    static func shouldAdoptRemote(remoteTimestamp: Date, localTimestamp: Date) -> Bool {
+        remoteTimestamp > localTimestamp
+    }
+
+    // MARK: - Notification handlers
+
+    @objc private func handleForeground() {
+        let ok = store.synchronize()
+        AppLog.cloudSync.debug("Foreground synchronize() → \(ok, privacy: .public)")
     }
 
     @objc private func handleExternalChange(_ note: Notification) {
