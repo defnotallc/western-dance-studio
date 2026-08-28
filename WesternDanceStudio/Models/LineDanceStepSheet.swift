@@ -42,21 +42,25 @@ struct LineDanceStep: Identifiable, Hashable, Codable {
     /// Clarification note — used for common errors or regional variants.
     let note: String?
 
-    // Identifiable: count range is unique within a step sheet
-    var id: String { countRange }
+    // figure disambiguates steps that share a count range (e.g. repeated phrases)
+    var id: String { "\(countRange)-\(figure)" }
 }
 
 // MARK: - Restart / Tag Annotations
 
 struct RestartNote: Identifiable, Hashable, Codable {
-    var id: String { "restart-\(afterCount)-wall\(wall ?? 0)" }
+    // Include description prefix so two restarts at the same count on the same
+    // wall (different regional variants) don't produce the same id.
+    var id: String { "restart-\(afterCount)-wall\(wall ?? -1)-\(description.prefix(20))" }
     let afterCount: Int
     let wall: Int?      // nil = every wall
     let description: String
 }
 
 struct TagNote: Identifiable, Hashable, Codable {
-    var id: String { "tag-\(afterCount)" }
+    // Include addedCounts so two tags at the same afterCount with different
+    // lengths (different regional versions) produce distinct ids.
+    var id: String { "tag-\(afterCount)-\(addedCounts)-\(description.prefix(20))" }
     let afterCount: Int
     let addedCounts: String
     let description: String

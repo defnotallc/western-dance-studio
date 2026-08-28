@@ -90,6 +90,7 @@ private struct DanceRow: View {
                     .foregroundStyle(WesternTheme.primary)
             }
             .buttonStyle(.plain)
+            .accessibilityLabel(isFavorite ? "Remove from favorites" : "Add to favorites")
         }
         .padding(.vertical, 4)
     }

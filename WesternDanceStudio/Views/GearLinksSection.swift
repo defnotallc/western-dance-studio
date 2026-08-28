@@ -123,6 +123,10 @@ struct GearLinksSection: View {
             URLQueryItem(name: "s", value: "review-rank"),
             URLQueryItem(name: "tag", value: amazonAffiliateTag)
         ]
-        return components.url!
+        guard let url = components.url else {
+            AppLog.data.error("GearLinksSection: failed to build Amazon URL for keywords '\(keywords, privacy: .public)'")
+            return URL(string: "https://www.amazon.com/s?tag=\(amazonAffiliateTag)")!
+        }
+        return url
     }
 }

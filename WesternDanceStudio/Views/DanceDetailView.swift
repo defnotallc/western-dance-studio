@@ -72,6 +72,8 @@ struct DanceDetailView: View {
         .onAppear { loadVideo() }
         .onChange(of: selectedPerspective) { _, _ in
             stepsExpanded = true
+            stepEngine.stop()
+            highlightedStepIndex = 0
             loadVideo()
         }
         .onDisappear {
@@ -84,10 +86,6 @@ struct DanceDetailView: View {
                   let steps = currentStructuredSteps, !steps.isEmpty,
                   stepEngine.rhythmPattern.soundsOnBeat(beat) else { return }
             highlightedStepIndex = (highlightedStepIndex + 1) % steps.count
-        }
-        .onChange(of: selectedPerspective) { _, _ in
-            stepEngine.stop()
-            highlightedStepIndex = 0
         }
         .withBannerAd()
     }
@@ -111,6 +109,7 @@ struct DanceDetailView: View {
                         .foregroundStyle(WesternTheme.primary)
                 }
                 .buttonStyle(.plain)
+                .accessibilityLabel(isFavorite ? "Remove from favorites" : "Add to favorites")
             }
 
             WesternDivider()
@@ -146,8 +145,8 @@ struct DanceDetailView: View {
 
     @ViewBuilder
     private var videoSection: some View {
-        if let url = currentVideoURL {
-            VideoPlayer(player: player.player)
+        if let url = currentVideoURL, let avPlayer = player.player {
+            VideoPlayer(player: avPlayer)
                 .aspectRatio(16 / 9, contentMode: .fit)
                 .frame(maxWidth: .infinity)
                 .cornerRadius(16)

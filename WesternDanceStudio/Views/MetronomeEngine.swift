@@ -50,7 +50,14 @@ final class MetronomeEngine {
         currentBeat = 0
         timerHolder.cancel()
         audioPlayer?.stop()
-        deactivateAudioSession()
+        // Nil the player so preparePlayer() re-initializes on the next start,
+        // preventing stale player state from a prior failed playback.
+        audioPlayer = nil
+        // Do NOT deactivate the shared AVAudioSession here — deactivation with
+        // .notifyOthersOnDeactivation would silence concurrently-playing AVPlayers
+        // (e.g. video in DanceDetailView). The session stays active; iOS reclaims
+        // it automatically when the app goes to background or the process exits.
+        audioSessionConfigured = false
     }
 
     func toggle() {
@@ -68,20 +75,13 @@ final class MetronomeEngine {
     private func configureAudioSessionIfNeeded() {
         guard !audioSessionConfigured else { return }
         do {
-            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default, options: [])
+            // .mixWithOthers lets the metronome co-exist with concurrent AVPlayers
+            // (e.g. the video player in DanceDetailView) on the same shared session.
+            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default, options: [.mixWithOthers])
             try AVAudioSession.sharedInstance().setActive(true)
             audioSessionConfigured = true
         } catch {
             AppLog.metronome.error("AVAudioSession configuration failed: \(error.localizedDescription, privacy: .public)")
-        }
-    }
-
-    private func deactivateAudioSession() {
-        do {
-            try AVAudioSession.sharedInstance().setActive(false, options: [.notifyOthersOnDeactivation])
-            audioSessionConfigured = false
-        } catch {
-            AppLog.metronome.error("AVAudioSession deactivation failed: \(error.localizedDescription, privacy: .public)")
         }
     }
 

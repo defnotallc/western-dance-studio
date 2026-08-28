@@ -51,6 +51,7 @@ struct MapSearchView: View {
                             .foregroundStyle(.secondary)
                     }
                     .buttonStyle(.plain)
+                    .accessibilityLabel("Clear search")
                 }
                 // Near Me
                 Button {
@@ -112,8 +113,7 @@ struct MapSearchView: View {
                     // Thin coverage note
                     if let center = searchCenter, nearbyHalls.count < 3 {
                         thinCoverageNote(curatedCount: nearbyHalls.count,
-                                         supplementCount: supplementResults.count,
-                                         hasCenter: true)
+                                         supplementCount: supplementResults.count)
                             .padding(.horizontal)
                     }
                     if let hall = selectedHall {
@@ -148,6 +148,11 @@ struct MapSearchView: View {
             }
         }
         .onChange(of: locationManager.lastCoordinate?.latitude) { _, _ in
+            guard let coord = locationManager.lastCoordinate else { return }
+            addressInput = "Near Me"
+            finishGeocode(coord: coord)
+        }
+        .onChange(of: locationManager.lastCoordinate?.longitude) { _, _ in
             guard let coord = locationManager.lastCoordinate else { return }
             addressInput = "Near Me"
             finishGeocode(coord: coord)
@@ -233,7 +238,7 @@ struct MapSearchView: View {
 
     // MARK: - Thin coverage note
 
-    private func thinCoverageNote(curatedCount: Int, supplementCount: Int, hasCenter: Bool) -> some View {
+    private func thinCoverageNote(curatedCount: Int, supplementCount: Int) -> some View {
         HStack(alignment: .top, spacing: 8) {
             Image(systemName: "exclamationmark.triangle")
                 .font(.caption)

@@ -10,6 +10,9 @@ struct MasterListView: View {
     @State private var isGeocoding: Bool = false
     @State private var geocodingError: String?
     @State private var locationManager = LocationManager.shared
+    /// Set when the user edits the search field after a location error arrives,
+    /// so we suppress the stale error without mutating the shared LocationManager.
+    @State private var suppressLocationError = false
 
     private let store = DanceHallStore.shared
 
@@ -70,7 +73,7 @@ struct MasterListView: View {
                     }
                 }
 
-                if let error = geocodingError ?? locationManager.errorMessage {
+                if let error = geocodingError ?? (suppressLocationError ? nil : locationManager.errorMessage) {
                     Section {
                         Label(error, systemImage: "exclamationmark.triangle.fill")
                             .foregroundStyle(.red)
@@ -116,7 +119,7 @@ struct MasterListView: View {
             .onChange(of: searchText) { _, newValue in
                 let trimmed = newValue.trimmingCharacters(in: .whitespaces)
                 searchCenter = nil
-                locationManager.errorMessage = nil
+                suppressLocationError = true
                 if trimmed.isEmpty {
                     geocodingError = nil
                     return
@@ -127,6 +130,13 @@ struct MasterListView: View {
             }
             .onChange(of: locationManager.lastCoordinate?.latitude) { _, _ in
                 guard let coord = locationManager.lastCoordinate else { return }
+                suppressLocationError = false
+                searchText = "Near Me"
+                searchCenter = coord
+            }
+            .onChange(of: locationManager.lastCoordinate?.longitude) { _, _ in
+                guard let coord = locationManager.lastCoordinate else { return }
+                suppressLocationError = false
                 searchText = "Near Me"
                 searchCenter = coord
             }

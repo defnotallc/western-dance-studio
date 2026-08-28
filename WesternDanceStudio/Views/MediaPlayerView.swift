@@ -92,6 +92,7 @@ private struct LocalVideoView: View {
             }
         }
         .onChange(of: url) { _, newURL in
+            player?.pause()
             if let newURL {
                 player = AVPlayer(url: newURL)
             } else {
