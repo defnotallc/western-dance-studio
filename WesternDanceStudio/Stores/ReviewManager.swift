@@ -57,10 +57,14 @@ final class ReviewManager {
     }
 
     /// The lowest threshold the user hasn't been prompted for yet. 0 = no more prompts.
+    /// Distinguish "never set" (nil in UserDefaults) from "exhausted" (stored as 0)
+    /// so re-reading 0 after all prompts fire doesn't silently reset back to 3.
     private var nextThreshold: Int {
         get {
-            let stored = defaults.integer(forKey: Keys.nextThreshold)
-            return stored == 0 ? 3 : stored   // default to 3 for fresh installs
+            guard defaults.object(forKey: Keys.nextThreshold) != nil else {
+                return Self.thresholds[0]
+            }
+            return defaults.integer(forKey: Keys.nextThreshold)
         }
         set { defaults.set(newValue, forKey: Keys.nextThreshold) }
     }
