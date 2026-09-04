@@ -100,14 +100,14 @@ extension Dance {
             bpm: 140, isPartnerDance: true, difficulty: 5,
             recommendedSongs: ["Boot Scootin' Boogie — Brooks & Dunn", "Fast as You — Dwight Yoakam"],
             leadSteps: [
-                "Triple step left (1-and-2): left, right, left",
-                "Triple step right (3-and-4): right, left, right",
+                "Triple step starting left (1-and-2)",
+                "Triple step starting right (3-and-4)",
                 "Walk forward on left (5)",
                 "Walk forward on right (6)"
             ],
             followSteps: [
-                "Triple step right (1-and-2): right, left, right",
-                "Triple step left (3-and-4): left, right, left",
+                "Triple step starting right (1-and-2)",
+                "Triple step starting left (3-and-4)",
                 "Walk back on right (5)",
                 "Walk back on left (6)"
             ],
@@ -276,14 +276,14 @@ extension Dance {
             bpm: 144, isPartnerDance: true, difficulty: 4,
             recommendedSongs: ["Boot Scootin' Boogie — Brooks & Dunn", "Rock My World — Brooks & Dunn"],
             leadSteps: [
-                "Triple step to the left (1-and-2)",
-                "Triple step to the right (3-and-4)",
-                "Rock step back on left, recover on right (5-6)"
+                "Triple step left (1-and-2)",
+                "Triple step right (3-and-4)",
+                "Rock step back on left foot, recover forward (5-6)"
             ],
             followSteps: [
-                "Triple step to the right (1-and-2)",
-                "Triple step to the left (3-and-4)",
-                "Rock step back on right, recover on left (5-6)"
+                "Triple step right (1-and-2)",
+                "Triple step left (3-and-4)",
+                "Rock step back on right foot, recover forward (5-6)"
             ],
             youtubeID: nil
         ),
@@ -299,14 +299,14 @@ extension Dance {
             leadSteps: [
                 "Walk forward along the slot: step forward with your left foot (count 1)",
                 "Step forward with your right foot (count 2)",
-                "Triple step in place: left-right-left (counts 3-and-4)",
-                "Anchor step in place: right-left-right, keeping weight back (counts 5-and-6)"
+                "Triple step in place starting left (counts 3-and-4)",
+                "Anchor step starting right, keeping weight back (counts 5-and-6)"
             ],
             followSteps: [
                 "Walk backward down the slot: step back with your right foot (count 1)",
                 "Step back with your left foot (count 2)",
-                "Triple step in place: right-left-right (counts 3-and-4)",
-                "Anchor step in place: left-right-left, maintaining elastic tension with the lead (counts 5-and-6)"
+                "Triple step in place starting right (counts 3-and-4)",
+                "Anchor step starting left, maintaining elastic tension with the lead (counts 5-and-6)"
             ],
             youtubeID: nil
         ),
@@ -322,13 +322,13 @@ extension Dance {
             leadSteps: [
                 "Step forward with your left foot (count 1)",
                 "Step forward with your right foot (count 2)",
-                "Rock step back on your left foot, then recover forward on your right (counts 3-4)",
+                "Rock step back on your left foot, recover forward (counts 3-4)",
                 "Repeat the 6-count pattern"
             ],
             followSteps: [
                 "Step backward with your right foot (count 1)",
                 "Step backward with your left foot (count 2)",
-                "Rock step back on your right foot, then recover forward on your left (counts 3-4)",
+                "Rock step back on your right foot, recover forward (counts 3-4)",
                 "Repeat the 6-count pattern"
             ],
             youtubeID: nil
@@ -370,16 +370,16 @@ extension Dance {
             leadSteps: [
                 "Hop slightly onto your right foot (and)",
                 "Step forward with your left foot (count 1)",
-                "Close your right foot next to your left (count 2)",
+                "Close your right foot (count 2)",
                 "Step forward with your left foot (count 3)",
-                "Repeat the pattern starting with a hop onto your left foot, leading with your right"
+                "Repeat the pattern starting with a hop onto your left foot"
             ],
             followSteps: [
                 "Hop slightly onto your left foot (and)",
                 "Step back with your right foot (count 1)",
-                "Close your left foot next to your right (count 2)",
+                "Close your left foot (count 2)",
                 "Step back with your right foot (count 3)",
-                "Repeat the pattern starting with a hop onto your right foot, leading back with your left"
+                "Repeat the pattern starting with a hop onto your right foot"
             ],
             youtubeID: nil
         ),
@@ -540,18 +540,18 @@ extension Dance {
             leadSteps: [
                 "Step forward left (1)",
                 "Step forward right (2)",
-                "Close left to right (3)",
+                "Close your left foot (3)",
                 "Step forward right (1)",
                 "Step forward left (2)",
-                "Close right to left (3)"
+                "Close your right foot (3)"
             ],
             followSteps: [
                 "Step back right (1)",
                 "Step back left (2)",
-                "Close right to left (3)",
+                "Close your right foot (3)",
                 "Step back left (1)",
                 "Step back right (2)",
-                "Close left to right (3)"
+                "Close your left foot (3)"
             ],
             youtubeID: nil
         ),

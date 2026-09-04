@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-04-22",
+  "lastUpdated": "2026-09-04",
   "venues": [
     {
       "id": "grizzly-rose-denver-colorado",
@@ -12,14 +12,17 @@
         "Line Dancing",
         "Western Swing"
       ],
-      "lessons": "Unknown",
-      "description": "Massive floating hardwood dance floor; one of the top country bars in the US",
+      "lessons": "Yes (line dancing Wed/Thu/Sat $5 · free Sun 7pm)",
+      "description": "Denver's premier country dance hall at 5450 Lincoln St. Live country music five nights a week, massive dance floor. Line dance lessons every Wednesday, Thursday, Saturday ($5), and free Sunday 7pm.",
       "latitude": 39.8174,
-      "longitude": -104.9877
+      "longitude": -104.9877,
+      "website": "grizzlyrose.com",
+      "hours": "Wed 6pm–midnight · Thu–Sat 6pm–2am · Sun 6pm–midnight",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "tootsie-s-orchid-lounge-nashville-tennessee",
-      "name": "Tootsie\u2019s Orchid Lounge",
+      "name": "Tootsie’s Orchid Lounge",
       "city": "Nashville",
       "state": "Tennessee",
       "zip": "37203",
@@ -27,25 +30,31 @@
         "Two Step",
         "Line Dancing"
       ],
-      "lessons": "Unknown",
-      "description": "Iconic Broadway honky-tonk; live music daily",
+      "lessons": "No formal lessons — dancing to live country bands nightly on three stages",
+      "description": "Iconic Nashville honky-tonk at 422 Broadway since 1960. Three floors, three stages, three bars with no cover. Live country music nightly 9:30am–3am. Social dancing to live bands.",
       "latitude": 36.1601,
-      "longitude": -86.7781
+      "longitude": -86.7781,
+      "website": "tootsies.net",
+      "hours": "Daily 9:30am–3am",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "billy-bob-s-texas-fort-worth-texas",
-      "name": "Billy Bob\u2019s Texas",
+      "name": "Billy Bob’s Texas",
       "city": "Fort Worth",
       "state": "Texas",
-      "zip": "76164",
+      "zip": "76106",
       "dances": [
         "Two Step",
         "Line Dancing"
       ],
-      "lessons": "Yes (professional instructors; check schedule)",
-      "description": "World\u2019s largest honky-tonk; huge dance floor",
+      "lessons": "Yes (free line dance lessons Tue and Wed 7pm)",
+      "description": "World's largest honky-tonk at 2520 Rodeo Plaza in Fort Worth Stockyards. 100,000 sq ft, 40+ bar stations, indoor bull riding Fri/Sat 8:30 and 9:30pm. Free line dance lessons Tuesday and Wednesday at 7pm CT.",
       "latitude": 32.7879,
-      "longitude": -97.3576
+      "longitude": -97.3576,
+      "website": "billybobstexas.com",
+      "hours": "Mon 11am–6pm · Tue–Thu 11am–close · Fri–Sat 11am–close · Sun 12pm–8pm",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "ponderosa-lounge-grill-portland-oregon",
@@ -56,40 +65,49 @@
       "dances": [
         "Line Dancing"
       ],
-      "lessons": "Yes (Thursdays)",
-      "description": "Portland's go-to country venue hosting live country artists and nightly dance events alongside a full restaurant and bar.",
+      "lessons": "Yes (free Thu/Fri/Sat 7pm — line dance, two-step, West Coast Swing, cha cha)",
+      "description": "Portland's best country bar at 10350 N Vancouver Way, doing 'Pondo Style' since 1969. Free country dance lessons most Thursday, Friday, and Saturday nights at 7pm covering line dance, two-step, West Coast Swing, and cha cha. Live country music with local and national acts.",
       "latitude": 45.6074,
-      "longitude": -122.6772
+      "longitude": -122.6772,
+      "website": "jubitz.com/ponderosa-lounge-country-bar",
+      "hours": "Daily (bar and grill all day · live music and dancing evenings)",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "gruene-hall-new-braunfels-texas",
       "name": "Gruene Hall",
       "city": "New Braunfels",
       "state": "Texas",
-      "zip": "78130",
+      "zip": "78132",
       "dances": [
         "Two Step",
         "Waltzes"
       ],
-      "lessons": "Unknown (occasional two-step lessons)",
-      "description": "Oldest continuously operating dance hall in Texas (1878)",
+      "lessons": "No formal lessons — social dancing to live bands at Texas' oldest dance hall",
+      "description": "Texas' oldest continuously operating dance hall, built 1878 at 1281 Gruene Rd. 6,000 sq ft high-pitched tin roof dance hall with outdoor garden. Live music most weekends — call ahead for schedule.",
       "latitude": 29.7684,
-      "longitude": -98.1076
+      "longitude": -98.1076,
+      "website": "gruenehall.com",
+      "hours": "Mon–Thu 11am–11pm · Fri 11am–midnight · Sat 11am–1am · Sun 11am–10pm",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "robert-s-western-world-nashville-tennessee",
-      "name": "Robert\u2019s Western World",
+      "name": "Robert’s Western World",
       "city": "Nashville",
       "state": "Tennessee",
-      "zip": "37203",
+      "zip": "37201",
       "dances": [
         "Two Step",
         "Line Dancing"
       ],
-      "lessons": "Unknown",
-      "description": "Classic Broadway honky-tonk; small dance floor",
+      "lessons": "No formal lessons — live traditional country, western, and rockabilly nightly · no cover ever",
+      "description": "Nashville's premier honky-tonk at 416 Broadway. Live traditional country, western, and rockabilly music seven nights a week — never a cover charge. Where Garth Brooks was once turned away for being 'too country.' All ages until 6pm, 21+ after 6pm.",
       "latitude": 36.1602,
-      "longitude": -86.7783
+      "longitude": -86.7783,
+      "hours": "Mon–Sat 11am–3am · Sun 12pm–3am · all ages until 6pm · 21+ after 6pm",
+      "verifiedDate": "2026-09-03",
+      "website": "robertswesternworld.com"
     },
     {
       "id": "broken-spoke-austin-texas",
@@ -100,10 +118,13 @@
       "dances": [
         "Two Step"
       ],
-      "lessons": "Yes (Wed-Sat 8-9pm)",
-      "description": "Historic; \u201cbest country dancers in the world\u201d sign",
+      "lessons": "Yes (two-step lessons Wed–Sat 8–9pm · $10 cash · instructor Terri White · all levels welcome)",
+      "description": "Austin's legendary honky-tonk at 3201 S Lamar Blvd since 1964. Two-step lessons with Terri White every Wednesday–Saturday 8–9pm ($10 cash). Restaurant open before dancing. All ages welcome.",
       "latitude": 30.244,
-      "longitude": -97.7826
+      "longitude": -97.7826,
+      "website": "brokenspokeaustintx.net",
+      "hours": "Tue 8pm–close · Wed–Sat 9pm–close",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "cowboys-dothan-alabama",
@@ -115,24 +136,30 @@
         "Two Step",
         "Line Dancing"
       ],
-      "lessons": "Unknown",
-      "description": "Largest honky-tonk in Alabama; massive dance floor Thu-Sat",
+      "lessons": "Yes (line dance and two-step Thu–Sat · 300-person dance floor)",
+      "description": "Dothan, Alabama's legendary honky-tonk at 4657 S Oates St — 30+ years strong and the largest honky-tonk this side of the Mississippi. 5 pool tables, 4 bars, full kitchen, and a dance floor big enough for 300. Line dancing and two-stepping every Thursday through Saturday night.",
       "latitude": 31.2232,
-      "longitude": -85.3905
+      "longitude": -85.3905,
+      "website": "cowboysofdothan.com",
+      "hours": "Wed 6pm–2am · Thu–Sat 7pm–2am",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "austin-city-saloon-lexington-kentucky",
       "name": "Austin City Saloon",
       "city": "Lexington",
       "state": "Kentucky",
-      "zip": "40508",
+      "zip": "40509",
       "dances": [
         "Line Dancing"
       ],
-      "lessons": "Unknown",
-      "description": "Lexington's premier country music venue, hosting touring country artists and regular line and two-step nights on a large dance floor.",
+      "lessons": "Yes (line dance classes alternating Thu at 8pm · led by instructor Danielle Reed)",
+      "description": "Lexington, Kentucky's country music institution at 2350 Woodhill Dr, open since 1981. Live local country music and cold beer. Line dance classes alternating Thursdays at 8pm with instructor Danielle Reed. Live music and karaoke on weekends.",
       "latitude": 38.0406,
-      "longitude": -84.5037
+      "longitude": -84.5037,
+      "website": "austincitysaloon.com",
+      "hours": "Thu–Sat 7pm–2:30am",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "cowboy-country-saloon-long-beach-california",
@@ -143,53 +170,47 @@
       "dances": [
         "Line Dancing"
       ],
-      "lessons": "Unknown",
-      "description": "Three dance floors on two levels",
+      "lessons": "Yes (free line dance lessons Wed/Fri/Sat 6–7pm · mechanical bull Fri)",
+      "description": "Long Beach's original honky-tonk at 3321 E South St. 15,000 sq ft with three dance floors on two levels, stage, pool room, full kitchen, and two bars. Free line dance lessons Wednesday, Friday, and Saturday 6–7pm. Fridays lean line dance; Saturdays mix line and two-step. Mechanical bull Friday nights.",
       "latitude": 33.7701,
-      "longitude": -118.1937
+      "longitude": -118.1937,
+      "website": "cowboycountrysaloon.com",
+      "hours": "Wed/Fri 6pm–2am · Sat 6pm–2am",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "montana-s-country-night-club-san-dimas-california",
-      "name": "Montana\u2019s Country Night Club",
+      "name": "Montana’s Country Night Club",
       "city": "San Dimas",
       "state": "California",
       "zip": "91773",
       "dances": [
         "Line Dancing"
       ],
-      "lessons": "Yes (Sat night)",
-      "description": "San Dimas country club with free line dance lessons early in the evening, followed by open dancing to DJ-driven country hits.",
+      "lessons": "Yes (line dancing lessons Fri and Sat on weekends)",
+      "description": "San Dimas country nightclub at 657 W Arrow Hwy. Line dancing lessons Friday and Saturday evenings. Two nights a week of country dancing. 21+ with $10 cover charge.",
       "latitude": 34.1067,
-      "longitude": -117.8068
+      "longitude": -117.8068,
+      "website": "montanascountrynightclub.com",
+      "hours": "Fri–Sat 6pm–1:30am · 21+ · $10 cover",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "pearl-s-dancehall-and-saloon-fort-worth-texas",
-      "name": "Pearl\u2019s Dancehall and Saloon",
+      "name": "Madam Pearl's Dancehall & Saloon",
       "city": "Fort Worth",
       "state": "Texas",
       "zip": "76164",
       "dances": [
         "Two Step"
       ],
-      "lessons": "Unknown",
-      "description": "Fort Worth Stockyards dance hall focused on two-step and waltz, with nightly live country music and a welcoming dance floor crowd.",
+      "lessons": "Yes (dance lessons Thu and Sun)",
+      "description": "Historic Fort Worth Stockyards honky-tonk at 302 W Exchange Ave. Country dancing and karaoke in the heart of the Stockyards district. Dance lessons every Thursday and Sunday. Live country music most nights.",
       "latitude": 32.7888,
-      "longitude": -97.3468
-    },
-    {
-      "id": "wildhorse-saloon-nashville-tennessee",
-      "name": "Wildhorse Saloon",
-      "city": "Nashville",
-      "state": "Tennessee",
-      "zip": "37201",
-      "dances": [
-        "Two Step",
-        "Line Dancing"
-      ],
-      "lessons": "Yes (8 daily lessons)",
-      "description": "Largest dance floor in Nashville",
-      "latitude": 36.1637,
-      "longitude": -86.7761
+      "longitude": -97.3468,
+      "website": "pearlssaloon.com",
+      "hours": "Wed–Fri 5pm–2am · Sat 1pm–2am · Sun 5pm–2am",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "moonshine-flats-san-diego-california",
@@ -200,10 +221,13 @@
       "dances": [
         "Line Dancing"
       ],
-      "lessons": "Yes (every night)",
-      "description": "San Diego's signature country dance hall, with free line dance lessons before the crowd arrives and live bands on weekends.",
+      "lessons": "No formal lessons — line dancing and live music DJs and bands",
+      "description": "San Diego's country dance club and honky-tonk bar at 344 7th Ave in the East Village. Over 10,000 sq ft, 2 levels, massive wooden dance floor, one of the largest LED screens in Southern California. Live country music Friday and Saturday, DJ country on Thursday.",
       "latitude": 32.7157,
-      "longitude": -117.1611
+      "longitude": -117.1611,
+      "website": "moonshineflats.com",
+      "hours": "Thu 7pm–1:30am · Fri–Sat 7pm–2am",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "cowboys-red-river-dallas-texas",
@@ -215,10 +239,13 @@
         "Two Step",
         "Western Swing"
       ],
-      "lessons": "Yes (Wednesdays)",
-      "description": "Massive Dallas country nightclub built around an oval race-track-style dance floor, featuring line dance instructors and DJ-driven country music.",
+      "lessons": "Yes (dance lessons most nights before live bands)",
+      "description": "Dallas' largest dance hall at 10310 Technology Blvd E. Texas-size dance floor with live country music nightly. Mechanical bull, dance lessons, and concert-style shows. Part of the Cowboys Dancehall family.",
       "latitude": 32.8677,
-      "longitude": -96.8843
+      "longitude": -96.8843,
+      "website": "cowboysdancehall.com/dallas",
+      "hours": "Wed–Sat 7pm–3am",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "round-up-saloon-and-dance-hall-dallas-texas",
@@ -229,25 +256,31 @@
       "dances": [
         "Line Dancing"
       ],
-      "lessons": "Yes (Rhythm Cowboy etc.)",
-      "description": "Large Dallas institution in the Cedar Springs district offering free two-step and line dance lessons, with a dedicated dance floor and inclusive crowd.",
+      "lessons": "Yes (free country dance lessons Mon/Tue/Thu)",
+      "description": "Dallas's classic country-western dance hall at 3912 Cedar Springs Rd in Oak Lawn, open since 1980. Free country two-step and line dance lessons Monday, Tuesday, and Thursday. Karaoke six nights a week. LGBTQ+ welcoming country western venue.",
       "latitude": 32.8107,
-      "longitude": -96.8104
+      "longitude": -96.8104,
+      "website": "roundupsaloon.com",
+      "hours": "Mon–Fri 3pm–2am · Sat–Sun 12pm–2am",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "sundance-saloon-san-francisco-california",
       "name": "Sundance Saloon",
       "city": "San Francisco",
       "state": "California",
-      "zip": "94103",
+      "zip": "94124",
       "dances": [
         "Two Step",
         "Line Dancing"
       ],
-      "lessons": "Yes (Sun/Thu)",
-      "description": "San Francisco's long-running country-western dance venue, offering two-step and line dance lessons included with admission.",
+      "lessons": "Yes (Thu and Sun — two-step and line dancing instruction · no partner needed · $7 entry · 21+)",
+      "description": "San Francisco's country-western dance bar at 550 Barneveld Ave, celebrating 28 years in 2026. Thursday and Sunday nights with two-step and line dancing instruction. No partner required. Run by the nonprofit Sundance Association for Country-Western Dancing.",
       "latitude": 37.7749,
-      "longitude": -122.4194
+      "longitude": -122.4194,
+      "website": "sundancesaloon.org",
+      "hours": "Thu 6:30–10:30pm · Sun 5–10:30pm",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "incahoots-fullerton-california",
@@ -258,10 +291,13 @@
       "dances": [
         "Line Dancing"
       ],
-      "lessons": "Unknown",
-      "description": "Massive Fullerton country nightclub with a huge dance floor, free line dance lessons, and one of California's largest country dance communities.",
+      "lessons": "Yes (Wed 7:30pm couples dance · 8:30pm line dance · instructor Terena)",
+      "description": "Orange County's longest-running country nightclub at 1401 S Lemon St, Fullerton. Wednesday Redneck Wednesdays with dance lessons at 7:30pm (couples) and 8:30pm (line dance). Mechanical bull, full bar, large dance floor.",
       "latitude": 33.8704,
-      "longitude": -117.9243
+      "longitude": -117.9243,
+      "website": "ocincahoots.com",
+      "hours": "Tue/Fri 5pm–2am · Wed 6pm–2am · Sat 9pm–2am · Sun 7pm–2am",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "the-bowery-myrtle-beach-south-carolina",
@@ -272,10 +308,13 @@
       "dances": [
         "Line Dancing"
       ],
-      "lessons": "Unknown",
-      "description": "Myrtle Beach honky-tonk known for its house band, beachside country atmosphere, and regular two-step and line dance nights.",
+      "lessons": "No formal lessons — two-step and dancing to live country music nightly",
+      "description": "Myrtle Beach landmark since 1944 at 110 9th Ave N. The original home of country supergroup Alabama — Teddy Gentry and Jeff Cook met here. Live country entertainment every night: The Bounty Hunters Monday through Saturday at 8:30pm, special guests Sunday. A must-visit for country music history.",
       "latitude": 33.6891,
-      "longitude": -78.8867
+      "longitude": -78.8867,
+      "website": "thebowery.com",
+      "hours": "Daily 11am–2am · live entertainment Mon–Sat 8:30pm · Sun special guests",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "american-junkie-hermosa-beach-california",
@@ -286,28 +325,34 @@
       "dances": [
         "Line Dancing"
       ],
-      "lessons": "Yes (Western Wednesdays)",
-      "description": "Hermosa Beach venue hosting country dance nights with a South Bay vibe, drawing both locals and visitors for line and partner dancing.",
+      "lessons": "No formal lessons — country music and dancing on Western Wednesdays",
+      "description": "Hermosa Beach sports bar and gastropub at 68 Pier Ave that hosts a popular country Western Wednesday night weekly. Not a dedicated country bar, but consistently draws a country crowd on Wednesdays. Great patio near the beach. 20 TVs for sports, American whiskeys and craft beers.",
       "latitude": 33.8622,
-      "longitude": -118.3995
+      "longitude": -118.3995,
+      "website": "americanjunkiehb.com",
+      "hours": "Mon–Thu 11am–1am · Fri–Sat 11am–2am · Sun 11am–1am · Western Wednesday country night weekly",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "brickette-lounge-west-chester-pennsylvania",
       "name": "Brickette Lounge",
       "city": "West Chester",
       "state": "Pennsylvania",
-      "zip": "19382",
+      "zip": "19380",
       "dances": [
         "Line Dancing"
       ],
-      "lessons": "Unknown",
-      "description": "Long-running West Chester dance bar featuring live country music and a dedicated two-step floor; a fixture of the Philadelphia suburban country scene for decades.",
+      "lessons": "Yes (line dancing Mon evenings · beginners night every Wed · BBQ honky-tonk with full menu)",
+      "description": "West Chester's BBQ and honky-tonk bar at 1339 Pottstown Pike. Pennsylvania Dutch country's country dance destination. Line dancing every Monday and Wednesday evenings, with beginners night specifically on Wednesdays. Full lunch and dinner menu with award-winning BBQ.",
       "latitude": 39.9601,
-      "longitude": -75.6058
+      "longitude": -75.6058,
+      "website": "brickettelounge.com",
+      "hours": "Daily 11am–2am · bar open until 2am · line dancing Mon and Wed",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "adair-s-saloon-dallas-texas",
-      "name": "Adair\u2019s Saloon",
+      "name": "Adair’s Saloon",
       "city": "Dallas",
       "state": "Texas",
       "zip": "75226",
@@ -315,24 +360,29 @@
         "Two Step",
         "Line Dancing"
       ],
-      "lessons": "Unknown",
-      "description": "Classic Deep Ellum dive bar in Dallas with a small dance floor, live country bands, and decades of Texas music history.",
+      "lessons": "No formal lessons — outlaw country and honky-tonk dancing to live music",
+      "description": "Deep Ellum outpost for true country music at 2624 Commerce St, Dallas. Outlaw country, Texas red dirt, and honky-tonk music from North Texas and beyond. Dive bar atmosphere with frequent live music. One of Dallas's authentic country dives.",
       "latitude": 32.7846,
-      "longitude": -96.783
+      "longitude": -96.783,
+      "website": "adairssaloon.com",
+      "hours": "Tue–Thu 5pm–2am · Fri–Sun noon–2am",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "pops-tavern-baltimore-maryland",
       "name": "Pops Tavern",
-      "city": "Baltimore",
+      "city": "Sparrows Point",
       "state": "Maryland",
-      "zip": "21224",
+      "zip": "21219",
       "dances": [
         "Line Dancing"
       ],
-      "lessons": "Unknown",
-      "description": "Old-fashioned Baltimore country bar with a neighborhood feel, live country music, and a loyal dance crowd.",
+      "lessons": "No formal lessons — authentic honky-tonk dancing to live country",
+      "description": "Baltimore County's oldest bar since 1928 at 4343 N Point Blvd, Sparrows Point. Old-fashioned honky-tonk with a wagon-wheel stage, frozen beer mugs, and live country music on Friday and Saturday nights. Only older-style country music played here — no pop country. A genuine blue-collar Maryland honky-tonk institution.",
       "latitude": 39.2869,
-      "longitude": -76.569
+      "longitude": -76.569,
+      "hours": "Mon–Fri 9am–midnight · country music Fri–Sat with live bands",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "the-original-cancun-cantina-hanover-maryland",
@@ -343,24 +393,30 @@
       "dances": [
         "Line Dancing"
       ],
-      "lessons": "Yes (Tuesdays)",
-      "description": "Hanover, Maryland's largest country dance club, featuring a huge floor, free line dance lessons, and events Wednesday through Sunday.",
+      "lessons": "Yes (country line dancing Wed and Sat · couples dancing Fri · beginners welcome · no partner needed)",
+      "description": "Maryland's premier country dance club at 7501 Old Telegraph Rd, Hanover (Baltimore area). Massive venue with two dance floors, six bars, two stages. Country line dancing Wednesday and Saturday, couples dancing Friday. Free dance lessons. Despite the 'Cantina' name, this is a dedicated country dance hall.",
       "latitude": 39.196,
-      "longitude": -76.7233
+      "longitude": -76.7233,
+      "website": "theoriginalcancuncantina.com",
+      "hours": "Check website for current schedule",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "chaplin-s-honky-tonk-scranton-pennsylvania",
-      "name": "Chaplin\u2019s Honky Tonk",
+      "name": "Chaplin’s Honky Tonk",
       "city": "Scranton",
       "state": "Pennsylvania",
-      "zip": "18503",
+      "zip": "18512",
       "dances": [
         "Line Dancing"
       ],
-      "lessons": "Unknown",
-      "description": "Scranton country bar hosting country bands nightly, with line dance events and a welcoming Pennsylvania country crowd.",
+      "lessons": "Yes (line dancing and country music Tue–Sat evenings · karaoke nights)",
+      "description": "Northeastern Pennsylvania's classic country bar and restaurant at 763 E Drinker St, Scranton — affectionately known as 'The Tonk.' Down-home atmosphere with classic comfort dishes, live country rock and country acts, line dancing, and karaoke. Breakfast served early mornings.",
       "latitude": 41.409,
-      "longitude": -75.6624
+      "longitude": -75.6624,
+      "website": "honkytonkpa.com",
+      "hours": "Sun 7am–2pm · Mon 7am–3pm · Tue–Thu 7am–midnight · Fri–Sat until late",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "anhalt-hall-spring-branch-texas",
@@ -372,10 +428,13 @@
         "Two Step",
         "Waltzes"
       ],
-      "lessons": "Unknown",
-      "description": "Historic Texas Dance Hall Preservation member",
+      "lessons": "No formal lessons — traditional dancing to country and polka on historic dance floor",
+      "description": "Historic Texas dance hall at 2390 Anhalt Rd in Comal County, established in the 1890s. Monthly public dances held on the traditional third weekend of each month. Country and polka music on a classic Texas dance floor. One of the Texas Hill Country's most authentic historical dance halls.",
       "latitude": 29.891,
-      "longitude": -98.4267
+      "longitude": -98.4267,
+      "website": "anhalthalle.com",
+      "hours": "Dances third weekend of the month · Fri–Sat 8pm–midnight",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "bellville-turnverein-bellville-texas",
@@ -387,10 +446,13 @@
         "Two Step",
         "Waltzes"
       ],
-      "lessons": "Unknown",
-      "description": "Historic 1897 Czech-German member dance hall in Bellville, Texas, with a sprung wood floor and monthly dances preserving Central Texas dance tradition.",
+      "lessons": "No formal lessons — community dances, live music events, and cultural celebrations",
+      "description": "Historic Texas German dance hall at 966 E Main St, Bellville — opened 1897. One of the oldest continually operating dance halls in Texas. Hosts dances, concerts, weddings, reunions, and community events. Capacity 300. Contact via Facebook @TheBellvilleTurnverein.",
       "latitude": 29.9474,
-      "longitude": -96.2572
+      "longitude": -96.2572,
+      "website": "bellvilleturnverein.com",
+      "hours": "Events and dances by schedule · check website for upcoming dances",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "cat-spring-agricultural-society-hall-cat-spring-texas",
@@ -402,10 +464,13 @@
         "Two Step",
         "Waltzes"
       ],
-      "lessons": "Unknown",
-      "description": "Historic 1902 Cat Spring member-owned hall with original wood floors, hosting monthly dances in the Texas-Czech tradition.",
+      "lessons": "No formal lessons — historic community dances and cultural celebrations",
+      "description": "Texas's oldest agricultural society hall at 13035 Hall Rd, Cat Spring, est. 1856. Historic 12-sided wooden dance hall hosting annual June Fest, September antiques fair, dances, concerts, and community events for over 120 years. National Register of Historic Places.",
       "latitude": 29.8752,
-      "longitude": -96.3594
+      "longitude": -96.3594,
+      "website": "catspringagsociety.org",
+      "hours": "Events and dances by schedule · Annual Fest in June · Antiques Fair in September",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "coupland-dance-hall-coupland-texas",
@@ -417,38 +482,47 @@
         "Two Step",
         "Waltzes"
       ],
-      "lessons": "Unknown",
-      "description": "Historic Central Texas dance hall dating to 1936, known for its large sprung wood floor and old-time Texas two-step tradition.",
+      "lessons": "No formal lessons — dancing to live country and Texas music",
+      "description": "Historic Texas dance hall at 101 Hoxie St in Coupland (near Taylor). Live country, Americana, and Texas music Thursday through Saturday. Inn and BBQ on site. One of the great rural Texas dance halls northeast of Austin.",
       "latitude": 30.4621,
-      "longitude": -97.393
+      "longitude": -97.393,
+      "website": "couplanddancehall.com",
+      "hours": "Thu 5:30–10pm · Fri 5:30pm–midnight · Sat 5:30pm–1am",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "devil-s-backbone-tavern-fischer-texas",
-      "name": "Devil\u2019s Backbone Tavern",
+      "name": "Devil’s Backbone Tavern",
       "city": "Fischer",
       "state": "Texas",
       "zip": "78623",
       "dances": [
         "Two Step"
       ],
-      "lessons": "Unknown",
-      "description": "Hill Country classic on RR 32, a rustic Texas icon with live country music, locals and bikers mixing on the dance floor since 1937.",
+      "lessons": "No formal lessons — dancehall dancing to live music",
+      "description": "Prohibition-era dive bar and dance hall at 4041 FM 32, Fischer, TX — established 1933. Certified Independent Live Music Venue in the Texas Hill Country. Rustic, community-driven honky-tonk with live music and dancing in a historic setting.",
       "latitude": 29.9571,
-      "longitude": -98.2583
+      "longitude": -98.2583,
+      "website": "devilsbackbonetavern.com",
+      "hours": "Mon–Thu 12pm–10pm · Fri–Sat 11am–midnight · Sun 11am–10pm",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "donn-s-depot-austin-texas",
-      "name": "Donn\u2019s Depot",
+      "name": "Donn’s Depot",
       "city": "Austin",
       "state": "Texas",
       "zip": "78703",
       "dances": [
         "Two Step"
       ],
-      "lessons": "Yes (Wednesdays)",
-      "description": "Railroad depot turned honky-tonk; live music & dancing",
+      "lessons": "Yes (beginner two-step lessons Wed 7:30pm · Double or Nothing Two-Step · then live music with Frank Cavitt)",
+      "description": "Austin dive bar and honky-tonk at 1600 W 5th St since 1961. Beginner two-step lessons every Wednesday at 7:30pm followed by live music with Frank Cavitt. Beloved old-school country music venue.",
       "latitude": 30.2712,
-      "longitude": -97.7678
+      "longitude": -97.7678,
+      "website": "donnsdepot.com",
+      "hours": "Mon–Fri 2pm–2am · Sat 6pm–2am · Sun closed",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "john-t-floore-country-store-helotes-texas",
@@ -459,25 +533,31 @@
       "dances": [
         "Two Step"
       ],
-      "lessons": "Unknown",
-      "description": "Historic; tamales + big-name acts",
+      "lessons": "No formal lessons — social dancing to live bands",
+      "description": "Historic dance hall and live music venue at 14492 Old Bandera Rd, Helotes (San Antonio area). Where Willie Nelson got his start. Indoor dance hall plus larger outdoor stage. Open Friday and Saturday nights for live music and dancing.",
       "latitude": 29.5727,
-      "longitude": -98.6903
+      "longitude": -98.6903,
+      "website": "liveatfloores.com",
+      "hours": "Fri–Sat 7pm–midnight",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "longhorn-ballroom-dallas-texas",
       "name": "Longhorn Ballroom",
       "city": "Dallas",
       "state": "Texas",
-      "zip": "75210",
+      "zip": "75203",
       "dances": [
         "Two Step",
         "Line Dancing"
       ],
-      "lessons": "Unknown",
-      "description": "Iconic Dallas music venue founded in 1950, hosting legendary country artists and featuring one of Texas's most storied dance floors.",
+      "lessons": "No formal lessons — dancing at live country and western events",
+      "description": "Historic Dallas landmark at 216 Corinth St, reopened 2023. Originally built in 1950 for Bob Wills and his Texas Playboys. 23,000 sq ft, capacity 2,000. Best known for country and western music. New Backyard Amphitheater opened 2026. Best Music Venue in Dallas.",
       "latitude": 32.764,
-      "longitude": -96.8079
+      "longitude": -96.8079,
+      "website": "longhornballroom.com",
+      "hours": "Event nights only — check website for schedule",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "luckenbach-dance-hall-luckenbach-texas",
@@ -488,10 +568,31 @@
       "dances": [
         "Two Step"
       ],
-      "lessons": "Unknown",
-      "description": "Tiny but legendary Hill Country dance hall made famous by Waylon and Willie \u2014 the heart of the Luckenbach community and a true Texas pilgrimage.",
+      "lessons": "No formal lessons — historic social dancing venue",
+      "description": "Historic Texas dance hall at 412 Luckenbach Town Loop, near Fredericksburg. Open daily with live music weekends. Founded 1849, immortalized in Waylon Jennings' 'Luckenbach, Texas.' Outdoor pavilion, icehouse, and general store.",
       "latitude": 30.1658,
-      "longitude": -98.7378
+      "longitude": -98.7378,
+      "website": "luckenbachtexas.com",
+      "hours": "Mon–Thu 9am–11pm · Fri 9am–midnight · Sat 9am–1am · Sun 9am–11pm",
+      "verifiedDate": "2026-09-03"
+    },
+    {
+      "id": "wild-west-cedar-park-texas",
+      "name": "Wild West Cedar Park",
+      "city": "Cedar Park",
+      "state": "Texas",
+      "zip": "78613",
+      "dances": [
+        "Two Step",
+        "Line Dancing"
+      ],
+      "lessons": "Yes (Wed/Fri two-step 7:30–8:30pm; Thu line dance 6:15–7pm; Sat line dance 9:15–10pm)",
+      "description": "Cedar Park dance hall and live music venue north of Austin. Two-step lessons Wed and Fri evenings, line dance lessons Thu and Sat. Teen Night runs Saturdays 5–9pm with a lesson hour before. Private events booked Sun–Tue.",
+      "latitude": 30.5057,
+      "longitude": -97.8196,
+      "website": "wildwestcedarpark.com",
+      "hours": "Wed 7:30pm–2am · Thu 6pm–1am · Fri 7pm–2am · Sat 9:15pm–2am (Teen Night Sat 5–9pm)",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "mavericks-dance-hall-pflugerville-texas",
@@ -503,10 +604,13 @@
         "Two Step",
         "Line Dancing"
       ],
-      "lessons": "Yes (Tue lessons)",
-      "description": "North Austin area country dance hall",
+      "lessons": "Yes (two-step lessons Thu $5 · dance class Fri $5 · Latin Sundays · large dance floor)",
+      "description": "Austin area country dance hall at 1700 Grand Ave Pkwy #240, Pflugerville. Dedicated to country dancing with top Austin DJs. $5 two-step lessons Thursday and $5 dance class Friday. State-of-the-art sound and lighting. 21+.",
       "latitude": 30.4394,
-      "longitude": -97.62
+      "longitude": -97.62,
+      "website": "mavericksdancehall.com",
+      "hours": "Tue–Sun 7pm–2am · closed Mon · Latin Night Sun · two-step/line dance lessons Thu–Fri",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "mavericks-dance-hall-buda-buda-texas",
@@ -518,25 +622,31 @@
         "Two Step",
         "Line Dancing"
       ],
-      "lessons": "Yes (Thu 7:30pm)",
-      "description": "South Austin / Buda premier country dance hall; live music and DJs",
+      "lessons": "No formal lessons — country dancing to live DJ and bands",
+      "description": "South Austin's country dance hall at 275 Old San Antonio Rd, Buda. Large dance floor for two-step and line dancing. Part of the Mavericks Dance Hall family (sister to Pflugerville location). Live DJ and occasional live bands.",
       "latitude": 30.0852,
-      "longitude": -97.8403
+      "longitude": -97.8403,
+      "website": "buda.mavericksdancehall.com",
+      "hours": "Wed–Sat 7pm–2am",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "the-attic-dance-hall-new-braunfels-texas",
       "name": "The Attic Dance Hall",
       "city": "New Braunfels",
       "state": "Texas",
-      "zip": "78132",
+      "zip": "78130",
       "dances": [
         "Two Step",
         "Line Dancing"
       ],
-      "lessons": "Yes (Tue Two Step",
-      "description": "Casual New Braunfels venue offering mid-week line dancing and social dancing in a relaxed Hill Country setting.",
+      "lessons": "Yes (country two-step Wed · East Coast Swing Tue · beginner to intermediate · Swing Junction instruction)",
+      "description": "New Braunfels country and swing dance hall. Country two-step lessons every Wednesday. East Coast Swing Tuesday. Intermediate Lindy Hop and beginner swing classes. Hosted by Swing Junction, serving the New Braunfels and San Antonio dance community.",
       "latitude": 29.708,
-      "longitude": -98.12
+      "longitude": -98.12,
+      "website": "swingjunction.org",
+      "hours": "Tue swing lessons 6:30–8:30pm · Wed country two-step lessons · check website for social dances",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "neon-boots-dancehall-saloon-houston-texas",
@@ -548,10 +658,13 @@
         "Two Step",
         "Line Dancing"
       ],
-      "lessons": "Unknown",
-      "description": "Large venue; country + LGBTQ+ friendly",
+      "lessons": "Yes (free country & western dance lessons Thu and Sat)",
+      "description": "Houston's beloved country and western dance hall at 11410 Hempstead Rd, founded 1955 as Esquire Ballroom. Huge dance floor, performance stage, 10 bar stations, outdoor deck. Free country dance lessons every Thursday and Saturday. All-inclusive welcoming atmosphere.",
       "latitude": 29.837,
-      "longitude": -95.4923
+      "longitude": -95.4923,
+      "website": "neonbootsclub.com",
+      "hours": "Tue/Thu 5pm–midnight · Fri/Sat 5pm–2am · Sun 5pm–midnight",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "pioneer-hall-anson-texas",
@@ -562,10 +675,12 @@
       "dances": [
         "Two Step"
       ],
-      "lessons": "Unknown",
-      "description": "Historic Anson, Texas dance hall home to the Texas Cowboys' Christmas Ball since 1934 \u2014 one of the oldest continuous dance events in the state.",
+      "lessons": "No formal lessons — traditional cowboy dancing (schottische, heel-and-toe polka, round dances)",
+      "description": "Historic community dance hall at 2301 Ave G, Anson TX, built 1940. Home of the world-famous Texas Cowboys' Christmas Ball every December (18–20). The Ball keeps alive the tradition of the 1885 Anson Cowboys' Christmas Ball. Expanding to monthly public dances. 8,600 sq ft with beautiful oak floor. No website — call (325) 696-9040.",
       "latitude": 32.7524,
-      "longitude": -99.897
+      "longitude": -99.897,
+      "hours": "Texas Cowboys' Christmas Ball each December (3 consecutive nights) · expanding to monthly dances",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "rodeo-exchange-fort-worth-texas",
@@ -577,39 +692,48 @@
         "Two Step",
         "Line Dancing"
       ],
-      "lessons": "Yes (Tues/Thu two-step; Thu line)",
-      "description": "Fort Worth Stockyards honky-tonk with live country bands, two-step nights, and the rowdy western atmosphere that defines the district.",
+      "lessons": "Yes (free lessons Tue and Thu included with cover · live music Thu–Sat)",
+      "description": "Fort Worth's best dance hall since 1986 at 221 W Exchange Ave in the Historic Stockyards — awarded best dance hall in Dallas-Fort Worth. Free country dance lessons Tuesday and Thursday included with cover charge. Live local DFW country bands Thursday through Saturday.",
       "latitude": 32.7895,
-      "longitude": -97.3461
+      "longitude": -97.3461,
+      "website": "rodeoex.com",
+      "hours": "Tue 6pm–midnight · Thu–Sat 7pm–2am",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "sagebrush-austin-texas",
       "name": "Sagebrush",
       "city": "Austin",
       "state": "Texas",
-      "zip": "78704",
+      "zip": "78745",
       "dances": [
         "Two Step",
         "Western Swing"
       ],
-      "lessons": "Unknown",
-      "description": "South Congress spot; large oak floor",
+      "lessons": "No formal lessons — two-step and line dancing to live country nightly",
+      "description": "South Austin honky-tonk at 5500 S Congress Ave, opened 2019. Proper dance floor and commitment to live country music several nights a week. Pool tables, indoor and outdoor spaces. One of Austin's favorite new honky-tonks for two-stepping.",
       "latitude": 30.2317,
-      "longitude": -97.782
+      "longitude": -97.782,
+      "website": "sagebrushtexas.com",
+      "hours": "Mon 6pm–2am · Tue–Sun 3pm–2am",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "sam-s-town-point-austin-texas",
-      "name": "Sam\u2019s Town Point",
+      "name": "Sam’s Town Point",
       "city": "Austin",
       "state": "Texas",
-      "zip": "78704",
+      "zip": "78748",
       "dances": [
         "Two Step"
       ],
-      "lessons": "Unknown",
-      "description": "Authentic South Austin dive bar and dance hall with outlaw country roots, live bands, and a no-frills Texas character.",
+      "lessons": "No formal lessons — live country, honky-tonk, and Americana nightly",
+      "description": "South Austin neighborhood honky-tonk at 2115 Allred Dr since the 1960s. Live music seven nights a week from under-the-radar local talent. Unpretentious dive bar atmosphere with dancing to live bands.",
       "latitude": 30.1797,
-      "longitude": -97.85
+      "longitude": -97.85,
+      "website": "samstownpointatx.com",
+      "hours": "Sun 1pm–midnight · Mon–Thu 6pm–midnight · Fri 6pm–1am · Sat 4pm–1am",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "sengelmann-hall-schulenburg-texas",
@@ -621,10 +745,13 @@
         "Two Step",
         "Waltzes"
       ],
-      "lessons": "Unknown",
-      "description": "Restored 1894 Schulenburg dance hall with a large sprung wood floor, live Texas country music, and traditional Central Texas dance nights.",
+      "lessons": "No formal lessons — social dancing on 120-year-old long-leaf pine dance floor",
+      "description": "Fully restored 1890s Texas dance hall and restaurant at Schulenburg, TX — halfway between Houston and San Antonio. Award-winning restoration. Original 120-year-old long-leaf pine dance floor. Live music and dancing on weekends. Restaurant open Thu–Sun.",
       "latitude": 29.681,
-      "longitude": -96.902
+      "longitude": -96.902,
+      "website": "sengelmannhall.com",
+      "hours": "Thu–Sun (dining and live music events · check website for schedule)",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "sisterdale-hall-sisterdale-texas",
@@ -636,10 +763,13 @@
         "Two Step",
         "Waltzes"
       ],
-      "lessons": "Unknown",
-      "description": "Historic 1880s member-owned dance hall in the Sisterdale community, preserving Hill Country Czech-German dance traditions.",
+      "lessons": "No formal lessons — historic dance hall hosting private events and occasional public dances",
+      "description": "Texas Hill Country's oldest operating opera house at 1210 Sisterdale Rd, Sisterdale. Built ca. 1890, now primarily a wedding and private event venue with occasional public dances. Air-conditioned historic dancehall/opera house. Contact via website for event schedule.",
       "latitude": 29.973,
-      "longitude": -98.7289
+      "longitude": -98.7289,
+      "website": "sisterdaledancehall.com",
+      "hours": "Events and private bookings · check website for public dance schedule",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "spjst-lodge-1-fayetteville-texas",
@@ -651,10 +781,12 @@
         "Two Step",
         "Waltzes"
       ],
-      "lessons": "Unknown",
-      "description": "Historic Czech-Texan Lodge #1 in Fayetteville, with a classic wood dance floor hosting polka and waltz events rooted in over a century of tradition.",
+      "lessons": "No formal lessons — fraternal lodge dances and community events",
+      "description": "Texas's oldest SPJST (Czech-Slovak fraternal) lodge at 597 E Main St, Fayetteville, TX, chartered 1897. Historic community gathering hall with quarterly lodge meetings and periodic public dances. Part of Texas's Czech heritage dance hall tradition. Visit spjst.org/lodge/1-fayetteville for event listings.",
       "latitude": 29.9021,
-      "longitude": -96.6749
+      "longitude": -96.6749,
+      "hours": "Quarterly lodge meetings and occasional public dances · check SPJST.org for events",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "the-white-horse-austin-texas",
@@ -666,10 +798,13 @@
         "Two Step",
         "Western Swing"
       ],
-      "lessons": "Unknown",
-      "description": "East Austin staple; \u201cNo Line Dancing\u201d sign",
+      "lessons": "No formal lessons — social dancing to live country and Americana bands",
+      "description": "East Austin honky-tonk and dance hall at 500 Comal St. Giant dance floor, live country/bluegrass/Americana music seven nights a week. Taco truck outside. 21+ always.",
       "latitude": 30.2641,
-      "longitude": -97.7044
+      "longitude": -97.7044,
+      "website": "thewhitehorseaustin.com",
+      "hours": "Daily 3pm–2am · 21+",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "twin-sisters-dance-hall-blanco-texas",
@@ -680,52 +815,62 @@
       "dances": [
         "Two Step"
       ],
-      "lessons": "Unknown",
-      "description": "Historic 1870 member-owned hall near Blanco, one of the oldest continuously operating dance halls in Texas.",
+      "lessons": "No formal lessons — traditional community dancing on historic floor · polka, waltz, two-step",
+      "description": "Historic 1870s dance hall at 6720 Hwy 281 S, Blanco (6 miles south of town). One of Texas's oldest continuously operating dance halls. Monthly public dances on the first Saturday of each month. Traditional Texas dancing — polka, waltz, two-step. A jewel of the Texas Hill Country.",
       "latitude": 30.0988,
-      "longitude": -98.4198
+      "longitude": -98.4198,
+      "website": "twinsistersdancehall.com",
+      "hours": "Mon–Fri 10am–9pm · Sat 10am–midnight · Sun 10am–9pm · public dance first Sat monthly",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "wagon-wheel-hall-sweet-home-texas",
       "name": "Wagon Wheel Hall",
       "city": "Sweet Home",
       "state": "Texas",
-      "zip": "77987",
+      "zip": "77994",
       "dances": [
         "Other"
       ],
-      "lessons": "Unknown",
-      "description": "Historic Sweet Home, Texas member dance hall preserving traditional Czech-Texan polka and waltz gatherings.",
+      "lessons": "No formal lessons — Czech-Texan polka, waltz, and traditional dances",
+      "description": "Historic Czech-Texan community dance hall in Sweet Home, Texas. Hosts monthly public dances preserving traditional polka and waltz. One of Lavaca County's rural heritage dance halls. No dedicated website — check their Facebook page for upcoming events.",
       "latitude": 28.9947,
-      "longitude": -97.0742
+      "longitude": -97.0742,
+      "hours": "Monthly public dances and occasional events · check Facebook for schedule",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "arkey-blue-s-silver-dollar-bandera-texas",
-      "name": "Arkey Blue\u2019s Silver Dollar",
+      "name": "Arkey Blue’s Silver Dollar",
       "city": "Bandera",
       "state": "Texas",
       "zip": "78003",
       "dances": [
         "Two Step"
       ],
-      "lessons": "Unknown",
-      "description": "Oldest continuously operating honky-tonk in Texas",
+      "lessons": "No formal lessons — classic honky-tonk dancing to live country on a sawdust floor",
+      "description": "The oldest continually-open honky-tonk in Texas at 308 Main St, Bandera — opened in the 1920s as the Fox Hole. Arkey Blue performs live almost every Saturday at 8pm. Other local musicians Fri–Mon and Wed. Voted Best Honky-Tonk in Texas by Texas Monthly. Legendary sawdust dance floor. No website — find them on Facebook.",
       "latitude": 29.7273,
-      "longitude": -99.0731
+      "longitude": -99.0731,
+      "hours": "Mon–Sat 11am–2am · Sun 12pm–2am · live music Fri–Mon and Wed",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "little-longhorn-saloon-austin-texas",
       "name": "Little Longhorn Saloon",
       "city": "Austin",
       "state": "Texas",
-      "zip": "78704",
+      "zip": "78756",
       "dances": [
         "Two Step"
       ],
-      "lessons": "Unknown",
-      "description": "Laid-back Austin honky-tonk famous for Sunday Chicken Sh*t Bingo, live country music, and a no-pretense local crowd.",
+      "lessons": "No formal lessons — honky-tonk dancing to live traditional country",
+      "description": "North Austin honky-tonk at 5434 Burnet Rd, saved and revived by Ameripolitan artist Dale Watson in 2013. Four decades of honky-tonk country. World-famous Chicken Shit Bingo on Sundays. Small intimate dive with authentic country spirit.",
       "latitude": 30.3316,
-      "longitude": -97.7378
+      "longitude": -97.7378,
+      "website": "thelittlelonghornsaloon.com",
+      "hours": "Tue–Wed 5–11pm · Thu–Sat 5pm–midnight · Sun 2–9pm",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "mercer-street-dancehall-driftwood-texas",
@@ -736,29 +881,35 @@
       "dances": [
         "Two Step"
       ],
-      "lessons": "Unknown",
-      "description": "Hill Country gem in Driftwood featuring live Texas country music and a classic wood dance floor \u2014 a favorite weekend destination for Austin dancers.",
+      "lessons": "Yes (free dance lessons before bands · Fri 7:30–8:30pm historically · call ahead for current schedule)",
+      "description": "Authentic Texas dance hall at 23490 Ranch Road 12, Driftwood. Originally listed for sale and expected to close January 2026, but the sale fell through and the venue reopened April 19, 2026. Now operating Sundays 2–7pm with live bands 3–6pm. Onsite cabins and Hill Country setting. Call 512-858-4314 to confirm current schedule before visiting.",
       "latitude": 30.1049,
-      "longitude": -98.0133
+      "longitude": -98.0133,
+      "website": "mercerdancehall.com",
+      "hours": "Sun 2–7pm (bands 3–6pm) · reopened April 2026 after planned sale fell through",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "stampede-houston-houston-texas",
       "name": "Stampede Houston",
       "city": "Houston",
       "state": "Texas",
-      "zip": "77092",
+      "zip": "77039",
       "dances": [
         "Two Step",
         "Line Dancing"
       ],
-      "lessons": "Unknown",
-      "description": "Modern honky-tonk with lessons",
+      "lessons": "Yes (free country dance lessons Fri 8pm — line dancing and two-step)",
+      "description": "Houston's country dance club at 11925 Eastex Fwy. 3,500 sq ft dance floor with expert instructors every Friday at 8pm for free line dancing and two-step lessons. Top country DJs and live music on weekends.",
       "latitude": 29.9154,
-      "longitude": -95.3605
+      "longitude": -95.3605,
+      "website": "stampedehouston.com",
+      "hours": "Fri 8pm–2am · Sat 9pm–2am · 18+ to enter · 21+ to drink",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "firehouse-saloon-stafford-texas",
-      "name": "FireHouse Saloon",
+      "name": "FireHorse Saloon",
       "city": "Stafford",
       "state": "Texas",
       "zip": "77477",
@@ -766,25 +917,31 @@
         "Two Step",
         "Line Dancing"
       ],
-      "lessons": "Unknown",
-      "description": "Popular Houston-area country venue in Stafford with a large dance floor, live bands, and a fixture of the Houston country dance scene.",
+      "lessons": "Yes (line dancing Wed · West Coast swing Fri · country dancing Sat · 1,700 sq ft dance floor)",
+      "description": "Stafford's country dance hall at 501 Murphy Rd, opened 2025. Area's largest dance floor at 1,700 sq ft. Line dancing Wednesdays, West Coast Fridays, Country Saturdays. Cutting-edge sound and lighting, 40-foot light-up bar.",
       "latitude": 29.6161,
-      "longitude": -95.5577
+      "longitude": -95.5577,
+      "website": "firehorsesaloon.com",
+      "hours": "Wed 7pm–midnight · Thu 8pm–midnight · Fri–Sat 7pm–2am",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "buck-wild-clear-lake-texas",
-      "name": "Buck Wild",
-      "city": "Clear Lake",
+      "name": "Buck Wild Country Dance Club",
+      "city": "Webster",
       "state": "Texas",
-      "zip": "77062",
+      "zip": "77598",
       "dances": [
         "Two Step",
         "Line Dancing"
       ],
-      "lessons": "Unknown",
-      "description": "Clear Lake country bar hosting two-step and line dance nights for the Houston suburban crowd.",
+      "lessons": "Yes (free dance lessons and Ladies Night Fri · live music Thu from 9pm starting May 2026)",
+      "description": "Houston's hottest country dance club at 1025 W NASA Pkwy, Webster. 20,000 sq ft facility with 3,500 sq ft dance floor, 120-ft bar (longest in Texas), mechanical bull. Free dance lessons and Ladies Night every Friday. New front stage live music Thursdays.",
       "latitude": 29.5693,
-      "longitude": -95.1121
+      "longitude": -95.1121,
+      "website": "buckwildcountrydanceclub.com",
+      "hours": "Thu–Sat 7pm–2am",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "rowdys-webster-texas",
@@ -796,24 +953,13 @@
         "Two Step",
         "Line Dancing"
       ],
-      "lessons": "Unknown",
-      "description": "Webster country dance hall serving the Houston-area crowd with regular line dance nights and a full-service bar.",
+      "lessons": "No formal lessons — country dancing and live music Wed–Sat",
+      "description": "Independently owned country bar and dance hall at 803 E NASA Pkwy #140, Webster. Country dancing Wednesday through Saturday. Live music and DJ. Alongside Buck Wild, Webster is Houston's country dancing hub.",
       "latitude": 29.5377,
-      "longitude": -95.1182
-    },
-    {
-      "id": "madam-pearl-s-fort-worth-texas",
-      "name": "Madam Pearl's",
-      "city": "Fort Worth",
-      "state": "Texas",
-      "zip": "76164",
-      "dances": [
-        "Two Step"
-      ],
-      "lessons": "Unknown",
-      "description": "Fort Worth Stockyards honky-tonk with live country music and a traditional Texas dance floor atmosphere.",
-      "latitude": 32.7891,
-      "longitude": -97.3467
+      "longitude": -95.1182,
+      "website": "rowdysdancehall.com",
+      "hours": "Wed–Sat 7pm–2am",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "the-ranch-saloon-west-texas",
@@ -824,39 +970,47 @@
       "dances": [
         "Other"
       ],
-      "lessons": "Unknown",
-      "description": "Central Texas dance spot in the town of West, featuring country music and a classic small-town Texas atmosphere.",
+      "lessons": "No formal lessons — classic small-town country dancing",
+      "description": "Country bar in West, Texas — the Czech-heritage town famous for kolaches on I-35 between Dallas and Waco. Classic small-town Texas dance hall atmosphere. Check locally for current hours and events. No dedicated website found.",
       "latitude": 31.8018,
-      "longitude": -97.0945
+      "longitude": -97.0945,
+      "hours": "Check locally for current schedule — small-town Texas dance hall",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "sul-ross-boot-scootin-dance-club-west-texas",
       "name": "Sul Ross Boot Scootin' Dance Club",
-      "city": "West",
+      "city": "Waco",
       "state": "Texas",
       "zip": "76691",
       "dances": [
         "Line Dancing"
       ],
-      "lessons": "Unknown",
-      "description": "West, Texas community dance club hosting regular boot scootin' line dance and two-step nights.",
+      "lessons": "Yes (Thu 7–9:15pm · two-step, polka, waltz, line dance · since 1978 · 100+ dancers weekly)",
+      "description": "Waco's beloved Boot Scootin' Dance Club, active since 1978. Meets every Thursday 7–9:15pm. Two-step, polka, waltz, and line dancing. Originally at Sul Ross Community Center (1414 Jefferson Ave, Waco); relocated to Waco Lions Den after city closed Sul Ross facility in April 2025.",
       "latitude": 31.803,
-      "longitude": -97.09
+      "longitude": -97.09,
+      "website": "sulrossdanceclub.org",
+      "hours": "Thu 7–9:15pm at Sul Ross Community Center (1414 Jefferson Ave) · relocated to Waco Lions Den after Apr 2025",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "melody-ranch-dallas-texas",
       "name": "Melody Ranch",
-      "city": "Dallas",
+      "city": "Waco",
       "state": "Texas",
       "zip": "75219",
       "dances": [
         "Two Step",
         "Line Dancing"
       ],
-      "lessons": "Unknown",
-      "description": "Classic DFW-area country dance hall with a spacious hardwood floor, known for hosting two-step and line dance nights.",
+      "lessons": "Yes (two-step and line dancing nightly · biggest dance floor in Central Texas)",
+      "description": "Country dance hall at 2315 Robinson Dr, Waco, TX — the biggest dance floor in Central Texas. Country dancing every Thursday, Friday, and Saturday night. Live country music every Saturday.",
       "latitude": 32.8105,
-      "longitude": -96.809
+      "longitude": -96.809,
+      "website": "mranch.org",
+      "hours": "Thu–Sat 7pm–2am · live music every Sat",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "cheatham-street-warehouse-san-marcos-texas",
@@ -867,39 +1021,30 @@
       "dances": [
         "Two Step"
       ],
-      "lessons": "Unknown",
-      "description": "San Marcos live music institution \u2014 George Strait got his start here \u2014 featuring Texas country and swing with a dance-friendly crowd.",
+      "lessons": "No formal lessons — dancing to live Texas country and Americana",
+      "description": "Storied Texas honky-tonk at 119 Cheatham St, San Marcos, open since 1974. Founded by Kent Finlay — where George Strait and the Ace in the Hole Band got their start. Live music and dancing in an intimate historic setting.",
       "latitude": 29.8833,
-      "longitude": -97.9414
+      "longitude": -97.9414,
+      "website": "cheathamstreet.com",
+      "hours": "Mon–Sat 3pm–2am",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "albert-dance-hall-and-icehouse-albert-texas",
-      "name": "Albert Dance Hall and Icehouse",
-      "city": "Albert",
+      "name": "Albert Icehouse & Dancehall",
+      "city": "Stonewall",
       "state": "Texas",
       "zip": "78671",
       "dances": [
         "Two Step"
       ],
-      "lessons": "Unknown",
-      "description": "Historic 1922 Hill Country dance hall in tiny Albert, Texas, with a sprung wood floor, live music, and authentic German-Texan heritage.",
+      "lessons": "No formal lessons — Texas Hill Country community dances and live music",
+      "description": "Historic dancehall and icehouse at 5435 S Ranch Rd 1623, Stonewall (Albert community), est. 1892. Surrounded by 500+ year-old oak trees. Renovated back to original glory. Icehouse patio and beer garden open daily. Live music and community dancing on weekends. Fredericksburg wine country's hidden gem.",
       "latitude": 30.243,
-      "longitude": -98.7069
-    },
-    {
-      "id": "kendalia-halle-kendalia-texas",
-      "name": "Kendalia Halle",
-      "city": "Kendalia",
-      "state": "Texas",
-      "zip": "78027",
-      "dances": [
-        "Two Step",
-        "Waltzes"
-      ],
-      "lessons": "Unknown",
-      "description": "Historic 1903 Hill Country member-style hall in Kendalia with traditional Texas-Czech dance events on its original wood floor.",
-      "latitude": 29.9883,
-      "longitude": -98.5508
+      "longitude": -98.7069,
+      "website": "alberttexas.com",
+      "hours": "Wed–Thu 12pm–10pm · Fri–Sat 11am–midnight · Sun 11am–10pm · Mon–Tue closed",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "harmonie-hall-fayetteville-texas",
@@ -910,10 +1055,12 @@
       "dances": [
         "Two Step"
       ],
-      "lessons": "Unknown",
-      "description": "Historic Fayetteville member-owned dance hall with a classic wood floor, hosting polka and waltz events in the Texas-Czech tradition.",
+      "lessons": "No formal lessons — traditional Texas-German community dances",
+      "description": "Historic Texas-German Harmonie (harmony society) hall in Fayetteville, TX. Part of the German-Czech immigrant community dance hall heritage of Austin County. Hosts occasional community dances and celebrations. No dedicated website.",
       "latitude": 29.901,
-      "longitude": -96.6725
+      "longitude": -96.6725,
+      "hours": "Periodic community dances and events · check locally for schedule",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "la-bahia-turn-verein-hall-burton-texas",
@@ -925,10 +1072,12 @@
         "Two Step",
         "Waltzes"
       ],
-      "lessons": "Unknown",
-      "description": "Historic 1879 Burton member hall \u2014 one of the oldest Turnverein (gymnastic society) dance halls in Texas, preserving German-Texan dance tradition.",
+      "lessons": "No formal lessons — historic Turnverein (gymnastic society) dances",
+      "description": "Historic 1879 Turnverein hall in Burton, Texas — one of the oldest Turnverein dance halls in Texas. Part of the German-Czech heritage trail of Washington County. Hosts periodic community events and dances. No dedicated website.",
       "latitude": 30.1727,
-      "longitude": -96.5994
+      "longitude": -96.5994,
+      "hours": "Special events and periodic community dances",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "moravia-store-schulenburg-texas",
@@ -940,24 +1089,29 @@
         "Two Step",
         "Waltzes"
       ],
-      "lessons": "Unknown",
-      "description": "Historic Czech-Texan general store and dance hall near Schulenburg, hosting traditional polka and waltz events in a 19th-century rural setting.",
+      "lessons": "No formal lessons — traditional Czech-Texan polka and waltz",
+      "description": "Historic Czech-Texan general store and community hall near Schulenburg (Fayette County). Part of the Czech-Texan heritage corridor between Houston and San Antonio. Occasional traditional dances and community events. No dedicated website.",
       "latitude": 29.6167,
-      "longitude": -96.9411
+      "longitude": -96.9411,
+      "hours": "Check locally for dance events · occasional community dances",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "national-hall-fort-worth-texas",
       "name": "National Hall",
       "city": "Fort Worth",
       "state": "Texas",
-      "zip": "76164",
+      "zip": "76114",
       "dances": [
         "Other"
       ],
-      "lessons": "Unknown",
-      "description": "Historic Fort Worth Stockyards hall hosting traditional dance events in the heart of Cowtown's western district.",
+      "lessons": "No formal lessons — live country music events and dancing · 430-seat historic hall",
+      "description": "SPJST Lodge No. 92's historic dance hall at 3316 Roberts Cut Off Rd, Fort Worth. 430-capacity event center with a tradition of great live music, dancing, and Czech-Texan culture. Hosts concerts, weddings, and community dances. One of Fort Worth's great historic entertainment venues.",
       "latitude": 32.7893,
-      "longitude": -97.3464
+      "longitude": -97.3464,
+      "website": "nationalhallfortworth.com",
+      "hours": "Mon–Thu 5pm–midnight · Fri–Sat 5pm–1am · Sun 5pm–midnight",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "sons-of-hermann-hall-dallas-texas",
@@ -968,24 +1122,29 @@
       "dances": [
         "Two Step"
       ],
-      "lessons": "Unknown",
-      "description": "Historic 1911 Deep Ellum member lodge in Dallas with a beautiful second-floor wood dance floor and regular swing, two-step, and concert nights.",
+      "lessons": "Yes (country two-step included in weekly Swingin' at the Sons swing nights · Spring Fling Vintage Dance Festival May)",
+      "description": "Historic Deep Ellum venue at 3414 Elm St, Dallas, established 1911. Multi-genre vintage ballroom hosting country two-step, swing, lindy hop, blues, and more. Weekly Swingin' at the Sons dance nights, Spring Fling Vintage Dance Festival each May. Active fraternal lodge hall.",
       "latitude": 32.7846,
-      "longitude": -96.7799
+      "longitude": -96.7799,
+      "website": "sonsofhermannhall.com",
+      "hours": "Events vary — check sonsofhermannhall.com for schedule",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "el-maton-national-hall-el-maton-texas",
       "name": "El Maton National Hall",
       "city": "El Maton",
       "state": "Texas",
-      "zip": "77437",
+      "zip": "77457",
       "dances": [
         "Two Step"
       ],
-      "lessons": "Unknown",
-      "description": "Historic South Texas member dance hall in tiny El Maton, preserving rural Texas-Czech dance traditions.",
+      "lessons": "No formal lessons — traditional Czech-Texan lodge dances",
+      "description": "Rural South Texas SPJST (Czech-Slovak fraternal) member dance hall in tiny El Maton, Matagorda County. Preserves the rural Texas-Czech dance tradition with periodic lodge dances. One of the most remote authentic dance halls remaining in Texas. No dedicated website.",
       "latitude": 28.9491,
-      "longitude": -96.2511
+      "longitude": -96.2511,
+      "hours": "Periodic SPJST lodge dances and community events",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "cahoots-dance-hall-and-honky-tonk-lebanon-tennessee",
@@ -996,25 +1155,13 @@
       "dances": [
         "Line Dancing"
       ],
-      "lessons": "Unknown",
-      "description": "Large floor; live country acts",
+      "lessons": "Yes (free line dancing lessons · beginners welcome)",
+      "description": "Lebanon, Tennessee's country honky-tonk and concert venue at 427 S College St. Live country music, line dancing, and cocktails. Free line dancing lessons for all levels. Intimate concert venue perfect for local and regional country acts.",
       "latitude": 36.2081,
-      "longitude": -86.2911
-    },
-    {
-      "id": "silverados-dance-hall-saloon-goodlettsville-tennessee",
-      "name": "Silverados Dance Hall & Saloon",
-      "city": "Goodlettsville",
-      "state": "Tennessee",
-      "zip": "37072",
-      "dances": [
-        "Two Step",
-        "Line Dancing"
-      ],
-      "lessons": "Yes (Fri/Sat 7:30pm)",
-      "description": "Suburban Nashville country dance hall in Goodlettsville with a large dance floor, line dance nights, and live country music.",
-      "latitude": 36.3231,
-      "longitude": -86.7133
+      "longitude": -86.2911,
+      "website": "cahootslebanon.com",
+      "hours": "Open most nights from 7pm · check website for event nights",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "whiskey-dix-murfreesboro-tennessee",
@@ -1025,10 +1172,12 @@
       "dances": [
         "Line Dancing"
       ],
-      "lessons": "Yes (7-9pm)",
-      "description": "Friendly Murfreesboro community dance venue with a welcoming crowd, regular line dance nights, and live country music.",
+      "lessons": "Yes (country line dancing and two-step nightly)",
+      "description": "Murfreesboro country bar now at 22 N Public Square (relocated from 302 W Main St). Country dancing Thursday through Saturday nights. Note: this is separate from Whiskey Dix' Saloon in Aiea, HI.",
       "latitude": 35.8456,
-      "longitude": -86.3903
+      "longitude": -86.3903,
+      "hours": "Thu–Sat 7pm–3am",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "wild-country-dance-hall-burns-tennessee",
@@ -1040,10 +1189,13 @@
         "Two Step",
         "Line Dancing"
       ],
-      "lessons": "Yes (Thu 7:30-9:30pm)",
-      "description": "Large Burns, Tennessee dance hall featuring a big wood floor, line dance lessons, and weekend country events.",
+      "lessons": "Yes (Thu dance lessons · Sat live band dancing)",
+      "description": "West Tennessee country dance hall on Hwy 70 E in Burns, ~30 miles west of Nashville. Dance lessons Thursday nights. Live music for dancing every Saturday. One of the hidden gems of Middle Tennessee's country dance scene. No dedicated website — check Facebook for events.",
       "latitude": 36.054,
-      "longitude": -87.3125
+      "longitude": -87.3125,
+      "hours": "Thu dance lessons · Sat live music and dancing 8pm–midnight",
+      "verifiedDate": "2026-09-03",
+      "website": "wildcountrydancehall.com"
     },
     {
       "id": "wagon-wheel-ii-dance-hall-bon-aqua-tennessee",
@@ -1054,10 +1206,12 @@
       "dances": [
         "Other"
       ],
-      "lessons": "Unknown",
-      "description": "Family-friendly Bon Aqua dance hall \u2014 no alcohol served \u2014 hosting clean, all-ages country dance nights in Middle Tennessee.",
+      "lessons": "No formal lessons — live country band Saturday nights",
+      "description": "Community dance hall at 10023 TN-46, Bon Aqua, Tennessee. Smoke-free and family friendly. Karaoke Tuesday 6–9pm with $3 cover. Live country band every Saturday 7–11pm with $6 cover. Small-town Tennessee dance tradition.",
       "latitude": 35.9762,
-      "longitude": -87.2503
+      "longitude": -87.2503,
+      "hours": "Tue karaoke 6–9pm ($3 cover) · Sat live band 7–11pm ($6 cover)",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "the-electric-cowboy-clarksville-tennessee",
@@ -1068,10 +1222,13 @@
       "dances": [
         "Line Dancing"
       ],
-      "lessons": "Yes (free Wed)",
-      "description": "Clarksville country bar spinning the latest country hits and radio favorites, with line dance nights and a young country crowd.",
+      "lessons": "Yes (Line Dance Overload Thursday nights · country and line dance music)",
+      "description": "Western-themed country nightclub at 690 N Riverside Dr Ste A-1, Clarksville. Sprawling polished-wood dance floor, concert-caliber sound and lighting. Line Dance Overload every Thursday night. Country music from classics to modern hits. No website — check Facebook for events.",
       "latitude": 36.5298,
-      "longitude": -87.3595
+      "longitude": -87.3595,
+      "hours": "Thu–Sat 8pm–3am · line dancing · DJ nightly",
+      "verifiedDate": "2026-09-03",
+      "website": "electriccowboy.com"
     },
     {
       "id": "mommas-country-bar-and-dance-club-lewisburg-tennessee",
@@ -1083,10 +1240,12 @@
         "Two Step",
         "Line Dancing"
       ],
-      "lessons": "Unknown",
-      "description": "Largest dance floor in Middle TN",
+      "lessons": "Yes (dance lessons with instructors · largest dance floor in Middle Tennessee)",
+      "description": "Lewisburg's country dance club at 2402 New Columbia Hwy with the largest dance floor in Middle Tennessee. Live country bands and DJs. Dance lessons with instructors. Country music, dining, and dancing Friday and Saturday nights.",
       "latitude": 35.4492,
-      "longitude": -86.7889
+      "longitude": -86.7889,
+      "hours": "Fri–Sat 7pm–3am · BYOB · largest dance floor in Middle Tennessee",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "revolver-dance-hall-saloon-cookeville-tennessee",
@@ -1097,10 +1256,13 @@
       "dances": [
         "Line Dancing"
       ],
-      "lessons": "Unknown",
-      "description": "Two-story Cookeville venue with a large dance floor, DJ-driven country and line dance nights, and a full-service saloon bar.",
+      "lessons": "No formal lessons — line dancing and live music Thu–Sat",
+      "description": "Small-town honky-tonk at 565 S Jefferson Ave, Cookeville, TN. Country line dancing, billiards, beer pong, and live music Thursday through Saturday. Cookeville's country dance destination.",
       "latitude": 36.1628,
-      "longitude": -85.5016
+      "longitude": -85.5016,
+      "website": "revolverofcookeville.com",
+      "hours": "Thu–Sat 7pm–2am",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "nashville-palace-nashville-tennessee",
@@ -1112,10 +1274,13 @@
         "Two Step",
         "Line Dancing"
       ],
-      "lessons": "Yes (resident instructors)",
-      "description": "Best honky-tonk dance floor in TN",
+      "lessons": "No formal lessons — live traditional country music nightly since 1977",
+      "description": "Nashville's famous country music venue since 1977 at 2611 McGavock Pike near Opryland. Launched careers of Randy Travis, Lorrie Morgan, and others. Live traditional country and honky-tonk music every night. Restaurant and souvenir shop on site.",
       "latitude": 36.2088,
-      "longitude": -86.692
+      "longitude": -86.692,
+      "website": "thefamousnashvillepalace.com",
+      "hours": "Mon–Thu 4pm–midnight · Fri 12pm–2am · Sat 10am–2am · Sun 10am–midnight",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "category-10-nashville-tennessee",
@@ -1124,13 +1289,16 @@
       "state": "Tennessee",
       "zip": "37201",
       "dances": [
-        "Two Step",
-        "Line Dancing"
+        "Line Dancing",
+        "Two Step"
       ],
-      "lessons": "Yes (Thu-Sun 11am-6pm)",
-      "description": "Largest dance floor in Nashville; rebranded from Wildhorse Saloon; live music + line-dance all-calls",
-      "latitude": 36.1637,
-      "longitude": -86.7762
+      "lessons": "Yes (free line dance lessons Thu–Sun with professional instructors · no experience needed)",
+      "description": "Luke Combs' honky-tonk at 120 2nd Ave N on Nashville's Broadway, opened 2024. Largest dance floor on Broadway with live country music, line dancing, and a rooftop bar. Replaced the original Wildhorse Saloon at the same address.",
+      "latitude": 36.1622,
+      "longitude": -86.7742,
+      "website": "category10.com",
+      "hours": "Mon/Thu 12pm–midnight · Tue/Wed 12pm–10pm · Fri/Sat 11am–1am · Sun 11am–10pm",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "cotton-eyed-joe-knoxville-tennessee",
@@ -1142,10 +1310,13 @@
         "Two Step",
         "Line Dancing"
       ],
-      "lessons": "Yes (Thu & Sun)",
-      "description": "Large venue with concerts; ACM award-winning dance floor",
+      "lessons": "Yes (free lessons Thu 7:30–9pm two-step + line dance · free Sun 7:30–9pm line dance)",
+      "description": "East Tennessee's biggest country dance club at 11220 Outlet Dr, Knoxville. 5,000 sq ft maple dance floor, four bars, mechanical bull, pool tables, dart boards. Free dance lessons Thursday (two-step + line dance) and Sunday (line dance) 7:30–9pm.",
       "latitude": 35.9606,
-      "longitude": -83.9207
+      "longitude": -83.9207,
+      "website": "cottoneyedjoe.com",
+      "hours": "Thu 6pm–midnight · Fri–Sat 6pm–3am · Sun 6pm–12:30am",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "whiskey-bent-saloon-nashville-tennessee",
@@ -1157,39 +1328,48 @@
         "Two Step",
         "Line Dancing"
       ],
-      "lessons": "Unknown",
-      "description": "Broadway honky-tonk; regular line dance lessons",
+      "lessons": "Yes (Sat line dance classes 4pm and 5:30pm · social dancing nightly)",
+      "description": "Authentic Nashville honky-tonk at 306 Broadway with Broadway's largest specialty bourbon and whiskey selection. Live country music 12 noon to 3am. Saturday line dancing classes at 4pm and 5:30pm. Iced-down beer and no smoking policy.",
       "latitude": 36.1601,
-      "longitude": -86.777
+      "longitude": -86.777,
+      "website": "whiskeybentsaloon.com",
+      "hours": "Mon–Wed 12pm–2am · Thu–Sat 10am–2am · Sun check website",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "the-stage-nashville-tennessee",
       "name": "The Stage",
       "city": "Nashville",
       "state": "Tennessee",
-      "zip": "37203",
+      "zip": "37201",
       "dances": [
         "Two Step",
         "Line Dancing"
       ],
-      "lessons": "Unknown",
-      "description": "Multi-level Broadway venue with dance floor",
+      "lessons": "No formal lessons — social dancing to live country bands nightly",
+      "description": "Multi-floor honky-tonk at 412 Broadway, Nashville. Live country music seven days a week with no cover charge. Main stage, rooftop patio, and multiple bars throughout. Dancing to live bands every night.",
       "latitude": 36.1602,
-      "longitude": -86.778
+      "longitude": -86.778,
+      "website": "thestageonbroadway.com",
+      "hours": "Daily 10am–2:30am · all ages until 6pm · 21+ after 6pm · no cover",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "ole-red-nashville-tennessee",
       "name": "Ole Red",
       "city": "Nashville",
       "state": "Tennessee",
-      "zip": "37203",
+      "zip": "37201",
       "dances": [
         "Line Dancing"
       ],
-      "lessons": "Yes (Fri/Sat 3:30pm or 4:30pm)",
-      "description": "Blake Shelton\u2019s honky-tonk; paid lessons + stage practice",
+      "lessons": "No formal lessons — dancing to live country bands on multiple floors",
+      "description": "Blake Shelton's four-story entertainment venue at 300 Broadway, Nashville. Live country music on multiple stages plus a rooftop bar The Lookout. Social dancing to live country bands nightly. Opened 2018.",
       "latitude": 36.1598,
-      "longitude": -86.7794
+      "longitude": -86.7794,
+      "website": "olered.com/nashville",
+      "hours": "Mon–Wed/Sun 11am–midnight · Thu–Sat 11am–2am · rooftop brunch Sat–Sun 10am",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "bootleggers-inn-nashville-tennessee",
@@ -1200,25 +1380,13 @@
       "dances": [
         "Line Dancing"
       ],
-      "lessons": "Unknown",
-      "description": "Broadway spot popular for line dance classes",
+      "lessons": "Yes (line dancing lessons on second floor · lively country dancing nightly)",
+      "description": "Nashville's only moonshine bar and country honky-tonk at 207 Broadway. Two floors, two stages, live country music all day every day. Second floor features line dancing lessons and a packed dance floor. 75 flavors of moonshine.",
       "latitude": 36.1602,
-      "longitude": -86.7762
-    },
-    {
-      "id": "fgl-house-nashville-tennessee",
-      "name": "FGL House",
-      "city": "Nashville",
-      "state": "Tennessee",
-      "zip": "37201",
-      "dances": [
-        "Two Step",
-        "Line Dancing"
-      ],
-      "lessons": "Unknown",
-      "description": "Florida Georgia Line's multi-level downtown Nashville venue on 3rd Avenue South, featuring dancing, dining, and country music on Lower Broadway.",
-      "latitude": 36.158,
-      "longitude": -86.7768
+      "longitude": -86.7762,
+      "website": "bootleggersnashville.com",
+      "hours": "Daily from 10am · check website for closing hours",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "the-westerner-club-west-valley-city-utah",
@@ -1231,10 +1399,13 @@
         "Line Dancing",
         "Western Swing"
       ],
-      "lessons": "Yes (Wed/Fri line & Thu swing)",
-      "description": "Salt Lake City's original country dance hall since 1962; largest dance floor in Utah; live music weekends",
+      "lessons": "Yes (free line dance lessons Wed–Fri before live bands)",
+      "description": "Utah's oldest country dance hall at 3360 S Redwood Rd, West Valley City — open since 1962. Live country bands weekends, free line dance lessons Wednesday through Friday. Mechanical bull. $10–$15 cover, 21+.",
       "latitude": 40.6916,
-      "longitude": -112.0011
+      "longitude": -112.0011,
+      "website": "westernerslc.com",
+      "hours": "Wed–Sat evenings · check site for exact hours · $10 cover ($15 weekends) · 21+",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "outlaw-saloon-ogden-utah",
@@ -1246,10 +1417,13 @@
         "Line Dancing",
         "Western Swing"
       ],
-      "lessons": "Yes (Thu 7-9pm)",
-      "description": "Hot country nightclub; singles & couples welcome; regular line dance lessons",
+      "lessons": "Yes (free line dance lessons every Thu 7–9pm · voted Best of Ogden nightlife)",
+      "description": "Northern Utah's hottest country bar since 1997 at 1254 W 2100 S, Ogden. Best of Ogden — Nightlife. Free line dance lessons every Thursday 7–9pm. Live entertainment every Friday and Saturday. Concerts, poker, free pool Tuesday and Thursday. Full bar and food menu.",
       "latitude": 41.223,
-      "longitude": -111.9738
+      "longitude": -111.9738,
+      "website": "outlawsaloon.com",
+      "hours": "Daily 4pm–2am · free line dance lessons Thu 7–9pm · live music Fri–Sat",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "tippin-point-country-dance-provo-utah",
@@ -1263,10 +1437,13 @@
         "Western Swing",
         "Waltzes"
       ],
-      "lessons": "Yes (Wed/Sat 8:30-9:35pm)",
-      "description": "Popular Provo venue at Arlington Hall/Southworth Hall; packed floor every week",
+      "lessons": "Yes (lessons every Wed and Sat 9–9:30pm · biggest country swing and line dancing in Utah)",
+      "description": "Utah's premier country swing and line dancing at Arlington Hall, 266 W 100 S, Provo. Lessons 9–9:30pm every Wednesday and Saturday followed by social dancing until midnight. Variety of country, Latin, and swing styles. $6/$8 cover. The biggest and best country dancing in Utah Valley.",
       "latitude": 40.2338,
-      "longitude": -111.6585
+      "longitude": -111.6585,
+      "website": "utahcountrydance.com",
+      "hours": "Wed and Sat: lessons 9–9:30pm · dancing 9:30pm–midnight · $6 before 9:30 · $8 after",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "peak-nights-provo-utah",
@@ -1278,10 +1455,13 @@
         "Line Dancing",
         "Western Swing"
       ],
-      "lessons": "Yes (lessons before Thu/Fri/Sat dancing)",
-      "description": "Utah Valley country swing hotspot; multiple nights weekly",
+      "lessons": "Yes (country swing instruction throughout the night · group lessons before open dancing · #1 country swing in the country)",
+      "description": "America's #1 Country Swing Dancing venue at 525 E Lakeview Pkwy, Provo. Country swing group classes and instruction throughout the night followed by open country swing dancing. Open Tuesday, Thursday, Friday, and Saturday 9pm–midnight. The best country swing dancing in Utah Valley.",
       "latitude": 40.2316,
-      "longitude": -111.6565
+      "longitude": -111.6565,
+      "website": "peaknightsutah.com",
+      "hours": "Tue/Thu/Fri/Sat 9pm–midnight",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "classic-fun-center-sandy-utah",
@@ -1293,10 +1473,13 @@
         "Line Dancing",
         "Western Swing"
       ],
-      "lessons": "Unknown",
-      "description": "Family-friendly venue with regular country dance nights",
+      "lessons": "Yes (country swing dance lessons every Thu–Sat 9:15–9:45pm · professional instruction · themes, contests, and prizes)",
+      "description": "Sandy's family entertainment center with a dedicated adult country swing night at 9151 S 255th W. Ages 21+ country swing dancing Thursday through Saturday 9pm–midnight. Professional dance lessons from 9:15–9:45pm each night, followed by open country swing dancing. Fun themes, contests, and cash prizes weekly.",
       "latitude": 40.5649,
-      "longitude": -111.8389
+      "longitude": -111.8389,
+      "website": "classicfuncenter.com",
+      "hours": "Country swing Thu–Sat 9pm–midnight · ages 21+ · $8 before 10pm · $10 after 10pm",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "colvin-run-dance-hall-great-falls-virginia",
@@ -1308,10 +1491,13 @@
         "Two Step",
         "Line Dancing"
       ],
-      "lessons": "Unknown",
-      "description": "Historic Virginia dance hall; community-focused with live music",
+      "lessons": "Yes (Thu country two-step lesson 7:30pm + DJ dance party 8:30–10:30pm · $15 cash/check · line dancing 2nd/4th Fri)",
+      "description": "Historic Northern Virginia dance hall at 10201 Colvin Run Rd, Great Falls — nearly a century of community dancing. 1,850 sq ft oak dance floor. Country two-step every Thursday with lesson at 7:30pm and DJ dance 8:30–10:30pm ($15). Country line dancing 2nd and 4th Fridays. Also offers ballroom, West Coast Swing, and tango on other nights.",
       "latitude": 38.9983,
-      "longitude": -77.2939
+      "longitude": -77.2939,
+      "website": "colvinrun.org",
+      "hours": "Thu 7:30pm lesson + 8:30–10:30pm DJ dance · also Tue/Fri/Sat/Sun various styles",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "eagles-nest-rockin-country-bar-chesapeake-virginia",
@@ -1323,24 +1509,30 @@
         "Two Step",
         "Line Dancing"
       ],
-      "lessons": "Unknown",
-      "description": "Large multi-floor country bar; live bands & DJ",
+      "lessons": "No formal lessons — 3 dance floors, 9 bars, live music and DJ country",
+      "description": "Chesapeake's country bar at 1723 Parkview Dr. Chesapeake's only mechanical bull. Three dance floors, nine bars, huge cornhole area, and outdoor dining. Live music, DJs, and country dancing nightly Tuesday through Saturday.",
       "latitude": 36.7682,
-      "longitude": -76.2875
+      "longitude": -76.2875,
+      "website": "eaglesnestchesapeake.com",
+      "hours": "Tue–Sat 5pm–2am",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "ned-devine-s-herndon-virginia",
       "name": "Ned Devine's",
       "city": "Herndon",
       "state": "Virginia",
-      "zip": "20171",
+      "zip": "20170",
       "dances": [
         "Line Dancing"
       ],
-      "lessons": "Yes (Thursdays)",
-      "description": "Irish gastro pub hosting regular country line dance nights",
+      "lessons": "Yes (Country Nite Thu 8pm with line dance instructor · free with admission)",
+      "description": "Irish gastro pub and sports bar at 2445 Centreville Rd, Herndon with a large dance floor. Hosts Country Nite every Thursday at 8pm with a professional line dance instructor — the go-to country dance night in the Herndon/Reston/Dulles corridor. Full restaurant and bar. Other nights: karaoke Tuesday, pub quiz Wednesday, live bands Friday, club nights Saturday.",
       "latitude": 38.9696,
-      "longitude": -77.3861
+      "longitude": -77.3861,
+      "hours": "Daily · Country Nite Thu 8pm (line dance instructor) · Karaoke Tue · Live bands Fri · Club Sat",
+      "verifiedDate": "2026-09-03",
+      "website": "neddevines.com"
     },
     {
       "id": "great-american-ranch-mechanicsville-virginia",
@@ -1352,25 +1544,31 @@
         "Two Step",
         "Line Dancing"
       ],
-      "lessons": "Unknown",
-      "description": "Popular Richmond-area country venue with dance floor",
+      "lessons": "Yes (free beginner line dance instruction during music breaks · Music Bingo and line dancing weekly)",
+      "description": "Mechanicsville's country bar and grill at 7514 Lee-Davis Rd. Spacious saloon with live dancing. Free line dance instruction for beginners during music breaks. Music Bingo, line dancing, and live bands throughout the week.",
       "latitude": 37.6088,
-      "longitude": -77.3734
+      "longitude": -77.3734,
+      "website": "greatamericanranch.com",
+      "hours": "Tue 3pm–midnight · Wed–Thu 3–11pm · Fri–Sat 3pm–2am · Sun 11am–10pm",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "the-banque-norfolk-virginia",
       "name": "The Banque",
       "city": "Norfolk",
       "state": "Virginia",
-      "zip": "23518",
+      "zip": "23505",
       "dances": [
         "Line Dancing",
         "Western Swing"
       ],
-      "lessons": "Unknown",
-      "description": "Classic Norfolk dance hall with country nights",
+      "lessons": "Yes (free line dance lessons Thu/Fri/Sat at 7pm · karaoke at 9pm)",
+      "description": "Norfolk's country bar since 1973 at 1849 E Little Creek Rd. Free line dance lessons every Thursday, Friday, and Saturday at 7pm, followed by karaoke at 9pm. Ladies Night and Military Night every Thursday. One of Virginia's longest-running country dance venues.",
       "latitude": 36.8508,
-      "longitude": -76.2859
+      "longitude": -76.2859,
+      "website": "thebanque.com",
+      "hours": "Thu–Sat 6pm–1:30am · Ladies Night and Military Night Thu",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "stockyards-fredericksburg-virginia",
@@ -1381,10 +1579,13 @@
       "dances": [
         "Line Dancing"
       ],
-      "lessons": "Yes (Wednesdays)",
-      "description": "Historic stockyard-themed spot; weekly line dancing",
+      "lessons": "No formal lessons — live country music, mechanical bull, and dancing",
+      "description": "Downtown Fredericksburg's 10,000 sq ft country-western venue at 407 William St. Premium cuisine, handcrafted cocktails, and live country entertainment. Mechanical bull named Buck Norris, 100-bottle bourbon vault. Opened 2026.",
       "latitude": 38.3032,
-      "longitude": -77.4605
+      "longitude": -77.4605,
+      "website": "stockyardsfxbg.com",
+      "hours": "Mon–Thu 11am–11pm · Fri 11am–midnight · Sat 10am–midnight · Sun 10am–10pm",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "honeysuckle-holler-hendersonville-north-carolina",
@@ -1397,10 +1598,13 @@
         "Line Dancing",
         "Western Swing"
       ],
-      "lessons": "Yes (Thu line & Fri two-step/swing)",
-      "description": "Only dedicated country dance bar in Western NC; craft cocktails & community vibe",
+      "lessons": "Yes (Thu $5 line dance lessons · Fri $5 lessons two-step/line/swing · Wed West Coast Swing $5 with WNC Westies 7pm)",
+      "description": "Hendersonville's dedicated country dance bar at 101 E Allen St — the only country dance bar in Western North Carolina. Historic 100-year-old building with exposed brick. Country line dance lessons Thursday ($5), various styles Friday ($5), West Coast Swing Wednesday ($5) with WNC Westies.",
       "latitude": 35.3187,
-      "longitude": -82.461
+      "longitude": -82.461,
+      "website": "honeysucklehollerhvl.com",
+      "hours": "Thu–Sat evenings",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "the-rose-honky-tonk-charlotte-north-carolina",
@@ -1413,10 +1617,12 @@
         "Line Dancing",
         "Western Swing"
       ],
-      "lessons": "Yes (Tue intermediate line",
-      "description": "Charlotte country bar and dance hall hosting Wednesday swing nights alongside regular line dance and two-step events.",
+      "lessons": "Yes (line dancing Tue 8pm · country swing Wed 8–9pm · beginner line dance Thu 8:30–9:30pm)",
+      "description": "South End Charlotte's Nashville-inspired honky-tonk at 200 E Bland St. Line dancing every Tuesday at 8pm (all levels). Country swing dance lessons Wednesday 8–9pm. Free beginner line dancing Thursday 8:30–9:30pm. Daily specials, live music, country karaoke, and no cover. No dedicated website — find them on Facebook and Instagram.",
       "latitude": 35.2193,
-      "longitude": -80.8428
+      "longitude": -80.8428,
+      "hours": "Tue–Wed 6pm–midnight · Thu–Fri 6pm–2am · Sat 5pm–2am · free line dance lessons",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "coyote-joe-s-charlotte-north-carolina",
@@ -1428,10 +1634,13 @@
         "Two Step",
         "Line Dancing"
       ],
-      "lessons": "Unknown",
-      "description": "One of the top-rated country dance halls in the Charlotte area",
+      "lessons": "No formal lessons — live country music and dancing",
+      "description": "Charlotte's premier country music venue at 4621 Wilkinson Blvd, open since 1991. Launched careers of Luke Combs, Kane Brown, and Dylan Scott. Live music venue for up-and-coming and major country artists. 18+ to enter, cash only inside, four ATMs on site.",
       "latitude": 35.2487,
-      "longitude": -80.9228
+      "longitude": -80.9228,
+      "website": "coyote-joes.com",
+      "hours": "Wed/Fri/Sat 7pm–2am · 18+ to enter · cash only",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "pbr-cowboy-bar-cary-north-carolina",
@@ -1443,10 +1652,13 @@
         "Two Step",
         "Line Dancing"
       ],
-      "lessons": "Yes (regular boot camp & lessons)",
-      "description": "Professional Bull Riders themed country bar with large dance floor",
+      "lessons": "No formal lessons — mechanical bull, country music, and dancing",
+      "description": "PBR Cowboy Bar at 301 Fenton Gateway Dr, Cary — 4,300 sq ft country venue at the Fenton shopping center. Area's only professionally endorsed mechanical riding bull, multiple signature bars, private VIP booths, and 1,300 sq ft outdoor patio.",
       "latitude": 35.7915,
-      "longitude": -78.7811
+      "longitude": -78.7811,
+      "website": "pbrcowboybar.com/cary",
+      "hours": "Tue 8pm–12:30am · Thu–Sat 7pm–2am",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "the-barn-dance-julian-north-carolina",
@@ -1457,10 +1669,13 @@
       "dances": [
         "Two Step"
       ],
-      "lessons": "Unknown",
-      "description": "Family-friendly Julian, North Carolina barn venue hosting community square dances and line dance nights in a classic rural setting.",
+      "lessons": "Yes (free dance lessons every Sat 6:15pm for all levels before band takes stage at 7:30pm)",
+      "description": "Family-friendly country dance theater at 6341 Phillippi Rd, Julian, NC — smoke-free and alcohol-free. Live country music and country dancing every Saturday night. Free dance lessons at 6:15pm for all skill levels, then live band from 7:30pm. Grill opens at 6pm. Clean fun for the whole family in the Piedmont Triad.",
       "latitude": 35.9526,
-      "longitude": -79.6564
+      "longitude": -79.6564,
+      "website": "thebarndanceinc.com",
+      "hours": "Sat 6pm–10:30pm · doors open 6pm · dance lessons 6:15pm · band 7:30–10:30pm",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "cadillac-ranch-fayetteville-north-carolina",
@@ -1472,10 +1687,12 @@
         "Two Step",
         "Line Dancing"
       ],
-      "lessons": "Unknown",
-      "description": "Popular Fayetteville country club with dance floor & live/DJ music",
+      "lessons": "Yes (Thu Night Line Dance Lessons · Sat dancing · cash only)",
+      "description": "Fayetteville's country dance bar at 3101 Fort Bragg Rd near Fort Liberty. Free two-step and line dance lessons. Country music Thursday through Saturday. Cash only. The go-to for country dancing near Fort Liberty (formerly Fort Bragg).",
       "latitude": 35.0527,
-      "longitude": -78.8784
+      "longitude": -78.8784,
+      "hours": "Thu–Sat 7pm–2am · Thu Night Line Dance Lessons · cash only",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "the-ranch-saloon-anaheim-california",
@@ -1488,10 +1705,13 @@
         "Line Dancing",
         "Western Swing"
       ],
-      "lessons": "Yes (Thu/Sat)",
-      "description": "Central Texas dance spot in the town of West, featuring country music and a classic small-town Texas atmosphere.",
+      "lessons": "Yes (nightly dance lessons — beginner two-step and line dancing · Thu is dedicated line dance night)",
+      "description": "Orange County's premier country dance hall at 1025 E Ball Rd, Anaheim. Dedicated Thursday line dancing, Friday and Saturday with live local country bands. Nightly dance lessons for two-step and line dancing. Full restaurant and bar.",
       "latitude": 33.8219,
-      "longitude": -117.8826
+      "longitude": -117.8826,
+      "website": "theranch.com/saloon",
+      "hours": "Thu–Sat 5:30pm–1am",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "cowboy-palace-saloon-chatsworth-california",
@@ -1503,10 +1723,13 @@
         "Two Step",
         "Line Dancing"
       ],
-      "lessons": "Unknown",
-      "description": "Last real honky-tonk in Los Angeles; live country music Wed\u2013Sun; classic Western vibe",
+      "lessons": "Yes (free nightly dance lessons before live band · 21+)",
+      "description": "Southern California's last real honky-tonk at 21635 Devonshire St, Chatsworth. Free dance lessons every night before live country band plays 9pm–midnight (6–9pm Fri/Sun). Two-step and line dancing on a packed dance floor. 21+ venue.",
       "latitude": 34.2571,
-      "longitude": -118.6018
+      "longitude": -118.6018,
+      "website": "thecowboypalacesaloon.com",
+      "hours": "Wed/Thu 4pm–midnight · Fri/Sat 4pm–2am · Sun 3pm–midnight",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "whiskey-river-dancehall-saloon-norco-california",
@@ -1519,24 +1742,30 @@
         "Line Dancing",
         "Western Swing"
       ],
-      "lessons": "Unknown",
-      "description": "Live music + line dancing; outdoor firepit area; Norco's country spot",
+      "lessons": "Yes (free line dancing lessons · live country bands weekends)",
+      "description": "Country dance hall in the heart of Horsetown USA at 980 6th St, Norco. Free line dancing lessons, live country bands on weekends, and a welcoming dance floor atmosphere. Great food and outdoor patio. The only country dance hall in the Inland Empire.",
       "latitude": 33.9311,
-      "longitude": -117.5486
+      "longitude": -117.5486,
+      "website": "whiskeyrivernorco.com",
+      "hours": "Tue–Sun 6pm–2am",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "mavericks-country-bar-and-nightclub-pleasanton-california",
       "name": "Mavericks Country Bar and Nightclub",
       "city": "Pleasanton",
       "state": "California",
-      "zip": "94566",
+      "zip": "94588",
       "dances": [
         "Line Dancing"
       ],
-      "lessons": "Yes (Fri/Sat 6:30-8:30pm)",
-      "description": "Bay Area live country music & dancing; mechanical bull; 21+",
+      "lessons": "Yes (DJ and lessons Fri · live band, DJ and lessons Sat)",
+      "description": "East Bay's country dance club at 4825 Hopyard Rd, Pleasanton. DJ and lessons Friday nights, live country band plus DJ and lessons Saturday nights. Connected to The Draft Sports Pub with live music Fridays and karaoke Saturdays.",
       "latitude": 37.6624,
-      "longitude": -121.8747
+      "longitude": -121.8747,
+      "website": "maverickspleasanton.com",
+      "hours": "Tue 6–11pm · Fri–Sat 7pm–1:30am",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "alabama-s-little-bit-of-texas-wetumpka-alabama",
@@ -1548,10 +1777,13 @@
         "Two Step",
         "Line Dancing"
       ],
-      "lessons": "Yes (Thu 7-9pm)",
-      "description": "Largest honky-tonk in Alabama; 21+; live music & dancing",
+      "lessons": "Yes (country dancing and line dancing nightly · largest honky-tonk in Alabama)",
+      "description": "Alabama's largest honky-tonk at 8056 US-231, Wetumpka. 2,400-square-foot dance floor, three bars, and six pool tables. Country dancing and line dancing Thursday through Saturday. The biggest country dance destination in the Heart of Dixie.",
       "latitude": 32.5443,
-      "longitude": -86.2122
+      "longitude": -86.2122,
+      "website": "alabamaslittlebitoftexas.com",
+      "hours": "Thu–Sat 6pm–late · 2,400 sq ft dance floor",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "scootin-boots-dance-hall-mesa-arizona",
@@ -1564,10 +1796,13 @@
         "Line Dancing",
         "Western Swing"
       ],
-      "lessons": "Yes (regular lessons; public & private)",
-      "description": "Arizona's largest country dance venue; alcohol-free; 18+ (minors with adult); focus on partner & line dancing",
+      "lessons": "Yes (Country Swing and AZ Two-Step lessons multiple times daily · see scootinboots.com/schedule)",
+      "description": "Mesa's country swing and line dancing studio and dance hall at 515 N Stapley Dr #103. Multiple lessons per day covering country swing, Arizona two-step, and line dancing. Friday Night Country Dancing and Saturday Night Country Swing are flagship events.",
       "latitude": 33.4152,
-      "longitude": -111.8315
+      "longitude": -111.8315,
+      "website": "scootinboots.com",
+      "hours": "Mon 8:30–11:30am + 5:30–11pm · Tue 5:30–11pm · Wed 6–11pm · Thu 9:30–11:30am + 6–11pm · Fri–Sat 6pm–midnight",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "handlebar-j-scottsdale-arizona",
@@ -1580,10 +1815,13 @@
         "Line Dancing",
         "Western Swing"
       ],
-      "lessons": "Unknown",
-      "description": "Classic Scottsdale country dance hall since 1960s; live music & dancing",
+      "lessons": "Yes (free country dance lessons Wed 6:30pm when open · lessons resume Oct)",
+      "description": "Scottsdale country bar and BBQ restaurant at 7116 E Becker Ln since 1966. Live country music by the Herndon Brothers Band. Free dance lessons Wednesday 6:30pm (Oct–May). Summer hours reduced to Fri–Sat only.",
       "latitude": 33.6329,
-      "longitude": -111.9238
+      "longitude": -111.9238,
+      "website": "handlebarj.com",
+      "hours": "Oct–May: Wed–Sun from 5pm · Summer (Jun–Sep): Fri–Sat from 5pm",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "buffalo-chip-saloon-steakhouse-cave-creek-arizona",
@@ -1595,10 +1833,13 @@
         "Two Step",
         "Line Dancing"
       ],
-      "lessons": "Yes (free lessons some nights)",
-      "description": "Cave Creek institution combining a working saloon, steakhouse, and dance hall with live country bands multiple nights a week.",
+      "lessons": "Yes (country dance lessons available · two-step and line dancing)",
+      "description": "Cave Creek's classic country saloon and steakhouse at 6823 E Cave Creek Rd since 1998. Live country music with two-step and line dancing. Bull riding on Wednesdays and Fridays ($10). Family-friendly during the day.",
       "latitude": 33.8333,
-      "longitude": -111.9508
+      "longitude": -111.9508,
+      "website": "buffalochipsaloon.com",
+      "hours": "Mon–Tue 10am–midnight · Wed 10am–2am · Thu 10am–midnight · Fri–Sat 10am–2am · Sun 10am–midnight",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "foley-ranch-phoenix-arizona",
@@ -1609,24 +1850,30 @@
       "dances": [
         "Line Dancing"
       ],
-      "lessons": "Yes (Tue/Wed/Thu 7pm & 8:15pm)",
-      "description": "Premier BBQ & country bar in Desert Ridge; live music & dancing",
+      "lessons": "Yes (country swing lessons Fri and Sat · line dancing and two-step instruction · check website for schedule)",
+      "description": "Phoenix's premier country music and dining venue at 21001 N Tatum Blvd (Desert Ridge Marketplace). Country swing lessons Friday and Saturday. Live country music, BBQ, and dancing. Family-friendly until 10pm, then transitions to a 21+ experience.",
       "latitude": 33.4484,
-      "longitude": -112.074
+      "longitude": -112.074,
+      "website": "foleyranch.com",
+      "hours": "Tue–Fri 11am–midnight · Sat–Sun 11am–midnight · family-friendly until 10pm · 21+ after 10pm",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "the-maverick-tucson-arizona",
       "name": "The Maverick",
       "city": "Tucson",
       "state": "Arizona",
-      "zip": "85710",
+      "zip": "85715",
       "dances": [
         "Line Dancing"
       ],
-      "lessons": "Yes (5-7pm)",
-      "description": "Live country club; $5 lessons; grill open late",
+      "lessons": "Yes (Sun–Wed 5:30–7:30pm $5 per person · Thu–Fri 7–8pm FREE · live music Thu–Sun)",
+      "description": "Tucson institution since 1962 at 6622 E Tanque Verde Rd. Country dance lessons with a full schedule: Sunday–Wednesday 5:30–7:30pm ($5), Thursday–Friday 7–8pm (free). Live local country bands Thursday, Saturday, and Sunday. DJ Porkchop on Fridays. The Best Country Club in Tucson.",
       "latitude": 32.2226,
-      "longitude": -110.9747
+      "longitude": -110.9747,
+      "website": "tucsonmaverick.com",
+      "hours": "Wed–Fri 5pm–2am · Sat–Sun 11am–2am · Mon–Tue closed",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "flying-x-saloon-lake-havasu-city-arizona",
@@ -1638,10 +1885,13 @@
         "Two Step",
         "Line Dancing"
       ],
-      "lessons": "Unknown",
-      "description": "True country western saloon with large dance floor",
+      "lessons": "No formal lessons — 2,000 sq ft dance floor · karaoke Mon · live music most nights",
+      "description": "Lake Havasu City's true country western saloon at 2030 McCulloch Blvd N. 2,000 sq ft dance floor, frost rail, and coldest beer in town. Karaoke Monday nights. Live country music most other nights. The only country western bar on the Colorado River.",
       "latitude": 34.4839,
-      "longitude": -114.3225
+      "longitude": -114.3225,
+      "website": "flyingxsaloon.com",
+      "hours": "Mon–Sat 3pm–2am · Sun 11am–2am",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "rusty-spur-saloon-scottsdale-arizona",
@@ -1652,10 +1902,13 @@
       "dances": [
         "Line Dancing"
       ],
-      "lessons": "Yes (Sun/Tue/Thu evenings)",
-      "description": "Oldest saloon in Scottsdale; historic Western dancing",
+      "lessons": "No formal lessons — live country music nightly · dancing welcome",
+      "description": "Old Town Scottsdale's beloved honky-tonk at 7245 E Main St — no cover, ever. Live country music seven days and seven nights a week. Former bank building dating to the 1920s. Lunch served 11am–3pm daily. A Scottsdale legend with sawdust floors and genuine Western atmosphere.",
       "latitude": 33.493,
-      "longitude": -111.924
+      "longitude": -111.924,
+      "website": "rustyspursaloon.com",
+      "hours": "Daily 10am–midnight (Fri–Sat until 1am) · live country 7 days/7 nights · no cover",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "pink-cadillac-country-bar-dance-hall-anchorage-alaska",
@@ -1668,25 +1921,31 @@
         "Line Dancing",
         "Western Swing"
       ],
-      "lessons": "Unknown",
-      "description": "Anchorage's standout country bar featuring over 5,000 square feet of dance space, free line dance lessons, themed country nights, and an all-ages Buckaroos Night on Mondays.",
+      "lessons": "Yes (free line dance lessons Wed 7:15pm and 8pm · all-ages Buckaroos Night Tue · Ladies Night Thu)",
+      "description": "Anchorage's country bar and dance hall at 369 Muldoon Rd. Over 5,000 sq ft with music, dancing, pool, darts, and food. Free line dance classes every Wednesday at 7:15pm and 8pm. All-ages Buckaroos Night on Tuesdays. The northernmost country dance hall in the app.",
       "latitude": 61.2181,
-      "longitude": -149.9003
+      "longitude": -149.9003,
+      "website": "pinkcadillac-ak.square.site",
+      "hours": "Tue 7–11pm · Wed 5pm–midnight · Thu–Sat 7pm–2:30am",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "cadillac-ranch-southington-connecticut",
       "name": "Cadillac Ranch",
       "city": "Southington",
       "state": "Connecticut",
-      "zip": "6489",
+      "zip": "06489",
       "dances": [
         "Two Step",
         "Line Dancing"
       ],
-      "lessons": "Yes (Tue 7pm & Fri/Sat 8pm)",
-      "description": "Iconic event/dance venue with solid wood floor; open dancing + lessons",
+      "lessons": "Yes (dance lessons Tue/Thu 7pm · Fri/Sat 8pm · open dancing Tue/Wed/Fri/Sat from 7pm)",
+      "description": "Connecticut's premier country dance venue at 45 Jude Ln, Southington. Dance lessons Tuesday and Thursday at 7pm, Friday and Saturday at 8pm. Open dancing most nights from 7pm. Country music, karaoke, and cornhole. Event and banquet facility.",
       "latitude": 41.6001,
-      "longitude": -72.8776
+      "longitude": -72.8776,
+      "website": "caddyranch.com",
+      "hours": "Tue–Thu 6pm–1am · Fri–Sat 6pm–2am",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "the-grand-opera-house-wilmington-delaware",
@@ -1698,10 +1957,13 @@
         "Two Step",
         "Line Dancing"
       ],
-      "lessons": "Unknown",
-      "description": "Regular country line-dance nights with DJ/choreographer",
+      "lessons": "Yes (Dancing @ The Grand country line dance instruction with DJ/choreographer Rob Holley)",
+      "description": "Wilmington's historic Grand Opera House at 818 N Market St hosts 'Dancing @ The Grand' — a popular country line dancing event on select Friday evenings 7–10pm. DJ and award-winning choreographer Rob Holley leads two-step and line dancing instruction. Tickets required in advance. Note: This is primarily a performing arts center, not a dedicated country bar.",
       "latitude": 39.7391,
-      "longitude": -75.5398
+      "longitude": -75.5398,
+      "website": "thegrandwilmington.org",
+      "hours": "Dancing @ The Grand: select Fridays 7–10pm · check website for dates · tickets required",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "the-stockyard-holiday-florida",
@@ -1713,29 +1975,35 @@
         "Two Step",
         "Line Dancing"
       ],
-      "lessons": "Yes (nightly Tue\u2013Sat)",
-      "description": "Holiday, Florida country bar and dance hall with a wood dance floor, weekly line dance nights, and an 18-and-up Florida country crowd.",
+      "lessons": "No formal lessons — country music and line dancing nightly",
+      "description": "Tampa Bay area country music nightclub and honky-tonk at 1916 US Hwy 19, Holiday. Live country performances, line dancing, and full bar service. The go-to country music venue for Tampa Bay's Pasco County.",
       "latitude": 28.1878,
-      "longitude": -82.754
+      "longitude": -82.754,
+      "website": "stockyardlive.com",
+      "hours": "Tue–Thu 7pm–midnight · Fri–Sat 7pm–2am",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "renegades-country-bar-grill-west-palm-beach-florida",
       "name": "Renegades Country Bar & Grill",
       "city": "West Palm Beach",
       "state": "Florida",
-      "zip": "33407",
+      "zip": "33409",
       "dances": [
         "Two Step",
         "Line Dancing"
       ],
-      "lessons": "Unknown",
-      "description": "Regular country bar with dancing",
+      "lessons": "Yes (free line dance lessons Tue–Sat 7–9pm · line dancing 7 nights a week · 10,000 sq ft)",
+      "description": "South Florida's #1 country bar and grill at 600 Village Blvd, West Palm Beach. 10,000 sq ft with line dancing seven nights a week and free lessons five nights (Tuesday–Saturday 7–9pm). Mechanical bull, full kitchen, and country concerts. The definitive country destination in Palm Beach County.",
       "latitude": 26.7153,
-      "longitude": -80.0534
+      "longitude": -80.0534,
+      "website": "renegadeswpb.com",
+      "hours": "Mon 7–11pm · Tue–Thu 5–11pm · Fri 4pm–3am · Sat 5pm–2am · Sun closed",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "big-daddy-s-honkytonk-gainesville-georgia",
-      "name": "Big Daddy\u2019s Honkytonk",
+      "name": "Big Daddy’s Honkytonk",
       "city": "Gainesville",
       "state": "Georgia",
       "zip": "30501",
@@ -1743,10 +2011,13 @@
         "Two Step",
         "Line Dancing"
       ],
-      "lessons": "Yes (beginner classes)",
-      "description": "Gainesville honky-tonk featuring live country bands, a solid dance floor, and a welcoming North Georgia crowd.",
+      "lessons": "Yes (beginner line dance every Wed 7pm · line dance Sat · DJ Uncle Phil Fri 8pm)",
+      "description": "Gainesville, Georgia's country honky-tonk at 212 Spring St SW. Beginner line dance lessons every Wednesday at 7pm. DJ country music Friday from 8pm, line dancing Saturday. Karaoke and poker nights. Vibrant country dancing community in North Georgia.",
       "latitude": 34.2979,
-      "longitude": -83.8241
+      "longitude": -83.8241,
+      "website": "bigdaddyshonkytonk.com",
+      "hours": "Tue–Wed 5–11:30pm · Thu 5pm–12:30am · Fri–Sat 5pm–1:30am",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "the-farm-garden-city-idaho",
@@ -1759,28 +2030,34 @@
         "Line Dancing",
         "Western Swing"
       ],
-      "lessons": "Yes (regular lessons)",
-      "description": "Idaho\u2019s largest all-ages country dance floor",
+      "lessons": "Yes (two-step Tue 7–9:30pm · West Coast Swing Thu 7–11pm · swing Fri–Sat 7–9pm then social dancing)",
+      "description": "Boise area's dedicated country dance hall at 5137 N Glenwood St, Garden City. Alcohol-free, all-ages venue with a 2,600 sq ft dance floor. Two-step lessons Tuesday, West Coast Swing Thursday, swing Friday and Saturday with social dancing until midnight. Private studios for lessons and event rental.",
       "latitude": 43.6222,
-      "longitude": -116.2637
+      "longitude": -116.2637,
+      "website": "thefarmboise.com",
+      "hours": "Tue 7–9:30pm · Wed 7–11pm · Thu 7–11pm · Fri–Sat 7pm–midnight",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "saddle-up-at-q-aurora-illinois",
       "name": "Saddle Up At Q",
       "city": "Aurora",
       "state": "Illinois",
-      "zip": "60502",
+      "zip": "60504",
       "dances": [
         "Line Dancing"
       ],
-      "lessons": "Unknown",
-      "description": "Multiple locations; line dancing + live music",
+      "lessons": "Yes (professional line dance instruction Fri 7–9pm · Sat 6–9pm · free with admission)",
+      "description": "Chicagoland's largest line dance party at 4440 Ogden Ave, Aurora. Professional line dance instructors teach new dances and classics from 6pm to 9pm, followed by live country band 9pm to 11pm. Country music, eatery, and a welcoming dance community.",
       "latitude": 41.7606,
-      "longitude": -88.3201
+      "longitude": -88.3201,
+      "website": "saddleupatq.com",
+      "hours": "Fri 7pm–2am (lessons 7–9pm) · Sat 6pm–2am (lessons 6–9pm · band 9–11pm)",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "clayton-s-country-bar-indianapolis-indiana",
-      "name": "Clayton\u2019s Country Bar",
+      "name": "Clayton’s Country Bar",
       "city": "Indianapolis",
       "state": "Indiana",
       "zip": "46204",
@@ -1788,10 +2065,13 @@
         "Two Step",
         "Line Dancing"
       ],
-      "lessons": "Unknown",
-      "description": "Downtown honky-tonk with dance floor",
+      "lessons": "Yes (two-step and country dancing on the dance floor nightly)",
+      "description": "Downtown Indianapolis country bar at 49 S Meridian St, opened 2025 by country singer Clayton Anderson. Live country music, dance floor for two-stepping, and mechanical bull in the heart of downtown Indy.",
       "latitude": 39.7684,
-      "longitude": -86.1581
+      "longitude": -86.1581,
+      "website": "claytonscountrybar.co",
+      "hours": "Wed–Fri 5pm–2am",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "dancemor-ballroom-swisher-iowa",
@@ -1803,26 +2083,32 @@
         "Two Step",
         "Line Dancing"
       ],
-      "lessons": "Yes (Wed/Thu 7-10pm)",
-      "description": "Eastern Iowa\u2019s original Texas-style honky-tonk dance hall",
+      "lessons": "Yes (line dancing Wed–Thu 7–10pm · all skill levels · $5 per person)",
+      "description": "Iowa's legendary dance hall at 77 2nd St SE, Swisher — open since 1929, inducted into the Iowa Rock & Roll Hall of Fame in 2005. Public line dancing every Wednesday and Thursday evening. Live music events and weddings. Under new ownership and thriving.",
       "latitude": 41.8434,
-      "longitude": -91.771
+      "longitude": -91.771,
+      "website": "dancemorballroom.com",
+      "hours": "Line dancing Wed–Thu 7–10pm (doors 6:30pm) · $5 · all ages · live music events vary",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "guitars-cadillacs-overland-park-kansas",
       "name": "Guitars & Cadillacs",
       "city": "Overland Park",
       "state": "Kansas",
-      "zip": "66212",
+      "zip": "66213",
       "dances": [
         "Two Step",
         "Line Dancing",
         "Western Swing"
       ],
-      "lessons": "Yes (Wed/Thu/Fri)",
-      "description": "KC\u2019s original live country dance hall",
+      "lessons": "Yes (Wed/Thu/Fri 6:15–8pm — country two-step and line dancing)",
+      "description": "Overland Park country music venue and dance hall at 7312 W 119th St, celebrating 38 years in 2026. Live country music with dance lessons every Wednesday, Thursday, and Friday 6:15–8pm covering two-step and line dancing. Has hosted Garth Brooks, Brooks & Dunn, Shania Twain, and more.",
       "latitude": 38.9822,
-      "longitude": -94.6708
+      "longitude": -94.6708,
+      "website": "guitarsandcadillacs.com",
+      "hours": "Wed–Thu 6pm–midnight · Fri–Sat 6pm–2am",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "pbr-louisville-louisville-kentucky",
@@ -1834,39 +2120,48 @@
         "Two Step",
         "Line Dancing"
       ],
-      "lessons": "Unknown",
-      "description": "Downtown cowboy bar with mechanical bull",
+      "lessons": "No formal lessons — country music and dancing with mechanical bull",
+      "description": "Country bar at 432 S 4th St inside Fourth Street Live! entertainment complex, Louisville. Rustic decor, mechanical bull, country music, and dancing. Extensive bourbon selection.",
       "latitude": 38.2527,
-      "longitude": -85.7585
+      "longitude": -85.7585,
+      "website": "pbr.com",
+      "hours": "Open until 3am weekends · check current hours",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "the-texas-club-baton-rouge-louisiana",
       "name": "The Texas Club",
       "city": "Baton Rouge",
       "state": "Louisiana",
-      "zip": "70809",
+      "zip": "70806",
       "dances": [
         "Other"
       ],
-      "lessons": "Unknown",
-      "description": "Premier live country music venue with spacious dance floor",
+      "lessons": "Yes (line dancing lessons and country dancing · 18+ nightclub)",
+      "description": "Baton Rouge's premier live country music venue at 456 N Donmoor Ave. Line dancing lessons and country dancing. Ladies nights, live music, and DJ sets. 18+ nightclub.",
       "latitude": 30.4515,
-      "longitude": -91.1871
+      "longitude": -91.1871,
+      "website": "thetexasclub.com",
+      "hours": "Thu–Fri 8:30pm–2am · Sat 8pm–2am · 18+",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "the-silver-spur-mechanic-falls-maine",
       "name": "The Silver Spur",
       "city": "Mechanic Falls",
       "state": "Maine",
-      "zip": "4256",
+      "zip": "04256",
       "dances": [
         "Two Step",
         "Line Dancing"
       ],
-      "lessons": "Yes (Saturday nights)",
-      "description": "Maine\u2019s Capital of Country Music",
+      "lessons": "Yes (Mon line dance lessons 6–7:30pm with DeeDee Allen · live music Sat)",
+      "description": "Maine's capital of country music and dancing at 272 Lewiston St, Mechanic Falls. Home of the Maine Country Music Hall of Fame and Maine Ole Opry. BYOB Saturday nights with live country music and dancing 8–11pm ($15 cover). Line dance lessons Monday 6–7:30pm. DeeDee Allen, owner and instructor.",
       "latitude": 44.1108,
-      "longitude": -70.3928
+      "longitude": -70.3928,
+      "website": "silverspur.com",
+      "hours": "Sat 8–11pm ($15 cover) · Mon line dance lessons 6–7:30pm",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "baltimore-honky-tonk-series-baltimore-maryland",
@@ -1878,104 +2173,107 @@
         "Two Step",
         "Line Dancing"
       ],
-      "lessons": "Yes (free beginner two-step lessons)",
-      "description": "Regular live-band honky-tonk nights",
+      "lessons": "Yes (free dance lessons at start of each event · no partner or experience needed)",
+      "description": "Baltimore's monthly country two-step and honky-tonk party with live country bands. Awarded Baltimore's Best Two-Stepping Party. Rotating venues including Waverly Brewing Company and Mobtown Ballroom, Baltimore. Tickets $15–$25 sliding scale ($10 students). Free dance lessons included.",
       "latitude": 39.2904,
-      "longitude": -76.6122
+      "longitude": -76.6122,
+      "website": "facebook.com/BaltimoreHonkyTonk",
+      "hours": "Monthly Thu evenings 6:30–10pm · primarily Waverly Brewing Co. and Mobtown Ballroom",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "loretta-s-last-call-boston-massachusetts",
-      "name": "Loretta\u2019s Last Call",
+      "name": "Loretta’s Last Call",
       "city": "Boston",
       "state": "Massachusetts",
-      "zip": "2215",
+      "zip": "02215",
       "dances": [
         "Two Step",
         "Line Dancing",
         "Western Swing"
       ],
-      "lessons": "Yes (weekly lessons)",
-      "description": "Boston\u2019s only dedicated country venue",
+      "lessons": "Yes (free line dancing Tue 8pm · free line dancing Sun · live band + line dancing Wed)",
+      "description": "Boston's original country bar at 1 Lansdowne St in Fenway. Southern cuisine plus country music. Free line dancing lessons Tuesday 8pm and Sunday. Live country band with line dancing every Wednesday. Singer/songwriter Mondays, live bands Thu–Sat.",
       "latitude": 42.3601,
-      "longitude": -71.0589
+      "longitude": -71.0589,
+      "website": "lorettaslastcall.com",
+      "hours": "Mon–Thu 4pm–1am · Fri 4pm–2am · Sat–Sun 10:30am–2am",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "coyote-joes-michigan-multiple-locations-michigan",
-      "name": "Coyote Joes",
-      "city": "Michigan (multiple locations)",
+      "name": "Coyote Joe's",
+      "city": "Shelby Township",
       "state": "Michigan",
-      "zip": "48111",
+      "zip": "48317",
       "dances": [
         "Two Step",
         "Line Dancing"
       ],
-      "lessons": "Yes (weekly lessons)",
-      "description": "Michigan\u2019s #1 country nightclub",
+      "lessons": "Yes (line dance lessons every Thu at 8:15pm · mechanical bull)",
+      "description": "Michigan's #1 Premier Modern Country Nightclub at 49440 Ryan Rd, Shelby Charter Township (Utica area). Line dance lessons every Thursday at 8:15pm. Live country music and DJ. A second Coyote Joe's Pub & Grill concept also opened in Williamsburg, MI (March 2026) — different concept, same brand.",
       "latitude": 44.3148,
-      "longitude": -85.6024
+      "longitude": -85.6024,
+      "website": "coyotejoes.com",
+      "hours": "Thu 7pm–2am · Fri–Sat 8pm–2am",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "hold-your-lady-tight-night-twin-cities-minnesota",
       "name": "Hold Your Lady Tight Night",
-      "city": "Twin Cities",
+      "city": "Minneapolis",
       "state": "Minnesota",
-      "zip": "55114",
+      "zip": "55340",
       "dances": [
         "Two Step",
         "Line Dancing"
       ],
-      "lessons": "Yes (weekly lessons at VFW)",
-      "description": "Twin Cities social dance event welcoming all skill levels; partner dance lessons typically precede open dancing.",
+      "lessons": "Yes (quick two-step lesson at start of every event · no partner needed)",
+      "description": "Twin Cities all-inclusive country and western dance party, established 2018. Progressive two-step and line dancing every Thursday 7–10pm at rotating venues including Hamel VFW (MN) and Big Guys BBQ Roadhouse (Hudson, WI). Led by James Kaul and instructors including Diane Horner.",
       "latitude": 44.9537,
-      "longitude": -93.09
+      "longitude": -93.09,
+      "website": "holdyourladytightnight.com",
+      "hours": "Thursdays 7–10pm · venues rotate (primarily Hamel VFW and Big Guys BBQ Roadhouse, Hudson WI)",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "lucky-horseshoe-saloon-gulfport-mississippi",
       "name": "Lucky Horseshoe Saloon",
-      "city": "Gulfport",
-      "state": "Mississippi",
-      "zip": "39501",
+      "city": "Fairhope",
+      "state": "Alabama",
+      "zip": "36532",
       "dances": [
         "Two Step",
         "Line Dancing"
       ],
-      "lessons": "Unknown",
-      "description": "Country dance floor on the Gulf Coast",
+      "lessons": "Yes (free line dance lessons every Fri 6:30–8:30pm · live music every Sat)",
+      "description": "Fairhope, Alabama's premier country music and dance venue at 9185 US-98. Free line dance lessons every Friday 6:30–8:30pm followed by dance music until 2am. Live country music every Saturday.",
       "latitude": 30.3674,
-      "longitude": -89.0928
+      "longitude": -89.0928,
+      "website": "luckyhorseshoesaloon.com",
+      "hours": "Fri–Sat 6:30pm–2:15am · line dancing 6:30–8:30pm then dance music until 2am",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "mo-country-branson-missouri",
       "name": "MO Country",
-      "city": "Branson",
+      "city": "Grain Valley",
       "state": "Missouri",
-      "zip": "65616",
+      "zip": "64029",
       "dances": [
         "Line Dancing"
       ],
-      "lessons": "Yes (Fri/Sat 7:30\u20138:30pm)",
-      "description": "Largest line dancing floor in the Midwest",
+      "lessons": "Yes (country music, shows, and dancing lessons · largest line dancing floor in the Midwest)",
+      "description": "Missouri's ultimate country dance destination at 401 S Outer Belt Rd, Grain Valley (Kansas City metro). The largest line dancing floor in the Midwest. Music shows, dancing lessons, and live country entertainment Thursday through Saturday. 21+ venue.",
       "latitude": 36.6437,
-      "longitude": -93.2185
-    },
-    {
-      "id": "bushwackers-dance-hall-and-saloon-ralston-nebraska",
-      "name": "Bushwackers Dance Hall and Saloon",
-      "city": "Ralston",
-      "state": "Nebraska",
-      "zip": "68127",
-      "dances": [
-        "Two Step",
-        "Line Dancing"
-      ],
-      "lessons": "Unknown",
-      "description": "Traditional two-stepping + line dancing",
-      "latitude": 41.2036,
-      "longitude": -96.0423
+      "longitude": -93.2185,
+      "website": "mo-country.com",
+      "hours": "Thu–Sat 7pm–3am · 21+",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "gilley-s-las-vegas-las-vegas-nevada",
-      "name": "Gilley\u2019s Las Vegas",
+      "name": "Gilley’s Las Vegas",
       "city": "Las Vegas",
       "state": "Nevada",
       "zip": "89109",
@@ -1983,54 +2281,48 @@
         "Two Step",
         "Line Dancing"
       ],
-      "lessons": "Yes (nightly lessons)",
-      "description": "Major honky-tonk with wood floor",
+      "lessons": "Yes (free line dance lessons Mon–Thu 7pm · live music Thu–Sat)",
+      "description": "Gilley's Saloon, Dance Hall & Bar-B-Que inside Treasure Island Hotel & Casino, 3300 Las Vegas Blvd S. Free line dancing lessons Monday through Thursday at 7pm. Live country music Thursday through Saturday. Mechanical bull, BBQ, and full bar.",
       "latitude": 36.1699,
-      "longitude": -115.1398
+      "longitude": -115.1398,
+      "website": "gilleyslasvegas.com",
+      "hours": "Sun–Thu 12pm–1am · Fri–Sat 12pm–2am",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "whiskey-dix-saloon-honolulu-hawaii",
       "name": "Whiskey Dix' Saloon",
-      "city": "Honolulu",
+      "city": "Aiea",
       "state": "Hawaii",
-      "zip": "96815",
+      "zip": "96701",
       "dances": [
         "Line Dancing"
       ],
-      "lessons": "Unknown",
-      "description": "Authentic honky-tonk vibe in the islands",
+      "lessons": "Yes (line dance, two-step, cha cha, waltz Mon–Wed 7:30–9:30pm)",
+      "description": "Oahu's ONLY country bar at 99-016 Kamehameha Hwy, Aiea (near Pearl City). Free dance lessons Monday through Wednesday 7:30–9:30pm covering line dance, two-step, cha cha, and waltz. Pool, darts, giant Jenga, cornhole, and karaoke 3rd Thursday monthly. 25-cent drafts every Thursday.",
       "latitude": 21.3099,
-      "longitude": -157.8581
-    },
-    {
-      "id": "bonfire-country-bar-manchester-new-hampshire",
-      "name": "Bonfire Country Bar",
-      "city": "Manchester",
-      "state": "New Hampshire",
-      "zip": "3103",
-      "dances": [
-        "Two Step",
-        "Line Dancing"
-      ],
-      "lessons": "Unknown",
-      "description": "Country line dancing and two-step",
-      "latitude": 42.9956,
-      "longitude": -71.4548
+      "longitude": -157.8581,
+      "website": "whiskeydixhi.com",
+      "hours": "Mon–Wed 7pm–midnight · Thu–Sat 8pm–2am · Sun closed",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "big-apple-ranch-various-new-jersey-multiple-new-jersey",
-      "name": "Big Apple Ranch (various)",
-      "city": "New Jersey (multiple)",
+      "name": "Big Apple Ranch (NJ Events)",
+      "city": "Jersey City",
       "state": "New Jersey",
-      "zip": "8054",
+      "zip": "07302",
       "dances": [
         "Two Step",
         "Line Dancing"
       ],
-      "lessons": "Yes (free lessons)",
-      "description": "Line dancing + two-step classes",
-      "latitude": 40.0583,
-      "longitude": -74.4057
+      "lessons": "Yes (two-step and line dance lessons included at events)",
+      "description": "Periodic country-western dance events in the New Jersey/metro NYC area run by the Big Apple Ranch organization. Two-step, waltz, swing, and line dancing in an all-inclusive atmosphere. Check the website for upcoming NJ-area event dates and venues.",
+      "latitude": 40.7178,
+      "longitude": -74.0431,
+      "website": "bigappleranch.com",
+      "hours": "Periodic events — check bigappleranch.com for NJ-area schedule",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "the-dirty-bourbon-dance-hall-saloon-albuquerque-new-mexico",
@@ -2042,10 +2334,13 @@
         "Two Step",
         "Line Dancing"
       ],
-      "lessons": "Unknown",
-      "description": "Albuquerque's premier country dance hall with live country music, a large dance floor, and regular line and two-step nights.",
+      "lessons": "Yes (check website for current free lesson schedule · Thu–Sat)",
+      "description": "Albuquerque's country dance hall at 9800 Montgomery Blvd. The only bar in town with two massive 53-foot bars and a 1,300 sq ft dance floor. Live country music Thursday through Saturday. Free dance lessons on select nights.",
       "latitude": 35.0844,
-      "longitude": -106.6504
+      "longitude": -106.6504,
+      "website": "thedirtybourbon.com",
+      "hours": "Thu–Sat 6pm–2am",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "big-apple-ranch-manhattan-new-york",
@@ -2057,10 +2352,13 @@
         "Two Step",
         "Line Dancing"
       ],
-      "lessons": "Yes (Mondays)",
-      "description": "NYC\u2019s main country western spot",
+      "lessons": "Yes (2nd Saturday: beginning two-step 8pm then line dance 8:30pm · $20 cash · no partner needed)",
+      "description": "New York City's country-western dance event, held every 2nd Saturday at EAP Studios, 320 W 37th St (2nd floor), Manhattan. Two-step, waltz, swing, and line dancing in an all-inclusive atmosphere. $20 cash admission includes both lessons.",
       "latitude": 40.7831,
-      "longitude": -73.9712
+      "longitude": -73.9712,
+      "website": "bigappleranch.com",
+      "hours": "2nd Saturday monthly 8pm–late · lesson 8pm (two-step) · 8:30pm (line dance) · open dance 9pm",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "the-windbreak-fargo-north-dakota",
@@ -2071,10 +2369,13 @@
       "dances": [
         "Other"
       ],
-      "lessons": "Unknown",
-      "description": "Classic country bar with dancing",
+      "lessons": "No formal lessons — large open dance floor with live modern country",
+      "description": "Fargo's premier live music bar at 3150 39th St S. Live country, pop, and rock bands every Thursday through Sunday. Big open dance floor, fast bar service, and clear stage sightlines. The hottest entertainment venue in Fargo-Moorhead.",
       "latitude": 46.8772,
-      "longitude": -96.7898
+      "longitude": -96.7898,
+      "website": "thewindbreak.com",
+      "hours": "Thu–Sun evenings · live bands · check website for hours",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "dusty-armadillo-rootstown-ohio",
@@ -2086,29 +2387,35 @@
         "Two Step",
         "Line Dancing"
       ],
-      "lessons": "Yes (multiple nights with lessons)",
-      "description": "Rootstown country bar with a full dance floor, live bands, and a large Ohio country crowd \u2014 a staple of the Northeast Ohio country dance scene.",
+      "lessons": "Yes (multiple nights weekly — two-step, line dancing, east and west coast swing · beginners welcome)",
+      "description": "Ohio's largest country dance club at 3147 State Rt 44, Rootstown. 5,000 sq ft solid maple dance floor built in the 1920s. Country dancing Wednesday, Friday, and Sunday with lessons for all skill levels.",
       "latitude": 41.1645,
-      "longitude": -81.2231
+      "longitude": -81.2231,
+      "website": "dustya.com",
+      "hours": "Wed/Fri 6pm–2am · Sun 5pm–10pm",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "chisolm-s-saloon-oklahoma-city-oklahoma",
-      "name": "Chisolm\u2019s Saloon",
+      "name": "Chisolm’s Saloon",
       "city": "Oklahoma City",
       "state": "Oklahoma",
-      "zip": "73129",
+      "zip": "73108",
       "dances": [
         "Two Step",
         "Line Dancing"
       ],
-      "lessons": "Yes (Tue/Thu)",
-      "description": "Free two-step/waltz lessons Tuesdays",
+      "lessons": "Yes (free two-step/waltz/shuffle Tue · free lessons with Craig the Dancing Cowboy Thu 7–9pm · DJ country Fri–Sat)",
+      "description": "Oklahoma City's long-running country saloon since 1979 at 401 S Meridian Ave. Free two-step, waltz, and shuffle lessons on Tuesdays. Craig the Dancing Cowboy teaches free country dance lessons every Thursday 7–9pm. Live DJ Friday and Saturday.",
       "latitude": 35.4676,
-      "longitude": -97.5164
+      "longitude": -97.5164,
+      "website": "chisholmssaloon.godaddysites.com",
+      "hours": "Tue–Thu 5pm–midnight · Fri–Sat 5pm–2am",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "winner-s-circle-saloon-grantville-pennsylvania",
-      "name": "Winner\u2019s Circle Saloon",
+      "name": "Winner’s Circle Saloon",
       "city": "Grantville",
       "state": "Pennsylvania",
       "zip": "17028",
@@ -2117,25 +2424,31 @@
         "Line Dancing",
         "Western Swing"
       ],
-      "lessons": "Unknown",
-      "description": "Grantville country saloon offering weekly two-step nights and a local Pennsylvania country dance community.",
+      "lessons": "Yes (professional country line dance instruction · lessons most nights)",
+      "description": "Central Pennsylvania's country dance destination inside Holiday Inn Harrisburg-Hershey at 604 Station Rd, Grantville. Live country bands Wednesday through Saturday. Country line dancing Sunday, Monday, Tuesday, and Thursday. Professional dance instruction. Southwestern cuisine including award-winning chili.",
       "latitude": 40.3798,
-      "longitude": -76.6558
+      "longitude": -76.6558,
+      "website": "winnerscirclesaloon.com",
+      "hours": "Live bands Wed–Sat evenings · country line dancing Sun/Mon/Tue/Thu · check website for schedule",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "mishnock-barn-west-greenwich-rhode-island",
       "name": "Mishnock Barn",
       "city": "West Greenwich",
       "state": "Rhode Island",
-      "zip": "2817",
+      "zip": "02817",
       "dances": [
         "Two Step",
         "Line Dancing"
       ],
-      "lessons": "Unknown",
-      "description": "RI\u2019s premier country western dance club",
+      "lessons": "Yes (every open night — beginner, intermediate, and pattern/partner lessons throughout · three dance floors)",
+      "description": "Rhode Island's premier country western dance club at 200 Mishnock Rd, West Greenwich — 30+ years of operation. Three dance floors across two independent sound zones with beginner, intermediate, and pattern/partner lessons throughout each night. Band Night first Thursday monthly. The best country dancing in New England.",
       "latitude": 41.624,
-      "longitude": -71.6586
+      "longitude": -71.6586,
+      "website": "mishnockbarn.com",
+      "hours": "Mon–Wed 7pm–11pm (lessons 7:30pm) · Fri–Sat 7pm–midnight (lessons 8pm) · 1st Thu monthly: Band Night",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "stockade-deadwood-south-dakota",
@@ -2147,25 +2460,12 @@
         "Two Step",
         "Line Dancing"
       ],
-      "lessons": "Unknown",
-      "description": "Regular country dancing events",
+      "lessons": "No formal lessons — country and western dancing in historic downtown Deadwood",
+      "description": "Country bar at 655 Lower Main St in historic downtown Deadwood, SD. Yelp confirmed open and accepting reservations as of August 2026. Country western dancing in the heart of the Black Hills gambling district. No dedicated website — check Yelp or call ahead for current hours.",
       "latitude": 44.3766,
-      "longitude": -103.7294
-    },
-    {
-      "id": "honky-tonk-angels-traveling-brattleboro-vermont",
-      "name": "Honky Tonk Angels (traveling)",
-      "city": "Brattleboro",
-      "state": "Vermont",
-      "zip": "5301",
-      "dances": [
-        "Two Step",
-        "Line Dancing"
-      ],
-      "lessons": "Yes (beginner instruction provided)",
-      "description": "Monthly two-step nights at Retreat Farm",
-      "latitude": 42.8509,
-      "longitude": -72.5579
+      "longitude": -103.7294,
+      "hours": "Check in advance — hours vary seasonally",
+      "verifiedDate": "2026-09-03"
     },
     {
       "id": "extreme-country-dance-club-marmet-west-virginia",
@@ -2176,24 +2476,198 @@
       "dances": [
         "Line Dancing"
       ],
-      "lessons": "Yes (classes)",
-      "description": "Marmet, West Virginia dance club offering line dance classes and social dance nights for the Kanawha Valley country crowd.",
+      "lessons": "Yes (Mon beginners 7–9pm $5 · Tue intermediate 7pm · Fri beginners 7pm — rotating venues)",
+      "description": "West Virginia's country line dance club based out of Marmet. Weekly line dance classes at rotating venues: Monday beginners at Marmet Recreation Center 7–9pm ($5), Tuesday intermediate at Elk's Lodge in Charleston, Friday beginners at Elk Elementary Center in Mink Shoals. Community-organized country dancing.",
       "latitude": 38.2484,
-      "longitude": -81.5681
+      "longitude": -81.5681,
+      "website": "extremecountrydanceclub.weebly.com",
+      "hours": "Mon 7–9pm (Marmet Rec Center) · Tue 7pm (Elk's Lodge Charleston) · Fri 7pm (Elk Elementary Center)",
+      "verifiedDate": "2026-09-03"
     },
     {
-      "id": "redd-s-line-up-and-boot-kickers-washington-county-wisconsin",
-      "name": "Redd\u2019s Line Up and Boot Kickers",
-      "city": "Washington County",
-      "state": "Wisconsin",
-      "zip": "53022",
+      "id": "sunrise-saloon-missoula-montana",
+      "name": "Sunrise Saloon and Casino",
+      "city": "Missoula",
+      "state": "Montana",
+      "zip": "59801",
       "dances": [
+        "Two Step",
+        "Line Dancing",
+        "Country Swing"
+      ],
+      "lessons": "Yes (Tue two-step 7–9pm · Thu country dance lesson 7pm then live music 8:30pm)",
+      "description": "Missoula's dedicated country-western bar. Live country music Thursday, Friday, and Saturday nights on a large dance floor. Partner dancing and line dancing with lessons Tuesday and Thursday. Full bar, casino games, and pool tables.",
+      "latitude": 46.8564,
+      "longitude": -114.0192,
+      "website": "sunrisesaloonandcasino.com",
+      "hours": "Daily 8am–2am · Country dancing Thu–Sat",
+      "verifiedDate": "2026-09-03"
+    },
+    {
+      "id": "the-westerner-gallatin-gateway-montana",
+      "name": "The Westerner",
+      "city": "Gallatin Gateway",
+      "state": "Montana",
+      "zip": "59730",
+      "dances": [
+        "Country Swing",
+        "Two Step"
+      ],
+      "lessons": "Yes (Adult Swing Wednesdays $15–$25)",
+      "description": "Texas-style honky-tonk in Gallatin Gateway, just south of Bozeman. Large dance floor, live country music, and swing dancing. Adult Swing Wednesday classes weekly. All events 21+. Doors typically 8:30pm, live music 9pm.",
+      "latitude": 45.6174,
+      "longitude": -111.1871,
+      "website": "thewesternermt.com",
+      "hours": "Wed–Sat evenings · Doors 8:30pm · Music 9pm (ticketed shows doors 7pm)",
+      "verifiedDate": "2026-09-03"
+    },
+    {
+      "id": "little-red-hen-seattle-washington",
+      "name": "Little Red Hen",
+      "city": "Seattle",
+      "state": "Washington",
+      "zip": "98115",
+      "dances": [
+        "Two Step",
         "Line Dancing"
       ],
-      "lessons": "Yes (regular lessons)",
-      "description": "Washington County, Wisconsin country dance club hosting regular line dancing events and two-step nights for the Milwaukee-area crowd.",
-      "latitude": 43.3708,
-      "longitude": -88.2312
+      "lessons": "No formal lessons — open dance floor for two-step and line dancing",
+      "description": "Seattle's beloved honky-tonk landmark in the Green Lake neighborhood, open since 1930s. Live country and bluegrass music every Thursday, Friday, and Saturday at 9pm. Monday line dancing at 8pm. Tuesday bluegrass open jam 7:30pm. Two-step dancing on weekend nights.",
+      "latitude": 47.6797,
+      "longitude": -122.3241,
+      "website": "littleredhen.com",
+      "hours": "Mon 4pm–12:30am · Tue 4pm–12am · Wed 3pm–1:30am · Thu 4pm–1:30am · Fri 4pm–2am · Sat 3pm–2am · Sun 3pm–12am",
+      "verifiedDate": "2026-09-03"
+    },
+    {
+      "id": "hayloft-dance-hall-lynnwood-washington",
+      "name": "The Hayloft Dance Hall & Event Center",
+      "city": "Lynnwood",
+      "state": "Washington",
+      "zip": "98087",
+      "dances": [
+        "Two Step",
+        "Line Dancing",
+        "Country Swing",
+        "Waltz"
+      ],
+      "lessons": "Yes (country two-step lesson 7:30–8:15pm on country dance nights · 2nd and 4th Friday)",
+      "description": "Dedicated country dance hall in Lynnwood, north of Seattle. Country dances every 2nd and 4th Friday with a two-step lesson 7:30–8:15pm before open dancing 9–11:30pm. Private lessons and group classes available throughout the week.",
+      "latitude": 47.8337,
+      "longitude": -122.2824,
+      "website": "hayloftdance.com",
+      "hours": "Country dances 2nd & 4th Fri · Lesson 7:30pm · Dancing 9–11:30pm",
+      "verifiedDate": "2026-09-03"
+    },
+    {
+      "id": "cowboy-saloon-laramie-wyoming",
+      "name": "The Cowboy Saloon & Dance Hall",
+      "city": "Laramie",
+      "state": "Wyoming",
+      "zip": "82070",
+      "dances": [
+        "Two Step",
+        "Country Swing",
+        "Line Dancing"
+      ],
+      "lessons": "Yes (Wed and Thu — no partner or experience required)",
+      "description": "Laramie's legendary country dance hall at 108 S 2nd St downtown. Two-step, country swing, and line dancing with free lessons every Wednesday and Thursday. Open 7pm–2am. All skill levels welcome — 'left feet' encouraged.",
+      "latitude": 41.3108,
+      "longitude": -105.5907,
+      "website": "thecowboysaloon.com",
+      "hours": "Nightly 7pm–2am",
+      "verifiedDate": "2026-09-03"
+    },
+    {
+      "id": "cadillac-ranch-cheyenne-wyoming",
+      "name": "Cadillac Ranch",
+      "city": "Cheyenne",
+      "state": "Wyoming",
+      "zip": "82001",
+      "dances": [
+        "Line Dancing",
+        "Two Step"
+      ],
+      "lessons": "Yes (Fri line dance lesson ~9pm with instructor Ace)",
+      "description": "Rollicking honky-tonk bar at 3307 E Nationway in Cheyenne with country music, line dancing, and two-step. Friday line dance instruction at 9pm. Big dance floor, full bar, cornhole, and fire pit.",
+      "latitude": 41.1459,
+      "longitude": -104.7838,
+      "website": "cadillacranchwyoming.com",
+      "hours": "Thu 8pm–2am · Fri 5pm–2am · Sat 8pm–2am",
+      "verifiedDate": "2026-09-03"
+    },
+    {
+      "id": "electric-cowboy-little-rock-arkansas",
+      "name": "Electric Cowboy",
+      "city": "Little Rock",
+      "state": "Arkansas",
+      "zip": "72209",
+      "dances": [
+        "Two Step",
+        "Line Dancing"
+      ],
+      "lessons": "Yes (line dance instruction Fri and Sat nights)",
+      "description": "Country bar and nightclub at 9515 I-30 Frontage Rd, Little Rock. One of three Electric Cowboy locations in Arkansas. Large dance floor with DJ-driven country music and regular line dance nights Friday and Saturday. 18+ venue.",
+      "latitude": 34.7027,
+      "longitude": -92.4202,
+      "website": "electriccowboy.com",
+      "hours": "Fri–Sat evenings (line dance nights)",
+      "verifiedDate": "2026-09-03"
+    },
+    {
+      "id": "electric-cowboy-fort-smith-arkansas",
+      "name": "Electric Cowboy",
+      "city": "Fort Smith",
+      "state": "Arkansas",
+      "zip": "72908",
+      "dances": [
+        "Two Step",
+        "Line Dancing"
+      ],
+      "lessons": "Yes (free dance lessons most nights)",
+      "description": "Country bar at 6107 S 31st St, Fort Smith. Large dance floor for two-step and line dancing with DJ-fueled country nights and occasional live bands. Part of the Electric Cowboy Arkansas group.",
+      "latitude": 35.32,
+      "longitude": -94.4069,
+      "website": "electriccowboy.com",
+      "hours": "Wed–Sun 7:30pm–5am",
+      "verifiedDate": "2026-09-03"
+    },
+    {
+      "id": "electric-cowboy-fayetteville-arkansas",
+      "name": "Electric Cowboy",
+      "city": "Fayetteville",
+      "state": "Arkansas",
+      "zip": "72701",
+      "dances": [
+        "Two Step",
+        "Line Dancing"
+      ],
+      "lessons": "Yes (free dance lessons Sat 7:30pm)",
+      "description": "Country bar at 2127 W Martin Luther King Blvd, Fayetteville. Free dance lessons Saturday nights at 7:30pm. Live music and DJ country nights. Part of the Electric Cowboy Arkansas group serving Northwest Arkansas.",
+      "latitude": 36.071,
+      "longitude": -94.1812,
+      "website": "electriccowboy.com",
+      "hours": "Thu until 2am · Fri–Sat until 5am",
+      "verifiedDate": "2026-09-03"
+    },
+    {
+      "id": "guitars-cadillacs-ralston-nebraska",
+      "name": "Guitars & Cadillacs (Omaha/Ralston)",
+      "city": "Ralston",
+      "state": "Nebraska",
+      "zip": "68127",
+      "dances": [
+        "Line Dancing",
+        "Two Step",
+        "West Coast Swing"
+      ],
+      "lessons": "Yes (line dancing and swing dancing instruction nightly · Wed–Sat)",
+      "description": "Omaha metro's country dance hall at 7401 Main St, Ralston — opened March 2026, replacing Bushwackers at the Granary. Sister venue to Guitars & Cadillacs in Overland Park, KS. Live country music Friday and Saturday; line and swing dancing instruction every night Wed–Sat.",
+      "latitude": 41.2064,
+      "longitude": -96.0111,
+      "website": "guitarsandcadillacs.com",
+      "hours": "Wed–Thu 6pm–midnight · Fri–Sat 6pm–2am · live music Fri–Sat",
+      "verifiedDate": "2026-09-03"
     }
   ]
 }

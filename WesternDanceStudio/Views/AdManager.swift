@@ -79,20 +79,25 @@ final class AdManager {
         // which fires while the pop/dismiss navigation transition is still
         // animating. Presenting a full-screen interstitial mid-transition
         // risks "unbalanced calls to begin/end appearance transitions" and
-        // can cause the presentation to silently fail. The 400ms delay lets
+        // can cause the presentation to silently fail. The 800ms delay lets
         // the transition settle first — this follows Google's own recommended
         // pattern for interstitials triggered around navigation events.
-        // Known limitation: on very slow devices the transition may still be
-        // in flight after 400ms; the `presentedViewController == nil` guard
-        // below catches the most common failure mode (another modal already
-        // visible), but cannot guarantee the transition is 100% complete.
+        // The additional `transitionCoordinator` check guards against the race
+        // where the user immediately triggers another navigation push after
+        // dismissing a detail view: if a push is still animating at the 800ms
+        // mark we bail rather than layering a modal on top of it, which was
+        // causing an orphaned blank view in the NavigationStack.
         self.interstitial = nil
         Task {
-            try? await Task.sleep(for: .milliseconds(400))
+            try? await Task.sleep(for: .milliseconds(800))
             guard !IAPManager.shared.isPremium else { return }
             guard let rootVC = UIApplication.topViewController(),
                   rootVC.presentedViewController == nil
             else { return }
+            // Bail if a navigation push/pop is still animating.
+            let navController = rootVC.navigationController
+                ?? (rootVC as? UINavigationController)
+            guard navController?.transitionCoordinator == nil else { return }
             interstitial.present(from: rootVC)
             lastInterstitialShownAt = Date()
         }

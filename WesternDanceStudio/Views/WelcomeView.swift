@@ -311,45 +311,45 @@ struct WelcomeView: View {
                     // Gradient header — matches LaunchScreenView
                     ZStack {
                         WesternSunsetGradient()
-                        VStack(spacing: 10) {
-                            Spacer(minLength: 40)
+                        VStack(spacing: 8) {
+                            Spacer(minLength: 16)
                             Image("Cowboy")
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
-                                .frame(maxWidth: 100, maxHeight: 100)
+                                .frame(maxWidth: 80, maxHeight: 80)
                                 .shadow(color: .black.opacity(0.25), radius: 10, x: 0, y: 5)
                                 .accessibilityHidden(true)
                             Text("Western Dance Studio")
-                                .font(.system(size: 28, weight: .heavy, design: .serif))
+                                .font(.system(size: 26, weight: .heavy, design: .serif))
                                 .foregroundStyle(.white)
                                 .multilineTextAlignment(.center)
                                 .shadow(color: .black.opacity(0.3), radius: 4, x: 0, y: 2)
                             Text("Your complete guide to country dancing")
-                                .font(.system(size: 14, weight: .medium, design: .rounded))
+                                .font(.system(size: 13, weight: .medium, design: .rounded))
                                 .foregroundStyle(.white.opacity(0.88))
                                 .multilineTextAlignment(.center)
                                 .padding(.horizontal, 40)
-                            Spacer(minLength: 36)
+                            Spacer(minLength: 16)
                         }
                     }
-                    .frame(minHeight: 240)
+                    .frame(minHeight: 190)
 
                     // Features
-                    VStack(alignment: .leading, spacing: 20) {
+                    VStack(alignment: .leading, spacing: 14) {
                         paywallFeatureRow(icon: "figure.dance",              color: WesternTheme.primary, title: "20+ Dances",             detail: "Two-Step, Waltz, Line Dancing, West Coast Swing & more")
                         paywallFeatureRow(icon: "list.bullet.clipboard.fill", color: .blue,               title: "Structured Curriculum",  detail: "Progressive modules from first steps to floor-ready confidence")
                         paywallFeatureRow(icon: "exclamationmark.triangle.fill", color: .orange,          title: "Common Mistakes Guide",  detail: "25 beginner errors explained — and exactly how to fix them")
                         paywallFeatureRow(icon: "wifi.slash",                color: .secondary,           title: "100% Offline",           detail: "No account, no internet required — all content ships with the app")
                     }
                     .padding(.horizontal, 28)
-                    .padding(.top, 28)
+                    .padding(.top, 20)
 
                     Divider()
                         .padding(.horizontal, 28)
-                        .padding(.top, 24)
+                        .padding(.top, 16)
 
                     // Support section
-                    VStack(spacing: 16) {
+                    VStack(spacing: 12) {
                         Text("Support Western Dance Studio")
                             .font(.title3.weight(.bold))
                             .multilineTextAlignment(.center)
@@ -364,8 +364,8 @@ struct WelcomeView: View {
                             .multilineTextAlignment(.center)
                     }
                     .padding(.horizontal, 28)
-                    .padding(.top, 24)
-                    .padding(.bottom, 48)
+                    .padding(.top, 16)
+                    .padding(.bottom, 24)
                 }
                 .frame(minHeight: proxy.size.height)
             }

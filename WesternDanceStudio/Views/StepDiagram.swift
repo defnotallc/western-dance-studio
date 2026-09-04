@@ -59,15 +59,34 @@ enum StepParser {
     static func parse(_ text: String) -> (foot: StepFoot, direction: StepDirection) {
         let lower = text.lowercased()
 
-        // Foot detection — require "foot" proximity to avoid confusing directional
-        // phrases ("to the left") with foot labels. Bare \bleft\b is intentionally
-        // excluded because it also matches "to the left" and mislabels the foot.
+        // Foot detection — specific patterns first, then bare word fallback.
+        // "to the left/right" phrases are excluded because they indicate direction only.
         let foot: StepFoot = {
             let hasLeft = lower.contains("left foot") || lower.contains("left (") || lower.contains("(left")
             let hasRight = lower.contains("right foot") || lower.contains("right (") || lower.contains("(right")
-            if hasLeft && hasRight { return .both }
-            if hasLeft { return .left }
-            if hasRight { return .right }
+
+            // Bare word fallback for patterns like "Quick step forward left" or "Step left forward".
+            let bareLeft = !hasLeft
+                && lower.range(of: #"\bleft\b"#, options: .regularExpression) != nil
+                && !lower.contains("to the left")
+            let bareRight = !hasRight
+                && lower.range(of: #"\bright\b"#, options: .regularExpression) != nil
+                && !lower.contains("to the right")
+
+            if (hasLeft || bareLeft) && (hasRight || bareRight) {
+                // Both feet mentioned — use whichever appears first in the string.
+                // The first foot named is almost always the one that moves first
+                // (e.g. "Triple step left: left, right, left", "Close left to right",
+                //  "Grapevine right: step right, cross left behind").
+                let leftPos  = lower.range(of: #"\bleft\b"#,  options: .regularExpression)?.lowerBound
+                let rightPos = lower.range(of: #"\bright\b"#, options: .regularExpression)?.lowerBound
+                if let l = leftPos, let r = rightPos {
+                    return l < r ? .left : .right
+                }
+                return hasLeft || bareLeft ? .left : .right
+            }
+            if hasLeft || bareLeft { return .left }
+            if hasRight || bareRight { return .right }
             return .unknown
         }()
 
