@@ -3,8 +3,11 @@ import SwiftUI
 struct FavoritesView: View {
     @Bindable var store: DanceStore
 
+    /// Honours the user's chosen order rather than the catalogue order.
     var favoriteDances: [Dance] {
-        Dance.sampleDances.filter { store.favorites.contains($0.id) }
+        let byID = Dictionary(Dance.sampleDances.map { ($0.id, $0) },
+                              uniquingKeysWith: { first, _ in first })
+        return store.favoriteOrder.compactMap { byID[$0] }
     }
 
     var body: some View {
@@ -17,19 +20,7 @@ struct FavoritesView: View {
                                 .padding(.horizontal)
                                 .padding(.top, 40)
                         } else {
-                            VStack(spacing: 0) {
-                                ForEach(favoriteDances) { dance in
-                                    NavigationLink(value: dance) {
-                                        favoriteRow(dance)
-                                    }
-                                    .buttonStyle(.plain)
-                                    Divider()
-                                        .padding(.leading)
-                                }
-                            }
-                            .background(Color(.secondarySystemGroupedBackground))
-                            .clipShape(RoundedRectangle(cornerRadius: 10))
-                            .padding(.horizontal)
+                            reorderableFavoritesList
                         }
 
                         // Gear section always visible — monetizes the empty state
@@ -50,6 +41,88 @@ struct FavoritesView: View {
             .navigationDestination(for: Dance.self) { dance in
                 DanceDetailView(dance: dance, store: store)
             }
+        }
+    }
+
+    // MARK: - Favorites list
+
+    /// iOS 27 adds drag-to-reorder and swipe actions for non-`List` content.
+    /// Below 27 the same rows render without either, so the screen keeps
+    /// working unchanged on the 26.4 deployment target.
+    @ViewBuilder
+    private var reorderableFavoritesList: some View {
+        if #available(iOS 27.0, *) {
+            favoritesStack
+                .reorderContainer(for: Dance.self) { difference in
+                    let beforeID: String?
+                    switch difference.destination.position {
+                    case .before(let id): beforeID = id
+                    case .end:            beforeID = nil
+                    }
+                    withAnimation(.snappy) {
+                        store.applyReorder(sources: difference.sources, before: beforeID)
+                    }
+                }
+        } else {
+            favoritesStack
+        }
+    }
+
+    private var favoritesStack: some View {
+        VStack(spacing: 0) {
+            favoriteRows
+        }
+        .background(Color(.secondarySystemGroupedBackground))
+        .clipShape(RoundedRectangle(cornerRadius: 10))
+        .padding(.horizontal)
+    }
+
+    @ViewBuilder
+    private var favoriteRows: some View {
+        if #available(iOS 27.0, *) {
+            ForEach(favoriteDances) { dance in
+                favoriteRowLink(dance)
+                    .swipeActionsContainer()
+                    .swipeActions(edge: .trailing) {
+                        Button(role: .destructive) {
+                            unfavorite(dance)
+                        } label: {
+                            Label("Remove", systemImage: "star.slash")
+                        }
+                    }
+                Divider()
+                    .padding(.leading)
+            }
+            .reorderable()
+        } else {
+            ForEach(favoriteDances) { dance in
+                favoriteRowLink(dance)
+                Divider()
+                    .padding(.leading)
+            }
+        }
+    }
+
+    private func favoriteRowLink(_ dance: Dance) -> some View {
+        NavigationLink(value: dance) {
+            favoriteRow(dance)
+        }
+        .buttonStyle(.plain)
+        // Available on every supported OS, so removing a favorite is never
+        // gated behind the iOS 27-only swipe affordance.
+        .contextMenu {
+            Button(role: .destructive) {
+                unfavorite(dance)
+            } label: {
+                Label("Remove from Favorites", systemImage: "star.slash")
+            }
+        }
+    }
+
+    private func unfavorite(_ dance: Dance) {
+        Haptics.selection()
+        withAnimation(.snappy) {
+            store.toggleFavorite(dance)
         }
     }
 

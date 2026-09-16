@@ -15,8 +15,15 @@ final class DanceStore {
 
     // MARK: - Observable state
 
-    /// Set of favorite dance IDs. Persisted across launches.
-    var favorites: Set<String> = []
+    /// Favorite dance IDs in user-facing order. Newly favorited dances append
+    /// to the end; the Favorites screen lets the user reorder them directly.
+    /// Order is the persisted and synced representation.
+    private(set) var favoriteOrder: [String] = []
+
+    /// Membership view over `favoriteOrder`. Kept as a `Set` because every
+    /// caller uses it for `contains`, and it reads through to the stored
+    /// array so `@Observable` still tracks changes.
+    var favorites: Set<String> { Set(favoriteOrder) }
 
     // MARK: - Persistence
 
@@ -54,8 +61,17 @@ final class DanceStore {
 
     private func loadFavorites() {
         if let arr = defaults.array(forKey: Keys.favorites) as? [String] {
-            favorites = Set(arr)
+            // Existing installs already persisted an array, so stored data is
+            // read back as-is. Dedupe defensively — a Set-era write could not
+            // contain duplicates, but a corrupted or hand-edited value could.
+            favoriteOrder = Self.deduped(arr)
         }
+    }
+
+    /// Removes duplicates while preserving first-seen order.
+    static func deduped(_ ids: [String]) -> [String] {
+        var seen = Set<String>()
+        return ids.filter { seen.insert($0).inserted }
     }
 
     private var lastModified: Date {
@@ -64,11 +80,11 @@ final class DanceStore {
     }
 
     private func saveFavorites() {
-        defaults.set(Array(favorites), forKey: Keys.favorites)
+        defaults.set(favoriteOrder, forKey: Keys.favorites)
         guard !isApplyingRemote else { return }
         let now = Date()
         lastModified = now
-        let envelope = SyncEnvelope(timestamp: now, value: Array(favorites))
+        let envelope = SyncEnvelope(timestamp: now, value: favoriteOrder)
         guard let payload = try? JSONEncoder().encode(envelope) else {
             log.error("Failed to encode favorites envelope for iCloud push")
             return
@@ -91,7 +107,7 @@ final class DanceStore {
         }
         log.info("Adopting remote favorites update (\(envelope.value.count, privacy: .public) items)")
         isApplyingRemote = true
-        favorites = Set(envelope.value)
+        favoriteOrder = Self.deduped(envelope.value)
         lastModified = envelope.timestamp
         saveFavorites()
         isApplyingRemote = false
@@ -100,16 +116,46 @@ final class DanceStore {
     // MARK: - Public API
 
     func toggleFavorite(_ dance: Dance) {
-        if favorites.contains(dance.id) {
-            favorites.remove(dance.id)
+        if let index = favoriteOrder.firstIndex(of: dance.id) {
+            favoriteOrder.remove(at: index)
         } else {
-            favorites.insert(dance.id)
+            favoriteOrder.append(dance.id)
             ReviewManager.shared.recordEngagement()
         }
         saveFavorites()
     }
 
     func isFavorite(_ dance: Dance) -> Bool {
-        favorites.contains(dance.id)
+        favoriteOrder.contains(dance.id)
+    }
+
+    // MARK: - Reordering
+
+    /// Applies a reorder produced by SwiftUI's reorder container.
+    func applyReorder(sources: [String], before beforeID: String?) {
+        let updated = Self.reordering(favoriteOrder, moving: sources, before: beforeID)
+        guard updated != favoriteOrder else { return }
+        favoriteOrder = updated
+        saveFavorites()
+    }
+
+    /// Moves `sources` so they sit immediately before `beforeID`, or at the end
+    /// when `beforeID` is nil, preserving the moved items' relative order.
+    ///
+    /// Pure and `static` so the reorder math is unit-testable without SwiftUI.
+    /// `SwiftUI.ReorderDifference` carries only `sources` and a destination
+    /// position — it has no apply-to-collection helper — so this is where the
+    /// move is actually performed.
+    static func reordering(_ order: [String], moving sources: [String], before beforeID: String?) -> [String] {
+        let movingSet = Set(sources.filter(order.contains))
+        guard !movingSet.isEmpty else { return order }
+        // A destination anchored to a moved item is not a well-defined move.
+        if let beforeID, movingSet.contains(beforeID) { return order }
+
+        let moved = order.filter(movingSet.contains)
+        var remainder = order.filter { !movingSet.contains($0) }
+        let insertionIndex = beforeID.flatMap(remainder.firstIndex(of:)) ?? remainder.count
+        remainder.insert(contentsOf: moved, at: insertionIndex)
+        return remainder
     }
 }

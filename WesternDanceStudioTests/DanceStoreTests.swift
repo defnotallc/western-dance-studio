@@ -59,6 +59,79 @@ final class DanceStoreTests: XCTestCase {
         XCTAssertFalse(store.isFavorite(danceB), "danceB should not be favorited")
     }
 
+    // MARK: - Ordering
+
+    func testNewFavoritesAppendInOrder() {
+        let a = Dance.sampleDances[0], b = Dance.sampleDances[1], c = Dance.sampleDances[2]
+        store.toggleFavorite(a)
+        store.toggleFavorite(b)
+        store.toggleFavorite(c)
+        XCTAssertEqual(store.favoriteOrder, [a.id, b.id, c.id],
+                       "newly favorited dances must append in the order they were added")
+    }
+
+    func testUnfavoritePreservesOrderOfRemaining() {
+        let a = Dance.sampleDances[0], b = Dance.sampleDances[1], c = Dance.sampleDances[2]
+        [a, b, c].forEach(store.toggleFavorite)
+        store.toggleFavorite(b)
+        XCTAssertEqual(store.favoriteOrder, [a.id, c.id])
+    }
+
+    func testOrderPersistedToDefaults() {
+        let a = Dance.sampleDances[0], b = Dance.sampleDances[1]
+        store.toggleFavorite(a)
+        store.toggleFavorite(b)
+        store.applyReorder(sources: [b.id], before: a.id)
+        let store2 = DanceStore(defaults: defaults)
+        XCTAssertEqual(store2.favoriteOrder, [b.id, a.id],
+                       "reordered favorites must survive a store re-init")
+    }
+
+    func testFavoritesSetStillMatchesOrder() {
+        let a = Dance.sampleDances[0], b = Dance.sampleDances[1]
+        store.toggleFavorite(a)
+        store.toggleFavorite(b)
+        XCTAssertEqual(store.favorites, Set(store.favoriteOrder),
+                       "the Set view must stay consistent with the ordered array")
+    }
+
+    // MARK: - Reorder math (pure)
+
+    func testReorderMovesItemBeforeAnchor() {
+        XCTAssertEqual(DanceStore.reordering(["a", "b", "c"], moving: ["c"], before: "a"),
+                       ["c", "a", "b"])
+    }
+
+    func testReorderToEndWhenAnchorIsNil() {
+        XCTAssertEqual(DanceStore.reordering(["a", "b", "c"], moving: ["a"], before: nil),
+                       ["b", "c", "a"])
+    }
+
+    func testReorderMultipleSourcesKeepsTheirRelativeOrder() {
+        XCTAssertEqual(DanceStore.reordering(["a", "b", "c", "d"], moving: ["a", "c"], before: "d"),
+                       ["b", "a", "c", "d"])
+    }
+
+    func testReorderIgnoresAnchorInsideMovedSet() {
+        let order = ["a", "b", "c"]
+        XCTAssertEqual(DanceStore.reordering(order, moving: ["a", "b"], before: "a"), order,
+                       "an anchor that is itself being moved is not a well-defined move")
+    }
+
+    func testReorderIgnoresUnknownSources() {
+        let order = ["a", "b"]
+        XCTAssertEqual(DanceStore.reordering(order, moving: ["zzz"], before: "a"), order)
+    }
+
+    func testReorderToSamePositionIsIdentity() {
+        XCTAssertEqual(DanceStore.reordering(["a", "b", "c"], moving: ["b"], before: "c"),
+                       ["a", "b", "c"])
+    }
+
+    func testDedupedPreservesFirstSeenOrder() {
+        XCTAssertEqual(DanceStore.deduped(["b", "a", "b", "c", "a"]), ["b", "a", "c"])
+    }
+
     func testFavoritesPersistedToDefaults() {
         let dance = firstDance
         store.toggleFavorite(dance)

@@ -68,6 +68,9 @@ struct WesternDanceStudioApp: App {
             .onReceive(NotificationCenter.default.publisher(for: .openStartHereTab)) { _ in
                 selectedTab = 0
             }
+            .onReceive(NotificationCenter.default.publisher(for: .openFavoritesTab)) { _ in
+                selectedTab = 2
+            }
         }
     }
 
@@ -110,6 +113,8 @@ struct WesternDanceStudioApp: App {
                 .tag(4)
         }
         .tabViewStyle(.sidebarAdaptable)
+        // Reclaims vertical space in the long scrolling content views.
+        .tabBarMinimizeBehavior(.onScrollDown)
         .tint(WesternTheme.primary)
         .fullScreenCover(isPresented: $showWelcome) {
             WelcomeView(isPresented: $showWelcome)

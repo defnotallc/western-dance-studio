@@ -131,6 +131,62 @@ final class PracticeStore {
         isApplyingRemote = false
     }
 
+    // MARK: - Export
+
+    /// Renders the practice log as Markdown, newest day first.
+    ///
+    /// Pure and `static` so the formatting is unit-testable without a store or
+    /// a file system. `danceNames` maps dance IDs to display names; an ID with
+    /// no entry falls back to the raw ID rather than being dropped.
+    static func markdownExport(entries: [PracticeEntry],
+                               danceNames: [String: String],
+                               calendar: Calendar = .current,
+                               now: Date = Date()) -> String {
+        var lines = ["# Practice Log", ""]
+
+        guard !entries.isEmpty else {
+            lines.append("No practice sessions logged yet.")
+            return lines.joined(separator: "\n")
+        }
+
+        let dayFormatter = Date.FormatStyle(date: .complete, time: .omitted)
+        let timeFormatter = Date.FormatStyle(date: .omitted, time: .shortened)
+
+        let byDay = Dictionary(grouping: entries) { calendar.startOfDay(for: $0.date) }
+        let totalDances = Set(entries.map(\.danceID)).count
+        func plural(_ count: Int, _ singular: String, _ plural: String) -> String {
+            "\(count) \(count == 1 ? singular : plural)"
+        }
+        lines.append([
+            plural(entries.count, "session", "sessions"),
+            "across \(plural(byDay.count, "day", "days"))",
+            "· \(plural(totalDances, "dance", "dances"))",
+        ].joined(separator: " "))
+        lines.append("")
+
+        for day in byDay.keys.sorted(by: >) {
+            lines.append("## \(day.formatted(dayFormatter))")
+            let dayEntries = (byDay[day] ?? []).sorted { $0.date < $1.date }
+            for entry in dayEntries {
+                let name = danceNames[entry.danceID] ?? entry.danceID
+                lines.append("- \(entry.date.formatted(timeFormatter)) — \(name)")
+            }
+            lines.append("")
+        }
+
+        lines.append("---")
+        lines.append("Exported from Western Dance Studio on \(now.formatted(dayFormatter)).")
+        return lines.joined(separator: "\n")
+    }
+
+    /// Convenience wrapper that resolves names from the shipped catalogue.
+    @MainActor
+    func markdownExport() -> String {
+        let names = Dictionary(Dance.sampleDances.map { ($0.id, $0.name) },
+                               uniquingKeysWith: { first, _ in first })
+        return Self.markdownExport(entries: entries, danceNames: names)
+    }
+
     /// Pure union merge extracted for unit testing without iCloud. Dedupes by
     /// (danceID, date) — the pair StoreKit-style identity for an entry — and
     /// returns entries sorted oldest-first, matching append order.

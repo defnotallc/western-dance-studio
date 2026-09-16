@@ -2,6 +2,16 @@ import SwiftUI
 
 struct CommonErrorsView: View {
     @State private var selectedCategory: CommonError.ErrorCategory? = nil
+    /// Per-error coaching state, keyed by error ID. Absent means "not asked".
+    @State private var coaching: [String: CoachingState] = [:]
+
+    private let intelligence = DanceIntelligence.shared
+
+    enum CoachingState: Equatable {
+        case loading
+        case ready(String)
+        case failed
+    }
 
     var body: some View {
         ScrollView {
@@ -105,8 +115,63 @@ struct CommonErrorsView: View {
                     text: error.fix,
                     accent: true
                 )
+
+                coachingSection(for: error)
             }
             .frame(maxWidth: .infinity, alignment: .leading)
+        }
+    }
+
+    // MARK: - On-device coaching
+
+    /// Shown only on Apple Intelligence capable devices. Every card above is
+    /// fully useful without it, so nothing is lost on an iPhone 11.
+    @ViewBuilder
+    private func coachingSection(for error: CommonError) -> some View {
+        if intelligence.isSupported {
+            Divider()
+            switch coaching[error.id] {
+            case .none:
+                Button {
+                    Haptics.selection()
+                    requestCoaching(for: error)
+                } label: {
+                    Label("Coach me through this", systemImage: "sparkles")
+                        .font(.caption.weight(.semibold))
+                }
+                .buttonStyle(.plain)
+                .foregroundStyle(WesternTheme.primary)
+
+            case .loading:
+                HStack(spacing: 6) {
+                    ProgressView().controlSize(.mini)
+                    Text("Thinking…")
+                        .font(.caption2)
+                        .foregroundStyle(.secondary)
+                }
+
+            case .ready(let tip):
+                errorRow(icon: "sparkles", label: "Your coach says", text: tip, accent: true)
+
+            case .failed:
+                Text("Couldn't generate a tip just now.")
+                    .font(.caption2)
+                    .foregroundStyle(.secondary)
+            }
+        }
+    }
+
+    private func requestCoaching(for danceError: CommonError) {
+        let id = danceError.id
+        coaching[id] = .loading
+        Task {
+            do {
+                let tip = try await intelligence.coachingTip(for: danceError)
+                coaching[id] = tip.isEmpty ? .failed : .ready(tip)
+            } catch {
+                AppLog.data.error("Coaching generation failed: \(error.localizedDescription, privacy: .public)")
+                coaching[id] = .failed
+            }
         }
     }
 

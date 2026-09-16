@@ -5,9 +5,28 @@ struct SettingsView: View {
     @State private var iap = IAPManager.shared
     @State private var consent = ConsentManager.shared
     @State private var showRemoveAds = false
+    @State private var practiceStore = PracticeStore.shared
+    @State private var showPracticeExport = false
     @AppStorage("theme") private var theme: String = "system"
     @Environment(\.dismiss) private var dismiss
     @Environment(\.requestReview) private var requestReview
+
+    /// Only offered on iOS 27+, where `WritableDocument` exists, and only once
+    /// there is something to export.
+    @ViewBuilder
+    private var practiceExportSection: some View {
+        if #available(iOS 27.0, *), practiceStore.totalSessions > 0 {
+            Section("Practice Log") {
+                Button {
+                    Haptics.selection()
+                    showPracticeExport = true
+                } label: {
+                    Label("Export as Markdown", systemImage: "square.and.arrow.up")
+                }
+                LabeledContent("Sessions", value: "\(practiceStore.totalSessions)")
+            }
+        }
+    }
 
     private static let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "—"
     private static let appBuild   = Bundle.main.infoDictionary?["CFBundleVersion"]             as? String ?? "—"
@@ -56,7 +75,10 @@ struct SettingsView: View {
                     }
                 }
 
-                // 5. App Info
+                // 5. Practice log export — iOS 27 WritableDocument
+                practiceExportSection
+
+                // 6. App Info
                 Section("App Info") {
                     LabeledContent("Version", value: "\(Self.appVersion) (Build \(Self.appBuild))")
                 }
@@ -89,6 +111,8 @@ struct SettingsView: View {
             .sheet(isPresented: $showRemoveAds) {
                 RemoveAdsSheet(iap: iap)
             }
+            .modifier(PracticeLogExporter(isPresented: $showPracticeExport,
+                                          markdown: practiceStore.markdownExport()))
         }
         .preferredColorScheme(resolvedColorScheme)
     }

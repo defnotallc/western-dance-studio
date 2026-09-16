@@ -248,6 +248,7 @@ struct BeginnerBootcampView: View {
 
     private var pendingBPM: Double? { PracticeRequest.shared.pendingBPM }
     private var pendingPattern: RhythmPattern? { PracticeRequest.shared.pendingPattern }
+    private var pendingTransport: Bool? { PracticeRequest.shared.pendingTransport }
 
     private var metronomeSection: some View {
         GroupBox("Practice Metronome") {
@@ -375,6 +376,17 @@ struct BeginnerBootcampView: View {
                 engine.rhythmPattern = pattern
                 PracticeRequest.shared.pendingPattern = nil
             }
+        }
+        // Transport requests arrive from App Intents / Siri. Consumed and
+        // cleared the same way BPM and pattern requests are.
+        .onChange(of: pendingTransport) { _, transport in
+            guard let transport else { return }
+            if transport {
+                if !engine.isPlaying { engine.start() }
+            } else {
+                engine.stop()
+            }
+            PracticeRequest.shared.pendingTransport = nil
         }
     }
 }
