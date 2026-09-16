@@ -28,8 +28,11 @@ struct WesternDanceStudioApp: App {
         if showSplash {
             UserDefaults.standard.set(today, forKey: "lastSplashDay")
         }
-        _showWelcome = State(initialValue: firstLaunch)
-        _showSplash = State(initialValue: showSplash)
+        // TN3211: @State is a macro in the iOS 27 SDK. Assign the property
+        // directly; neither property declares an inline initial value, which
+        // would otherwise take precedence and silently discard these values.
+        self.showWelcome = firstLaunch
+        self.showSplash = showSplash
     }
 
     var body: some Scene {

@@ -99,11 +99,12 @@ struct MapSearchView: View {
                 // Apple Maps supplement — teal, only when curated list is thin
                 if nearbyHalls.count < 3 {
                     ForEach(supplementResults, id: \.identifier) { item in
-                        if let coord = item.placemark.location?.coordinate {
-                            Marker(item.name ?? "Dance Venue", coordinate: coord)
-                                .tint(.teal)
-                                .tag(item.identifier?.rawValue ?? "")
-                        }
+                        // MKMapItem.placemark is deprecated as of iOS 26;
+                        // `location` is non-optional on the replacement API.
+                        let coord = item.location.coordinate
+                        Marker(item.name ?? "Dance Venue", coordinate: coord)
+                            .tint(.teal)
+                            .tag(item.identifier?.rawValue ?? "")
                     }
                 }
             }
@@ -111,7 +112,7 @@ struct MapSearchView: View {
             .safeAreaInset(edge: .bottom) {
                 VStack(spacing: 6) {
                     // Thin coverage note
-                    if let center = searchCenter, nearbyHalls.count < 3 {
+                    if searchCenter != nil, nearbyHalls.count < 3 {
                         thinCoverageNote(curatedCount: nearbyHalls.count,
                                          supplementCount: supplementResults.count)
                             .padding(.horizontal)
@@ -208,7 +209,7 @@ struct MapSearchView: View {
                     .font(.caption2.weight(.semibold))
                     .foregroundStyle(.teal)
             }
-            if let addr = item.placemark.title {
+            if let addr = item.address?.fullAddress {
                 Text(addr)
                     .font(.subheadline)
                     .foregroundStyle(.secondary)

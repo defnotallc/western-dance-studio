@@ -8,6 +8,7 @@ import Darwin
 /// Entirely compiled out in Release builds — no symbols or strings survive.
 enum DiagnosticsCollector {
 
+    @MainActor
     static func generateReport() -> String {
         var lines: [String] = []
 
@@ -81,9 +82,19 @@ enum DiagnosticsCollector {
 
     // MARK: - Display
 
+    @MainActor
     private static func displaySection() -> [String] {
-        let bounds = UIScreen.main.bounds
-        let scale  = UIScreen.main.scale
+        // UIScreen.main is deprecated as of iOS 26 — resolve the screen through
+        // the active window scene instead.
+        let screen = UIApplication.shared.connectedScenes
+            .compactMap { $0 as? UIWindowScene }
+            .first { $0.activationState == .foregroundActive }?
+            .screen
+        guard let screen else {
+            return ["-- Display --", "Screen: unavailable (no active window scene)", ""]
+        }
+        let bounds = screen.bounds
+        let scale  = screen.scale
         let w = Int(bounds.width)
         let h = Int(bounds.height)
         let pw = Int(bounds.width  * scale)
@@ -99,6 +110,7 @@ enum DiagnosticsCollector {
 
     // MARK: - Accessibility
 
+    @MainActor
     private static func accessibilitySection() -> [String] {
         let cat = UIApplication.shared.preferredContentSizeCategory
         let typeSize = humanReadableContentSize(cat)
