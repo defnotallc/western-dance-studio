@@ -21,6 +21,7 @@ enum DiagnosticsCollector {
         lines += deviceSection()
         lines += displaySection()
         lines += accessibilitySection()
+        lines += intelligenceSection()
         lines += memorySection()
         lines += storageSection()
         lines += healthSection()
@@ -104,6 +105,22 @@ enum DiagnosticsCollector {
             "-- Display --",
             "Screen (points): \(w)x\(h) pt \(scaleStr)",
             "Screen (pixels): \(pw)x\(ph) px",
+            "",
+        ]
+    }
+
+    // MARK: - On-device intelligence
+
+    /// Why the Foundation Models features are or aren't offered on this
+    /// device — the first thing to check on an "I don't see the coach button"
+    /// report.
+    @MainActor
+    private static func intelligenceSection() -> [String] {
+        let intelligence = DanceIntelligence.shared
+        return [
+            "-- On-device Intelligence --",
+            "Available: \(intelligence.isSupported)",
+            "Reason: \(intelligence.unavailabilityReason ?? "n/a")",
             "",
         ]
     }

@@ -88,7 +88,7 @@ struct StartMetronomeIntent: AppIntent {
     func perform() async throws -> some IntentResult & ProvidesDialog {
         PracticeRequest.shared.pendingBPM = Double(bpm)
         PracticeRequest.shared.pendingTransport = true
-        NotificationCenter.default.post(name: .openStartHereTab, object: nil)
+        PracticeRequest.shared.pendingTab = .startHere
         return .result(dialog: "Starting the metronome at \(bpm) beats per minute.")
     }
 }
@@ -102,7 +102,7 @@ struct StopMetronomeIntent: AppIntent {
     @MainActor
     func perform() async throws -> some IntentResult & ProvidesDialog {
         PracticeRequest.shared.pendingTransport = false
-        NotificationCenter.default.post(name: .openStartHereTab, object: nil)
+        PracticeRequest.shared.pendingTab = .startHere
         return .result(dialog: "Metronome stopped.")
     }
 }
@@ -122,10 +122,9 @@ struct PracticeDanceIntent: AppIntent {
         guard let model = dance.dance else {
             return .result(dialog: "I couldn't find that dance any more.")
         }
-        PracticeRequest.shared.pendingBPM = Double(model.bpm)
-        PracticeRequest.shared.pendingPattern = model.suggestedPattern
-        PracticeRequest.shared.pendingTransport = true
-        NotificationCenter.default.post(name: .openStartHereTab, object: nil)
+        PracticeRequest.shared.requestPractice(bpm: model.bpm,
+                                              pattern: model.suggestedPattern,
+                                              autoStart: true)
         return .result(dialog: "Practising \(model.name) at \(model.bpm) beats per minute.")
     }
 }
@@ -183,7 +182,7 @@ struct ShowFavoritesIntent: AppIntent {
 
     @MainActor
     func perform() async throws -> some IntentResult {
-        NotificationCenter.default.post(name: .openFavoritesTab, object: nil)
+        PracticeRequest.shared.pendingTab = .favorites
         return .result()
     }
 }

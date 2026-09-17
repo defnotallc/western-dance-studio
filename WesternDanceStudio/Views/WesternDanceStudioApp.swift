@@ -7,7 +7,8 @@ struct WesternDanceStudioApp: App {
     @State private var iap = IAPManager.shared
     @State private var reviews = ReviewManager.shared
     @State private var consent = ConsentManager.shared
-    @State private var selectedTab: Int = 0
+    @State private var practice = PracticeRequest.shared
+    @State private var selectedTab: Int = AppTab.startHere.rawValue
     @AppStorage("hasSeenWelcome") private var hasSeenWelcome: Bool = false
     @AppStorage("theme") private var theme: String = "system"
     @State private var showWelcome: Bool
@@ -65,17 +66,38 @@ struct WesternDanceStudioApp: App {
                     reviews.didPrompt()
                 }
             }
-            .onReceive(NotificationCenter.default.publisher(for: .openStartHereTab)) { _ in
-                selectedTab = 0
-            }
-            .onReceive(NotificationCenter.default.publisher(for: .openFavoritesTab)) { _ in
-                selectedTab = 2
-            }
+            // Routing is stored state, not a notification, so a request made
+            // before this view existed (App Intent cold launch, widget tap) is
+            // still honoured. Checked once at launch and on every change.
+            .task { consumePendingTab() }
+            .onChange(of: practice.pendingTab) { _, _ in consumePendingTab() }
+            .onOpenURL { url in handleDeepLink(url) }
         }
     }
 
     private var resolvedColorScheme: ColorScheme? {
         WesternTheme.resolvedColorScheme(for: theme)
+    }
+
+    private func consumePendingTab() {
+        guard let tab = practice.pendingTab else { return }
+        selectedTab = tab.rawValue
+        practice.pendingTab = nil
+    }
+
+    /// Handles `westerndance://practice?dance=<id>` from the Featured Dance
+    /// widget. An unrecognised link, or one naming a dance no longer in the
+    /// catalogue, is ignored rather than leaving the app half-routed.
+    private func handleDeepLink(_ url: URL) {
+        guard case .practice(let danceID)? = DeepLink(url: url),
+              let dance = Dance.sampleDances.first(where: { $0.id == danceID })
+        else {
+            AppLog.data.error("Ignoring unrecognised deep link")
+            return
+        }
+        practice.requestPractice(bpm: dance.bpm,
+                                 pattern: dance.suggestedPattern,
+                                 autoStart: false)
     }
 
     private func dismissSplash() {

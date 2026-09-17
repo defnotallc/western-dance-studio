@@ -510,9 +510,9 @@ struct DanceDetailView: View {
                 }
                 Button {
                     Haptics.selection()
-                    PracticeRequest.shared.pendingBPM = Double(dance.bpm)
-                    PracticeRequest.shared.pendingPattern = dance.suggestedPattern
-                    NotificationCenter.default.post(name: .openStartHereTab, object: nil)
+                    PracticeRequest.shared.requestPractice(bpm: dance.bpm,
+                                                          pattern: dance.suggestedPattern,
+                                                          autoStart: false)
                 } label: {
                     Label("Practice at \(dance.bpm) BPM", systemImage: "metronome.fill")
                         .frame(maxWidth: .infinity)

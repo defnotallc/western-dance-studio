@@ -139,8 +139,10 @@ struct WesternDanceWidgetView: View {
                 .foregroundStyle(.tint)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
-        // Starts the metronome at this dance's tempo straight from the widget.
-        .widgetURL(nil)
+        // Opens the app on the metronome with this dance's tempo and rhythm
+        // preloaded. The app ignores the link if the ID is not in its
+        // catalogue, so a stale timeline entry cannot misroute.
+        .widgetURL(URL(string: "westerndance://practice?dance=\(entry.dance.id)"))
     }
 }
 

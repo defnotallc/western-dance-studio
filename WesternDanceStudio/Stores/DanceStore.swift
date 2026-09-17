@@ -20,10 +20,20 @@ final class DanceStore {
     /// Order is the persisted and synced representation.
     private(set) var favoriteOrder: [String] = []
 
-    /// Membership view over `favoriteOrder`. Kept as a `Set` because every
-    /// caller uses it for `contains`, and it reads through to the stored
-    /// array so `@Observable` still tracks changes.
-    var favorites: Set<String> { Set(favoriteOrder) }
+    /// Membership set kept in lockstep with `favoriteOrder`.
+    ///
+    /// Stored rather than computed: rows call `favorites.contains` during
+    /// rendering, and rebuilding the set on every access would allocate once
+    /// per row per render. `setFavoriteOrder` is the only writer, so the two
+    /// cannot drift.
+    private(set) var favorites: Set<String> = []
+
+    /// The single mutation point for favorites — keeps the ordered array and
+    /// the membership set consistent by construction.
+    private func setFavoriteOrder(_ newOrder: [String]) {
+        favoriteOrder = newOrder
+        favorites = Set(newOrder)
+    }
 
     // MARK: - Persistence
 
@@ -64,7 +74,7 @@ final class DanceStore {
             // Existing installs already persisted an array, so stored data is
             // read back as-is. Dedupe defensively — a Set-era write could not
             // contain duplicates, but a corrupted or hand-edited value could.
-            favoriteOrder = Self.deduped(arr)
+            setFavoriteOrder(Self.deduped(arr))
         }
     }
 
@@ -107,7 +117,7 @@ final class DanceStore {
         }
         log.info("Adopting remote favorites update (\(envelope.value.count, privacy: .public) items)")
         isApplyingRemote = true
-        favoriteOrder = Self.deduped(envelope.value)
+        setFavoriteOrder(Self.deduped(envelope.value))
         lastModified = envelope.timestamp
         saveFavorites()
         isApplyingRemote = false
@@ -116,17 +126,19 @@ final class DanceStore {
     // MARK: - Public API
 
     func toggleFavorite(_ dance: Dance) {
-        if let index = favoriteOrder.firstIndex(of: dance.id) {
-            favoriteOrder.remove(at: index)
+        var updated = favoriteOrder
+        if let index = updated.firstIndex(of: dance.id) {
+            updated.remove(at: index)
         } else {
-            favoriteOrder.append(dance.id)
+            updated.append(dance.id)
             ReviewManager.shared.recordEngagement()
         }
+        setFavoriteOrder(updated)
         saveFavorites()
     }
 
     func isFavorite(_ dance: Dance) -> Bool {
-        favoriteOrder.contains(dance.id)
+        favorites.contains(dance.id)
     }
 
     // MARK: - Reordering
@@ -135,7 +147,7 @@ final class DanceStore {
     func applyReorder(sources: [String], before beforeID: String?) {
         let updated = Self.reordering(favoriteOrder, moving: sources, before: beforeID)
         guard updated != favoriteOrder else { return }
-        favoriteOrder = updated
+        setFavoriteOrder(updated)
         saveFavorites()
     }
 

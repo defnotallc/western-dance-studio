@@ -2,8 +2,21 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>com.defnota.WesternDanceStudio</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>westerndance</string>
+			</array>
+		</dict>
+	</array>
 	<key>GADApplicationIdentifier</key>
 	<string>ca-app-pub-1306237465756584~5117612846</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Western Dance Studio uses your location to find country dance venues near you.</string>
 	<key>NSUserTrackingUsageDescription</key>
 	<string>We use this identifier to show you personalized ads and to measure ad performance. You can change this at any time in Settings.</string>
 	<key>SKAdNetworkItems</key>
@@ -197,8 +210,6 @@
 			<string>3qcr597p9d.skadnetwork</string>
 		</dict>
 	</array>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Western Dance Studio uses your location to find country dance venues near you.</string>
 	<key>UILaunchScreen</key>
 	<dict>
 		<key>UIColorName</key>
